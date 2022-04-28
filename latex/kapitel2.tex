@@ -1,0 +1,161 @@
+% Autor: Eric Gorkow (EFS-GX1)
+% Letzte Bearbeitung: 09.01.2020
+
+\chapter{Beispiele}
+\section{Referenzen}
+Der Abschnitt \ref{sec:zitieren} trägt den Namen \nameref{sec:zitieren}.
+
+\section{Zitieren} \label{sec:zitieren}
+Um zu zitieren kann der cite-Befehl genutzt werden: \cite{Wer2011}. Dieser erstellt einen Link zum entsprechenden Eintrag im Literaturverzeichnis und nutzt dabei die Datei literatur.bib, die je nach bedarf mit Programmen wie Citavi oder JabRef erstellt werden können. Dabei ist zu beachten das egal wie viele Einträge in der Datei vorhanden sind, nur diejenigen im Dokument angezeigt werden, die auch im Text genutzt werden. (Ich empfehle JabRef)
+
+\section{Abkürzungen / Acronyme}
+Auch für Acronyme wird ein Verzeichniss angelegt. Nutzen kann man diese mit \ac{USK}. Dabei kann man sich aussuchen ob diese im PDF mit dem entsprechendem Verzeichniseintrag verlinkt werden oder die Beschreibung beim 'hovern' über die Abkürzung angezeigt wird. Die Auswahl geschiet über das ein oder aus kommentieren der Zeile \textbackslash renewcommand*$\lbrace$ \textbackslash ac$\rbrace$[1]$\lbrace$ \textbackslash pdftooltip$\lbrace$ acs$\lbrace$\#1$ \rbrace\rbrace\lbrace$ \textbackslash acl$\lbrace$\# 1$\rbrace\rbrace\rbrace$ im Hauptdokument, mit der der ac-Befehl in seiner Funktion überschrieben wird. Nutzt man \ac{USK} mehrmals (wie wahrscheinlich üblich) wird die Abkürzung nicht mehr ausgeschrieben. Wenn das hovern aktiviert ist, benötigt man für diese Funktion \acfirst{USK} da durch das hovern diese Funktion überschrieben wird.
+
+\section{Aufzählung}
+\subsection{Stichpunkte}
+\begin{itemize}
+	\item erstes Element
+	\item zweites Element
+	\subitem  Unterelement
+	\item 3.tes Element
+\end{itemize}
+
+\subsection{Nummerierung}
+\begin{enumerate}
+	\item erstes Element
+	\item zweites Element
+	\subitem  Unterelement
+	\item 3.tes Element
+\end{enumerate}
+
+\section{Formeln}
+\subsection{Variablen}
+Der eigentliche Befehl zum Nutzen eines Glossars in diesem Fall für Variablen ist \textbackslash gls was in \gls{symb:deltapsid} resultiert. Diese Art hat eine Verlinkung auf den entsprechenden Eintrag im Glossar. Mit dem Befehl \textbackslash newcommand*$\lbrace$\textbackslash glsc$\rbrace$[1]$\lbrace$\textbackslash pdftooltip\textbackslash gls*$\lbrace$\# 1$\rbrace$$\rbrace$$\lbrace$\textbackslash glsentrydesc$\lbrace$\# 1$\rbrace$$\rbrace$$\rbrace$ im Hauptdokument, wird eine weitere Möglichkeit der Verlinkung definiert. \glsc{symb:deltapsid} zeigt beim hovern mit der Maus über die Variable die entsprechende Beschreibung an. Diese Funktion ist im \LaTeX PDF-Reader nicht verfügbar, funktioniert aber in Adobe Reader und weiteren gängigen PDF-Readern.
+
+Im Dokument Formelzeichen.tex sind Alle Variablen hinterlegt. In das Verzeichnis kommen nur im Dokument genutzte Variablen. Um eine neue Variable zu erstellen kann ein Eintrag kopiert und modifiziert werden. Das Schema sollte aus den vorhanden Einträgen klar ersichtlich sein. 
+
+Möchte man beim Befehl \textbackslash glsc die Möglichkeiten (sprich alle verfügbaren Variablen) wie bei \textbackslash gls angezeigt bekommen (Funktion die unbedingt! zu empf), ist eine Modifikation im System notwendig. Weitere Informationen dazu, sind als Kommentar am zuvor erwähnten Definitionspunkt im Hauptdokument hinterlegt.
+
+\subsection{Einzelne Formeln}
+\begin{equation}
+\glsc{symb:u}=\left[ \begin{array}{c} \glsc{symb:kappad} \\ \glsc{symb:j} \end{array} \right] 
+\end{equation}
+
+\subsection{Gruppen}
+Das alignment wird durch die Position der \&-Zeichen definiert
+\begin{align}
+\glsc{symb:sd} & = \dfrac{\cos(\glsc{symb:deltapsi}).* \glsc{symb:v} }{1 - \glsc{symb:d} * \glsc{symb:kappar}} 
+\\
+\glsc{symb:dd} & = \sin(\glsc{symb:deltapsi}).* \glsc{symb:v}
+\\
+\glsc{symb:deltapsid}& = \glsc{symb:kappa} * \glsc{symb:v} - \glsc{symb:kappar} * \glsc{symb:sd}
+\\
+\glsc{symb:kappad}& = \glsc{symb:u} (1) 
+\\
+\glsc{symb:vd} & = \glsc{symb:a}
+\\
+\glsc{symb:ad} & = \glsc{symb:u} (2) 
+\end{align}
+
+\subsection{Bereichsweise Definitionen}
+\begin{equation}
+\glsc{symb:j}(t)=\qquad	
+\left\{
+\begin{aligned}
+c_{21}t^2 + c_{11}t + c_{01} & & für & & 0 < t < \glsc{symb:tau1} \\
+0 & & für & &\glsc{symb:tau1} < t < \glsc{symb:tau2}\\
+c_{22}t^2 + c_{12}t + c_{02} & & für & & \glsc{symb:tau2} < t < \glsc{symb:tel}
+\end{aligned}
+\right.\label{eqn:j_poly_abschn}
+\end{equation}
+
+
+\section{Abbildungen}
+\subsection{Diagramme}
+Möchte man Diagramme aus Matlab importieren empfiehlt sich das tikz-Format. Dieses kann in Matlab mit der Matlab2tikz-library exportiert werden (bei Fragen: Google ist dein Freund). Im Nachhinein kann dieses skaliert und bearbeitet werden in Latex. Sind die korrekten Daten also einmal erstellt, kann das Layout immer wieder ohne neuen Export angepasst werden.
+\subsubsection{Einzeln}
+\begin{figure}[H]
+	\centering
+	\input{bilder/kappahist_poly.tex}
+	\caption{Krümmungshistogramm}
+	\label{abb:kappahist_poly}
+\end{figure}
+
+\subsubsection{Gruppen}
+Bei dieser Art ist die Bearbeitung innerhalb des jeweiligen .tex-files der Diagramme zu beachten. Diese sind folgende:
+\begin{itemize}
+	\item \textbackslash begin\{LARGE\} Umgebung um die tikzpicture Umgebung herum (end nicht vergessen)
+	\item $[$scale=0.5$]$ hinter Begin der tikzpictureumgebung
+	\item Legende bei Bedarf auskommentieren (bei \textbackslash addlegend)
+\end{itemize}
+
+\begin{figure}[htb]
+	\centering
+	\subfloat[Ruck\label{abb:succ_ruck}]{\input{bilder/success_vs_jerk.tex}}
+	\hfill
+	\subfloat[Beschleunigung\label{abb:succ_acc}]{\input{bilder/success_vs_acc.tex}}
+	\hfill
+	\subfloat[Geschwindigkeit\label{abb:succ_speed}]{\input{bilder/success_vs_speed.tex}}
+	\hfill
+	\subfloat[Position\label{abb:succ_pos}]{\input{bilder/success_vs_position.tex}}
+	\caption{Absolute Planungserfolge je Zustand}
+	\label{abb:success_vs_state}
+\end{figure}
+\subsection{Bilder}
+
+\subsection{Flussdiagramme}
+Die Elemente hierfür sind in der Datei appearance.tex festgelegt. Auf diese Weise wird ein Dokumentübergreifendes Design definiert und somit Konsistenz garantiert. Es ist zu empfehlen die Flussdiagramme in einem eigenen Dokument zu designen und dann als .tikz-Datei einzubinden (so wie gezeigt). Bitte beachten, dass man für das Designen im separaten Dokument ein vollwertiges Dokument inkl. der Definitionen aus der appearance.tex braucht. Für weiteres Verständnis bitte in das eingebundene Diagramm schauen (übrigens über STRG + Linksklick auf die Angabe erreichbar). Alles auskommentierte (außer die Legende(BETA-Kommentar!)) wird für ein erfolgreiches separates Übersetzen benötigt.
+\begin{figure}[H]
+	\centering
+	\input{bilder/fluss_beispiel.tex}
+	\caption{Beispiel eines Flussdiagramms}
+	\label{abb:fluss}
+\end{figure}
+
+\section{Tabellen}
+
+\rowcolors{1}{lightrowcolor}{white} % schöne Tabellen
+\begin{table}[htb]
+	\centering
+	\begin{tabular}{p{4.7cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}}
+		\rowcolor{headrowcolor}
+		Parameter & Minimum & Maximum & Abtastung & Komplexität \\ \hline
+		Geschwindigkeitsdifferenz & -12 & 12 & 3 & 9 \\ 
+		Beschleunigung (Anfang) & -2 & 2 & 1 & 5 \\ 
+		Ruck(Anfang) & -2 & 2 & 1 & 5 \\ 
+		& & & & \\
+		&  &  & Gesamt & 225 \\ 
+	\end{tabular} 
+	\caption{Randbedingungen der Längsplanung einschließlich Abtastung}
+	\label{tab:param_raster_laengs}
+\end{table}
+\rowcolors{1}{}{} % schöne Tabellen deaktivieren
+
+\section{Positionierung}
+Die Positionierung von Elementen wie Abbildungen, Diagrammen und Tabellen erfolgt über die Optionen der Umgebung. Am Beispiel der Diagramme sind verschiedene Nutzungsmöglichkeiten zu sehen. Optionen dabei sind here(hier) - h, top(oben) - t und bottom(unten) - b. Großbuchstaben sind erzwungene Platzierungen, Kleinbuchstaben hingegen entsprechen einer dynamischen Platzierung. Diese Dynamische Platzierung versucht dem Wunsch zu entsprechen, tut dies aber nur wenn es keine bessere Möglichkeit auf den nächsten Seiten gibt. Dies soll für eine bessere Ausnutzung der Seiten sorgen. Dabei können auch mehrere Wünsche angeben werden (bspw.: $[$htb$]$ erst here versuchen dann top und dann bottom) die nacheinander vom Programm abgearbeitet werden.
+
+\section{Code}
+
+Dieser Abschnitt ist noch nicht ganz ausgereift. Wer sehr viel (Pseudo-) Code in seiner Arbeit haben möchte, muss sich dahingehend weiterbilden (GIDF :D). Sich das listings package anschauen wäre schonmal ein Anfang. Sehr beliebt weil einfach ist es ebenfalls, nach fertigen Setups zu suchen und dieser zu übernehmen. Die Sprache könnt ihr in jedem Fall in der styles.tex ändern (einfach mal danach suchen, Tipp: steht in der Nähe des gleichnamigen Package ;) )
+
+\begin{lstlisting}
+ind = nahegelegenster zukuenftiger Referenzpunkt
+	
+if Punkt ausserhalb Referenz
+	ind = Anzahl der Punkte
+end
+
+% Interpolation 
+lower_ind = maximum aus 1 und ind-1
+% Ermitteln des interpolationsverhaeltnisses
+intp_ratio = (s(k) - sref(lower_ind))/(sref(ind) - sref(lower_ind))
+% Ermitteln von interpolierten xref, yref und psiref
+wert_intp = wert(lower_ind) + intp_ratio*(wert(ind) - wert(lower_ind))
+
+% finale Transformation
+x(k) = xref_intp - d(k) * sin(psiref_intp)
+y(k) = yref_intp + d(k) * cos(psiref_intp)
+\end{lstlisting}
+                                                                     
+
+

@@ -1,0 +1,297 @@
+\usepackage[
+nonumberlist, %keine Seitenzahlen anzeigen
+toc,          %Einträge im Inhaltsverzeichnis
+section=chapter]      %im Inhaltsverzeichnis auf section-Ebene erscheinen
+{glossaries}
+\usepackage{hyperref}
+
+\newglossary[slg]{symbolslist}{syi}{syg}{Symbolverzeichnis}
+\renewcommand*{\glspostdescription}{}
+\makeglossaries
+
+%Eigener Gloassarystyle
+\newglossarystyle{MyStyle}{
+  \glossarystyle{long3colheader}
+  \renewenvironment{theglossary}
+  {\begin{longtable}{lp{2cm}p{\glsdescwidth}}}
+    {\end{longtable}}
+  \renewcommand*{\glossaryheader}{\textbf{Symbol} & \textbf{Einheit} &
+    \textbf{Beschreibung}\\[3ex]\endhead}% ÄNDERUNG: Kopf auf jeder Seite wiederholen
+  \renewcommand*{\glossaryentryfield}[5]{%
+    \glsentryitem{##1}\glstarget{##1}{##2} & ##4 & ##3  \\[1ex]}%
+}
+%%% Beispiel!!
+    % Aufruf folgendermaßen :
+    % \gls{symb:phiy}
+\newglossaryentry{symb:phiy}{
+name={\ensuremath{\varphi_{y}}},
+symbol={Grad},
+description={Winkel der Kugel in y-Richtung},
+sort=symbolphiy, 
+type=symbolslist}
+
+%%% Begin der Aufzählung
+\newglossaryentry{symb:kappa}{
+	name={\ensuremath{\kappa}},
+	symbol={1/m},
+	description={Krümmung},
+	sort=symbolkappa, 
+	type=symbolslist}
+\newglossaryentry{symb:kappad}{
+	name={\ensuremath{\dot{\kappa}}},
+	symbol={1/(m*s)},
+	description={Krümmungsänderung},
+	sort=symbolkappad, 
+	type=symbolslist}
+\newglossaryentry{symb:s}{
+	name={\ensuremath{s}},
+	symbol={m},
+	description={Lauflänge, Längsachse der Frenet-Koordinaten},
+	sort=symbols, 
+	type=symbolslist}
+\newglossaryentry{symb:d}{
+	name={\ensuremath{d}},
+	symbol={m},
+	description={Querversatz, Querachse der Frenet-Koordinaten},
+	sort=symboldd, 
+	type=symbolslist}
+\newglossaryentry{symb:sd}{
+	name={\ensuremath{\dot{s}}},
+	symbol={m/s},
+	description={1.Ableitung der Lauflänge},
+	sort=symbolsd, 
+	type=symbolslist}
+\newglossaryentry{symb:dd}{
+	name={\ensuremath{\dot{d}}},
+	symbol={m/s},
+	description={1.Ableitung des Querversatzes},
+	sort=symboldd, 
+	type=symbolslist}
+\newglossaryentry{symb:sdd}{
+	name={\ensuremath{\ddot{s}}},
+	symbol={m/s},
+	description={2.Ableitung der Lauflänge},
+	sort=symbolsdd, 
+	type=symbolslist}
+\newglossaryentry{symb:ddd}{
+	name={\ensuremath{\ddot{d}}},
+	symbol={m/s},
+	description={2.Ableitung des Querversatzes},
+	sort=symbolddd, 
+	type=symbolslist}
+\newglossaryentry{symb:psi}{
+	name={\ensuremath{\psi}},
+	symbol={$^\circ$},
+	description={Orientierung},
+	sort=symbolpsi, 
+	type=symbolslist}
+\newglossaryentry{symb:psid}{
+	name={\ensuremath{\dot{\psi}}},
+	symbol={$^\circ$/s},
+	description={Orientierungänderung},
+	sort=symbolpsid, 
+	type=symbolslist}
+\newglossaryentry{symb:deltapsi}{
+	name={\ensuremath{\Delta\psi}},
+	symbol={$^\circ$},
+	description={Differenz zu Referenzorientierung},
+	sort=symboldeltapsi, 
+	type=symbolslist}
+\newglossaryentry{symb:deltapsid}{
+	name={\ensuremath{\Delta\dot{\psi}}},
+	symbol={$^\circ$/s},
+	description={Änderung der Differenz zu Referenzorientierung},
+	sort=symboldeltapsid, 
+	type=symbolslist}
+\newglossaryentry{symb:v}{
+	name={\ensuremath{v}},
+	symbol={m/s},
+	description={Geschwindigkeit},
+	sort=symbolv, 
+	type=symbolslist}
+\newglossaryentry{symb:vd}{
+	name={\ensuremath{\dot{v}}},
+	symbol={m/$s^2$},
+	description={Geschwindigkeitsänderung},
+	sort=symbolvd, 
+	type=symbolslist}
+\newglossaryentry{symb:a}{
+	name={\ensuremath{a}},
+	symbol={m/$s^2$},
+	description={Beschleunigung},
+	sort=symbola, 
+	type=symbolslist}
+\newglossaryentry{symb:ad}{
+	name={\ensuremath{\dot{a}}},
+	symbol={m/$s^3$},
+	description={Beschleunigungsänderung},
+	sort=symbolad, 
+	type=symbolslist}
+\newglossaryentry{symb:aquer}{
+	name={\ensuremath{a_{Quer}}},
+	symbol={m/$s^2$},
+	description={Querbeschleunigung},
+	sort=symbolaquer, 
+	type=symbolslist}
+\newglossaryentry{symb:j}{
+	name={\ensuremath{j}},
+	symbol={m/$s^3$},
+	description={Ruck},
+	sort=symbolj, 
+	type=symbolslist}
+\newglossaryentry{symb:kappar}{
+	name={\ensuremath{\kappa_{r}}},
+	symbol={1/m},
+	description={Referenzkrümmung},
+	sort=symbolkappar, 
+	type=symbolslist}
+\newglossaryentry{symb:u}{
+	name={\ensuremath{u}},
+	symbol={-},
+	description={Systemeingang},
+	sort=symbolu, 
+	type=symbolslist}
+\newglossaryentry{symb:aplat}{
+	name={\ensuremath{a_{plat}}},
+	symbol={m/$s^2$},
+	description={Beschleunigungsplateauwert des Längspolynoms},
+	sort=symbolaplat, 
+	type=symbolslist}
+\newglossaryentry{symb:amaxl}{
+	name={\ensuremath{a_{max längs}}},
+	symbol={m/$s^2$},
+	description={Maximaler Beschleunigungswert des Längspolynoms},
+	sort=symbolamaxl, 
+	type=symbolslist}
+\newglossaryentry{symb:amaxd}{
+	name={\ensuremath{a_{max quer}}},
+	symbol={m/$s^2$},
+	description={Maximaler Beschleunigungswert des Querpolynoms},
+	sort=symbolamaxd, 
+	type=symbolslist}
+\newglossaryentry{symb:a0}{
+	name={\ensuremath{a_{0}}},
+	symbol={m/$s^2$},
+	description={Startwert der Beschleunigung des Längspolynoms},
+	sort=symbolanull, 
+	type=symbolslist}
+\newglossaryentry{symb:jmaxl}{
+	name={\ensuremath{j_{max längs}}},
+	symbol={m/$s^3$},
+	description={Maximaler Ruck des Längspolynoms},
+	sort=symboljmaxl, 
+	type=symbolslist}
+\newglossaryentry{symb:tau1}{
+	name={\ensuremath{\tau_{1}}},
+	symbol={s},
+	description={Endzeitpunkt der ersten Ruckparabel des Längspolynoms},
+	sort=symboltaul, 
+	type=symbolslist}
+\newglossaryentry{symb:tau2}{
+	name={\ensuremath{\tau_{2}}},
+	symbol={s},
+	description={Anfangszeitpunkt der zweiten Ruckparabel des Längspolynoms},
+	sort=symboltau2, 
+	type=symbolslist}
+\newglossaryentry{symb:tel}{
+	name={\ensuremath{t_{e längs}}},
+	symbol={s},
+	description={Endzeitpunkt des Längspolynoms},
+	sort=symboltel, 
+	type=symbolslist}
+\newglossaryentry{symb:v0}{
+	name={\ensuremath{v_{0}}},
+	symbol={m/s},
+	description={Startwert der Geschwindigkeit des Längspolynoms},
+	sort=symbolvnull, 
+	type=symbolslist}
+\newglossaryentry{symb:kapparef}{
+	name={\ensuremath{\kappa_{ref}}},
+	symbol={$1/m$},
+	description={Referenzkrümmung der Frenetkoordinaten},
+	sort=symbolpsiref, 
+	type=symbolslist}
+\newglossaryentry{symb:psiref}{
+	name={\ensuremath{\psi_{ref}}},
+	symbol={$^\circ$},
+	description={Referenzorientierung der Frenetkoordinaten},
+	sort=symbolpsiref, 
+	type=symbolslist}
+\newglossaryentry{symb:x}{
+	name={\ensuremath{x}},
+	symbol={$m$},
+	description={USK-Koordinate in X-Richtung},
+	sort=symbolx, 
+	type=symbolslist}
+\newglossaryentry{symb:y}{
+	name={\ensuremath{y}},
+	symbol={$m$},
+	description={USK-Koordinate in Y-Richtung},
+	sort=symboly, 
+	type=symbolslist}
+\newglossaryentry{symb:xref}{
+	name={\ensuremath{x_{ref}}},
+	symbol={$m$},
+	description={Referenz-USK-Koordinate in X-Richtung der Frenetkoordinaten},
+	sort=symbolxref, 
+	type=symbolslist}
+\newglossaryentry{symb:yref}{
+	name={\ensuremath{y_{ref}}},
+	symbol={$m$},
+	description={Referenz-USK-Koordinate in Y-Richtung der Frenetkoordinaten},
+	sort=symbolyref, 
+	type=symbolslist}
+\newglossaryentry{symb:k}{
+	name={\ensuremath{k}},
+	symbol={-},
+	description={Index für Punkt auf einer diskreten Trajektorie},
+	sort=symbolk, 
+	type=symbolslist}
+\newglossaryentry{symb:f}{
+	name={\ensuremath{f}},
+	symbol={-},
+	description={Skalierung des Vectors für Lineare Kombination},
+	sort=symbolf, 
+	type=symbolslist}
+\newglossaryentry{symb:xm}{
+	name={\ensuremath{x_{m}}},
+	symbol={$m$},
+	description={X-Koordinate des Vektormittelpunktes},
+	sort=symbolxm, 
+	type=symbolslist}
+\newglossaryentry{symb:ym}{
+	name={\ensuremath{y_{m}}},
+	symbol={$m$},
+	description={Y-Koordinate des Vektormittelpunktes},
+	sort=symbolym, 
+	type=symbolslist}
+\newglossaryentry{symb:xvec}{
+	name={\ensuremath{\vec{x}}},
+	symbol={$m$},
+	description={X-Komponente des Vektors},
+	sort=symbolxvec, 
+	type=symbolslist}
+\newglossaryentry{symb:yvec}{
+	name={\ensuremath{\vec{y}}},
+	symbol={$m$},
+	description={Y-Koordinate des Vektors},
+	sort=symbolyvec, 
+	type=symbolslist}
+\newglossaryentry{symb:r}{
+	name={\ensuremath{r}},
+	symbol={$m$},
+	description={Kreisradius},
+	sort=symbolr, 
+	type=symbolslist}
+\newglossaryentry{symb:taua}{
+	name={\ensuremath{\tau_{A}}},
+	symbol={$s$},
+	description={Kürzestmögliche Zeit für das 2.te Pylonom der Querplannung ohne Überschwingen},
+	sort=symboltaua, 
+	type=symbolslist}
+\newglossaryentry{symb:tauomega}{
+	name={\ensuremath{\tau_{\Omega}}},
+	symbol={$s$},
+	description={Längstmögliche Zeit für das 2.te Pylonom der Querplannung ohne Überschwingen},
+	sort=symboltauomega, 
+	type=symbolslist}

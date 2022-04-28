@@ -1,0 +1,142 @@
+ %% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%% Hauptdatei, Wurzel des Dokuments
+%% ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%
+%  Gerüst:
+%  * Version 0.13
+%  * M.Sc. Silvia Krug, silvia.krug@tu-ilmenau.de
+%  * Fachgebiet Kommunikationsnetze, TU Ilmenau
+%  Modifiziert von:
+%  * Eric Gorkow Januar 2020
+%
+%  Für Hauptseminare, Studienarbeiten, Diplomarbeiten
+%
+%  Autor           : Eric Gorkow
+%  Letzte Änderung : Morgen
+%
+
+% Headerfeld, Typ des Dokumentes, einzubindende Packages.
+% Hier bei Bedarf Änderungen vornehmen.
+
+% only change this if you know what you do
+\input{styles.tex}
+
+% change this for individual style of table and flowchartstyle reasons
+\input{appearance.tex}
+
+% Hier in die zweite geschweifte Klammer jeweils
+% die persönlichen Daten und das Thema der Arbeit eintragen:
+\newcommand{\artderausarbeitung}{Musterarbeit}
+\newcommand{\namedesautors}{Max Mustermann}
+\newcommand{\themaderarbeit}{Titel der Arbeit}
+\newcommand{\jahrderabgabe}{2020}
+\newcommand{\monatderabgabe}{01}
+\newcommand{\tagderabgabe}{01}
+
+% Was ist ein Abstract? 
+% Ein kurze, prägnante Aussage/Zusammen über den Inhalt der Arbeit. Wird unteranderem zur Katalogisierung für Bibliografien genutzt und wird zu diesem Zweck auf der Artikelsprache und in Englisch verfasst.
+\newcommand{\abstractger}{Deutsche Version 50-100 Wörter}
+\newcommand{\abstracteng}{Englische Version 50-100 Wörter}
+
+% PDF Metadaten definieren
+\hypersetup{
+	pdftitle={\themaderarbeit},
+	pdfauthor={\namedesautors},
+	pdfkeywords={\artderausarbeitung; TU-Ilmenau; Prozessoptimierung;}, % Weitere Stichwörter hinzufürgen!
+	pdfdate={\jahrderabgabe-\monatderabgabe-\tagderabgabe},
+	pdftype={\artderausarbeitung},
+	pdfsubject={\abstracteng},% auf wunsch ändern, für Bibliografie ist Englisch aber immer sinnvoller
+}
+
+% Trennvorschläge für falsch getrennte Wörter.
+% Wird häufig bei eingedeutschen Wörtern benötigt, da LaTeX hierbei
+% gerne falsch trennt. Alternativ kann auch im Fliesstext ein
+% Trennvorschlag per "\-" hinterlegt werden, bspw.:
+% Die Hard\-ware besteht aus A und B.
+\hyphenation{
+	Hard-ware
+}
+
+%%% Modifications own commands
+% tooltip modification
+% to use reference put the glsc.cwl in AppData\Roaming\texstudio\completion\user (if file is lost the create one with equivalent name and wirte '/glsc{label}#r' into it)
+%restart TexStudio
+% after that go to 'Configurate TexStudio' (tab Options) and select the Completement Tab. Check the new file in that list and its done. 
+\newcommand*{\glsc}[1]{\pdftooltip{\gls*{#1}}{\glsentrydesc{#1}}}
+% achtung funktioniert nur mit nohyperlinks im usepackage des acronym paketes, * zum unterdrücken hier leider nicht wirksam
+\renewcommand*{\ac}[1]{\pdftooltip{\acs{#1}}{\acl{#1}}}
+% da die Funktion von \ac, dass beim ersten Aufruf die lange UND Kurze version abgebildet wird durch die redefinition abgeschaltet ist
+% bei erster Nutzung wird daher dieser Befehle benötigt
+\newcommand*{\acfirst}[1]{\pdftooltip{\acf{#1}}{\acl{#1}}}
+
+\include{Formelzeichen}
+
+\makeindex
+\begin{document}
+	\onehalfspacing
+	\input{titelblatt.tex}
+	% Danksagung
+	%\input{vorwort.tex}
+	
+	% Erklärung
+	\input{abschlusserklaerung.tex}
+	
+	%Abstract, bitte am Anfang des Dokuments ändern
+	\input{kurzfassung.tex}
+	% Inhaltsverzeichnis
+	\cleardoublepage % Seitenumbruch erzwingen vor Änderung des Nummerierungsstils
+	\pagenumbering{roman} % Nummerierung der Seiten ab hier: i, ii, iii, iv...
+	
+	% Thesen (Nur bei Bedarf nutzen)
+	% \input{thesen.tex}
+	
+	% Inhaltsverzeichnis
+	\tableofcontents
+	\pagestyle{scrheadings} % Ab hier mit Kopf- und Fusszeile
+	
+	% Abbildungsverzeichnis einbinden
+	\input{anhang_abbildungsverzeichnis.tex}
+	
+	% Tabellenverzeichnis einbinden
+	\input{anhang_tabellenverzeichnis.tex}
+	
+	% Abkürzungsverzeichnis einbinden
+	\input{anhang_abkuerzungsverzeichnis.tex}
+	
+	% Formelzeichen Verzeichniss
+	\newpage
+	\printglossary[type=symbolslist, style=MyStyle]
+	\newpage
+	
+	% Die einzelnen Kapitel
+	\cleardoublepage % Seitenumbruch erzwingen vor Änderung des Nummerierungsstils
+	\pagenumbering{arabic} % Nummerierung der Seiten ab hier: 1, 2, 3, 4...
+	\input{kapitel1.tex}
+	\input{kapitel2.tex}
+	\input{kapitel3.tex}
+	\input{kapitel4.tex}
+	%\input{kapitel5.tex}
+	%\input{kapitel6.tex}
+	
+	
+	
+	\appendix
+	\part*{Anhang}
+	\pagenumbering{Roman}
+	\chapter{Erster Anhang}
+	Beispieltext
+	
+	\input{anhang1_1.tex}
+	\input{anhang1_2.tex}
+	
+	\chapter{Zweiter Anhang}
+	Beispieltext
+	
+	\input{anhang2_1.tex}
+	\input{anhang2_2.tex}
+		
+	% Literaturverzeichnis einbinden
+	\input{anhang_literaturverzeichnis.tex}
+	
+\end{document}
+

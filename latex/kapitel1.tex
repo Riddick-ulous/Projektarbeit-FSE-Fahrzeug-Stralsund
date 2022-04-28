@@ -1,0 +1,10 @@
+% Autor: Eric Gorkow (EFS-GX1)
+% Letzte Bearbeitung: 09.01.2020
+\chapter{Einleitung}
+Dieses Dokument beinhaltet viele wichtige Befehle zur Erstellung wissenschaftlicher Arbeiten. Zum Compilen des Dokumentes wird eine speziellen Reihenfolge benötigt. Der allgemeine Befehl hierfür lautet folgendermaßen:
+
+pdflatex -synctex=1 -interaction=nonstopmode \%.tex|makeindex -s \%.ist -t \%.slg -o \%.syi \%.syg| bibtex \%|pdflatex -synctex=1 -interaction=nonstopmode \%.tex|pdflatex -synctex=1 -interaction=nonstopmode \%.tex
+
+Bitte die PDF-Version kopieren und nicht die \LaTeX Version, welche aus Formatierungsgründen nicht nutzbar ist. Eingesetzt werden kann der Befehl im Programm TexStudio unter Optionen - TexStudio konfigurieren - Erzeugen in der Gruppierung Benutzerbefehle (Alt + Shift + F1-5 zum aufrufen des Befehls).
+
+Schnelles Übersetzen und Anzeigen kann mit F1 erfolgen. Es ist jedoch zu beachten das dabei weder Verlinkungen noch Verzeichnisse (auch nicht die Bibliografie) aktualisiert werden. Während des Schreibens des Fließtextes und Einfügen von Grafiken o.ä. ist diese Übersetzung daher ausreichend und spart sehr viel Zeit.

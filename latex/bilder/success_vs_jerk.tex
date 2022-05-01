@@ -1,0 +1,65 @@
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+\definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
+%
+\begin{LARGE}
+\begin{tikzpicture}[scale = 0.5]
+
+\begin{axis}[%
+width=4.521in,
+height=3.559in,
+at={(0.758in,0.488in)},
+scale only axis,
+bar shift auto,
+xmin=-5.2,
+xmax=5.2,
+xtick={-4, -3, -2, -1,  0,  1,  2,  3,  4},
+xlabel style={font=\color{white!15!black}},
+xlabel={$\text{jerk in m/s}^\text{3}$},
+ymin=0,
+ymax=1,
+ylabel style={font=\color{white!15!black}},
+ylabel={successful path generations},
+axis background/.style={fill=white},
+%title style={font=\bfseries},
+%title={path generation success vs. jerk},
+legend style={legend cell align=left, align=left, draw=white!15!black}
+]
+\addplot[ybar, bar width=0.8, fill=mycolor1, draw=black, area legend] table[row sep=crcr] {%
+-4	0.818181818181818\\
+-3	0.801652892561983\\
+-2	0.847566574839302\\
+-1	0.837465564738292\\
+0	0.922865013774105\\
+1	0.962350780532599\\
+2	0.890725436179982\\
+3	0.558310376492195\\
+4	0.558310376492195\\
+};
+\addplot[forget plot, color=white!15!black] table[row sep=crcr] {%
+-5.2	0\\
+5.2	0\\
+};
+%\addlegendentry{data1}
+
+\addplot [color=red, line width = 1.5mm]
+  table[row sep=crcr]{%
+2	0\\
+2	0.962350780532599\\
+};
+%\addlegendentry{data2}
+
+\addplot [color=red, line width = 1.5mm]
+  table[row sep=crcr]{%
+-2	0\\
+-2	0.962350780532599\\
+};
+%\addlegendentry{data3}
+
+\end{axis}
+\end{tikzpicture}%
+\end{LARGE}

@@ -1,0 +1,50 @@
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+%
+\definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
+%
+\begin{LARGE}
+	\begin{tikzpicture}[scale = 0.5]
+
+\begin{axis}[%
+width=4.521in,
+height=3.566in,
+at={(0.758in,0.481in)},
+scale only axis,
+bar shift auto,
+xmin=-0.1,
+xmax=7.6,
+xlabel style={font=\color{white!15!black}},
+xlabel={position in m},
+ymin=0,
+ymax=0.9,
+ylabel style={font=\color{white!15!black}},
+ylabel={successful path generations},
+axis background/.style={fill=white},
+%title style={font=\bfseries},
+%title={path generation success vs. position},
+legend style={legend cell align=left, align=left, draw=white!15!black}
+]
+\addplot[ybar, bar width=0.4, fill=mycolor1, draw=black, area legend] table[row sep=crcr] {%
+0.5	0.74931129476584\\
+1	0.773186409550046\\
+1.5	0.783287419651056\\
+2	0.791551882460973\\
+2.5	0.803489439853076\\
+3	0.811753902662994\\
+3.5	0.820936639118457\\
+5	0.831955922865014\\
+7	0.831955922865014\\
+};
+\addplot[forget plot, color=white!15!black] table[row sep=crcr] {%
+-0.1	0\\
+7.6	0\\
+};
+%\addlegendentry{data1}
+
+\end{axis}
+\end{tikzpicture}%
+\end{LARGE}

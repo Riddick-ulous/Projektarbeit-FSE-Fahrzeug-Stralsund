@@ -1,0 +1,52 @@
+Elektrische Systeme
+	Accumulator
+		AMS Master und Slaves
+		-Precharge
+		-AIR detection
+		-AMS
+		-HV Indi
+		-HV Measurememnt
+		-IMD und Monitoring
+		-HV Indicator
+		-Current Measurement
+		HVDCDC
+	HV Distri
+	-TSMP
+	-BSPD
+	-Discharge
+	TSAL
+	-logik auf Discharge
+	-logik auf AMS master
+
+Elektromechanische Systeme
+	Accumulator
+		Zellenauswahl
+		-Kurze abhandlung Supercaps, Mech. energierspeicher, Thermischer speicher
+		-Rundzellen vs Pouchzellen vs Prismatic
+		-Li-fe vs Li-ion -> Reku vs Kapazität
+		--> werte aus LTS abbildung der "idealen Akkuzelle"
+	Motor
+	Wechselrichter
+	Kabelbaum
+		-HV Kabeldimensionierung -> werte aus LTS
+		-LV Kabeldimensionierung
+		-Sicherungsauslegung -> werte aus LTS
+		-Steckverbinder Amphenol vs Deutsch ASHD vs HDP Binder vs MizuP etc.
+		-High Voltage Disconnect
+		-AIR auswahl
+	Shutdowncircuit
+	Ladesystem / Handcart
+
+Mechanische Systeme
+	Packaging
+		-1 Motor vs 2 motor vs 4 motor (Sekundärtriebformen Zahnrad vs kette)
+		-Akkuform, Position und extraction
+		-Beispiele für mögliches Packaging am TY22
+	Systeme
+		Cooling
+			-Radiator Fan kombination und position mit cfd
+			-Accumulator (Gegendruck und thermisches modell)
+		Gearbox
+			-Outbound vs Inbound
+			-Guss vs Fräsgehäuse vs schweißgehäuse
+

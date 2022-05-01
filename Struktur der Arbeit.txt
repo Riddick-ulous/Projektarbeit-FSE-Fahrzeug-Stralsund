@@ -38,10 +38,9 @@ Elektromechanische Systeme
 	Ladesystem / Handcart
 
 Mechanische Systeme
-	Packaging
+	Packaging Beispiele für mögliches Packaging am TY22
 		-1 Motor vs 2 motor vs 4 motor (Sekundärtriebformen Zahnrad vs kette)
 		-Akkuform, Position und extraction
-		-Beispiele für mögliches Packaging am TY22
 	Systeme
 		Cooling
 			-Radiator Fan kombination und position mit cfd

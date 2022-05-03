@@ -11,33 +11,39 @@ Wichtig bei der zellenauswahl ist das stets jede individuelle zelle für sich be
 
 \subsubsection{Vergleich der Speicherarten}
 
-im nachfolgenden wird die zuerst die Energie berechnet die ein klassiches Formula Studentfahrzeug bei einem typischen bremsvorgang freisetzt und damit die enrgie die mann mindestens speichern können müsste um mit der speciherform auf sinnvolle art und weise eine rekuperation umszusetzten. Im anschluss wird diese energie in eine ungefähre masse an speicherelementen umgesetzt um zu zeigen inwiefern sich diese form der enrgiespeicherung für den einsatz eignet. im nachfolgenden wird die masse an speciherelementen bestimmt um 6 Kwh energie zu speichern da dies der typsiche energieverbrauch eines formula student fahrzueuges im Endurance ist. dieser wert wurde im rahmen eines benchmarkings mit den fahrzeuigen anderer teams über die letzten jahre 2016 bis 2019 errechnet.
+%im nachfolgenden wird die zuerst die Energie berechnet die ein klassiches Formula Studentfahrzeug bei einem typischen bremsvorgang freisetzt und damit die enrgie die mann mindestens speichern können müsste um mit der speciherform auf sinnvolle art und weise eine rekuperation umszusetzten. Im anschluss wird diese energie in eine ungefähre masse an speicherelementen umgesetzt um zu zeigen inwiefern sich diese form der enrgiespeicherung für den einsatz eignet. im nachfolgenden wird die masse an speciherelementen bestimmt um 6 Kwh energie zu speichern da dies der typsiche energieverbrauch eines formula student fahrzueuges im Endurance ist. dieser wert wurde im rahmen eines benchmarkings mit den fahrzeuigen anderer teams über die letzten jahre 2016 bis 2019 errechnet.
+
+Im folgenden errechnen wir die Energie welche bei einem durchschnittlich Bremsvorghang eines formula student fahrzeuges aufgenommen werden müsste. 
 
 \begin{equation}
-%	\glsc{symb:E_kin}=\left[ \begin{array}{c} \glsc{symb:kappad} \\ \glsc{symb:j} \end{array} \right] 
+\glsc{symb:E_kin} = \dfrac{1}{2} * \glsc{symb:m} * \glsc{symb:v}^2
 \end{equation}
 
-Gewicht 220kg
-Anfangsgeschwindigkeit 100 kmh
-Endgeschwindigkeit 20 kmh
-effizienz des antriebes 0.85
-
+\glsc{symb:m} = 220Kg
+\\
+\glsc{symb:v}\textsubscript{Start} = 30m/s
+\\
+\glsc{symb:v}\textsubscript{end} = 5m/s
+\\
+\glsc{symb:E_kin} * \glsc{symb:mu} = 74,8kJ
+\\
 
 Physikalische Speicher (Kondensatoren)
-
-	Kondensatoren erreichen ein sehr hohes leistungsgewicht, zeichnen sich jedoch durch eine geringe enrgiedichte aus, sowohl gravimetrisch als auch volumetrisch. daher eignet sich diese Form der enrgieseicherung nur um kurfristige transienten zu glätten aber nicht um gar ganze bremsvorgänge an energie zu speichern
-
+\\
+	Kondensatoren erreichen ein sehr hohes Leistungsgewicht, zeichnen sich jedoch durch eine geringe Energiedichte aus, sowohl gravimetrisch als auch volumetrisch. daher eignet sich diese Form der Energiespeicherung nur um kurzfristige transienten zu glätten aber nicht um gar ganze Bremsvorgänge an Energie zu speichern.\\
+	Der Kondensator mit der höchsten energiedicht welcher bei Würth Elektronik verfügbar ist erreicht 3600J/Kg. Somit würde man ca. 20Kg dieser Kondensatoren brauchen um damit effektiv rekuperieren zu können. Bei einem Gewicht für die akuzellen alleine im TY22 von ca. 30,7Kg ergibt sich das der superkondensator nach akltuellem stand keine sinnvoll einsetzbare technologie darstellt.
+\\
 Thermische Speicher (Salzakkumulator)
-
+\\
 	sind im rahmen der formula student verboten Stand 2022, daher wird hier nicht weiter auf diese form des energiespeichers eingegangen
-
+\\
 Mechanische Speicher (Schwungrad)
-
-	Zeichnung sich durch relativ gute energiedichte als auch leistungdichte aus und bilden damit wahrscheinlich am ehesten eine realistische form des kurfristigen speichers für ein formula student fahrzeug. Jedoch sind solche systeme sehr komplex sowohl mechanisch elektrisch als auch regelungstechnisch im vergleich zu den anderen systemen. Die lagerung und sichere unterbringung des schwungrades in einem formel fahrzeug birgt große technische herausforderungen
-
+\\
+	Zeichnung sich durch relativ gute energiedichte als auch leistungdichte aus und bilden damit wahrscheinlich am ehesten eine realistische form des kurfristigen speichers für ein formula student fahrzeug. Jedoch sind solche systeme sehr komplex sowohl mechanisch, elektrisch als auch regelungstechnisch im vergleich zu den anderen systemen. Die lagerung und sichere unterbringung des schwungrades in einem formel fahrzeug birgt große technische herausforderungen
+\\
 Chemische Speicher (Klassische Akkuzelle)
-
-	Der typische im Rahmen der formula studnet von allen teams eingesetzte energiespeicher. In der verfügbaren bandbreite findet man so ziemlich das optimal an leistungs als auch energiedichte.
+\\
+	Der typische im Rahmen der formula studnet von allen teams eingesetzte energiespeicher. In der verfügbaren bandbreite findet man so ziemlich das optimum an leistungs als auch energiedichte.
 
 \subsubsection{Runde vs Pouch vs Prismatische Zellen}
 %tabelle

@@ -194,7 +194,7 @@ Würth WRBHD2.54		W2B	Wire Mount	not sealed	(LV)	10
 Typ K Stecker
 RJ45 stecker
 
-Kabel:
+Kabel: (Igus Kabel!!)
 UNITRONIC FD P plus A, 0028660, 4x0.25
 White 24V
 Brown GND
@@ -250,7 +250,7 @@ Brakelight weiß 3pin
 2 GND (Brown)
 3 24V (White)
 
-Belegung Binder 4 Pin
+Belegung Binder 4 Pin (noch zu überarbeiten)
 CAN
 1 GND
 2 CANH
@@ -299,7 +299,7 @@ Nach 9.4 können wir für ungleichmäßige Ströme den Quadratisdchen Mittelwert
 Damit lässt sich ermitteln das der Quadratisdchen Mittelwert des Stromes bei ca. 85,3 A liegt
 Nun lässt sich mit hilfe von Tabelle 9.2 der Strom für den Verlegungstyp E (Verlegung wie Motorleiter) für verschiedene Kabelquerschnitte ermitteln Wir ermittlen für 16mm\^2 einen Strom von 80A für 3 belastete Leiter und für 25mm\^2 respektive einen Strom von 101A. Zur sicherheit wurde hier an der stelle auf 25mm\^2 zurückgegriffen, allerdings sollten zukunft durchaus mal versuche mit 16mm\^2 für die Motorleiter unternommen werden da dies zu einer durchaus signifikanten gewichstersparnis führen kann.\\
 \\
-Für den DC Bus wurde das gleiche vorgehen angewandt. Hier bekommen wir den Strom direkt aus der Rundenzeitsimulation mit 53A. Das ergibt nach Typ E mit 2 belasteten Leitern 10mm\^2 Querschnitt. Jedoch konnten wir keine Steckverbinder finden welcher 10mm\^2 Kabel akzeptiert und ein entsprechendes Rating hat weshalb wir hier auf 16mm\^2 gegangen sind. Auch hier gilt wieder das noch Möglichkeiten der Gewichtsersparnis bestehen.\\
+Für den DC Bus wurde das gleiche vorgehen angewandt. Hier bekommen wir den Strom direkt aus der Rundenzeitsimulation mit 53A. Das ergibt nach Typ E mit 2 belasteten Leitern 10mm\^2 Querschnitt. Jedoch konnten wir keine Steckverbinder finden welcher 10mm\^2 Kabel akzeptiert und ein entsprechendes Rating hat weshalb wir hier auf 16mm\^2 und damit einen max. Strom von 80A gegangen sind. Auch hier gilt wieder das noch Möglichkeiten der Gewichtsersparnis bestehen.\\
 \\
 \subsection{Hochvolt Kabelbaum}
 
@@ -325,6 +325,14 @@ Bei den HV Leitern ist die Möglichkeit von Aluminium Leitern interessant. Hier 
 Ansonsten gilt zu beachten das man gerade diese Mehradrigen Kabel, sprich kabel mit 3 malö 25mm\^2, wie sie dieses Jahr verwendet werden nicht serienmäßig in orangener Ausführung bekommt was bedeutet das man das Kabel auf jeden Fall einmal in orangenen Schrumpfschlauch einschrumpfen muss. In diesem Zuge wurde bei diesem fahrzeug auch die Schirmung um die kabel selbst eingebracht da dies im gegensatz zur kommerziellen lösung eine gewichtsersparnis von ca. 1kg brachte. Außerdem sollten jegliche stellen wo die isolierung der HV kabel verletz wird z.b an kabelschuhe etc. immer ein Schraumpfschlauch mit innenkleber angebracht werden. es empfehlen sich besonders schläuche mit einem Schrumpfungsverhältnis 3:1. Hierbei gilt zu beachten das es diese schläuche idr. auch nicht in Orange gibt weshalb in dem fall immer ein klebeschrumpfschlauch als auch ein orangener angebracht werden sollte. Für die mehradrigen kabel wurde sich entschieden das diese insgesamt eine gewichtsersparnis bringen und am ende für ein deutlich saubereres und ordentlicheres Gesamtbild sorgen. Bei der Monatge der HV Leiter ist zu beachten das alle verbindungen bei der montage wie z.b. die verschraubung der kabelschuhe an die TSMP fotografiert werden bevor sie in schraumpfschlauch etc. eingepackt werden. Dies ist für die technische abnahme notwendig damit der Prüfer die saubere montage der verbidnung überprüfen kann ohne das etwaiger schrumpfschlauch weider entfernt werden muss. Weiterhin hat isoband im bereicht HV absolut keine sichere Wirkung und wird auch von der FSG nicht als adequater isolator angesehen. Für alle verbindungen etc. gilt stets diese nach datenblatt zu machen. Heißt wenn beim TSMP steckverbinder eine schraube und eine Mutter dabei sind dann werden diese verwendet und nicht irgendwelche Mechanismen zur Schraubensicherung erdacht. Weiterhin gilt zu beachten das jeder einzelne stromführende leiter einzeln abgesichert sein muss, dies erschwert z.b das parallelschalten von mehrern Pins in einem Steckverbinder zum leiten des Stromes da dann am Steckverbinder für jeden parallelen kontakt entsprechende sicherungen vorgesehen sein müssen. Dem aufmewrksamen leser fällt an dieser stelle auf das bei dem Elektromotor in alle drei leitern keine separaten sicherungen vorgesehen sind. Dies lässtr sich darauf zurückführen das der Inverter zugekauft ist und laut datenblatt über einen entsprechendne überstromschutz verfügt. Im Selbstbau Fall müssten hier 3 Sicherungen wie aus dem akku bekannt verbaut werden. 
  
 \subsection{Sicherungsauslegung}
+Die Sicherung muss stets der schwächste Teil eines Stromkreises sein. In diesem Sinne muss also bei der Auslegung der Stecker darauf geachtet werden das deren Rating höher ist als das der Sicherung oder wir müssen im Unkehrschluss schauen das das rating der sicherung niedriger ist als das der anderen Komponenten. Für DC sicherungen mit einer derart hohen betriebsspannung und einem derart hohen kurzschluisstrom reichen die klassischen flachstecjsicherung wei sie im LV bereich zu finden sind nicht mehr aus. Hier müssen z.b sandgefüllte sicherungen verwendet werden. DIe krux dabei ist es den Lichtbogen der sich beim durchbrennen der sicherung bildet zu löschen. Dies ist bei einer typsichen kfz sicherung nicht gegeben. Zum thema Kurschlusstrom, dieser errechnet sich aus dem innenwiederstand des gesamten akkus und der anliegenden spannung. wir rechnen hier immer im schlimmsten fall sprich alle zellen sind was den innenwiederstand angeht eher im niedrigeren bereich und der akku ist voll geladen. Dabei reden weir von 556,75 V Spannung und 0,528 Ohm Innenwiederstand (berechnung des innenwiederstands einfügen 132S 5P 0,02Ohm pro zelle) Daraus ergibt sich ein Kurzschlusstrom von 1054 A. Der Kurzuschlusstrom sollte mit dem rated breaking current vergliechen werden. ist der Kurzschlusstrom niedriger ist die Sicherung geeignet. Dann haben wir bei der Sicherung natürlich das spannungsratimng welches eingehalten werden muss. Auf basis dieser Dtaen kann eine Sicherung bzw. eine Baureihe heruasgesucht werden, in unserem Fall ergaben die recherchen die AE7 EV Fuse von Adler Elektrik. Die Querschnittsberechnung hat ein Kabel von 16mm\^2 und daher 80A ergeben. Diese 80A legen wir auch bei der Sicherung zu grunde. Dies ergibt die AE72800i25. Daraufhin lässt sich im Datenblatt am Zeit-Strom Schaubild ablesen wie Lange die Sicherung bei Unterschieldichen Strömen braucht um auszulösen. Es ergibt sich eine zeit von ca. 400 s bei einem Strom von 150A und eine Zeit von ca. 0,5ms bei Kurzschlussstrom.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{bilder/Zeit_Strom_TSFUSE}
+	\caption{}
+	\label{fig:zeitstromtsfuse}
+\end{figure}
 
 \subsection{Steckverbinder Auswahl}
 HV Stecker: Interlock, Trennung interlock vor HV

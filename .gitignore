@@ -274,3 +274,9 @@ TSWLatexianTemp*
 
 # Makeindex log files
 *.lpz
+*.xlsx
+*.xlsm
+*.pptx
+*.docx
+
+ressourcen\

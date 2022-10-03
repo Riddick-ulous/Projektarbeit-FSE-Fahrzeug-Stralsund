@@ -201,15 +201,73 @@ Mit Hilfe der Vorherigen Rechnung können wir nun den gleichen Rechenweg Rückw�
 	\end{tabular}
 \end{table}
 
-Laut EBM Papst liegen die zu erwartende effizienzen bei einem Axialgebläse im Bereich von 25\%-65\%. Daran ist zu erkennen das unser aktueller Lüfter von EBM noch nicht die effizienteste Lösungen darstellt und unser Drohnenmotor eine sehr ineffiziente Lösung darstellt. Dennoch ein Aufbau mit Lüftern von EBM wiegt ca. 560g während der Aufbau mit Drohnennmotoren bei ca. 55g liegt. Allein diese gewichtsersparnis ist den einsatz dieses gebläses schon wert. Empfehlenswert wäre an der Stelle die Optimierung des Rotorblattes auf den vorliegenden Anwendungsfall.
+Laut EBM Papst liegen die zu erwartende effizienzen bei einem Axialgebläse im Bereich von 25\% - 65\%. Daran ist zu erkennen das unser aktueller Lüfter von EBM noch nicht die effizienteste Lösungen darstellt und unser Drohnenmotor eine sehr ineffiziente Lösung darstellt. Dennoch ein Aufbau mit Lüftern von EBM wiegt ca. 560g während der Aufbau mit Drohnennmotoren bei ca. 55g liegt. Allein diese gewichtsersparnis ist den einsatz dieses gebläses schon wert. Empfehlenswert wäre an der Stelle die Optimierung des Rotorblattes auf den vorliegenden Anwendungsfall.
 
 
 \subsubsection{Wasserpumpe und Schläuche} (zusammen mit Julian Vogt und???)
 
+Für die Auslegung des Wasserkreislaufes sind die Druckabfälle der einzelsysteme relevant hierfür eine systemüberischt
 
-Wasserpumpen berechnung (kühlsystem berechnung, Druckabfälle etc.)
+tikzedit grafik
 
+Desweiteren sind für die betrachtung weitere Parameter relevant. Laut Motorhersteller liegt der optimale Wasservolumenstrom bei 6-8 \ensuremath{l/min}. Aus der Vorhergehenden Betrachtung geht hervor das die umzusetzende Wärmeleistung bei 5364W liegt. Der angepeilte Luftvolumenstrom durch einen Kühler beläuft sich auf 756 \ensuremath{m^3/h}.
 
+Mit den folgenden beiden Diagrammen der Schwämmle GmbH\&Co. KG aus dem Leistungsdatenblatt für die ELW Serie lässt sich der Druckabfall über den Radiator bestimmen.  Wärmeleistung.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{"bilder/ELW_Leistung über Volumenstrom"}
+	\caption{}
+	\label{fig:elwleistung-uber-volumenstrom}
+\end{figure}
+
+Unser angestrebter Radiator entspricht mit seiner Netzfläche am ehesten dem ELW3. Dies würde bei den bisher bekannten Betriebsdaten zu eine Kühlleistung von 90 W/K oder auch 2700W führen. Oder bei zwei Einheiten zu 5400W. Dies ist sehr nah an der angestrebten
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{"bilder/ELW-Druckabfall über Volumenstrom"}
+	\caption{}
+	\label{fig:elw-druckabfall-uber-volumenstrom}
+\end{figure}
+
+Die Grafik ist an dieser stelle etwas verwirrend da der ELW 2 und der ELW3 die Farben getauscht haben. Da es sich hierbei jedoch um die einzigen Daten handelt die aufgetrieben werden konnten wird an dieser stelle angenommen das Die grüne Linie für den ELW3 steht und die Lila Linie den ELW 2 darstellt. Dies ist die sichere anmahne da dies im zweifel zu einem zu hohen Druckabfall und damit einer Überdimensionierung der Anlage führt.\\
+Anhand dieser Grafik kann also nun der Druckabfall zu einem entsprechenden Wasservolumenstrom abgelesen werden.
+
+Für den Inverter gibt es im Datenblatt ein fertiges Diagramm.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{"bilder/Druckabfall DTI500LC"}
+	\caption{}
+	\label{fig:cooling-characteristik}
+\end{figure}
+
+Für den Motor existieren leider nur Daten an einem einzigen Punkt. An den anderen verläufen ist jedoch in der regel ein quadratischer verlauf zu erkennen weswegen hier quadratisch regressiert wurde. Wir beginnen mit der allgemeine Formel
+
+\begin{equation}
+	Y = A x^2 + B x + C
+\end{equation}
+
+Die Linie soll durch den Nullpunkt verlaufen damit wird C = 0 und wir nehmen an das es keinen linearen Anteil gibt, damit wird B = 0. Unsere Gleichung vereinfacht sich zu.
+
+\begin{equation}
+	Y = A x^2
+\end{equation}
+
+eingesetzt ergibt sich
+
+\begin{equation}
+	0,6 bar = A * (7 l/min)^2  
+\end{equation}
+\begin{equation}
+	A = \dfrac{0,6 bar}{(7 l/min)^2 }
+	  = 0,01224 \dfrac{bar}{(l/min)^2}
+\end{equation}
+
+Für die Leitungen würde eine extensive Berechnung durchgeführt auf die an dieser stelle leider aus zeit gründen nicht näher eingegangen werden kann. die Schlussfolgerung ist jedoch das die Verluste vernachlässigbar klein sind. \\
+
+Die Daten für die Pumpen entstammen direkt den Datenblättern.\\
+
+Alle Ergebnisse sind nun in der Systemkennlinie abgebildet
 
 \begin{figure}[h]
 	\centering
@@ -218,6 +276,7 @@ Wasserpumpen berechnung (kühlsystem berechnung, Druckabfälle etc.)
 	\label{fig:kuhlsystemkennlinie}
 \end{figure}
 
+Der Punkt an dem sich die Linien der jeweiligen Pumpe mit der Linie des Gesamtsystem schneidet ist der Betriebspunkt des Systems. Dieser Druckabfall und dieser Volumenstrom sollten sich im betrieb einstellen. Bei der Grafik muss beachtet werden das dies von der Pumpe beachtet aus betrachtet wird und daher der Volumenstrom doppelt so groß ist wie am kühler aufgrund der zwei separaten Kühleinheiten.
 
 \subsection{Getriebe} (Michel und Linus)
 zahnrad auslegung

@@ -27,7 +27,7 @@ headinclude=true,  % Seiten-Head in die Satzspiegelberechnung mit einbeziehen
 footinclude=false, % Seiten-Foot nicht in die Satzspiegelberechnung mit einbeziehen
 numbers=noenddot   % Gliederungsnummern ohne abschließenden Punkt darstellen
 ]   {scrreprt}         % Dokumentenstil: "Report" aus dem KOMA-Skript-Paket
-
+\usepackage[table]{xcolor} % Anpassung tooltip
 \usepackage[active]{srcltx}
 %\usepackage[activate=normal]{pdfcprot} % Optischer Randausgleich -> pdflatex!
 \usepackage{ifthen}
@@ -53,7 +53,6 @@ numbers=noenddot   % Gliederungsnummern ohne abschließenden Punkt darstellen
 \usepackage[printonlyused,nohyperlinks]{acronym} % Anpassung
 \usepackage{amsmath} % Anpassung
 \usepackage{pdfcomment}% Anpassung tooltip
-\usepackage[table]{xcolor} % Anpassung tooltip
 \usepackage{listings}
 \lstset{numbers=left,stepnumber=2,, numberstyle=\tiny, numbersep=5pt, basicstyle=\small,}
 % used Language
@@ -70,6 +69,7 @@ numbers=noenddot   % Gliederungsnummern ohne abschließenden Punkt darstellen
 \usepackage{grffile}
 
 \usepackage{subfig}
+
 
 % Tiefe der Kapitelnummerierung beeinflussen
 \setcounter{secnumdepth}{3} % Tiefe der Nummerierung

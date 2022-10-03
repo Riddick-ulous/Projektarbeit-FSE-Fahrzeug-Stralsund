@@ -18,19 +18,200 @@ Kühlungslayout (tiksedit grafik)
 
 
 \subsubsection{Radiator \& Lüfter} (zusammen mit Julian Vogt und???)
-Radiator berechnung
-Lüfter auswahl (propeller umrechner etc)
+Radiator Berechnung
+Die Berechnung des Radiators basiert auf der Annahme das hier eine Ähnlichkeitstheorie Anwendung finden kann. Hierbei wurden die bekannten realen (index r) Eingangsparameter aus Messungen am Vorjahresfahrzeug mit den Modellparametern (index m) für das kommende Fahrzeug in Beziehung gesetzt. Konkret die Temperaturdifferenz am eintritt und der Wärmestrom. Hierbei wurde kein klassischer Weg bekannt aus der Thermodynamik über NTU-Schaubilder etc. gewählt da die geometrischen Parameter des Radiators abgesehen von der frontalen Netzfläche nicht bekannt waren. Zur genaueren Betrachtung sollte dieses Vorgehen in Zukunft angewendet werden. Folgend die angewendete Formel.
 
-Berechnung über Vorjahresfahrzeug Ähnlichkeitstheorie mit Absicherung über Vergleichsrechnungen
+\begin{equation}
+		\label{eqn:KühlerÄhnlichkeitsformel}
+		\dfrac {\glsc{symb:A_r}} {\glsc{symb:A_m}} = \dfrac {\glsc{symb:Qdot_r} * \glsc{symb:deltaT_ein r}} {\glsc{symb:Qdot_m} * \glsc{symb:deltaT_ein m}}
+\end{equation}
 
+Sie besagt, dass das Verhältnis der Kühlerflächen proportional zu dem Verhältnis von Wärmestrom und Eingangstemperaturdifferenz ist.\\
+
+Hierbei ist \glsc{symb:A_r} vom Vorjahresfahrzeug bekannt, \glsc{symb:Qdot_r} ergibt sich mit folgender Formel aus den Vor und Rücklauftemperaturen vom Wärmetauscher sowie dem Wassermassenstrom welche beim TY19 gemessen wurden.
+
+\begin{equation}
+	\glsc{symb:Qdot_r} = \glsc{symb:Cv_wasser} * \glsc{symb:Vdot_wasser} * \glsc{symb:rho_wasser} * (\gls{symb:t_ein Wasser} - \glsc{symb:t_aus Wasser}) * Anzahl\textsubscript{Kühler}
+\end{equation}
+
+\glsc{symb:Qdot_m} wird mit Hilfe der Rundenzeitsimulation ermittelt. Hier werden sämtlich Verluste die in das Kühlsystem eingetragen im rahmen der Rundenzeit Berechnung über den FSG Fahrtzyklus gemittelt mit gerechnet.\\
+
+\glsc{symb:deltaT_ein m} wird mit 30 K angenommen. Die max. Temperatur des Kühlwassers sollte 60°C nicht überschreiten währen im Hochsommer mit Umgebungstemperaturen von 30°C zu rechnen ist.\\
+
+Mit der Formel \ref{eqn:KühlerÄhnlichkeitsformel} umgestellt nach \glsc{symb:A_m} kann nun die Kühlerfläche für das Elektrofahrzeug bestimmt werden.
+
+\begin{equation}
+	\glsc{symb:A_m} = \dfrac {\glsc{symb:A_r} * \glsc{symb:Qdot_m} * \glsc{symb:deltaT_ein m}} {\glsc{symb:Qdot_r} * \glsc{symb:deltaT_ein r}}
+\end{equation}
+
+Dies führt zu folgenden Ergebnissen.
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\multicolumn{3}{|c|}{Eingangsparameter} \\
+		\hline
+		\glsc{symb:A_r} & 0,099 & \ensuremath{m^2} \\
+		\hline
+		\glsc{symb:t_ein Wasser} & 73,16 & °C \\
+		\hline
+		\glsc{symb:t_aus Wasser} & 70,37 & °C \\
+		\hline
+		\glsc{symb:rho_wasser} & 997 & \ensuremath{Kg/m^3} \\
+		\hline
+		\glsc{symb:Vdot_wasser} & 36,26 & \ensuremath{l/min} \\
+		\hline
+		\glsc{symb:Cv_wasser} & 4190 & \ensuremath{J/Kg K} \\
+		\hline
+		\glsc{symb:deltaT_ein r} & 43,16 & \ensuremath{K} \\
+		\hline
+		\glsc{symb:deltaT_ein m} & 30 & \ensuremath{K} \\
+		\hline
+		\glsc{symb:Qdot_m} & 5364 & \ensuremath{W} \\
+		\hline
+		\multicolumn{3}{|c|}{Ergebnisse} \\
+		\hline
+		\glsc{symb:Qdot_r} & 14089 & \ensuremath{W} \\
+		\hline
+		\glsc{symb:A_m} & 0,026 & \ensuremath{Kg/s} \\
+		\hline
+	\end{tabular}
+\end{table}
+
+Dies ergibt mit unserem Modell eine Reduktion auf 26,46 \% der vorherigen Kühlerfläche. Die Baugröße die am ende für den Kühler gewählt wurde entspricht ca. 50 \% der Kühlerfläche also das doppelte vom Rechenergebnis. Eine derart hohe Sicherheit ist darauf zurückzuführen das die Berechnung von Wärmeübertragern generell keine sehr exakte Wissenschaft ist und Der Bauraum eine derartige Überdimensionierung an der stelle zugelassen hat.\\
+\\
+Für die Auslegung des Lüfters wurde von der Aerodynamik Abteilung vorgegeben das man die Abluft des Systems nutzen möchte um das Strömungsprofil am Diffusor zu verwenden. Hierfür mussten Strömungsgeschwindigkeiten im Bereich der 80-90 km/h am Auslass erreicht werden. Für den Lüfter wurde auch in den letzten Jahren am Verbrenner ein Drohnennmotor mit Propeller und externer Ansteuerung verwendet da dies deutlich leichter ist als eine fertige Einheit. In diesem Zuge sollten Volumenstrom und Ausgangsgeschwindigkeiten für verschiedene Konzepte berechnet werden können. Aufgrund der Größe des Kühlers kamen nur 4 Zoll oder kleiner Propeller in Frage. Weiterhin ist die Fragestellung aufgekommen ob ein Propeller ausgelegt für Freiströmung sinnvoll vor einem Lamellen Kreuzstrom Wärmeübertrager einzusetzen ist. Hierfür wurde zum Vergleich ein Lüfter von der Firma EBM Papst beschafft um die Leistungsdaten schlussendlich vergleichen zu können.\\
+
+Für drohnemotoren sind in der regel Daten für Schubkraft und Leistung verfügbar. Dies Lässt sich mit Hilfe des 2. Newtonschen Gesetztes dem Impulssatz umrechnen. Wir nehmen dabei an das unser Fahrzeug still steht. Dies führt zu folgender Gleichung
+
+\begin{equation}
+	\glsc{symb:F_Schub} = \glsc{symb:mdot_Luft} * \glsc{symb:v_Luft}
+\end{equation}
+
+Dies lässt sich mit folgenden Formeln Umstellen
+
+\begin{equation}
+	\glsc{symb:mdot_Luft} = \glsc{symb:Vdot_Luft} * \glsc{symb:rho_Luft}
+\end{equation}
+\begin{equation}
+	\glsc{symb:Vdot_Luft} = \glsc{symb:A_Prop} * \glsc{symb:v_Luft}
+\end{equation}
+
+Und führt zu
+
+\begin{equation}
+	\glsc{symb:v_Luft} = \sqrt{\dfrac{\glsc{symb:F_Schub}} {\glsc{symb:A_Prop} * \glsc{symb:rho_Luft}}}
+\end{equation}
+
+Mit diesen Gleichungen können wir auch den Volumen- und Massenstrom bestimmen.\\
+
+Mit folgender Formel lässt sich die Luftleistung bestimmen.
+
+\begin{equation}
+	\glsc{symb:P_Luft} = \dfrac{\glsc{symb:mdot_Luft}}{2} * \glsc{symb:v_Luft}^2
+\end{equation}
+
+Damit können wir schlussendlich die Effizienz des Design beurteilen
+
+\begin{equation}
+	\glsc{symb:eta_Lüfter} = \dfrac{\glsc{symb:P_Luft}}{\glsc{symb:P_elektrisch}}
+\end{equation}
+
+Entschieden wurde sich am ende für den T-Motor F2004-1700KV zusammen mit dem Gemfan 4023 Propeller. Daten dafür in folgender Tabelle.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|}
+	\hline
+	\multicolumn{3}{|c|}{Eingangsparameter} \\
+	\hline
+	\glsc{symb:A_Prop} & 8107 & \ensuremath{mm^2} \\
+	\hline
+	\glsc{symb:F_Schub} & 650 & g \\
+	\hline
+	\glsc{symb:P_elektrisch} & 286 & W \\
+	\hline
+	\glsc{symb:rho_Luft} & 1,225 & \ensuremath{Kg/m^3} \\
+	\hline
+	\multicolumn{3}{|c|}{Ergebnisse} \\
+	\hline
+	\glsc{symb:v_Luft} & 25,339 & \ensuremath{m/s} \\
+	\hline
+	\glsc{symb:mdot_Luft} & 0,25 & \ensuremath{Kg/s} \\
+	\hline
+	\glsc{symb:Vdot_Luft} & 0,21 & \ensuremath{m^3/s} \\
+	\hline
+	\glsc{symb:P_Luft} & 80,79 & W \\
+	\hline
+	\glsc{symb:eta_Lüfter} & 28 & \% \\
+	\hline
+\end{tabular}
+\end{table}
+
+Im Rahmen der Systembetrachtung wurden am tatsächlichen Aufbau einige Messdaten genommen.
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\multicolumn{3}{|c|}{T-Motor F2004} \\
+		\hline
+		\glsc{symb:v_Luft} & 75 & \ensuremath{km/h} \\
+		\hline
+		\glsc{symb:P_elektrisch} & 195 & \ensuremath{W} \\
+		\hline
+		\multicolumn{3}{|c|}{EBM Papst 3214jh4} \\
+		\hline
+		\glsc{symb:v_Luft} & 73 & \ensuremath{km/h} \\
+		\hline
+		\glsc{symb:P_elektrisch} & 50 & \ensuremath{W} \\
+		\hline
+	\end{tabular}
+\end{table}
+
+Mit Hilfe der Vorherigen Rechnung können wir nun den gleichen Rechenweg Rückwärts gehen um uns wieder alle übrigen Parameter zu berechnen. Die Lüftauströmfläche beträgt dabei \ensuremath{0,004173m^2}.
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\multicolumn{3}{|c|}{T-Motor F2004} \\
+		\hline
+		\glsc{symb:v_Luft} & 75 & \ensuremath{km/h} \\
+		\hline		
+		\glsc{symb:Vdot_Luft} & 0,087 & \ensuremath{m^3/s} \\
+		\hline
+		\glsc{symb:mdot_Luft} & 0,107 & \ensuremath{kg/s} \\
+		\hline
+		\glsc{symb:P_Luft} & 23,115 & \ensuremath{W} \\
+		\hline
+		\glsc{symb:eta_Lüfter} & 12 & \ensuremath{\%} \\
+		\hline		
+		\multicolumn{3}{|c|}{EBM Papst 3214jh4} \\
+		\hline
+		\glsc{symb:v_Luft} & 75 & \ensuremath{km/h} \\
+		\hline
+		\glsc{symb:Vdot_Luft} & 0,085 & \ensuremath{m^3/s} \\
+		\hline
+		\glsc{symb:mdot_Luft} & 0,104 & \ensuremath{kg/s} \\
+		\hline
+		\glsc{symb:P_Luft} & 21,315 & \ensuremath{W} \\
+		\hline
+		\glsc{symb:eta_Lüfter} & 43 & \ensuremath{\%} \\
+		\hline		
+	\end{tabular}
+\end{table}
+
+Laut EBM Papst liegen die zu erwartende effizienzen bei einem Axialgebläse im Bereich von 25\%-65\%. Daran ist zu erkennen das unser aktueller Lüfter von EBM noch nicht die effizienteste Lösungen darstellt und unser Drohnenmotor eine sehr ineffiziente Lösung darstellt. Dennoch ein Aufbau mit Lüftern von EBM wiegt ca. 560g während der Aufbau mit Drohnennmotoren bei ca. 55g liegt. Allein diese gewichtsersparnis ist den einsatz dieses gebläses schon wert. Empfehlenswert wäre an der Stelle die Optimierung des Rotorblattes auf den vorliegenden Anwendungsfall.
 
 
 \subsubsection{Wasserpumpe und Schläuche} (zusammen mit Julian Vogt und???)
+
+
 Wasserpumpen berechnung (kühlsystem berechnung, Druckabfälle etc.)
 
 
 
-\begin{figure}
+\begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{bilder/Kühlsystemkennlinie}
 	\caption{}

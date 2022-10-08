@@ -8,13 +8,21 @@
 2Wd zwei motor (gewähltes konzept, Torque vektoring/hinterachslenkung)
 4WD (Komplexität ungefederte massen etc.)
 
+kurz was gibt es und warum machen wir das was wir machen
+
 \section{Packaging}
 Packaging leistungskennzahl. Volumenfüllungsgrad, schwerpunkt position, wartungsaufwand
 
 \section{Systeme}
 
 \subsection{Kühlung} (zusammen mit Julian Vogt und???)
-Kühlungslayout (tiksedit grafik)
+
+\begin{figure}[H]
+	\centering
+	\input{charts/cooling_system_chart.tex}
+	\caption{Kühlsystem Übersicht}
+	\label{abb:Coolingssystem}
+\end{figure}
 
 
 \subsubsection{Radiator \& Lüfter} (zusammen mit Julian Vogt und???)
@@ -206,9 +214,10 @@ Laut EBM Papst liegen die zu erwartende effizienzen bei einem Axialgebläse im B
 
 \subsubsection{Wasserpumpe und Schläuche} (zusammen mit Julian Vogt und???)
 
+
 Für die Auslegung des Wasserkreislaufes sind die Druckabfälle der einzelsysteme relevant hierfür eine systemüberischt
 
-tikzedit grafik
+auf tikzedit grafik verlinken
 
 Desweiteren sind für die betrachtung weitere Parameter relevant. Laut Motorhersteller liegt der optimale Wasservolumenstrom bei 6-8 \ensuremath{l/min}. Aus der Vorhergehenden Betrachtung geht hervor das die umzusetzende Wärmeleistung bei 5364W liegt. Der angepeilte Luftvolumenstrom durch einen Kühler beläuft sich auf 756 \ensuremath{m^3/h}.
 
@@ -278,7 +287,8 @@ Alle Ergebnisse sind nun in der Systemkennlinie abgebildet
 
 Der Punkt an dem sich die Linien der jeweiligen Pumpe mit der Linie des Gesamtsystem schneidet ist der Betriebspunkt des Systems. Dieser Druckabfall und dieser Volumenstrom sollten sich im betrieb einstellen. Bei der Grafik muss beachtet werden das dies von der Pumpe beachtet aus betrachtet wird und daher der Volumenstrom doppelt so groß ist wie am kühler aufgrund der zwei separaten Kühleinheiten.
 
-\subsection{Getriebe} (Michel und Linus)
+
+\subsection{Antrieb} (Michel und Linus)
 zahnrad auslegung
 Zahnrad fertigung
 Kettentrieb alternative
@@ -286,15 +296,33 @@ Wellen auslegung
 FEM detour
 
 \subsubsection{Outbound vs Inbound}
-Radnabenmotor vs interner motor
-Antriebswellen
-ungeferte massen
-packaging im rad problem(Planetengetriebe) fertigungsaufwand
+Radnabenmotor vs interner motor 
+	ungeferte massen
+	packaging im rad problem(Planetengetriebe) fertigungsaufwand innenzahnkranz, generell zahnräder
+	keine Antriebswellen
+	besseres packaging im auto
 
 \subsubsection{Gussgehäuse vs Fräsgehäuse vs Schweißgehäuse} (Flo Irle)
+Vor und nachteile
+
+eingehen aufs gussgehäuse
+
 SES anforderungen
 Flexural rigidity
 E modul vs yield strenght welche verbnesserungen bringen wo was
+Gussimulation
+FEM Bilder
+CAD Bilder
+Formkasten
+Heizofen
+tiegel
+trageschere
+gussmaterial auswahl
+kellen etc. für zusätze
+wärmebehandlung
+materialtests
+zusatzstoffe guss
+stuff von Floh?
 
 
 \subsubsection{Antriebswellen und Tripoden} Störle und schrang

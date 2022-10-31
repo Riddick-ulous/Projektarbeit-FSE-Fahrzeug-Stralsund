@@ -5,10 +5,10 @@
 
 \section{Akkumulator} (zusammen mit Tim Schweers)
 
-\subsection{Zellenauswahl}
+\subsection{Die Akkuzelle}
 
 Wichtig bei der zellenauswahl ist das stets jede individuelle zelle für sich begutachtet werden muss. es gibt bei den diversen Bauformen und chemischen Zusammensetzungen gewissen Tendenzen welche im folgen erläutert werden. Jedoch ist die Überlappung dieser Eigenschaften in der Regel so groß das sich augenscheinlich vollkommen unterschiedliche Zellen für einen ähnlichen Einsatzzweck eignen.
-
+\FloatBarrier
 \subsubsection{Vergleich der Speicherarten}
 
 im nachfolgenden wird die zuerst die Energie berechnet die ein klassiches Formula Studentfahrzeug bei einem typischen bremsvorgang freisetzt und damit die enrgie die mann mindestens speichern können müsste um mit der speciherform auf sinnvolle art und weise eine rekuperation umszusetzten. Im anschluss wird diese energie in eine ungefähre masse an speicherelementen umgesetzt um zu zeigen inwiefern sich diese form der enrgiespeicherung für den einsatz eignet. im nachfolgenden wird die masse an speciherelementen bestimmt um 6 Kwh energie zu speichern da dies der typsiche energieverbrauch eines formula student fahrzueuges im Endurance ist. dieser wert wurde im rahmen eines benchmarkings mit den fahrzeuigen anderer teams über die letzten jahre 2016 bis 2019 errechnet.
@@ -44,7 +44,7 @@ Mechanische Speicher (Schwungrad)
 Chemische Speicher (Klassische Akkuzelle)
 \\
 	Der typische im Rahmen der formula studnet von allen teams eingesetzte energiespeicher. In der verfügbaren bandbreite findet man so ziemlich das optimum an leistungs als auch energiedichte.
-
+\FloatBarrier
 \subsubsection{Runde vs Pouch vs Prismatische Zellen}
 %tabelle
 (
@@ -73,16 +73,64 @@ meist jedoch sehr schwer aufgrund der ausrichtung auf industrielle bedürfnisse
 
 Im rahmen des TY22 haben wir uns für den einsatz von rundzellen entschieden da diese nach unserem kenntnisstand gravimetrisch die höchste energiedichte liefern wir uns langfristig auf ein konzept festelgen wollten und so bei einsatz einer neuen akkuztelle nur gerinfügige änderungen an dem akku machen müssen sofern das 18650 format weiterhin populär bleibt. Außerdem war dies im rahmen der lieferschwierigkeiten im bereich der akuzellen im jahr 2021 die beste option um tatsächlich auch an akkuzellen für den bau des fahrzeuges zu kommen
 )
-
+\FloatBarrier
 \subsubsection{Zellchemie und Rekuperation}
 
 Im folgenden eine tabellarische gegenüberstellung von \acfirst{LiFePo4} zellen und \acfirst{Li-ion} Zellen. Diese Tabelle basiert auf einer Sichtung von mehr als 30 verschiedenen Akkuzellen welche im rahmen des Projektes auf ihre Eignung für den Einsatz im Fahrzeug geprüft wurden. Liion umfasst dabei ein konglomerat aus diversen zellchemien welches eigentlich auch lifepo4 mit einschließt. Zur vereinfachung des vergleiches wurden alle liion chemieen mit einem typ. arbeitsbereich von 3-4,2 hierunter zusammengafasst. Die hierbei aufgrund der hohen löeistungsdichte am häufigsten vertretene Chemie ist LiNiMnCoO2
 
 
 
-In der analyse ergibt sich das bild das sich \acfirst{LiFePo4} zellen für ein konzept mit hohem rekupoerationsanteil aber niederiger gesamtkapazität eignet während sich liion zellen für ein konzepot mit niedrigerem rekuperationsanteil und hoher gesamtkapazität eignen. Weiterhin muss hier berücksichtigt werden das Lifepo4 zellen meist ein niederigers temperaturmlimit beim laden als beim entladen haben was im betrieb zu einem vorzeitigen ausfall der rekuperation durch zu hohe akkutemperaturen führten kann. daher ist das temperatur managment hier von besoinderer bedeutung.
+In der analyse ergibt sich das bild das sich \acfirst{LiFePo4} zellen für ein konzept mit hohem rekupoerationsanteil aber niederiger gesamtkapazität eignet während sich liion zellen für ein konzepot mit niedrigerem rekuperationsanteil und hoher gesamtkapazität eignen. Weiterhin muss hier berücksichtigt werden das Lifepo4 zellen meist ein niederigers temperaturmlimit beim laden als beim entladen haben was im betrieb zu einem vorzeitigen ausfall der rekuperation durch zu hohe akkutemperaturen führen kann. daher ist das Temperaturmanagment hier von besonderer Bedeutung.
 
 Das konzept mit hohen rekuströmen ist nur beim AWD Fahrzeug sinvoll anwendbar da hier auch die gesamte bremsenergie, abzüglich der verlsute im antriebsstran und einiger spitzenlasten welche die mechanische bremsanlage abfangen muss, verfügbar ist. Aufgrund der hohen komplexität des AWD systemes wurde beim TY22 auf ein 2WD System gesetzt. Daher ist der einsatz von konkret LiNiMnCoO2 zellen am ehesten sinvoll.
+\FloatBarrier
+\subsubsection{Die Zellauswahl}
+Um zu sehen ob eine Zelle für den geplanten Einsatz geeignet ist, muss zuerst ermittelt werden wie ein Vollständig konfigurierter akku hiermit aussehen würde um die eckdaten zu ermitteln. Dies Wurde mit der hilfe einer excel tabelle umgesetzt. 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.2\linewidth]{bilder/Ausschnitt_zellvergleich}
+	\caption{}
+	\label{fig:Ausschnitt_zellvergleich}
+\end{figure}
+\FloatBarrier
+Unter dem Punkt Input Daten werden die Zellparameter aus dem Datenblatt der Zelle angegeben. Unter den Akkuparametern werden nun die Zielbgedingungen bzw, Grenzwerte für den Akku Bestimmt. Die min Avg. P. ist hierbei ein Parameter für die im endurance angestrebte leistung, die max.V ergibt sich aus der sapnnungsfestigkeit des TS besonders relevant sind hierbei die Elektromotoren. Die min Wh geben die mindest vorgesehene akkukapazität vor und die min max. P. die angestrebte maximale leistung die der akku können muss. Aus diesen parametern wird folgend eine minimal benötigte Zellanzahl bestimmt. Unter dem Punkt Akkuconfig wird nun die vorhgerig höchstze bestimmte zellanzahl ermittlewt und gerundet. hieraus bestimmen wir nun die Anzahl der parallel und seriell verschalteten zellen und runden auf ganze zellen.
+Dies ergibt dann einige Gesamtparameter für den akku.
+Unter dem Abschnitt stackaufteilung werden die zellen jetzt nach den parametern des Regelwerkes möglichst optimal in stacks aufgeteilt. Der zielwert hierbei ist es das die tatsächliche Anzahl an Akkuzellen größer ist als die vorher errechnete benötigte Anzahl, es wird also aufgerundet. Weiter soll möglichst eine gerade anzahl an stacks heauskommen so das sich die stacks im akku möglichst leicht verteilen lassen. Hierbei können wir drei verschiedene anzahlen von zellen pro BMS vorgeben die analysiert werden sollen.
+Schlussendlich ist das ergebnis ein fertig konfiguirierter akku. Diese konfigurationen können nun gegenübergestellt und die anzahl der weiter zu analysierenden zellen eigegrenzt werden.
+
+Zur weiteren Analyse wurde auf Messdaten zurückgegriffen welche auf den Seiten dampfakkus.de und lygte-info.dk bereitgestellt wird. Aus diesen Daten ergeben sich folgende 2 Diagramme.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\linewidth]{bilder/Kapazitaet_ueber_Entladestrom}
+	\caption{}
+	\label{fig:Kapazitaet_ueber_Entladestrom}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\linewidth]{bilder/Temperatur_ueber_Entladestrom}
+	\caption{}
+	\label{fig:Temperatur_ueber_Entladestrom}
+\end{figure}
+Das erste Diagramm ermöglichts es einen eindruck von der Entlladeeffizienz des Akkus besonders bei hohen Strömen zu bekommen. Das Optimum wäre hier eine Horizontale Linie am oberen Rand des diagrammes. Hierbei sticht die Samsung INR21700-30T besonders hervor.
+Das zweitere Diagramm ermöglich uns einen eindruck von der thermischen performance zu erlangen. Laut regelwerk der Formula Student darf keine akuzellen zu einem Zeitpunkt die 60°C marke überschreitern. Nichtbeacjten führt zur disqualifikation. hierbei sticht auch die vorher genannte samsung zelle hervor als auch die Vapcell INR18650
+Hierbei vergleichen wir Rundezellen von verschiedenen Baumaßen, ein Vollständiger akku mit den Samsung INR21700-30T wäre 7Kg schwerer als einer mit der Sony VTC6. Daher müssen am ende alle erlangenden Erkenntnisse Berücksichtigt werden.
+
+%evtl. netzgrafik von den top 2 oder 3 zellen machen. als finale gegenüberstellung 
+\FloatBarrier
+\subsubsection{Elektrisches Modell der Zelle}
+Das Elektrische Modell ist für die modellierung in der Rundenzeitsimulation relevant. Hierbei werden die limitierungen die sich aus dem Akku und dem restlichen antriebsstrang ergeben mit simuliert ein beispiel ist die sinkende antriebsleistung bei abfallen der spannung durch sinkenden SOC. Das aktuelle modell greift dabei auf zwei datensätze zu um das verhalten zu modellieren. Einmal die Entladeeffizienz bzw. einen korrigierten entladestrom, als auch auf ein Spannungskennfeld über entladestrom und SOC. Beide Abbildung folgen für die Sony VTC6. Die Daten entstammen wieder der Webseiten dampfakkus.de und lygte-info.dk.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\linewidth]{bilder/Entladeeffizienz_VTC6}
+	\caption{}
+	\label{fig:Entladeeffizienz_VTC6}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.6\linewidth]{bilder/Spannung_ueber_SOC_Strom}
+	\caption{}
+	\label{fig:Spannung_ueber_SOC_Strom}
+\end{figure}
 
 \subsubsection{Temperaturmodell der Zelle}
 
@@ -137,20 +185,66 @@ Wir sehen das das erstellte modell für den 10A graph um ca. 3°C abweicht. Weit
 \end{figure}
 
 In dieser simulationb wurde ein gesamter akkustack in seinem gehäuse simuliert. dabei wurde mit einem konstanten strom von 7,2A simuliert. Dieser strom ergibt sich aus der rundenzeitsimulation siehe sectrion. Die Simulation wurde für 32min laufen gelassen um eine gesamtes endurance darzustellen. Ziel der simuzlation ist es die effekte der konvektion zu berücksichtigen aber auch zu sehen in wiefern sich die zellen gegenseitig beeinflussen. Allerdings wurden auch diverse vereinfachungen getroffen insofern das die akkuzellen sich uniform aufwäremn. In der realität dürfte man am negativen pol der akuzelle eine deutlich höhere temperatur feststellen könne als auf der positiven seite. weiterhin wurden diverse teile wie die elektrische isolierung etc. weggelassen da dies den simulations aufwand sonst erheblich vergrößert hätte und die simulation so schon 2 tage benötigt hat. zur analyse, wir sehen nach der simulationszeiot eine hot spot temperature von 64,85°C und eine niedrigste temperatur von 62,85°C. In dieser hinsicht stimmt die ansys simulation eher mit der 10A kurve aus unserem modell zusammen als mit den messdaten. Zusammengefasst stellt man fest das definitiv weitere arbeit in diesem themenbereich von nöten wäre um zu einer optimalen lösung zu kommen dies jedoch aufgrund des engen zeitplanes und des enoremn anderweitigen aufwandes nicht möglich ist.
-
-\subsubsection{Die \glqq Ideale\grqq Akkuzelle}
-
-\subsubsection{Der Stack Aufbau}
+\FloatBarrier
+\subsubsection{Der Stack Aufbau} %(mit Tim)
 Halterkonstruktion
+	Montage des Stacks am boden mit einkleb ovalmuttern in boden querstreben
+	querverschraubung von seitenwand und stack -> wärmeableitung
+	Isolatoranforderungen und auswahl
 Maintenace Plug design
+	vertauschsicherheit
+	Isolation
+	ergonomie
 AMS Slave montage
-
+	Slave halter
+	stack entnahme
+	querverstrebung
+Temperatursensoren
+	originales konzept mit flex pcb -> kostenproblematik
+	Steckverbinder auswahl -> Molex FPC, PCIE, aktueller
+	Kabelversion mit miniplatinen
+	alternative mit verschraubkonzept
+CTMD
+	positionierung
+Spannungsabgriff
+	optionen, kabel anlöten, stecken, gnd feder
+Temperaturableitung
+	über stackwände, boden, Chassis, darstellen
+\FloatBarrier
 \subsubsection{Die Busbar}
 Busbar material und dicken auswahl
-Schweißverfahren
+ ->fertig
+ Bei der Auswahl der Materialien für die Busbar sind die Masse als auch die elektrische respektive die thermische Performance ausschlaggebend. Ein weiterer Maßgebender Faktor sind die möglichen Fertigungsverfahren um den Kontakt zwischen Zelle und Busbar herzustellen. Folgende Grafiken ergeben sich aus den Materialkonstanten und der Erwärmung über den widerstand der Busbar bei dem entsprechenden Strom und über die Wärmekapazität und die Betriebszeit.
+ 
+ \begin{figure}[h]
+ 	\centering
+ 	\includegraphics[width=0.7\linewidth]{bilder/Busbar_temp_36A_2771s}
+ 	\caption{}
+ 	\label{fig:Busbar_temp_36A_2771s}
+ \end{figure}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{bilder/Busbar_temp_66A_507s}
+	\caption{}
+	\label{fig:Busbar_temp_66A_507s}
+\end{figure}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=0.7\linewidth]{bilder/Busbar_temp_150A_89s}
+	\caption{}
+	\label{fig:Busbar_temp_150A_89s}
+\end{figure}
 
+Es ist ersichtlich das Kupfer die beste thermische performance in bezug auf die materialmenge bringt, aufgrund der niedrigen dichte aluminium allerdings gravimetrisch mit abstand die beste perfromance zeigt. Nickel, respektive Nickel400 liegen jedoch nicht weit zurück, ledeglich stahl lässt sich aufgrund der ergebnisse direkt ausschließen.
 
-\subsubsection{Der Accumulator Conatiner}
+In bezug auf die fertigung ergeben sich bei rundezellen zwei wege, einmal das schweißen aber auch die federkontaktierung.
+Die Kontaktierung über eine feder an eine Rundzelle sollte dem Leser hinreichend aus anderen batteriebetriebenen Geräten hinreichend bekannt sein. Hierbei ergeben sich schnell einige Fragestellungen. Einmal die frage nach der Ermittlung des Übergangswiederstandes. Einflussfaktoren sind die Anpresskraft, die Oberflächenrauhigkeit, die Kontaktfläche, als auch der Materialmix. Eine Berechnung ist jedoch praktisch aufgrund des enormen Aufwandes und großer unsicherheitewn kaum möglich. Weiter stellt sich da die frage wie groß z.b die max. mögliche Anpresskraft auf die Akkuzelle sein kann oder welche oberflächenrauhigkeit eine Pol mit sich bringt. Weiter ist die Relaxation ein Problem. hierbei würde die Anpresskraft im verlauf der zeit abnehmen und damit der Übergangswiederstand steigen. All diese Parameter müssten in aufwendigen und langwierigen Versuchsreihen ermittelt und untersucht werden um auf ein sicheres System zu kommen. Das Verschweißen von Akkuzellen wird dabei gerade im Hochstrombereich bereits industriell angewandt und ist damit hinreichend bekannt. 
+Bei den Schweißverfahren teilt sich nun der weg in das Laser bzw WIG schweißen und in das Punkt oder Wiederstandschweißen auf. Ersteres verfahren ermöglicht das verschweißen unterschiedlicher Metalle wie z.b Stahl an Aluminium oder Kupfer. Zweiteres Verfahren eignet sich nur für Materialien mit einem verhältnismäßig hohen elektrischen widerstand da der Schweißpunkt durch die Temperaturentwicklung gebildet wird die entsteht wenn ein hoher Strom durch einen verhältnismäßig hohen Übergangswiederstand geleitet wird. Daher eignet sich das Wiederstandschweißen nur für Nickel oder stahl. Die anderen Materialen sind nicht inhärent nicht geeignet, stellen aber besondere Anforderungen an den Prozess so das die Standard Geräte hier idr. nicht ausreichen. Systemparameter sind beim Wiederstandsschweißen die Schweißspannung als auch der Schweißstrom und die Pulsdauer. Ein großer Nachteil des Laser bzw. WIG Schweißens ist das dieses Verfahren bisher nur im industriellen Maßstab angewandt wird und es keinerlei Geräte für den Hobbybedarf gibt. Dies führt dazu das diese Geräte idr. enorm teuer und schwer zu bekommen sind. Hierbei wäre es sicherlich möglich ein typisches WIG Schweißgerät für diese Zwecke zu modifizieren dies bringt jedoch wieder die entsprechende Unsicherheit in den Prozess. Punktschweißgeräte sind in diversen Ausführungen und Preisklassen gut erhältlich und ermöglichen so einen Kostengünstigen einstieg.
+	
+\FloatBarrier
+\subsubsection{Der Akkumulator Container}
+Seitwenwände geschweißt bild mit schweißverzug
+->nietoption
 
 \section{Elektromotor}
 Im großen und ganzen gibt es für die Auswahl des Elektromotors 4 verschiedene in der Formula Student allgemein anerkannte Lösungen. Diese werden nachfolgend erläutert.
@@ -163,6 +257,8 @@ Die AMK motoren sind radial flux PMSM. Sie sind insofern eher lang und haben kle
 
 \subsection{Fischer}
 Die Motoren von fischer sind im großen und ganzen gleichzusetzten mit den amk motoren. der große unterschied ist das hier das gehäuse selbst designt werden muss und alle teile selber gefertigt werden müssen. Die stellt große herausfordferungen die fertigungstechnik da es sich dabei auch um 5 achs gefräst6e titanteile handelt. 
+
+\subsection{China}
 
 \subsection{Selbstbau}
 Der selsbtbau ist quais die nächste entwicklungsstufe nach dem fischer motor. Num gilt es nicht nur den motor selber zu fertigung sondern auch die gesamte vorauslegung zu machen. es gibt nur wenige teams die einen selbstbau wagen, und noch werniger die es erfolgreich umsetzten.

@@ -3,7 +3,8 @@
 
 \chapter{Elektromechanische Systeme}
 
-\section{Akkumulator} (zusammen mit Tim Schweers)
+\section{Akkumulator}
+An dieser Stelle geht mein Dank an Tim Schweers, der dieses Projekt besonders in der mechanischen Auslegung und der Konstruktion so tatkräftig mitgetragen hat.
 
 \subsection{Die Akkuzelle}
 
@@ -121,13 +122,13 @@ Hierbei vergleichen wir Rundezellen von verschiedenen Baumaßen, ein Vollständi
 Das Elektrische Modell ist für die modellierung in der Rundenzeitsimulation relevant. Hierbei werden die limitierungen die sich aus dem Akku und dem restlichen antriebsstrang ergeben mit simuliert ein beispiel ist die sinkende antriebsleistung bei abfallen der spannung durch sinkenden SOC. Das aktuelle modell greift dabei auf zwei datensätze zu um das verhalten zu modellieren. Einmal die Entladeeffizienz bzw. einen korrigierten entladestrom, als auch auf ein Spannungskennfeld über entladestrom und SOC. Beide Abbildung folgen für die Sony VTC6. Die Daten entstammen wieder der Webseiten dampfakkus.de und lygte-info.dk.
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.6\linewidth]{bilder/Entladeeffizienz_VTC6}
+	\includegraphics[width=0.7\linewidth]{bilder/Entladeeffizienz_VTC6}
 	\caption{}
 	\label{fig:Entladeeffizienz_VTC6}
 \end{figure}
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=0.6\linewidth]{bilder/Spannung_ueber_SOC_Strom}
+	\includegraphics[width=0.7\linewidth]{bilder/Spannung_ueber_SOC_Strom}
 	\caption{}
 	\label{fig:Spannung_ueber_SOC_Strom}
 \end{figure}
@@ -186,49 +187,39 @@ Wir sehen das das erstellte modell für den 10A graph um ca. 3°C abweicht. Weit
 
 In dieser simulationb wurde ein gesamter akkustack in seinem gehäuse simuliert. dabei wurde mit einem konstanten strom von 7,2A simuliert. Dieser strom ergibt sich aus der rundenzeitsimulation siehe sectrion. Die Simulation wurde für 32min laufen gelassen um eine gesamtes endurance darzustellen. Ziel der simuzlation ist es die effekte der konvektion zu berücksichtigen aber auch zu sehen in wiefern sich die zellen gegenseitig beeinflussen. Allerdings wurden auch diverse vereinfachungen getroffen insofern das die akkuzellen sich uniform aufwäremn. In der realität dürfte man am negativen pol der akuzelle eine deutlich höhere temperatur feststellen könne als auf der positiven seite. weiterhin wurden diverse teile wie die elektrische isolierung etc. weggelassen da dies den simulations aufwand sonst erheblich vergrößert hätte und die simulation so schon 2 tage benötigt hat. zur analyse, wir sehen nach der simulationszeiot eine hot spot temperature von 64,85°C und eine niedrigste temperatur von 62,85°C. In dieser hinsicht stimmt die ansys simulation eher mit der 10A kurve aus unserem modell zusammen als mit den messdaten. Zusammengefasst stellt man fest das definitiv weitere arbeit in diesem themenbereich von nöten wäre um zu einer optimalen lösung zu kommen dies jedoch aufgrund des engen zeitplanes und des enoremn anderweitigen aufwandes nicht möglich ist.
 \FloatBarrier
-\subsubsection{Der Stack Aufbau} %(mit Tim)
-Halterkonstruktion
-	Montage des Stacks am boden mit einkleb ovalmuttern in boden querstreben
-	querverschraubung von seitenwand und stack -> wärmeableitung
-	Isolatoranforderungen und auswahl
-Maintenace Plug design
-	vertauschsicherheit
-	Isolation
-	ergonomie
-AMS Slave montage
-	Slave halter
-	stack entnahme
-	querverstrebung
-Temperatursensoren
-	originales konzept mit flex pcb -> kostenproblematik
-	Steckverbinder auswahl -> Molex FPC, PCIE, aktueller
-	Kabelversion mit miniplatinen
-	alternative mit verschraubkonzept
-CTMD
-	positionierung
-Spannungsabgriff
-	optionen, kabel anlöten, stecken, gnd feder
-Temperaturableitung
-	über stackwände, boden, Chassis, darstellen
+
+\subsubsection{Der Stack Aufbau} %(mit Tim)%
+
+Für die konstruktion des Akkustacks gab es im Laufe der Saison viele Iterationen. Die folgend erläuterte ist eine Optimierte Version derer die für den TY22 gebaut wurde.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{bilder/Stackaufbau_Prinzipskizze}
+	\caption{}
+	\label{fig:stackaufbauprinzipskizze}
+\end{figure}
+
+Die zellen sind liegend in fünfer packeten gestapelten und mit einem versatz aneinander gereiht um den leerraum zwischen den zellen möglichst lein zu halten. Die Busbars verbinden immer ein 5er Negativpole mit einem 5er positiv pole. Zusätzlich befinden sich in der näöhe der zellen 2 ausrichtpins um die busbar auf dem stack bei der montage positionieren zu können. Der aufbau auf dn Polen besteht aus einer angeschweißten Busbar, darauf folgt ein abriebfester isolator, und dann eine trennwand des akkus. nach innen haben wir noch einen 3D gedruckten Halter in dem die Akuzellen ausgerichtet werden. Dieses ganze paket wird mit blindnieten vernietet. Ziel hierbei ist es einen möglichst guten thermischen kontakt von den Polen der Zelle zum Akkugehäuse herzustellen. Selbiges ist aus aluminium und Flächig mit dem Monocoque verschraubt welches auch aus aluminium gefertigt ist. dies ergibt eine riesige thermische masse und stellt so eine Kühlung für den akku bereit. Die stack seitenwand liegt als L-Profil vor, und wird anschließend mit demm akkuboden mit hilfe von M3 Senkkopfschrauben und Ovalmuttern verschraubt. In diesem zuge sind in die 3D gedruckten querversteifungen im stack ovalmuttern eingeklebt. Diese querversteifung sorgen einerseits für mechanische stabilität, stellen aber auch anbindungspunkte für den AMS Slave als auch für die Maintenace Plug steckverbinder bereit. Die Busbar ist auch als L Profil ausgeführt und lappt oben über den Stack über, diese finnen werden seitens des AMS slaves mit hilfe von federkontakten kontaktiert um eine verbindung für die spannungsmessung als auch das balancing herzustellen. Die NTC sensoren befinden sich in den Leerstelln wo keine Nieten benötigt werden, immer eine Niete mittig in drei zellen. Sie sind rückseitig auf die Busbar geklebt. Um das design günstig zu halten kann die verbidnung kann über 0,35mm\^2 kabel erfolgen welche Sensor seitig auf Lötpads und AMS seitig in einen stecker gebracht werden. Bei der Steckverbinderauswahl hier ist zu achten das der er über einen verrigelungsmnechanismus verfügt, und nicht zu klein ist. Besonders kleine Steckverbinder machen an der stelle die verarbeitung schwer oder praktisch unmöglich. Präferiert wäre hier ein Flex PCB, dies ist jedoch idR. recht teuer. In dem Stackhalter müssen entsprechende Einkerbungen vorgehalten werden durch die die Kabel zu führen sind. In die anbindung des AMS Slave ist ein feature vizusehen welches eine leichte extraktion des stacks aus dem akku erlaubt, und bei der konstruktion der maintenance plugs ist auf ergonomie zu achten, so das ein mensch mit einem HV handschuh noch gefahrlos einen solchen ziehen kann. Weiter ist bei den maintenace Plugs auf verstecksicherheit zu achten. Ein letzter Punkt ist die positionierung des CTMD, also entweder des i button oder dieser kleinen kabelgebunden sensoren mit dem steuergerät, je nachdem was die FSG verwenden möge. Hier ist besonders die positionierung des CTMD am Hotspot schwer nachzuweisen. eine simualtion kann hier eine richtung aufzeigen, stellt jedoch einen großen zeitaufwand dar und ist im allgemeinen so ungenau (ohne signifikanten Zeitaufwand), dass sich nur sehr begrenzt belastbare aussagen hiermit treffen lassen.
+
 \FloatBarrier
+
 \subsubsection{Die Busbar}
 Busbar material und dicken auswahl
- ->fertig
  Bei der Auswahl der Materialien für die Busbar sind die Masse als auch die elektrische respektive die thermische Performance ausschlaggebend. Ein weiterer Maßgebender Faktor sind die möglichen Fertigungsverfahren um den Kontakt zwischen Zelle und Busbar herzustellen. Folgende Grafiken ergeben sich aus den Materialkonstanten und der Erwärmung über den widerstand der Busbar bei dem entsprechenden Strom und über die Wärmekapazität und die Betriebszeit.
  
- \begin{figure}[h]
+ \begin{figure}[]
  	\centering
  	\includegraphics[width=0.7\linewidth]{bilder/Busbar_temp_36A_2771s}
  	\caption{}
  	\label{fig:Busbar_temp_36A_2771s}
  \end{figure}
-\begin{figure}[h]
+\begin{figure}[]
 	\centering
 	\includegraphics[width=0.7\linewidth]{bilder/Busbar_temp_66A_507s}
 	\caption{}
 	\label{fig:Busbar_temp_66A_507s}
 \end{figure}
-\begin{figure}[h]
+\begin{figure}[]
 	\centering
 	\includegraphics[width=0.7\linewidth]{bilder/Busbar_temp_150A_89s}
 	\caption{}
@@ -243,8 +234,17 @@ Bei den Schweißverfahren teilt sich nun der weg in das Laser bzw WIG schweißen
 	
 \FloatBarrier
 \subsubsection{Der Akkumulator Container}
-Seitwenwände geschweißt bild mit schweißverzug
-->nietoption
+
+Der akku besteht aus 12 einzelstacks. Hiewrbei befinden saich 6 nebenbeiander und davon 2 reihen hintereinander. in der vorderen sektion die unter den fahrersitz ragt befinmden sich die HV Relais als auch die übrige Akkumulator elektronik wier das IMD der AMS MAster und der HVDCDC.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{bilder/Akku_Layout}
+	\caption{}
+	\label{fig:akkulayout}
+\end{figure}
+Der akkumulatorcontainer besteht aus aluminium. dabei muss vom regelwerk her der boden midnestens 3,2mm und die wände 2.3mm dick sein. gewählt wurden respektive 4mm und 2,5mm. In der ersten version handelt es sich bei dem container um mehrere geschweiste biegeteile, solches konstrukt zeichnete sich jedoch durch derart starken schweißverzug aus das bei der folgeversion eine kombination aus Nieten kleben, schrauben und schweißen anzuraten ist. gerade mit dem überarbeiten stack konzept lässt sich eine reine schweißkonstruktion nicht mehr umsetzten. Hierbei währen die Stackwände vernietet und verschraubt, die Bodenwanne eine biege-schweißteil, der deckel einbiegeteil und etwaige interne anbindung für z.b die HV stecker sind geklebt.
+
+!!Bild von aktueller CAD mit beschriftung!!
 
 \section{Elektromotor}
 Im großen und ganzen gibt es für die Auswahl des Elektromotors 4 verschiedene in der Formula Student allgemein anerkannte Lösungen. Diese werden nachfolgend erläutert.
@@ -258,19 +258,19 @@ Die AMK motoren sind radial flux PMSM. Sie sind insofern eher lang und haben kle
 \subsection{Fischer}
 Die Motoren von fischer sind im großen und ganzen gleichzusetzten mit den amk motoren. der große unterschied ist das hier das gehäuse selbst designt werden muss und alle teile selber gefertigt werden müssen. Die stellt große herausfordferungen die fertigungstechnik da es sich dabei auch um 5 achs gefräst6e titanteile handelt. 
 
-\subsection{China}
+\subsection{China \& Co}
+Eine weitere Optionen wäre es gunstige motoren eines Chinesischen hersteller zu beschaffen, als bsp. wäre hier die firma Freerchhobby zu nennen, es gibt aber viele mehr. Diese motoren zeichnensich durch ein herausragend niedrigen preis hervor sowohl für den motor als auch den zugehörigen motorcontroller. Problematisch hierbei ist, das diese motoren iun der regel nur bis spannungsbereiche von 120V verfügabr sind. und der dabei bei 80kW resultierende strom enorm ist. Heißt das entweder die leistung zu reduzieren wäre oder die elektrische des auslegung des TS besondere anbsprüche gestellt hätte. Weiter stellt sich hier die frage der zuverlässigkeit. Vor nicht allzu langer zeit ist man im raciung team einen einzilindermtor dder firma borossi gefahren welcher sich durch nicht vorhandene haltbarkeit auszeichnete und so 3 saisons in folge torpedierte. Daher sind die anderen oiptionen sovern erwschwinglich vorzuziehen. sollte das Budget aber besonders eng sein, können diese motoren allerding durchaus eine valide alternative darstellen
 
 \subsection{Selbstbau}
-Der selsbtbau ist quais die nächste entwicklungsstufe nach dem fischer motor. Num gilt es nicht nur den motor selber zu fertigung sondern auch die gesamte vorauslegung zu machen. es gibt nur wenige teams die einen selbstbau wagen, und noch werniger die es erfolgreich umsetzten.
+Der selsbtbau ist quais die nächste entwicklungsstufe nach dem fischer motor. Nun gilt es nicht nur den motor selber zu fertigung sondern auch die gesamte vorauslegung zu machen. es gibt nur wenige teams die einen selbstbau wagen, und noch werniger die es erfolgreich umsetzten.
 
 \subsection{Entscheidungsfindung}
-
 Die Entscheidung ist an diesem Punkt sehr einfach. Im rahmen dieser projektabreit entsteht der erste e antrioerb aus dem hause baltic racing. damit kommen enrom viele große heruasforderung. das heißt man sollte entweder die einfachste oder die nächst einfachste Lösung nehmen um am ende zu dem ziel des fahrenden autos zu kommen. Und da sich nur der emrax motor effektic für einen zwei rad antrieb eignet ist es der emrax motor gewotrden.
 
 \section{Wechselrichter}
 Der wechselrichter wird benötigt um den motor sauber anzusteuern. Ziel ist es aus gleichstrom aus dem akku einen Frequenz und amplituden regelbaren strom zu erzuegen mit dem der motor kontrolliert werden kann. Hier gibt es auch wieder diverse hersteller die im folgenden verglichen werden sollen
 
-!!!Tabelle!!!
+!!!Tabelle!!! mit daten
 
 \section{Kabelbaum} (zusammen mit Nico Bieberich)
 Die Entwicklung des Kabelbaumes erfolgt in der regel recht früh im entwicklungsprozess und zieht sich recht lange, da fast jede änderung an den elektrischen systemen auch eine änderung am kabelbaum nachsichzieht. Der kabelbaum lässt sich bei einem elektrofahrzeug iun mehrere funktionsgruppen unterteilen. Einmal haben wir den Datenbuss zur kommunikation der Steuergeräte im Fahrzeug. In unserem fall ist das ein CAN Bus. Dann den sogenannten Shudown circuit zur absicherung der systeme bzw. einleiten eines sicheren zusatendes in dem fall das ein fehler auftritt. Weiter gibt es die gruppe der Hochvolt kabel dies umfasst leistungsführende leiter für akku inerter und Motor als auch HV signalleiter für z.b. die TSMP. Dann haben wir noich die LVS Versorgung für alle systeme im Fahzeug. Dann gibt es den Sensor baum dieser umfasst die versorgungs als auch datenleitungten für jegliche sensorik im fahrzeug  Abschließend gibt es noch alles andere was sich nicht hierunter kategorisieren lässt. Dies umfasst z.b einzelne analoge oder digitale datenleitungeng wie z.b die Ethernet Leitung für den FSG Logger oder die Abzweigleitung des Bremsdruckes für das BSPD. Auf die einzelnen gruppen wird im folgenden detailiert eingegangen.\\
@@ -278,6 +278,144 @@ Die Entwicklung des Kabelbaumes erfolgt in der regel recht früh im entwicklungs
 Wichtige generelle Überlegungen beim Kabelbaum sind jegliche Maßnahmen die den Kabelstrang DAU sicher machen. Sprich verpolsichere steckverbinder Belegung der stecker so das ohne verpolschutz kein kapitalschaden eintritt. sauber logische farbcodierung sowohl der Kabel als wenn möglich auch der Steckverbinder sodass beim zusammenbau keine fehler gemacht werden und dies einheitliche am besten über jahre durchgängige durchgeführt.
 
 !!!Liste bzw. übersicht mit Steckverbindern belegungen und farbe!!!
+
+\begin{tabular}{|c|c|c|c|c|c|}
+	\hline
+	\multicolumn{6}{|c|}{Steckertypen} \\
+	\hline
+	Name & W2W/W2B & Montage & Sealed & Einsatzbereich & Pinanzahlen \\
+	\hline
+	Molex Micro Fit & both & Wire & no & HV/LV & 2-20 \\
+	\hline
+	Molex CMC/CMX & W2B & Panel & Yes & LV  & 28-154 \\
+	\hline
+	TE HD10/20/30 & both & both & Yes & HV/LV & 3-47 \\
+	\hline
+	Molex Mizu P 25 & W2W & Wire & Yes & LV & 2-4 \\
+	\hline
+	Binder Sub M9 & both & both & Yes & LV & 2-8 \\
+	\hline
+	Binder M12 Power & both & both & Yes & HV & 2-8 \\
+	\hline
+	Würth WRBHD2.54 & W2B & Wire & No & LV & 10 \\
+	\hline
+\end{tabular}
+
++-\begin{tabular}{|c|c|}
+	\hline
+	\multicolumn{2}{|c|}{Farbtabelle} \\
+	\hline
+	Farbe & Signal \\
+	\hline
+	\multicolumn{2}{|c|}{Kabel} \\
+	\hline
+	White & 24V \\
+	\hline
+	\cellcolor{brown} Brown & GND \\
+	\hline
+	\colorbox{brown}{brown} Green & CANH/Signal \\
+	\hline
+	Yellow & CANL/5V \\
+	\hline
+	\multicolumn{2}{|c|}{Leiter} \\
+	\hline
+	White & 24V \\
+	\hline
+	White Yellow & 5V \\
+	\hline
+	White Pink & 12V \\
+	\hline
+	White Red & 3V \\
+	\hline
+	Brown & GND \\
+	\hline
+	Green & CANH \\
+	\hline
+	Yellow & CANL \\
+	\hline
+	Blue & SDC \\
+	\hline
+	Blue Red & SDC\textsubscript{end} \\
+	\hline
+	Blue White & SDC\textsubscript{indicator} \\
+	\hline
+	Violett & Signal \\
+	\hline
+	\multicolumn{2}{|c|}{HV-Leiter} \\
+	\hline
+	Red & TSMP+/HV+ \\
+	\hline	
+	Black & TSMP-/HV- \\
+	\hline	
+	Blue & SDC \\
+	\hline	
+	\multicolumn{2}{|c|}{Mehrader} \\
+	Yellow & LAN \\
+	\hline	
+\end{tabular}
+
+\begin{tabularx}{8cm}{|c|c|}
+	\hline
+	\multicolumn{2}{|c|}{Farbtabelle} \\
+	\hline
+	Farbe & Signal \\
+	\hline
+	\multicolumn{2}{|c|}{Kabel} \\
+	\hline
+	White & 24V \\
+	\hline
+	\cellcolor{brown!30} Brown & GND \\
+	\hline
+	\multicolumn{1}{|@{}X@{}|}{\tikzmark[a]{Brown Green}} & CANH/Signal\\
+	\hline
+	\cellcolor{yellow!30} Yellow & CANL/5V \\
+	\hline
+	\multicolumn{2}{|c|}{Leiter} \\
+	\hline
+	White & 24V \\
+	\hline
+	\multicolumn{1}{|@{}X@{}|}{\tikzmark[b]{White Yellow}} & 5V\\
+	\hline
+	\multicolumn{1}{|@{}X@{}|}{\tikzmark[c]{White Pink}} & 12V\\
+	\hline
+	\multicolumn{1}{|@{}X@{}|}{\tikzmark[d]{White Red}} & 3V\\
+	\hline
+	\cellcolor{brown!30} Brown & GND \\
+	\hline	
+	\cellcolor{green!30} Green & CANH \\
+	\hline
+	\cellcolor{yellow!30} Yellow & CANL \\
+	\hline
+	\cellcolor{blue!30} Blue & SDC \\
+	\hline
+	\multicolumn{1}{|@{}X@{}|}{\tikzmark[e]{Blue Red}} & SDC\textsubscript{end} \\
+	\hline
+	\multicolumn{1}{|@{}X@{}|}{\tikzmark[f]{Blue White}} & SDC\textsubscript{indicator} \\
+	\hline
+	\cellcolor{violet!30} Voilet & Signal \\
+	\hline
+	
+\end{tabularx}
+
+\begin{tikzpicture}[remember picture,overlay]
+	\path[fill=brown,opacity=0.3](a.north west)--(a.south west) -- (a.south east) -- cycle;
+	\path[fill=green,opacity=0.3](a.north east)--(a.south east) -- (a.north west) -- cycle;
+	
+	\path[fill=white,opacity=0.3](b.north west)--(b.south west) -- (b.south east) -- cycle;
+	\path[fill=yellow,opacity=0.3](b.north east)--(b.south east) -- (b.north west) -- cycle;
+	
+	\path[fill=white,opacity=0.3](c.north west)--(c.south west) -- (c.south east) -- cycle;
+	\path[fill=pink,opacity=0.3](c.north east)--(c.south east) -- (c.north west) -- cycle;
+	
+	\path[fill=white,opacity=0.3](d.north west)--(d.south west) -- (d.south east) -- cycle;
+	\path[fill=red,opacity=0.3](d.north east)--(d.south east) -- (d.north west) -- cycle;
+		
+	\path[fill=blue,opacity=0.3](e.north west)--(e.south west) -- (e.south east) -- cycle;
+	\path[fill=red,opacity=0.3](e.north east)--(e.south east) -- (e.north west) -- cycle;
+	
+	\path[fill=blue,opacity=0.3](f.north west)--(f.south west) -- (f.south east) -- cycle;
+	\path[fill=white,opacity=0.3](f.north east)--(f.south east) -- (f.north west) -- cycle;
+\end{tikzpicture}
 
 Steckertypen:		
 Molex Micro Fit 	both 	Wire Mount	not sealed 	(HV)	2-20
@@ -307,7 +445,7 @@ Green CANH
 Yellow CANL
 Blue SDC
 BlueXred SDC\textsubscript{end}
-BlueXWhite \textsubscript{indicator} (geht nur wenn kabel nicht HV sein muss, sonst blaues HV Kabel)
+BlueXWhite SDC\textsubscript{indicator} (geht nur wenn kabel nicht HV sein muss, sonst blaues HV Kabel)
 Violett Sensor-Signal
 
 detakta HV kabel

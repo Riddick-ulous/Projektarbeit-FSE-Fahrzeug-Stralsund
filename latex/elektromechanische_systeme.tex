@@ -289,7 +289,7 @@ Wichtige generelle Überlegungen beim Kabelbaum sind jegliche Maßnahmen die den
 	\hline
 	Molex CMC/CMX & W2B & Panel & Yes & LV  & 28-154 \\
 	\hline
-	TE HD10/20/30 & both & both & Yes & HV/LV & 3-47 \\
+	TE HD10/20/30 & both & both & Yes & HV & 3-47 \\
 	\hline
 	Molex Mizu P 25 & W2W & Wire & Yes & LV & 2-4 \\
 	\hline
@@ -301,66 +301,14 @@ Wichtige generelle Überlegungen beim Kabelbaum sind jegliche Maßnahmen die den
 	\hline
 \end{tabular}
 
-+-\begin{tabular}{|c|c|}
-	\hline
-	\multicolumn{2}{|c|}{Farbtabelle} \\
-	\hline
-	Farbe & Signal \\
-	\hline
-	\multicolumn{2}{|c|}{Kabel} \\
-	\hline
-	White & 24V \\
-	\hline
-	\cellcolor{brown} Brown & GND \\
-	\hline
-	\colorbox{brown}{brown} Green & CANH/Signal \\
-	\hline
-	Yellow & CANL/5V \\
-	\hline
-	\multicolumn{2}{|c|}{Leiter} \\
-	\hline
-	White & 24V \\
-	\hline
-	White Yellow & 5V \\
-	\hline
-	White Pink & 12V \\
-	\hline
-	White Red & 3V \\
-	\hline
-	Brown & GND \\
-	\hline
-	Green & CANH \\
-	\hline
-	Yellow & CANL \\
-	\hline
-	Blue & SDC \\
-	\hline
-	Blue Red & SDC\textsubscript{end} \\
-	\hline
-	Blue White & SDC\textsubscript{indicator} \\
-	\hline
-	Violett & Signal \\
-	\hline
-	\multicolumn{2}{|c|}{HV-Leiter} \\
-	\hline
-	Red & TSMP+/HV+ \\
-	\hline	
-	Black & TSMP-/HV- \\
-	\hline	
-	Blue & SDC \\
-	\hline	
-	\multicolumn{2}{|c|}{Mehrader} \\
-	Yellow & LAN \\
-	\hline	
-\end{tabular}
-
+\begin{minipage}{8cm}
 \begin{tabularx}{8cm}{|c|c|}
 	\hline
-	\multicolumn{2}{|c|}{Farbtabelle} \\
+	\multicolumn{2}{|c|}{\textbf{\large {Farbtabelle}}} \\
 	\hline
 	Farbe & Signal \\
 	\hline
-	\multicolumn{2}{|c|}{Kabel} \\
+	\multicolumn{2}{|c|}{\textbf {Kabel}} \\
 	\hline
 	White & 24V \\
 	\hline
@@ -370,7 +318,8 @@ Wichtige generelle Überlegungen beim Kabelbaum sind jegliche Maßnahmen die den
 	\hline
 	\cellcolor{yellow!30} Yellow & CANL/5V \\
 	\hline
-	\multicolumn{2}{|c|}{Leiter} \\
+		\hline
+	\multicolumn{2}{|c|}{\textbf {Leiter}} \\
 	\hline
 	White & 24V \\
 	\hline
@@ -394,7 +343,20 @@ Wichtige generelle Überlegungen beim Kabelbaum sind jegliche Maßnahmen die den
 	\hline
 	\cellcolor{violet!30} Voilet & Signal \\
 	\hline
-	
+		\hline
+	\multicolumn{2}{|c|}{\textbf {HV-Leiter}} \\
+	\hline
+	\cellcolor{red!30} Red & TSMP+/HV+ \\
+	\hline
+	\cellcolor{black!30} Black & TSMP-/HV- \\
+	\hline
+	\cellcolor{blue!30} Blue & SDC \\
+	\hline
+		\hline
+	\multicolumn{2}{|c|}{\textbf {Mehrader}} \\
+	\hline
+	\cellcolor{yellow!30} Yellow & LAN \\
+	\hline
 \end{tabularx}
 
 \begin{tikzpicture}[remember picture,overlay]
@@ -409,87 +371,94 @@ Wichtige generelle Überlegungen beim Kabelbaum sind jegliche Maßnahmen die den
 	
 	\path[fill=white,opacity=0.3](d.north west)--(d.south west) -- (d.south east) -- cycle;
 	\path[fill=red,opacity=0.3](d.north east)--(d.south east) -- (d.north west) -- cycle;
-		
+	
 	\path[fill=blue,opacity=0.3](e.north west)--(e.south west) -- (e.south east) -- cycle;
 	\path[fill=red,opacity=0.3](e.north east)--(e.south east) -- (e.north west) -- cycle;
 	
 	\path[fill=blue,opacity=0.3](f.north west)--(f.south west) -- (f.south east) -- cycle;
 	\path[fill=white,opacity=0.3](f.north east)--(f.south east) -- (f.north west) -- cycle;
 \end{tikzpicture}
+\end{minipage}
 
-Steckertypen:		
-Molex Micro Fit 	both 	Wire Mount	not sealed 	(HV)	2-20
-Molex CMC/CMX 		W2B 	Panel Mount	Sealed 		(LV)	28-154
-TE HD10/20/30 		both 	both		sealed 		(HV)	3-47
-Molex Mizu P 25 	W2W 	Wire Mount	sealed 		(LV)	2-4
-Binder Sub M9 		both 	both		sealed 		(LV)	2-8
-Binder M12 Power	both	both		sealed		(HV) 	3-4
-Würth WRBHD2.54		W2B	Wire Mount	not sealed	(LV)	10
-Typ K Stecker
-RJ45 stecker
+\begin{minipage}{6cm}
+\begin{tabularx}{6cm}{|c|c|}
+	\hline
+	\multicolumn{2}{|c|}{\textbf{Mizu P25}} \\
+	\hline
+	\multicolumn{2}{|c|}{\cellcolor{black!30} CAN Schwarz 4Pin} \\
+	\hline
+	\cellcolor{brown!30} GND & 1 \\
+	\hline
+	\cellcolor{green!30} CANH & 2 \\
+	\hline
+	\cellcolor{white!30} 24V & 3 \\
+	\hline
+	\cellcolor{yellow!30} CANL & 4 \\
+	\hline
+		\hline
+	\multicolumn{2}{|c|}{\cellcolor{white!30} Sensor Weiß 4Pin} \\
+	\hline
+	\cellcolor{brown!30} GND & 1 \\
+	\hline
+	\cellcolor{yellow!30} 5V & 2 \\
+	\hline
+	\cellcolor{white!30} 24V & 3 \\
+	\hline
+	\cellcolor{green!30} Signal & 4 \\
+	\hline
+		\hline
+	\multicolumn{2}{|c|}{\cellcolor{black!30} SDC Schwarz 3Pin} \\
+	\hline
+	\cellcolor{blue!30} SD\textsubscript{in} & 1 \\
+	\hline
+	\cellcolor{blue!30} SD\textsubscript{out} & 2 \\
+	\hline
+	\multicolumn{1}{|@{}X@{}|}{\tikzmark[g]{SDC\textsubscript{indicator}}} & 3 \\
+	\hline
+		\hline
+	\multicolumn{2}{|c|}{\cellcolor{white!30} Servos Weiß 3Pin} \\
+	\hline
+	\cellcolor{yellow!30} Signal & 1 \\
+	\hline
+	\cellcolor{brown!30} GND & 2 \\
+	\hline
+	\cellcolor{red!30} 8.3V & 3 \\
+	\hline
+		\hline
+	\multicolumn{2}{|c|}{\cellcolor{white!30} Brakelight Weiß 3Pin} \\
+	\hline
+	\cellcolor{violet!30} Signal & 1 \\
+	\hline
+	\cellcolor{brown!30} GND & 2 \\
+	\hline
+	\cellcolor{red!30} 24V & 3 \\
+	\hline
+\end{tabularx}
 
-Kabel: (Igus Kabel!!)
-UNITRONIC FD P plus A, 0028660, 4x0.25
-White 24V
-Brown GND
-Green CANH / Signal
-Yellow CANL / 5V
+\begin{tikzpicture}[remember picture,overlay]
+ 	\path[fill=blue,opacity=0.3](g.north west)--(g.south west) -- (g.south east) -- cycle;
+	\path[fill=white,opacity=0.3](g.north east)--(g.south east) -- (g.north west) -- cycle;
+\end{tikzpicture}
 
-Bedia Farben:
-White 24V
-WhiteXGelb 5V
-WhiteXRosa 12V
-WhiteXRot 3V (Battery)
-Brown GND
-Green CANH
-Yellow CANL
-Blue SDC
-BlueXred SDC\textsubscript{end}
-BlueXWhite SDC\textsubscript{indicator} (geht nur wenn kabel nicht HV sein muss, sonst blaues HV Kabel)
-Violett Sensor-Signal
+\end{minipage}
 
-detakta HV kabel
-Red TSMP+ und HV+
-Black TSMP- HV-
-Blue SDC/Interlock/indication
+\begin{tabularx}{6cm}{|X|c|}
+	\hline
+	\multicolumn{2}{|c|}{\textbf{Binder SubM9}} \\
+	\hline
+	\multicolumn{2}{|c|}{\cellcolor{black!30} CAN 4Pin} \\
+	\hline
+	\cellcolor{brown!30} \centering{GND} & 1 \\
+	\hline
+	\cellcolor{green!30} \centering{CANH} & 2 \\
+	\hline
+	\cellcolor{white!30} \centering{24V} & 3 \\
+	\hline
+	\cellcolor{yellow!30} \centering{CANL} & 4 \\
+	\hline
+\end{tabularx}
 
-Coroflex 
-HV high power orange
-16 \& 25mm\^2
 
-Unitronoic LAN
-gelb
-
-Belegung mit MizuP25 Steckern
-Can Schwarz 4pin
-1 GND (Brown)
-2 CANH (Green)
-3 24V (White)
-4 CANL (Yellow)
-Sensoren Weiß 4pin 
-1 GND (Brown)
-2 5V (Yellow)
-3 24V (White)
-4 Signal (Green)
-Shutdown Schwarz 3Pin
-1 SD\textsubscript{in}
-2 SD\textsubscript{out}
-3 SD\textsubscript{LED}
-Servos weiß 3pin
-1 Signal (Gelb)
-2 GND (Braun)
-3 8,3V (Rot)
-Brakelight weiß 3pin
-1 Signal (Violett)
-2 GND (Brown)
-3 24V (White)
-
-Belegung Binder 4 Pin (noch zu überarbeiten)
-CAN
-1 GND
-2 CANH
-3 12V
-4 CANL
 
 Typk nur mit extra TypK Stecker
 

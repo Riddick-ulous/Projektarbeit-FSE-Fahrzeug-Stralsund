@@ -277,7 +277,7 @@ Die Entwicklung des Kabelbaumes erfolgt in der regel recht früh im entwicklungs
 \\
 Wichtige generelle Überlegungen beim Kabelbaum sind jegliche Maßnahmen die den Kabelstrang DAU sicher machen. Sprich verpolsichere steckverbinder Belegung der stecker so das ohne verpolschutz kein kapitalschaden eintritt. sauber logische farbcodierung sowohl der Kabel als wenn möglich auch der Steckverbinder sodass beim zusammenbau keine fehler gemacht werden und dies einheitliche am besten über jahre durchgängige durchgeführt.
 
-!!!Liste bzw. übersicht mit Steckverbindern belegungen und farbe!!!
+Verpolschutz, richtige pins auf heiß0er seite, etc. etwas mehr ausführen
 
 \begin{tabular}{|c|c|c|c|c|c|}
 	\hline
@@ -508,12 +508,12 @@ Für den DC Bus wurde das gleiche vorgehen angewandt. Hier bekommen wir den Stro
 
 \begin{figure}[h]
 	\center
-	\includegraphics[page=1,width=0.9\linewidth]{bilder/Tractive_System_Schematic_V4.pdf}
+	\includegraphics[page=1,width=1\linewidth]{bilder/Tractive_System_Schematic_V4.pdf}
 	\caption[Tractive System Schematic]{}
 	\label{fig:tractivesystemschematic1}
 	
 	\center
-	\includegraphics[page=2,width=0.9\linewidth,]{bilder/Tractive_System_Schematic_V4.pdf}
+	\includegraphics[page=2,width=1\linewidth,]{bilder/Tractive_System_Schematic_V4.pdf}
 	\caption[Tractive System Schematic]{}
 	\label{fig:tractivesystemschematic2}
 	\end{figure}
@@ -538,22 +538,36 @@ Die Sicherung muss stets der schwächste Teil eines Stromkreises sein. In diesem
 \end{figure}
 
 \subsection{Steckverbinder Auswahl}
-HV Stecker: Interlock, Trennung interlock vor HV
-Spannung und stromratings (AC/DC)
-zubehör: werkzeug, Pins, auspinnwerkzeug etc.
-Vertauschsicherheit
-heiße seite gut isoliert
+Paramter für die Steckverbinder auswahl sind analog zur Kabelauswahl, die betriebsspannung als auch der betriebsstrom. Für informationen hierzu bitte Kapitel xxx refernzieren. Die auswahl der Steckverbinder erfolgt im zuge des Systemdesigns wo die schnittstellen und die anforderungen an diese festgelegt wurden. Der gewählte steckverbdindcxer sollte über ausreichend plätze in der richtigen stärke verfügen um den anforderungen gerecht zu werden. Hierbei ist interessant welche pins man für die steckplätze bekommen kann. oft ist es so möglich so durch unterschieldich große steeckplätze die gleichen kabelquerschnitte zu bekommen. Da es selten steckverbinder gibt die genau zu dem vorliegenden system passen kann dies sehr nützlich sein um das einsetzten eines deutlich größeren und damit schwereren als auch teueren steckverbinder zu verhindern. Auch bei den pins gilt es stets die Stromratings zu beachten. Bei gerade solchen Kabel zu Kabel Verbindern die dazu dienen Kabel in ein Gehäuse zu führen ist es sinnvoll ein paar steckplätze im design frei zu lassen um es zu ermöglichen im nachinein einfach weitere kabel hinzuzufügen sollte dies später einmal notwendig werden. Auch führt das dazu das bei änderung am systemdesign die iunterfaces der Geräte potentiell gleich bleiben können was den test und aufbauprozess des fahrzeuges vereinfacht. 
+Bei der Auswahl der steckverbinder ist immer drauf zu achten das entsprechnedes Crimp als auch auspinn bzw. einpinnwerkzeug mit beschafft wird damit die Montage der Verbinder anschließend auch reibungsfrei klappt. Weiter ist auf zusätzliches kabelzubehör wie endkappen blindstecker staubschuzkappen usw. zu achten und mitzubeschaffen. Außerdem ist es üblich die gehäuse der steckverbinder und die Pins separat zu bestellen sodass auch hierdrauf geachtet werden muss. Gerade bei der beschaffung der Pins empfiehlt es sich mindestens um den faktor 1,5 mehr zu bestellen als benötigt da hier öfter ausschuss produziert wird. Auch die steckverbinder können beim Ein bzw. auspinnen kaputt gehen so das man hiervon ersatz vorhalten sollte. 
+Eine Besonderheit bei den HV steckern stellt die Interlockleitung dar. Ziel dieser Leitung ist es das HV system abzuschalten sobald ein steckverinder gezogen wird um eoinen elektrischen schlag durch berührenm der kontaklte im steckverinbder zu verhidnern. Hierbei handelt es sich meißt um ein oder zwei weitere Steckkontakte im HV Leiter wo Kabel mit deutlich geringerem Querschnitt angeschlossen werden können. Wichtig hierbei ist das diese interlock leitung aufgehen muiss bevor eine vollständige trennung des steckverbinder (HV Kontakte) erfolgt. 
 
 \subsection{HVD}
-Klassische service trennschalter aus dem normalen fahrzeug
-Modifizierung eines Steckverbinders (Kleiner leichter Günstiger)
+Der HVD befindet sich mittig am Heck des Fahrzeuges. Sinn dieses Steckverbinders ist es eine mechanische und damit elektrische Öffnung des HV Systems zwischen Akku und Inverter zu ermöglichen. Dies kann notwendig werden wenn z.b. die Relais im Akku den Dienst verweigern und damit eine Möglichkeit der Trennung der Motoren vom Betriebsstrom anderweitig nicht mehr möglich machen. Bei diesem Steckverbinder kann es sich entweder um dafür vorgesehene Service Trennschalter aus einem regulären Elektrofahrzeug handeln oder um modifizierte Steckverbinder welche auch für den Akku verwendet werden. Die modifizierten sind dabei in der regel kleiner leichter und günstiger.
 
+Bild. verschaltung im auto
 
 \subsection{AIR}
 Datenblatt werte, worauf muss ich achten
 Break Open Current
 
+Zeichnung zu diesem relai typ
+
+Die AIR`s haben es zum ziel das HV netz des akkus galvanisch vom restlichen fahrzeug zu trennen indem mit einem Relais HV+ und mit dem anderen Relais HV- geöffnet wird. Bei diesen Relais handelt es sich in der regel um, Single Pole Single Throw Normally Open Relais with Auxillary Contacts (SPST NO w AUX). Das heißt wir haben einen Steuerkreis und einen Lastkreis, im stromlosen zusatend ist der lastkreis geöffnet und wir haben einen vom Lastkreis getrennten Kreis welcher synchron zum lastkreis geschaltet wird und somit eine Überwachung des Schaltzustandes des Lastkreises ermöglicht. 
+Bei der Auswahl des Relais ist auf das spannungsrating als auch das Stromrating zu achten, aber auch auf die Schaltspannung sprich die spannung des steuerkreises. Weiter ist der schaltsrom ein interessantes kriterium, da es sich bei solch einer Relais spule um eine Induktive last handelt liegt ein recht hoher einschaltstrom vor welcher vom speisenden netzt getragen werden können muss, in unserem vom SDC. Für den TY22 wurde das DCNEV150-M von Littlefuse gewählt.
+
 \section{Ladesystem / Handcart} (zusammen mit Flo Irle)
 Charger Schematic erklären
 ladegerätauswahl (Ladeleistung)
+
+Das Handcart dient einerseits zum transport des akkus außerhalb des fahrzeuges als auch zum laden des Akkus. Die auswahl des ladegerätes beschränkte sich an der stelle auf ein gerät welches wir von der Firma Schulz elektronik kostenlos bekommen konnten. Hierbei ist dennoch zu beachten das dieses gerät die ladeschlussspannung erreichen kann sprich 600+ Volt abbilden können sollte, als auch über ein programmierbares steuerinterface verfügen sollte, so das eine automatisierte laderegelung ermöglicht wird. Weiter ist die leistung des gerätes interressant, mehr ist hierbei erstmal besser wobei 15Kw mehr als ausreichen sollten da hiermit ein 7,5KWh AKku in 30min geladen werden können sollte. mehr ist an der stelle vom Akku des Rennwagens mit dem aktuellen stand der Technik kaum zu erwarten. 
+Beim dem Design des handcartes ist sowohl in elektrischer als auch mechanischer hinsicht auf regelkonformität zu achetn. EInerseits gibt es reglementierung für die maximalen mechanischen abmaße als auch der einsatz einer totmannbremse. andererseits muss das handcart wie das fahrzeug über TSMP, IMD Licht uvm. verfügen. Besondere anforderung ist hierbei das beim laden der satus des akkus ausgegeben werden können muss. Heißt die Spannung als auch die temperatur der zellen muss anzeigbar sein. Dies ist beim TY22 über eine USB verbindung von einem Raspberry Pi zum AMS geplant. Der raspi ist dabei mit einem Touchdisplay ausgesattet und ermöglich so ausgabe der AMS daten als auch steuerung des ladevorganges. Zu guter letzt ist zu beachten das das ladegerät mit in den SDC eingebunden werden muss. Dies erfolgt beim Handcyrt für den TY22 über einen abgrif des SDC end dignales und eine hierüber erfolgende ansteuerung eines relais welche die interlock leitung des ladegerätes öffnet oder trennt. Ein trennen dieser leitung führt laut dastenbaltt zu einem unmittelbaren herunterfahren des ladegerätes.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=1\linewidth]{C:/Users/lukas/Desktop/Charger_Schematic_V3}
+	\caption{}
+	\label{fig:chargerschematicv3}
+\end{figure}
+
 

@@ -45,10 +45,6 @@ TSMP Wiederstände auslegung und steckverbidner plus kappen.
 \subsection{BSPD}
 
 VAC Sensorboard
-Visio funktionsblockzeichnung
-Implementierung der einzelnen funktionalen blöcke
-schmitt trigger
-integrator
 Logik
 \begin{figure}
 	\centering
@@ -59,7 +55,7 @@ Logik
 
 Die Aufgabe des BSPD ist es das Fahrzeug in dem Fall einer Störung des Gaspedales in einen Sicheren zustand zu überführen. Hierfür wird der Strom zu den Umrichtern als auch der Bremsdruck gemessen und beim eintreten eines im Regelwerk definierten schwellwertes für das gleichzeitige auftreten beider Signale muss das abschalten des Antriebes erfolgen. Das Folgende Blockdiagramm soll einen Überblick über den signalfluss ermöglichen.
 
-Bei den Eingangsignalen handelt es sich um analoge spannungen. Für Sigfnalaufbereitung oder auch Digitalisierung der Signale werden Schitds Trigger einbgesetzt, Die Logik besteht aus diversen Logikgattern und die Set/reset Schaltung besteht aus Integrator Schaltungen m it nachgeschaltetetn schmidt triggern. Beim Shutdowncircuit handelt es sich um ein Solid State Relay welches von der BSPD Logik schlussendlich angestuert werden soll, ein öffnen des Shutdwon circuit führt damnit zu einem Herunterfahren des Antriebes.
+Bei den Eingangsignalen handelt es sich um analoge spannungen. Für Sigfnalaufbereitung oder auch Digitalisierung der Signale werden Schitds Trigger einbgesetzt, Die Logik besteht aus diversen Logikgattern und die Set/reset Schaltung besteht aus RC Gliedern mit nachgeschaltetetn schmidt triggern. Beim Shutdowncircuit handelt es sich um ein Solid State Relay welches von der BSPD Logik schlussendlich angestuert werden soll, ein öffnen des Shutdwon circuit führt damnit zu einem Herunterfahren des Antriebes.
 
 Zur Auslegung von Schmidt Triggern
 \begin{figure}
@@ -80,7 +76,7 @@ Die Funktionsweise eines Schmitt Trigger kann anhand des Bildes erkannt werden. 
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{"bilder/nichtinvertierender Trigger"}
+	\includegraphics[width=0.5\linewidth]{"bilder/nichtinvertierender Trigger"}
 	\caption{}
 	\label{fig:nichtinvertierender-trigger}
 \end{figure}
@@ -121,10 +117,36 @@ Mit den folgenden Gleichungen lassen sich R\textsubscript{2} und R\textsubscript
 	R\textsubscript{4} = R\textsubscript{3} * \dfrac{\glsc{symb:VCC}-\glsc{symb:U_ref}} {\glsc{symb:U_ref}}
 \end{equation}
 
-Zur Auslegung von Integratoren
 
-Übersicht über die BSPD Logik
 
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{"bilder/BSPD Integrator"}
+	\caption{}
+	\label{fig:bspd-integrator}
+\end{figure}
+
+Zur Auslegung der Zeitsteuerung
+
+Die Zeitsteuerung besteht aus einem Kondensator C2 einer Diode D3 um Rückkopplung zu vermeiden, einem Spannungsfolger OP2 um die Schaltung von dem nachgeschalteten Schmitt Trigger zu entkoppeln und einem Transistor T3 der den Kondensator in kurzer Zeit bei Bedarf entladen kann. Die Auslegung erfolgt im Rahmen einer durch den Schmitt Trigger gewählte Schaltspannung. 
+
+Für die Berechnung ist die Ladezeit des Kondensators über den Wiederstand R20 bis zur Schalktspannung des Schmitt Triggers zu ermittlen.
+
+\begin{equation}
+	\label{eqn:Ladezeit Kondensator}
+	\glsc{symb:U_a}=\glsc{symb:U_e}*(1-\glsc{symb:e}^{\dfrac{1}{\glsc{symb:R}*\glsc{symb:C}}*\glsc{symb:t}})
+\end{equation}
+
+Das Sensorboard hat zum Zweck einen Stromsensor zu kreieren der ein Stromsignal von 0-100A in ein Spannungsignal von 0.5-4.5V über den Bereich von 0-10A zu erzeugen. Die 0.5V Offset haben zum ziel eine Kurzschlusserkennung auf Masse als auch auf Versorgung zu ermöglichen. Der relevante Messbereich von 0-10A entsteht aus den Regelwerksanforderungen die vorgeben das der Fehlerzustand bei einer abgerufenen Leistung größer 5kW eingestellt werden muss was bei 600V in einem Strom von 8,3A resultiert. Dieser Bereich muss möglichst robust ausgewertet werden können.
+
+Zur genauen Funktion, U1 ist ein Hall Effekt Stromsensor mit einem Übersetzungsfaktor von 1000. Heißt 10A ergeben 10mA Stromfluss am Ausgang. Der Widerstand R2 ist so gewählt das bei einem Strom von 10mA, 5V über den Widerstand abfallen und wir so in den Messbereich kommen. Der Widerstand R1 ermöglicht nun das konstante einspeisen von ca. 0,5V und die Diode das Begrenzen der max. Spannung auf 4,5V.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{"bilder/Sensorboard Schaltung"}
+	\caption{}
+	\label{fig:sensorboard-schaltung}
+\end{figure}
 
 \subsection{Discharge}
 PTC berechnung

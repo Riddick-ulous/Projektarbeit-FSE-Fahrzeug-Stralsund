@@ -29,100 +29,127 @@
 \glossaryentry{symboltau2?\glossentry{symb:tau2}|setentrycounter[]{page}"\glsnumberformat}{4}
 \glossaryentry{symboltau2?\glossentry{symb:tau2}|setentrycounter[]{page}"\glsnumberformat}{4}
 \glossaryentry{symboltel?\glossentry{symb:tel}|setentrycounter[]{page}"\glsnumberformat}{4}
-\glossaryentry{symbolE"\_kin?\glossentry{symb:E_kin}|setentrycounter[]{page}"\glsnumberformat}{11}
-\glossaryentry{symbolm?\glossentry{symb:m}|setentrycounter[]{page}"\glsnumberformat}{11}
-\glossaryentry{symbolv?\glossentry{symb:v}|setentrycounter[]{page}"\glsnumberformat}{11}
-\glossaryentry{symbolm?\glossentry{symb:m}|setentrycounter[]{page}"\glsnumberformat}{11}
-\glossaryentry{symbolv?\glossentry{symb:v}|setentrycounter[]{page}"\glsnumberformat}{11}
-\glossaryentry{symbolv?\glossentry{symb:v}|setentrycounter[]{page}"\glsnumberformat}{12}
-\glossaryentry{symbolE"\_kin?\glossentry{symb:E_kin}|setentrycounter[]{page}"\glsnumberformat}{12}
-\glossaryentry{symbolmu?\glossentry{symb:mu}|setentrycounter[]{page}"\glsnumberformat}{12}
-\glossaryentry{symbolT"\_celli+1?\glossentry{symb:T_celli+1}|setentrycounter[]{page}"\glsnumberformat}{17}
-\glossaryentry{symbolI"\_cell?\glossentry{symb:I_cell}|setentrycounter[]{page}"\glsnumberformat}{17}
-\glossaryentry{symbolR"\_cell?\glossentry{symb:R_cell}|setentrycounter[]{page}"\glsnumberformat}{17}
-\glossaryentry{symbolG"\_th?\glossentry{symb:G_th}|setentrycounter[]{page}"\glsnumberformat}{17}
-\glossaryentry{symbolT"\_celli?\glossentry{symb:T_celli}|setentrycounter[]{page}"\glsnumberformat}{17}
-\glossaryentry{symbolT"\_u?\glossentry{symb:T_u}|setentrycounter[]{page}"\glsnumberformat}{17}
-\glossaryentry{symbolG"\_r?\glossentry{symb:G_r}|setentrycounter[]{page}"\glsnumberformat}{17}
-\glossaryentry{symbolSBoltz?\glossentry{symb:SBoltz}|setentrycounter[]{page}"\glsnumberformat}{17}
-\glossaryentry{symbolT"\_celli?\glossentry{symb:T_celli}|setentrycounter[]{page}"\glsnumberformat}{17}
-\glossaryentry{symbolT"\_u?\glossentry{symb:T_u}|setentrycounter[]{page}"\glsnumberformat}{17}
-\glossaryentry{symbolC"\_B?\glossentry{symb:C_B}|setentrycounter[]{page}"\glsnumberformat}{17}
-\glossaryentry{symbolm"\_cell?\glossentry{symb:m_Cell}|setentrycounter[]{page}"\glsnumberformat}{17}
-\glossaryentry{symbolT"\_celli?\glossentry{symb:T_celli}|setentrycounter[]{page}"\glsnumberformat}{17}
-\glossaryentry{symbolAr?\glossentry{symb:A_r}|setentrycounter[]{page}"\glsnumberformat}{44}
-\glossaryentry{symbolAm?\glossentry{symb:A_m}|setentrycounter[]{page}"\glsnumberformat}{44}
-\glossaryentry{symbolQdotr?\glossentry{symb:Qdot_r}|setentrycounter[]{page}"\glsnumberformat}{44}
-\glossaryentry{symboldeltaTeinr?\glossentry{symb:deltaT_ein r}|setentrycounter[]{page}"\glsnumberformat}{44}
-\glossaryentry{symbolQdotm?\glossentry{symb:Qdot_m}|setentrycounter[]{page}"\glsnumberformat}{44}
-\glossaryentry{symboldeltaTeinm?\glossentry{symb:deltaT_ein m}|setentrycounter[]{page}"\glsnumberformat}{44}
-\glossaryentry{symbolAr?\glossentry{symb:A_r}|setentrycounter[]{page}"\glsnumberformat}{44}
-\glossaryentry{symbolQdotr?\glossentry{symb:Qdot_r}|setentrycounter[]{page}"\glsnumberformat}{44}
-\glossaryentry{symbolQdotr?\glossentry{symb:Qdot_r}|setentrycounter[]{page}"\glsnumberformat}{44}
-\glossaryentry{symbolCvwasser?\glossentry{symb:Cv_wasser}|setentrycounter[]{page}"\glsnumberformat}{44}
-\glossaryentry{symbolVdotwasser?\glossentry{symb:Vdot_wasser}|setentrycounter[]{page}"\glsnumberformat}{44}
-\glossaryentry{symbolrhowasser?\glossentry{symb:rho_wasser}|setentrycounter[]{page}"\glsnumberformat}{44}
-\glossaryentry{symbolteinwasser?\glossentry{symb:t_ein Wasser}|setentrycounter[]{page}"\glsnumberformat}{44}
-\glossaryentry{symboltauswasser?\glossentry{symb:t_aus Wasser}|setentrycounter[]{page}"\glsnumberformat}{44}
-\glossaryentry{symbolQdotm?\glossentry{symb:Qdot_m}|setentrycounter[]{page}"\glsnumberformat}{44}
-\glossaryentry{symboldeltaTeinm?\glossentry{symb:deltaT_ein m}|setentrycounter[]{page}"\glsnumberformat}{45}
-\glossaryentry{symbolAm?\glossentry{symb:A_m}|setentrycounter[]{page}"\glsnumberformat}{45}
-\glossaryentry{symbolAm?\glossentry{symb:A_m}|setentrycounter[]{page}"\glsnumberformat}{45}
-\glossaryentry{symbolAr?\glossentry{symb:A_r}|setentrycounter[]{page}"\glsnumberformat}{45}
-\glossaryentry{symbolQdotm?\glossentry{symb:Qdot_m}|setentrycounter[]{page}"\glsnumberformat}{45}
-\glossaryentry{symboldeltaTeinm?\glossentry{symb:deltaT_ein m}|setentrycounter[]{page}"\glsnumberformat}{45}
-\glossaryentry{symbolQdotr?\glossentry{symb:Qdot_r}|setentrycounter[]{page}"\glsnumberformat}{45}
-\glossaryentry{symboldeltaTeinr?\glossentry{symb:deltaT_ein r}|setentrycounter[]{page}"\glsnumberformat}{45}
-\glossaryentry{symbolAr?\glossentry{symb:A_r}|setentrycounter[]{page}"\glsnumberformat}{45}
-\glossaryentry{symbolteinwasser?\glossentry{symb:t_ein Wasser}|setentrycounter[]{page}"\glsnumberformat}{45}
-\glossaryentry{symboltauswasser?\glossentry{symb:t_aus Wasser}|setentrycounter[]{page}"\glsnumberformat}{45}
-\glossaryentry{symbolrhowasser?\glossentry{symb:rho_wasser}|setentrycounter[]{page}"\glsnumberformat}{45}
-\glossaryentry{symbolVdotwasser?\glossentry{symb:Vdot_wasser}|setentrycounter[]{page}"\glsnumberformat}{45}
-\glossaryentry{symbolCvwasser?\glossentry{symb:Cv_wasser}|setentrycounter[]{page}"\glsnumberformat}{45}
-\glossaryentry{symboldeltaTeinr?\glossentry{symb:deltaT_ein r}|setentrycounter[]{page}"\glsnumberformat}{45}
-\glossaryentry{symboldeltaTeinm?\glossentry{symb:deltaT_ein m}|setentrycounter[]{page}"\glsnumberformat}{45}
-\glossaryentry{symbolQdotm?\glossentry{symb:Qdot_m}|setentrycounter[]{page}"\glsnumberformat}{45}
-\glossaryentry{symbolQdotr?\glossentry{symb:Qdot_r}|setentrycounter[]{page}"\glsnumberformat}{45}
-\glossaryentry{symbolAm?\glossentry{symb:A_m}|setentrycounter[]{page}"\glsnumberformat}{45}
-\glossaryentry{symbolSchubkraft?\glossentry{symb:F_Schub}|setentrycounter[]{page}"\glsnumberformat}{46}
-\glossaryentry{symbolmdotLuft?\glossentry{symb:mdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{46}
-\glossaryentry{symbolvLuft?\glossentry{symb:v_Luft}|setentrycounter[]{page}"\glsnumberformat}{46}
-\glossaryentry{symbolmdotLuft?\glossentry{symb:mdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{46}
-\glossaryentry{symbolVdotLuft?\glossentry{symb:Vdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{46}
-\glossaryentry{symbolLuft?\glossentry{symb:rho_Luft}|setentrycounter[]{page}"\glsnumberformat}{46}
-\glossaryentry{symbolVdotLuft?\glossentry{symb:Vdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{46}
-\glossaryentry{symbolPropellerfläche?\glossentry{symb:A_Prop}|setentrycounter[]{page}"\glsnumberformat}{46}
-\glossaryentry{symbolvLuft?\glossentry{symb:v_Luft}|setentrycounter[]{page}"\glsnumberformat}{46}
-\glossaryentry{symbolvLuft?\glossentry{symb:v_Luft}|setentrycounter[]{page}"\glsnumberformat}{46}
-\glossaryentry{symbolSchubkraft?\glossentry{symb:F_Schub}|setentrycounter[]{page}"\glsnumberformat}{46}
-\glossaryentry{symbolPropellerfläche?\glossentry{symb:A_Prop}|setentrycounter[]{page}"\glsnumberformat}{46}
-\glossaryentry{symbolLuft?\glossentry{symb:rho_Luft}|setentrycounter[]{page}"\glsnumberformat}{46}
-\glossaryentry{symbolPLuft?\glossentry{symb:P_Luft}|setentrycounter[]{page}"\glsnumberformat}{46}
-\glossaryentry{symbolmdotLuft?\glossentry{symb:mdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{46}
-\glossaryentry{symbolvLuft?\glossentry{symb:v_Luft}|setentrycounter[]{page}"\glsnumberformat}{46}
-\glossaryentry{symboletaLüfter?\glossentry{symb:eta_Lüfter}|setentrycounter[]{page}"\glsnumberformat}{46}
-\glossaryentry{symbolPLuft?\glossentry{symb:P_Luft}|setentrycounter[]{page}"\glsnumberformat}{46}
-\glossaryentry{symbolPelektrisch?\glossentry{symb:P_elektrisch}|setentrycounter[]{page}"\glsnumberformat}{46}
-\glossaryentry{symbolPropellerfläche?\glossentry{symb:A_Prop}|setentrycounter[]{page}"\glsnumberformat}{47}
-\glossaryentry{symbolSchubkraft?\glossentry{symb:F_Schub}|setentrycounter[]{page}"\glsnumberformat}{47}
-\glossaryentry{symbolPelektrisch?\glossentry{symb:P_elektrisch}|setentrycounter[]{page}"\glsnumberformat}{47}
-\glossaryentry{symbolLuft?\glossentry{symb:rho_Luft}|setentrycounter[]{page}"\glsnumberformat}{47}
-\glossaryentry{symbolvLuft?\glossentry{symb:v_Luft}|setentrycounter[]{page}"\glsnumberformat}{47}
-\glossaryentry{symbolmdotLuft?\glossentry{symb:mdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{47}
-\glossaryentry{symbolVdotLuft?\glossentry{symb:Vdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{47}
-\glossaryentry{symbolPLuft?\glossentry{symb:P_Luft}|setentrycounter[]{page}"\glsnumberformat}{47}
-\glossaryentry{symboletaLüfter?\glossentry{symb:eta_Lüfter}|setentrycounter[]{page}"\glsnumberformat}{47}
-\glossaryentry{symbolvLuft?\glossentry{symb:v_Luft}|setentrycounter[]{page}"\glsnumberformat}{47}
-\glossaryentry{symbolPelektrisch?\glossentry{symb:P_elektrisch}|setentrycounter[]{page}"\glsnumberformat}{47}
-\glossaryentry{symbolvLuft?\glossentry{symb:v_Luft}|setentrycounter[]{page}"\glsnumberformat}{47}
-\glossaryentry{symbolPelektrisch?\glossentry{symb:P_elektrisch}|setentrycounter[]{page}"\glsnumberformat}{47}
-\glossaryentry{symbolvLuft?\glossentry{symb:v_Luft}|setentrycounter[]{page}"\glsnumberformat}{47}
-\glossaryentry{symbolVdotLuft?\glossentry{symb:Vdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{47}
-\glossaryentry{symbolmdotLuft?\glossentry{symb:mdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{47}
-\glossaryentry{symbolPLuft?\glossentry{symb:P_Luft}|setentrycounter[]{page}"\glsnumberformat}{47}
-\glossaryentry{symboletaLüfter?\glossentry{symb:eta_Lüfter}|setentrycounter[]{page}"\glsnumberformat}{47}
-\glossaryentry{symbolvLuft?\glossentry{symb:v_Luft}|setentrycounter[]{page}"\glsnumberformat}{47}
-\glossaryentry{symbolVdotLuft?\glossentry{symb:Vdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{47}
-\glossaryentry{symbolmdotLuft?\glossentry{symb:mdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{47}
-\glossaryentry{symbolPLuft?\glossentry{symb:P_Luft}|setentrycounter[]{page}"\glsnumberformat}{47}
-\glossaryentry{symboletaLüfter?\glossentry{symb:eta_Lüfter}|setentrycounter[]{page}"\glsnumberformat}{47}
+\glossaryentry{symbolUHA?\glossentry{symb:U_HA}|setentrycounter[]{page}"\glsnumberformat}{10}
+\glossaryentry{symbolULA?\glossentry{symb:U_LA}|setentrycounter[]{page}"\glsnumberformat}{10}
+\glossaryentry{symbolUH?\glossentry{symb:U_H}|setentrycounter[]{page}"\glsnumberformat}{10}
+\glossaryentry{symbolUL?\glossentry{symb:U_L}|setentrycounter[]{page}"\glsnumberformat}{10}
+\glossaryentry{symbolUH?\glossentry{symb:U_H}|setentrycounter[]{page}"\glsnumberformat}{13}
+\glossaryentry{symbolUref?\glossentry{symb:U_ref}|setentrycounter[]{page}"\glsnumberformat}{13}
+\glossaryentry{symbolUHA?\glossentry{symb:U_HA}|setentrycounter[]{page}"\glsnumberformat}{13}
+\glossaryentry{symbolUref?\glossentry{symb:U_ref}|setentrycounter[]{page}"\glsnumberformat}{13}
+\glossaryentry{symbolUL?\glossentry{symb:U_L}|setentrycounter[]{page}"\glsnumberformat}{13}
+\glossaryentry{symbolUref?\glossentry{symb:U_ref}|setentrycounter[]{page}"\glsnumberformat}{13}
+\glossaryentry{symbolUref?\glossentry{symb:U_ref}|setentrycounter[]{page}"\glsnumberformat}{13}
+\glossaryentry{symbolUHA?\glossentry{symb:U_HA}|setentrycounter[]{page}"\glsnumberformat}{13}
+\glossaryentry{symbolUHA?\glossentry{symb:U_HA}|setentrycounter[]{page}"\glsnumberformat}{13}
+\glossaryentry{symbolULA?\glossentry{symb:U_LA}|setentrycounter[]{page}"\glsnumberformat}{13}
+\glossaryentry{symbolUH?\glossentry{symb:U_H}|setentrycounter[]{page}"\glsnumberformat}{13}
+\glossaryentry{symbolUL?\glossentry{symb:U_L}|setentrycounter[]{page}"\glsnumberformat}{13}
+\glossaryentry{symbolUHA?\glossentry{symb:U_HA}|setentrycounter[]{page}"\glsnumberformat}{13}
+\glossaryentry{symbolULA?\glossentry{symb:U_LA}|setentrycounter[]{page}"\glsnumberformat}{13}
+\glossaryentry{symbolUH?\glossentry{symb:U_H}|setentrycounter[]{page}"\glsnumberformat}{13}
+\glossaryentry{symbolUL?\glossentry{symb:U_L}|setentrycounter[]{page}"\glsnumberformat}{13}
+\glossaryentry{symbolUref?\glossentry{symb:U_ref}|setentrycounter[]{page}"\glsnumberformat}{13}
+\glossaryentry{symbolUH?\glossentry{symb:U_H}|setentrycounter[]{page}"\glsnumberformat}{13}
+\glossaryentry{symbolULA?\glossentry{symb:U_LA}|setentrycounter[]{page}"\glsnumberformat}{13}
+\glossaryentry{symbolULA?\glossentry{symb:U_LA}|setentrycounter[]{page}"\glsnumberformat}{13}
+\glossaryentry{symbolVCC?\glossentry{symb:VCC}|setentrycounter[]{page}"\glsnumberformat}{13}
+\glossaryentry{symbolUref?\glossentry{symb:U_ref}|setentrycounter[]{page}"\glsnumberformat}{13}
+\glossaryentry{symbolUref?\glossentry{symb:U_ref}|setentrycounter[]{page}"\glsnumberformat}{13}
+\glossaryentry{symbolE"\_kin?\glossentry{symb:E_kin}|setentrycounter[]{page}"\glsnumberformat}{14}
+\glossaryentry{symbolm?\glossentry{symb:m}|setentrycounter[]{page}"\glsnumberformat}{14}
+\glossaryentry{symbolv?\glossentry{symb:v}|setentrycounter[]{page}"\glsnumberformat}{14}
+\glossaryentry{symbolm?\glossentry{symb:m}|setentrycounter[]{page}"\glsnumberformat}{14}
+\glossaryentry{symbolv?\glossentry{symb:v}|setentrycounter[]{page}"\glsnumberformat}{14}
+\glossaryentry{symbolv?\glossentry{symb:v}|setentrycounter[]{page}"\glsnumberformat}{15}
+\glossaryentry{symbolE"\_kin?\glossentry{symb:E_kin}|setentrycounter[]{page}"\glsnumberformat}{15}
+\glossaryentry{symbolmu?\glossentry{symb:mu}|setentrycounter[]{page}"\glsnumberformat}{15}
+\glossaryentry{symbolT"\_celli+1?\glossentry{symb:T_celli+1}|setentrycounter[]{page}"\glsnumberformat}{20}
+\glossaryentry{symbolI"\_cell?\glossentry{symb:I_cell}|setentrycounter[]{page}"\glsnumberformat}{20}
+\glossaryentry{symbolR"\_cell?\glossentry{symb:R_cell}|setentrycounter[]{page}"\glsnumberformat}{20}
+\glossaryentry{symbolG"\_th?\glossentry{symb:G_th}|setentrycounter[]{page}"\glsnumberformat}{20}
+\glossaryentry{symbolT"\_celli?\glossentry{symb:T_celli}|setentrycounter[]{page}"\glsnumberformat}{20}
+\glossaryentry{symbolT"\_u?\glossentry{symb:T_u}|setentrycounter[]{page}"\glsnumberformat}{20}
+\glossaryentry{symbolG"\_r?\glossentry{symb:G_r}|setentrycounter[]{page}"\glsnumberformat}{20}
+\glossaryentry{symbolSBoltz?\glossentry{symb:SBoltz}|setentrycounter[]{page}"\glsnumberformat}{20}
+\glossaryentry{symbolT"\_celli?\glossentry{symb:T_celli}|setentrycounter[]{page}"\glsnumberformat}{20}
+\glossaryentry{symbolT"\_u?\glossentry{symb:T_u}|setentrycounter[]{page}"\glsnumberformat}{20}
+\glossaryentry{symbolC"\_B?\glossentry{symb:C_B}|setentrycounter[]{page}"\glsnumberformat}{20}
+\glossaryentry{symbolm"\_cell?\glossentry{symb:m_Cell}|setentrycounter[]{page}"\glsnumberformat}{20}
+\glossaryentry{symbolT"\_celli?\glossentry{symb:T_celli}|setentrycounter[]{page}"\glsnumberformat}{20}
+\glossaryentry{symbolAr?\glossentry{symb:A_r}|setentrycounter[]{page}"\glsnumberformat}{47}
+\glossaryentry{symbolAm?\glossentry{symb:A_m}|setentrycounter[]{page}"\glsnumberformat}{47}
+\glossaryentry{symbolQdotr?\glossentry{symb:Qdot_r}|setentrycounter[]{page}"\glsnumberformat}{47}
+\glossaryentry{symboldeltaTeinr?\glossentry{symb:deltaT_ein r}|setentrycounter[]{page}"\glsnumberformat}{47}
+\glossaryentry{symbolQdotm?\glossentry{symb:Qdot_m}|setentrycounter[]{page}"\glsnumberformat}{47}
+\glossaryentry{symboldeltaTeinm?\glossentry{symb:deltaT_ein m}|setentrycounter[]{page}"\glsnumberformat}{47}
+\glossaryentry{symbolAr?\glossentry{symb:A_r}|setentrycounter[]{page}"\glsnumberformat}{47}
+\glossaryentry{symbolQdotr?\glossentry{symb:Qdot_r}|setentrycounter[]{page}"\glsnumberformat}{47}
+\glossaryentry{symbolQdotr?\glossentry{symb:Qdot_r}|setentrycounter[]{page}"\glsnumberformat}{47}
+\glossaryentry{symbolCvwasser?\glossentry{symb:Cv_wasser}|setentrycounter[]{page}"\glsnumberformat}{47}
+\glossaryentry{symbolVdotwasser?\glossentry{symb:Vdot_wasser}|setentrycounter[]{page}"\glsnumberformat}{47}
+\glossaryentry{symbolrhowasser?\glossentry{symb:rho_wasser}|setentrycounter[]{page}"\glsnumberformat}{47}
+\glossaryentry{symbolteinwasser?\glossentry{symb:t_ein Wasser}|setentrycounter[]{page}"\glsnumberformat}{47}
+\glossaryentry{symboltauswasser?\glossentry{symb:t_aus Wasser}|setentrycounter[]{page}"\glsnumberformat}{47}
+\glossaryentry{symbolQdotm?\glossentry{symb:Qdot_m}|setentrycounter[]{page}"\glsnumberformat}{47}
+\glossaryentry{symboldeltaTeinm?\glossentry{symb:deltaT_ein m}|setentrycounter[]{page}"\glsnumberformat}{48}
+\glossaryentry{symbolAm?\glossentry{symb:A_m}|setentrycounter[]{page}"\glsnumberformat}{48}
+\glossaryentry{symbolAm?\glossentry{symb:A_m}|setentrycounter[]{page}"\glsnumberformat}{48}
+\glossaryentry{symbolAr?\glossentry{symb:A_r}|setentrycounter[]{page}"\glsnumberformat}{48}
+\glossaryentry{symbolQdotm?\glossentry{symb:Qdot_m}|setentrycounter[]{page}"\glsnumberformat}{48}
+\glossaryentry{symboldeltaTeinm?\glossentry{symb:deltaT_ein m}|setentrycounter[]{page}"\glsnumberformat}{48}
+\glossaryentry{symbolQdotr?\glossentry{symb:Qdot_r}|setentrycounter[]{page}"\glsnumberformat}{48}
+\glossaryentry{symboldeltaTeinr?\glossentry{symb:deltaT_ein r}|setentrycounter[]{page}"\glsnumberformat}{48}
+\glossaryentry{symbolAr?\glossentry{symb:A_r}|setentrycounter[]{page}"\glsnumberformat}{48}
+\glossaryentry{symbolteinwasser?\glossentry{symb:t_ein Wasser}|setentrycounter[]{page}"\glsnumberformat}{48}
+\glossaryentry{symboltauswasser?\glossentry{symb:t_aus Wasser}|setentrycounter[]{page}"\glsnumberformat}{48}
+\glossaryentry{symbolrhowasser?\glossentry{symb:rho_wasser}|setentrycounter[]{page}"\glsnumberformat}{48}
+\glossaryentry{symbolVdotwasser?\glossentry{symb:Vdot_wasser}|setentrycounter[]{page}"\glsnumberformat}{48}
+\glossaryentry{symbolCvwasser?\glossentry{symb:Cv_wasser}|setentrycounter[]{page}"\glsnumberformat}{48}
+\glossaryentry{symboldeltaTeinr?\glossentry{symb:deltaT_ein r}|setentrycounter[]{page}"\glsnumberformat}{48}
+\glossaryentry{symboldeltaTeinm?\glossentry{symb:deltaT_ein m}|setentrycounter[]{page}"\glsnumberformat}{48}
+\glossaryentry{symbolQdotm?\glossentry{symb:Qdot_m}|setentrycounter[]{page}"\glsnumberformat}{48}
+\glossaryentry{symbolQdotr?\glossentry{symb:Qdot_r}|setentrycounter[]{page}"\glsnumberformat}{48}
+\glossaryentry{symbolAm?\glossentry{symb:A_m}|setentrycounter[]{page}"\glsnumberformat}{48}
+\glossaryentry{symbolSchubkraft?\glossentry{symb:F_Schub}|setentrycounter[]{page}"\glsnumberformat}{49}
+\glossaryentry{symbolmdotLuft?\glossentry{symb:mdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{49}
+\glossaryentry{symbolvLuft?\glossentry{symb:v_Luft}|setentrycounter[]{page}"\glsnumberformat}{49}
+\glossaryentry{symbolmdotLuft?\glossentry{symb:mdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{49}
+\glossaryentry{symbolVdotLuft?\glossentry{symb:Vdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{49}
+\glossaryentry{symbolLuft?\glossentry{symb:rho_Luft}|setentrycounter[]{page}"\glsnumberformat}{49}
+\glossaryentry{symbolVdotLuft?\glossentry{symb:Vdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{49}
+\glossaryentry{symbolPropellerfläche?\glossentry{symb:A_Prop}|setentrycounter[]{page}"\glsnumberformat}{49}
+\glossaryentry{symbolvLuft?\glossentry{symb:v_Luft}|setentrycounter[]{page}"\glsnumberformat}{49}
+\glossaryentry{symbolvLuft?\glossentry{symb:v_Luft}|setentrycounter[]{page}"\glsnumberformat}{49}
+\glossaryentry{symbolSchubkraft?\glossentry{symb:F_Schub}|setentrycounter[]{page}"\glsnumberformat}{49}
+\glossaryentry{symbolPropellerfläche?\glossentry{symb:A_Prop}|setentrycounter[]{page}"\glsnumberformat}{49}
+\glossaryentry{symbolLuft?\glossentry{symb:rho_Luft}|setentrycounter[]{page}"\glsnumberformat}{49}
+\glossaryentry{symbolPLuft?\glossentry{symb:P_Luft}|setentrycounter[]{page}"\glsnumberformat}{49}
+\glossaryentry{symbolmdotLuft?\glossentry{symb:mdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{49}
+\glossaryentry{symbolvLuft?\glossentry{symb:v_Luft}|setentrycounter[]{page}"\glsnumberformat}{49}
+\glossaryentry{symboletaLüfter?\glossentry{symb:eta_Lüfter}|setentrycounter[]{page}"\glsnumberformat}{49}
+\glossaryentry{symbolPLuft?\glossentry{symb:P_Luft}|setentrycounter[]{page}"\glsnumberformat}{49}
+\glossaryentry{symbolPelektrisch?\glossentry{symb:P_elektrisch}|setentrycounter[]{page}"\glsnumberformat}{49}
+\glossaryentry{symbolPropellerfläche?\glossentry{symb:A_Prop}|setentrycounter[]{page}"\glsnumberformat}{50}
+\glossaryentry{symbolSchubkraft?\glossentry{symb:F_Schub}|setentrycounter[]{page}"\glsnumberformat}{50}
+\glossaryentry{symbolPelektrisch?\glossentry{symb:P_elektrisch}|setentrycounter[]{page}"\glsnumberformat}{50}
+\glossaryentry{symbolLuft?\glossentry{symb:rho_Luft}|setentrycounter[]{page}"\glsnumberformat}{50}
+\glossaryentry{symbolvLuft?\glossentry{symb:v_Luft}|setentrycounter[]{page}"\glsnumberformat}{50}
+\glossaryentry{symbolmdotLuft?\glossentry{symb:mdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{50}
+\glossaryentry{symbolVdotLuft?\glossentry{symb:Vdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{50}
+\glossaryentry{symbolPLuft?\glossentry{symb:P_Luft}|setentrycounter[]{page}"\glsnumberformat}{50}
+\glossaryentry{symboletaLüfter?\glossentry{symb:eta_Lüfter}|setentrycounter[]{page}"\glsnumberformat}{50}
+\glossaryentry{symbolvLuft?\glossentry{symb:v_Luft}|setentrycounter[]{page}"\glsnumberformat}{50}
+\glossaryentry{symbolPelektrisch?\glossentry{symb:P_elektrisch}|setentrycounter[]{page}"\glsnumberformat}{50}
+\glossaryentry{symbolvLuft?\glossentry{symb:v_Luft}|setentrycounter[]{page}"\glsnumberformat}{50}
+\glossaryentry{symbolPelektrisch?\glossentry{symb:P_elektrisch}|setentrycounter[]{page}"\glsnumberformat}{50}
+\glossaryentry{symbolvLuft?\glossentry{symb:v_Luft}|setentrycounter[]{page}"\glsnumberformat}{50}
+\glossaryentry{symbolVdotLuft?\glossentry{symb:Vdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{50}
+\glossaryentry{symbolmdotLuft?\glossentry{symb:mdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{50}
+\glossaryentry{symbolPLuft?\glossentry{symb:P_Luft}|setentrycounter[]{page}"\glsnumberformat}{50}
+\glossaryentry{symboletaLüfter?\glossentry{symb:eta_Lüfter}|setentrycounter[]{page}"\glsnumberformat}{50}
+\glossaryentry{symbolvLuft?\glossentry{symb:v_Luft}|setentrycounter[]{page}"\glsnumberformat}{50}
+\glossaryentry{symbolVdotLuft?\glossentry{symb:Vdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{50}
+\glossaryentry{symbolmdotLuft?\glossentry{symb:mdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{50}
+\glossaryentry{symbolPLuft?\glossentry{symb:P_Luft}|setentrycounter[]{page}"\glsnumberformat}{50}
+\glossaryentry{symboletaLüfter?\glossentry{symb:eta_Lüfter}|setentrycounter[]{page}"\glsnumberformat}{50}

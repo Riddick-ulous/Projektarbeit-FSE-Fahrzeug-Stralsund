@@ -40,7 +40,51 @@ Teilberechnungen erklären
 \section{HV Distribution}
 
 \subsection{TSMP}
-TSMP Wiederstände auslegung und steckverbidner plus kappen.
+Die Tractive System Measuring Points befinden sich seitlich am Fahrzeug wo auch der Hauptschalter zu finden ist. Sie stellen eine genormte Schnittstelle dar um mit einem Duspol, oder Multimeter an die Spannung des Tractive Systems gelangen zu können. Hierbei müssen laut Regelwerk geschirmte Bananenstecker eingesetzt werden. Weiter muss für die Buchsen am Fahrzeug eine Abdeckkappe oder Blindstecker vorgesehen werden. Zur Absicherung der TSMP müssen diese mit Widerständen in reihe an den HV Kreis angebunden werden. Das Regelwerk sieht hierbei in unserem Spannungsbereich 15k$\Omega$ vor. Der Kritische wert wonach die TSMP ausgelegt werden müssen ist das Leistungsrating, da diese auf kontinuierlichen Kurzschluss ausgelegt sein müssen.
+
+Eine Formel zu Berechnung der Leistung am Widerstand ist folgende
+
+\begin{equation}
+	\label{eqn:Leistung am Wiederstand}
+	\glsc{symb:P_elektrisch} = \glsc{symb:I}^{2} * \glsc{symb:R}
+\end{equation}
+
+Der Strom errechnet sich aus.
+
+\begin{equation}
+	\label{eqn:URI}
+	\glsc{symb:U} = \glsc{symb:R}^{2} * \glsc{symb:I}
+\end{equation}
+
+Umgestellt nach I.
+
+\begin{equation}
+	\label{eqn:IUR}
+	\glsc{symb:I} = \dfrac{\glsc{symb:U}} {\glsc{symb:R}}
+\end{equation}
+
+Da im Kurzschlussfall die Spannung über beide Widerstände anliegt, verdoppelt sich der Widerstand.
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\multicolumn{3}{|c|}{Eingangsparameter} \\
+		\hline
+		\glsc{symb:R} & 15 & \ensuremath{k\Omega} \\
+		\hline
+		\glsc{symb:U} & 600 & \ensuremath{V} \\
+		\hline
+		\multicolumn{3}{|c|}{Ergebnisse} \\
+		\hline
+		\glsc{symb:I} & 20 & \ensuremath{mA} \\
+		\hline
+		\glsc{symb:P_elektrisch} & 12 & \ensuremath{W} \\
+		\hline
+	\end{tabular}
+\end{table}
+
+Daraus schlussfolgert sich das die 15k$\Omega$ Widerstände mit einem Leistungsrating von mindestens 12 W benötigt werden.
 
 \subsection{BSPD}
 
@@ -117,8 +161,6 @@ Mit den folgenden Gleichungen lassen sich R\textsubscript{2} und R\textsubscript
 	R\textsubscript{4} = R\textsubscript{3} * \dfrac{\glsc{symb:VCC}-\glsc{symb:U_ref}} {\glsc{symb:U_ref}}
 \end{equation}
 
-
-
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{"bilder/BSPD Integrator"}
@@ -128,16 +170,42 @@ Mit den folgenden Gleichungen lassen sich R\textsubscript{2} und R\textsubscript
 
 Zur Auslegung der Zeitsteuerung
 
-Die Zeitsteuerung besteht aus einem Kondensator C2 einer Diode D3 um Rückkopplung zu vermeiden, einem Spannungsfolger OP2 um die Schaltung von dem nachgeschalteten Schmitt Trigger zu entkoppeln und einem Transistor T3 der den Kondensator in kurzer Zeit bei Bedarf entladen kann. Die Auslegung erfolgt im Rahmen einer durch den Schmitt Trigger gewählte Schaltspannung. 
+Die Zeitsteuerung besteht aus einem Kondensator C2 welcher über den Widerstand R20 geladen wird, einer Diode D3 um Rückkopplung zu vermeiden, einem Widerstand R23 um den Kondensator langsam zu entladen, einem Spannungsfolger OP2 um die Schaltung von dem nachgeschalteten Schmitt Trigger zu entkoppeln und einem Transistor T3 der den Kondensator in kurzer Zeit bei Bedarf entladen kann.
 
-Für die Berechnung ist die Ladezeit des Kondensators über den Wiederstand R20 bis zur Schalktspannung des Schmitt Triggers zu ermittlen.
+Für die Berechnung ist die Ladezeit des Kondensators über den Widerstand R20 bis zur Schaltspannung des Schmitt Triggers zu ermitteln. Dies lässt sich mit folgender Gleichung Lösen. 
 
 \begin{equation}
 	\label{eqn:Ladezeit Kondensator}
 	\glsc{symb:U_a}=\glsc{symb:U_e}*(1-\glsc{symb:e}^{\dfrac{1}{\glsc{symb:R}*\glsc{symb:C}}*\glsc{symb:t}})
 \end{equation}
 
-Das Sensorboard hat zum Zweck einen Stromsensor zu kreieren der ein Stromsignal von 0-100A in ein Spannungsignal von 0.5-4.5V über den Bereich von 0-10A zu erzeugen. Die 0.5V Offset haben zum ziel eine Kurzschlusserkennung auf Masse als auch auf Versorgung zu ermöglichen. Der relevante Messbereich von 0-10A entsteht aus den Regelwerksanforderungen die vorgeben das der Fehlerzustand bei einer abgerufenen Leistung größer 5kW eingestellt werden muss was bei 600V in einem Strom von 8,3A resultiert. Dieser Bereich muss möglichst robust ausgewertet werden können.
+Alternativ kann der Schmitt Trigger aber auch auf 0,63 fache der Eingangsspannung gesetzt werden was der einfachen Zeitkonstante des RC Gliedes entspricht. Damit bestimmt sich C wie folgt.
+
+\begin{equation}
+	\label{eqn:Zeitkonstante Kondensator}
+	\glsc{symb:C}=\dfrac{\glsc{symb:tau}}{\glsc{symb:R}}
+\end{equation}
+
+Mit Beispielhaften Auslegeparametern ergeben sich folgende Werte.
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\multicolumn{3}{|c|}{Eingangsparameter} \\
+		\hline
+		\glsc{symb:tau} & 0,5 & \ensuremath{s} \\
+		\hline
+		\glsc{symb:R} & 100 & \ensuremath{k\Omega} \\
+		\hline
+		\multicolumn{3}{|c|}{Ergebnisse} \\
+		\hline
+		\glsc{symb:C} & 5 & \ensuremath{uF} \\
+		\hline
+	\end{tabular}
+\end{table}
+
+Das BSPD-Sensorboard hat zum Zweck einen Stromsensor zu kreieren der ein Stromsignal von 0-100A in ein Spannungssignal von 0.5-4.5V über den Bereich von 0-10A zu erzeugen. Die 0.5V Offset haben zum ziel eine Kurzschlusserkennung auf Masse als auch auf Versorgung zu ermöglichen. Der relevante Messbereich von 0-10A entsteht aus den Regelwerksanforderungen die vorgeben das der Fehlerzustand bei einer abgerufenen Leistung größer 5kW eingestellt werden muss was bei 600V in einem Strom von 8,3A resultiert. Dieser Bereich muss möglichst robust ausgewertet werden können.
 
 Zur genauen Funktion, U1 ist ein Hall Effekt Stromsensor mit einem Übersetzungsfaktor von 1000. Heißt 10A ergeben 10mA Stromfluss am Ausgang. Der Widerstand R2 ist so gewählt das bei einem Strom von 10mA, 5V über den Widerstand abfallen und wir so in den Messbereich kommen. Der Widerstand R1 ermöglicht nun das konstante einspeisen von ca. 0,5V und die Diode das Begrenzen der max. Spannung auf 4,5V.
 
@@ -149,7 +217,55 @@ Zur genauen Funktion, U1 ist ein Hall Effekt Stromsensor mit einem Übersetzungs
 \end{figure}
 
 \subsection{Discharge}
-PTC berechnung
+Die Discharge Schaltung soll bei Abschalten des Fahrzeug die Zwischenkreiskondensatoren entladen. Ziel ist es das System möglichst schnell in einen Spannungsfreien und damit sicheren Zustand zu überführen.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{bilder/Discharge}
+	\caption{}
+	\label{fig:discharge}
+\end{figure}
+
+Dies kann mit Hilfe von PTC Widerständen geschehen. Das Regelwerk sieht vor das der Zwischenkreis in maximal 5s auf 60VDC oder weniger zu bringen ist. Dies muss für 3 aufeinanderfolgende Entladevorgänge möglich sein. 
+
+Die Ansteuerung erfolgt über den SDC welcher über den Steckverbinder C2 eingebunden ist. Von dort wird der Optokoppler U1 bestromt. Dieser Steuert Strom vom Gate des Mosfets Q1 weg Richtung TS- so das der Mosfet öffnet. Wenn der SDC geöffnet wird, steigt die Spannung am Gate auf 20V und der Mosfet steuert TS+ auf TS- über die PTC Wiederstände durch. Dadurch wird die Spannung im zwischenkreis in den PTC elementen abgebaut.
+
+Die Formel für die Berechnung der PTC Elemenete ist dem Datenblatt für die PTCEL Serie der Firma Vishay zu entnehmen.
+
+\begin{equation}
+	\label{eqn:PTC Berechnung}
+	\glsc{symb:N_PTC}=\dfrac{\glsc{symb:N_dump} * \glsc{symb:K} * \glsc{symb:C} * \glsc{symb:U}^{2}} {2 * \glsc{symb:R} * \glsc{symb:C_th} * (\glsc{symb:T_SW} - \glsc{symb:T_u})}
+\end{equation}
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		\multicolumn{4}{|c|}{Eingangsparameter} \\
+		\hline
+		\glsc{symb:T_SW} & 130 & \ensuremath{°C} & Datenblatt Wiederstandsverlauf \\
+		\hline
+		\glsc{symb:K} & 1 & \ensuremath{-} & Datenblatt -> DC \\
+		\hline
+		\glsc{symb:C_th} & 2,3 & \ensuremath{J/K} & Datenblatt -> PTCEL17 \\
+		\hline
+		\glsc{symb:T_u} & 60 & \ensuremath{°C} & Worst Case \\
+		\hline
+		\glsc{symb:C} & 400 & \ensuremath{uF} & 2x DTI 500 Kapazität \\
+		\hline
+		\glsc{symb:U} & 600 & \ensuremath{V} & \\
+		\hline
+		\glsc{symb:N_dump} & 4 & \ensuremath{-} & min 3 Regelwerk\\
+		\hline
+		\multicolumn{4}{|c|}{Ergebnisse} \\
+		\hline
+		\glsc{symb:N_PTC} & 1,79 & \ensuremath{-} &  \\
+		\hline
+	\end{tabular}
+\end{table}
+
+Damit ergibt sich das 2 PTC`s des Typ 17R251 oder 17R501 verwendet werden müssen. 
+
+Die Entladezeit kann wie beim BSPD über die bestimmt werden, in diesem Fall näherungsweise über die 3 fache Zeitkonstante. Damit ergibt sich eine Entladezeit von max. 1,2s.
 
 \section{TSAL}
 

@@ -271,4 +271,15 @@ Die Entladezeit kann wie beim BSPD über die bestimmt werden, in diesem Fall nä
 
 \subsection{Logik auf Discharge}
 
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{"bilder/Binäre Spannungserkennung"}
+	\caption{}
+	\label{fig:binare-spannungserkennung}
+\end{figure}
+
+Das Herz der Schgaltung ist ein Verarmungstyp N-Fet. Wenn die Gate Source Spannung V\textsubscript{GS} = 0 V ist, dann lässt dieser Fet Strom durch. Ab einer Spannung von 47V wird die Zehner diode durchbrochen und ein Strom fließt, dieser Strom verursacht einen Spannungsabfall am Wiederstand R18 von ca. 2,2V bei einem mA so das V\textsubscript{GS} negativ wird und der Fet den Stromfluss zu begrenzen beginnt. Der Fet agiert zusammen mit dem Widerstand wie eine Konstantstromquelle. Diese Steuert den Optokoppler durch so das wir auf der LV Seite ein Signal erzeugt haben.
+
 \subsection{Logik auf AMS Master}
+
+\subsection{Schaltung auf TSAL}

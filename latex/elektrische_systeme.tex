@@ -1,19 +1,46 @@
 % Autor: Lukas Deeken
 % Letzte Bearbeitung: 01.05.2022
 
-\chapter{Elektrische Systeme} (zusammen mit Leon Löser)
-Hier Geht mein dank an die Alumni aus dem Bereich der Elektrotechnik die diese ganze Reise mit ihrer fachlichen Refferenz und beispiellosen motivation erst möglich gemacht habe. Hervcorzuheben ist auch das schier endlose mas an gedult in anbetracht der Steilen lernkurve innerhalkb des teams. Besonders hervorzuheben sind hierbei Leon Löser, Eric Gorkow und Axel Lange. Danke euch.
+\chapter{Elektrische Systeme}
+Hier Geht mein dank an die Alumni aus dem Bereich der Elektrotechnik die diese ganze Reise mit ihrer fachlichen Referenz und beispiellosen Motivation erst möglich gemacht habe. Hervorzuheben ist auch das schier endlose mas an gedult in Anbetracht der Steilen Lernkurve innerhalb des Teams. Besonders hervorzuheben sind hierbei Leon Löser, Eric Gorkow und Axel Lange. Danke euch.
 \acfirst{IMD}
 \section{Akkumulator}
-Akkumulaotr layout und connecxtions
+Akkumulaotr layout und connections
 	AMS DCDC IMD TS Sensors AIR etc. mit visio
 
 \subsection{AMS Master und Slave}
-Layout welche funktionen sind wo, wozu gibt es funktionen etc.
+Layout welche Funktionen sind wo, wozu gibt es Funktionen etc.
 Sprich Precharge auf AMS Master
 
 \subsubsection{Precharge}
+Der Precharge verhindert einen Funkenschlag und damit das verschweißen der Akku Isolationsrelais beim Schließen. Dies wird erreicht indem der Zwischenkreis bereits vor dem Durchschalten der AIR`s auf die Akkuspannung aufgeladen wird. Anhand des folgenden Blockschaltbildes lassen sich die einzelnen funktionellen Blöcke herausarbeiten.
 
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{"bilder/Precharge Blockschaltbild"}
+	\caption{}
+	\label{fig:precharge-blockschaltbild}
+\end{figure}
+
+Kernelement ist die Verbindung der positiven Seite des Zwischenkreises mit der positiven Seite des Akkumulators über ein mechanisches Relais, und die Überwachung selbigens. Diese kann nicht mit einer AUX Beschaltung umgesetzt werden, da Relais in diesem Leistungsbereich idR nicht mit derartigen Funktionen ausgerüstet sind. Eine Besonderheit bei dem gewählten Relais ist die geringe Baugröße, aber auch ein damit einhergehendes niedriges Stromrating, so das der Einschaltstrom des Relais der Strom sehr klein gehalten werden muss. Aus diesem Grunde bedarf es einer Stromquelle welche zu beginn einen niedrigen Strom liefert, und diesem dann nach dem erfolgten schalten anhebt. Nun zur Klärung der einzelnen funktionellen Gruppen und der Schaltzustände.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{"bilder/Precharge Blockschaltbild Detail"}
+	\caption{}
+	\label{fig:precharge-blockschaltbild-detail}
+\end{figure}
+
+Der Precharge schaltet durch sobald SC\textsubscript{end} high wird. Dies führt zum Durchschalten des Relais. Nun fließt ein Strom über M1 zum Relais, bei der Verschaltung von M1 und R54 handelt es sich um eine Konstantstromquelle welche 0,05A liefert. Wie diese Art von Schaltung im Detail funktioniert ist unter \ref{sec: TSAL Logik Discharge} näher erläutert. Parallel fließt ein Strom über U3 zu C58 und lädt diesen. Nach kurzer Zeit führt dies dazu das Q10 durchschaltet, nun wird der Strom durch den Widerstand der PTC Elemente begrenzt so das der Strom auf ca. 0.6 A ansteigen kann. Die Überwachung erfolgt indem mithilfe eines DC Wandlers die Akkuspannung um 24V angehoben wird und diese über einen Optokoppler auf das Precharge Relais gelegt wird. Sobald das Relais geschlossen ist fließt somit ein Strom über U22 sodass bei PCHRG\textsubscript{ACT} eine Spannung anliegt.
+
+Im Ausschaltmoment wird das Relais durch die Kapazität C12 für kurze Zeit offen gehalten sodass zuerst der Mosfet Q10 abschaltet und so die Schaltleistung im Relais minimiert wird.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{bilder/Precharge_Complete}
+	\caption{}
+	\label{fig:prechargecomplete}
+\end{figure}
 
 \subsubsection{AIR Detection}
 
@@ -270,7 +297,7 @@ Die Entladezeit kann wie beim BSPD über die bestimmt werden, in diesem Fall nä
 \section{TSAL}
 
 \subsection{Logik auf Discharge}
-
+\label{sec: TSAL Logik Discharge}
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{"bilder/Binäre Spannungserkennung"}
@@ -278,7 +305,7 @@ Die Entladezeit kann wie beim BSPD über die bestimmt werden, in diesem Fall nä
 	\label{fig:binare-spannungserkennung}
 \end{figure}
 
-Das Herz der Schgaltung ist ein Verarmungstyp N-Fet. Wenn die Gate Source Spannung V\textsubscript{GS} = 0 V ist, dann lässt dieser Fet Strom durch. Ab einer Spannung von 47V wird die Zehner diode durchbrochen und ein Strom fließt, dieser Strom verursacht einen Spannungsabfall am Wiederstand R18 von ca. 2,2V bei einem mA so das V\textsubscript{GS} negativ wird und der Fet den Stromfluss zu begrenzen beginnt. Der Fet agiert zusammen mit dem Widerstand wie eine Konstantstromquelle. Diese Steuert den Optokoppler durch so das wir auf der LV Seite ein Signal erzeugt haben.
+Das Herz der Schaltung ist ein Verarmungstyp N-Fet. Wenn die Gate Source Spannung V\textsubscript{GS} = 0 V ist, dann lässt dieser Fet Strom durch. Ab einer Spannung von 47V wird die Zehner diode durchbrochen und ein Strom fließt, dieser Strom verursacht einen Spannungsabfall am Wiederstand R18 von ca. 2,2V bei einem mA so das V\textsubscript{GS} negativ wird und der Fet den Stromfluss zu begrenzen beginnt. Der Fet agiert zusammen mit dem Widerstand wie eine Konstantstromquelle. Diese Steuert den Optokoppler durch so das wir auf der LV Seite ein Signal erzeugt haben.
 
 \subsection{Logik auf AMS Master}
 

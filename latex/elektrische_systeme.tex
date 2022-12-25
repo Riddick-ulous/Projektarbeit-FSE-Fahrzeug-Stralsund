@@ -54,8 +54,88 @@ Im Ausschaltmoment wird das Relais durch die Kapazität C12 für kurze Zeit offe
 Sinn der AIR detection ist es die Signale vom AIR in Sinnvolle Logikpegel umzusetzen welche im späteren verlauf weiter verwendet werden können. Oben rechts auf der Schematik sind die AIRs dargestellt. Relevant sind dabei die X Signale welche den Schaltzustand des Relais kontrollieren und die AUX Signale welche den Schaltzustand überwachen. Die AUX Signale werden mit 3,3V über einen Gleichwertigen 1 kOhm Spannungsteiler versorgt, so das bei geöffnetem Relais die 3,3V an AUX 1 anliegen, bei geschlossenem Relais durch den Spannungsteiler 1,65V und bei einem Kurzschluss in der Signalleitung zu Masse 0V anliegen. Diese Spannungspegel werden jetzt in einer komparatorschaltung verglichen. Die oben beiden Komparatoren geben ein High Signal aus wenn die Spannung an den AUX Kontakten kleiner ist als die Referenzspannung und damit die Relais geschlossen oder auf Masse kurzgeschlossen sind. Die beiden unteren Komparatoren geben ein Low Signal aus wenn die Spannung größer ist als die Referenzspannung und damit das Relais geschlossen oder geöffnet ist. Sofern also der tatsächliche zustand des Relais High ist un der Fehler Low kann zum Beispiel geschlussfolgert werden das jenes Relais geschlossen ist.
 
 \subsubsection{AMS}
-Konkret BMS selber sprich LTC6811 etc
+Das eigentliche Batteriemanagement wird von vom LTC 6804 übernommen. hierbei handelt es sich um eine integrierte Schaltung welche speziell für die Aufgabe des batteriemanagment von Linear Technology entwickelt wurde. Relevante aufgaben dieses Chips ist die differentielle Messung der Zellspannungen im Stack. Weiter übernimmt der IC die Temperatur Messung über 5 frei nutzbare GPIO`s welche auch ADC Funktionalität unterstützen. Zu guter Letzt wird der Chip als Treiber für Mosfets benutzt welche die Zelle auf den balancing widerstand schalten. Die notwendige Kommunikation erfolgt über einen proprietären 2 drahtigen linearen isolierten SPI Bus. Jeder Chip hat dabei 4 Adressbits zur Konfigurierung. Das Kommunikationsinterface zischen dem Iso SPI und dem SPI bus des Mikrocontroller erfolgt über den LTC6820 welcher für exakt diese Aufgabe entwickelt wurde. Mit den 5 Eingängen am Chip sind nun 11 verschiedene NTC`s auszuwerten, dies geschieht mit Hilfe eines Demuxers und eines Invertierers.
 
+Zum Verständnis der Logik ist im folgenden einmal beispielhaft der Signalablauf dargestellt.
+Die Bits SEL0 (0) und SEL1 (1) vom BMS Chip U1 gehen auf die Eingänge A und B am Demuxer U6. G2A (0) und G2B (0) sind immer auf Low gesetzt und G1 (1) immer auf High. Mit der Tabelle \ref{Demuxer_Logiktabelle} aus dem Datenblatt wird nun der Ausgang von Y0 bis Y3 bestimmt.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.3\linewidth]{bilder/AMS_demuxer_logiktabelle}
+	\caption{}
+	\label{Demuxer_Logiktabelle}
+	\label{fig:amsdemuxerlogiktabelle}
+\end{figure}
+
+\FloatBarrier
+
+\begin{tabular}{|c|c|}
+	\hline
+	Y0 & 1 \\
+	\hline
+	Y1 & 1 \\
+	\hline
+	Y2 & 0 \\
+	\hline
+	Y3 & 1 \\
+	\hline
+\end{tabular}
+
+Diese Signale gehen nun in die beiden Invertierer U2 \& U5. Der Ausgang des Invertierer stellt die Versorgung des NTC dar.
+
+\begin{tabular}{|c|c|}
+	\hline
+	NTC-sig0 & 0 \\
+	\hline
+	NTC-sig0 & 0 \\
+	\hline
+	NTC-sig1 & 1 \\
+	\hline
+	NTC-sig2 & 0 \\
+	\hline
+	NTC-sig3 & 0 \\
+	\hline
+	NTC-sig4 & 0 \\
+	\hline
+	NTC-sig5 & 0 \\
+	\hline
+	NTC-sig6 & 1 \\
+	\hline
+	NTC-sig7 & 0 \\
+	\hline
+	NTC-sig8 & 0 \\
+	\hline
+	NTC-sig9 & 0 \\
+	\hline
+	NTC-sig10 & 0 \\
+	\hline
+	NTC-sig11 & 1 \\
+
+\end{tabular}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.3\linewidth]{bilder/AMS_NTC_steckerlayout}
+	\caption{}
+	\label{fig:amsntcsteckerlayout}
+\end{figure}
+
+zusammen mit dem NTC Steckerlayout ergibt dies also das an NTCin1 bis NTCin3 jeweils ein Signal von einem NTC anliegt.
+
+
+
+
+
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{bilder/AMS_slave_controller_schematic}
+	\caption{}
+	\label{fig:amsslavecontrollerschematic}
+\end{figure}
+
+\FloatBarrier
 \subsubsection{HV Indicator}
 
 \begin{figure}
@@ -67,6 +147,7 @@ Konkret BMS selber sprich LTC6811 etc
 
 Der HV Indikator ist ein rotes Licht auf dem Akkumulator, sofern an HV Terminals des Akkus eine gefährliche Spannung liegt muss dieses Licht erleuchten und dem Bediener somit anzeigen das es z.b. nicht sicher ist den Akku vom Zwischenkreis zu trennen da dieser noch unter Spannung steht. Die Anzeige erfolgt über eine Rote LED wessen licht mit einer Glasfaser von der Platine zum Deckel geleitet wird. Die Ansteuerung der LED erfolgt über einen kleinen DC Wandler, den Viper06. Dieser Wandler verfügt über einen Drain Source startup Voltage von 25-40V. Das bedeutet, bei einer Spannung in diesem Bereich beginnt der Chip zu arbeiten. Dieser Strom fließt dann zur LED so das diese zu leuchten beginnt. Die Feedback Schaltung ist direkt an den Spannungsausgang gekoppelt so das wir die interne Spannungsreferenz von 3,2 V - 3,4 V nutzen. Die Vorwiederstände vor der LED sind dementsprechend ausgelegt.
 
+\FloatBarrier
 \subsubsection{HV Messung}
 Sinn der HV Messung ist es die Spannung welche am Akku als auch am Zwischenkreis anliegt erfassen und digitalisieren zu können. Dadurch kann zusammen mit dem Signal vom Stromsensor z.b. die DC Leistung bestimmt und geloggt werden. 
 
@@ -86,16 +167,22 @@ Sinn der HV Messung ist es die Spannung welche am Akku als auch am Zwischenkreis
 
 Kern dieser Schaltung ist der ADUM 3190. dabei handelt es sich um einen Isolierten Operationsverstärker. Der positive Eingang ist über einen Spannungsteiler mit dem HV-Kreis verbunden. Der negative Eingang ist mit dem Ausgang des OPV rückgekoppelt so das ein Spannungsfolger mit einer Verstärkung von 1 entsteht. Aus dem 10Mohm und dem 55,6kOhm widerstand ergibt sich eine Verhältnis von 179,86V im HV Kreis zu einem Volt am Eingang des OPV. Das ergibt eine maximale Eingangsspannung für die Schaltung von 593,54V da hierbei eine Ausgangsspannung von 3,3V erreicht wird. Bei dem R2S-2405/H handelt es sich um einen isolierten DC Wandler um den Chip HV seitig mit Strom zu versorgen. Die Komparatorschaltung um U15 gibt bei überschreiten der gefährlichen Spannung einen High Pegel aus. Die Spannung über den positiven Eingang der komparatorschaltung liegt bei 0,232V so das bei einer TS Spannung von größer 41,73V der High Pegel anliegen sollte. Laut Regelwerk sollte dieser Pegel spätestens bei 60V anliegen.
 
+\FloatBarrier
 \subsubsection{IMD Monitoring}
 
+
+
+\FloatBarrier
 \subsection{HV DCDC}
 Visio blockmodell
 Erklärung ACFC
 Berechnung excel etwas aufhübschen und anhängen
 Teilberechnungen erklären
 
+\FloatBarrier
 \section{HV Distribution}
 
+\FloatBarrier
 \subsection{TSMP}
 Die Tractive System Measuring Points befinden sich seitlich am Fahrzeug wo auch der Hauptschalter zu finden ist. Sie stellen eine genormte Schnittstelle dar um mit einem Duspol, oder Multimeter an die Spannung des Tractive Systems gelangen zu können. Hierbei müssen laut Regelwerk geschirmte Bananenstecker eingesetzt werden. Weiter muss für die Buchsen am Fahrzeug eine Abdeckkappe oder Blindstecker vorgesehen werden. Zur Absicherung der TSMP müssen diese mit Widerständen in reihe an den HV Kreis angebunden werden. Das Regelwerk sieht hierbei in unserem Spannungsbereich 15k$\Omega$ vor. Der Kritische wert wonach die TSMP ausgelegt werden müssen ist das Leistungsrating, da diese auf kontinuierlichen Kurzschluss ausgelegt sein müssen.
 
@@ -143,6 +230,7 @@ Da im Kurzschlussfall die Spannung über beide Widerstände anliegt, verdoppelt 
 
 Daraus schlussfolgert sich das die 15k$\Omega$ Widerstände mit einem Leistungsrating von mindestens 12 W benötigt werden.
 
+\FloatBarrier
 \subsection{BSPD}
 
 VAC Sensorboard
@@ -273,6 +361,7 @@ Zur genauen Funktion, U1 ist ein Hall Effekt Stromsensor mit einem Übersetzungs
 	\label{fig:sensorboard-schaltung}
 \end{figure}
 
+\FloatBarrier
 \subsection{Discharge}
 Die Discharge Schaltung soll bei Abschalten des Fahrzeug die Zwischenkreiskondensatoren entladen. Ziel ist es das System möglichst schnell in einen Spannungsfreien und damit sicheren Zustand zu überführen.
 \begin{figure}
@@ -324,8 +413,10 @@ Damit ergibt sich das 2 PTC`s des Typ 17R251 oder 17R501 verwendet werden müsse
 
 Die Entladezeit kann wie beim BSPD über die bestimmt werden, in diesem Fall näherungsweise über die 3 fache Zeitkonstante. Damit ergibt sich eine Entladezeit von max. 1,2s.
 
+\FloatBarrier
 \section{TSAL}
 
+\FloatBarrier
 \subsection{Logik auf Discharge}
 \label{sec: TSAL Logik Discharge}
 \begin{figure}
@@ -337,6 +428,8 @@ Die Entladezeit kann wie beim BSPD über die bestimmt werden, in diesem Fall nä
 
 Das Herz der Schaltung ist ein Verarmungstyp N-Fet. Wenn die Gate Source Spannung V\textsubscript{GS} = 0 V ist, dann lässt dieser Fet Strom durch. Ab einer Spannung von 47V wird die Zehner diode durchbrochen und ein Strom fließt, dieser Strom verursacht einen Spannungsabfall am Wiederstand R18 von ca. 2,2V bei einem mA so das V\textsubscript{GS} negativ wird und der Fet den Stromfluss zu begrenzen beginnt. Der Fet agiert zusammen mit dem Widerstand wie eine Konstantstromquelle. Diese Steuert den Optokoppler durch so das wir auf der LV Seite ein Signal erzeugt haben.
 
+\FloatBarrier
 \subsection{Logik auf AMS Master}
 
+\FloatBarrier
 \subsection{Schaltung auf TSAL}

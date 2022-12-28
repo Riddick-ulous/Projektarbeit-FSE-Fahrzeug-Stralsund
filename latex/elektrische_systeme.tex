@@ -2,15 +2,24 @@
 % Letzte Bearbeitung: 01.05.2022
 
 \chapter{Elektrische Systeme}
-Hier Geht mein dank an die Alumni aus dem Bereich der Elektrotechnik die diese ganze Reise mit ihrer fachlichen Referenz und beispiellosen Motivation erst möglich gemacht habe. Hervorzuheben ist auch das schier endlose mas an gedult in Anbetracht der Steilen Lernkurve innerhalb des Teams. Besonders hervorzuheben sind hierbei Leon Löser, Eric Gorkow und Axel Lange. Danke euch.
+An dieser Stelle geht mein Dank an die Alumni aus dem Bereich der Elektrotechnik, die diese ganze Reise mit ihrer fachlichen Referenz und beispiellosen Motivation erst möglich gemacht habe. Hervorzuheben ist auch das schier endlose maß an Geduld in Anbetracht der Steilen Lernkurve innerhalb des Teams. Besonders hervorzuheben sind hierbei Leon Löser, Eric Gorkow und Axel Lange. Danke euch.
 \acfirst{IMD}
+\FloatBarrier
 \section{Akkumulator}
-Akkumulaotr layout und connections
-	AMS DCDC IMD TS Sensors AIR etc. mit visio
+Im Akkumulator befinden sich neben den Zellen in Ihren Zellstacks und dem Batterie managment System auch diverse andere systeme die zum betrieb des Fahrzeuges essentiell sind. Diese Systeme werden im folgenden Kapitel erläutert. An Dieser stelle eine Übersicht wo sich diese Systeme befinden und wie sie zusammenhängen.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{"bilder/Accumulator Layout"}
+	\caption{}
+	\label{fig:accumulator-layout}
+\end{figure}
+
+\FloatBarrier
 
 \subsection{AMS Master und Slave}
-Layout welche Funktionen sind wo, wozu gibt es Funktionen etc.
-Sprich Precharge auf AMS Master
+In diesem Kapitel werden die Subsysteme des Akkumulator Managment Systems näher betrachtet.
+\FloatBarrier
 
 \subsubsection{Precharge}
 Der Precharge verhindert einen Funkenschlag und damit das verschweißen der Akku Isolationsrelais beim Schließen. Dies wird erreicht indem der Zwischenkreis bereits vor dem Durchschalten der AIR`s auf die Akkuspannung aufgeladen wird. Anhand des folgenden Blockschaltbildes lassen sich die einzelnen funktionellen Blöcke herausarbeiten.
@@ -41,6 +50,7 @@ Im Ausschaltmoment wird das Relais durch die Kapazität C12 für kurze Zeit offe
 	\caption{}
 	\label{fig:prechargecomplete}
 \end{figure}
+\FloatBarrier
 
 \subsubsection{AIR Detection}
 
@@ -52,12 +62,12 @@ Im Ausschaltmoment wird das Relais durch die Kapazität C12 für kurze Zeit offe
 \end{figure}
 
 Sinn der AIR detection ist es die Signale vom AIR in Sinnvolle Logikpegel umzusetzen welche im späteren verlauf weiter verwendet werden können. Oben rechts auf der Schematik sind die AIRs dargestellt. Relevant sind dabei die X Signale welche den Schaltzustand des Relais kontrollieren und die AUX Signale welche den Schaltzustand überwachen. Die AUX Signale werden mit 3,3V über einen Gleichwertigen 1 kOhm Spannungsteiler versorgt, so das bei geöffnetem Relais die 3,3V an AUX 1 anliegen, bei geschlossenem Relais durch den Spannungsteiler 1,65V und bei einem Kurzschluss in der Signalleitung zu Masse 0V anliegen. Diese Spannungspegel werden jetzt in einer komparatorschaltung verglichen. Die oben beiden Komparatoren geben ein High Signal aus wenn die Spannung an den AUX Kontakten kleiner ist als die Referenzspannung und damit die Relais geschlossen oder auf Masse kurzgeschlossen sind. Die beiden unteren Komparatoren geben ein Low Signal aus wenn die Spannung größer ist als die Referenzspannung und damit das Relais geschlossen oder geöffnet ist. Sofern also der tatsächliche zustand des Relais High ist un der Fehler Low kann zum Beispiel geschlussfolgert werden das jenes Relais geschlossen ist.
-
+\FloatBarrier
 \subsubsection{AMS}
 Das eigentliche Batteriemanagement wird von vom LTC 6804 übernommen. hierbei handelt es sich um eine integrierte Schaltung welche speziell für die Aufgabe des batteriemanagment von Linear Technology entwickelt wurde. Relevante aufgaben dieses Chips ist die differentielle Messung der Zellspannungen im Stack. Weiter übernimmt der IC die Temperatur Messung über 5 frei nutzbare GPIO`s welche auch ADC Funktionalität unterstützen. Zu guter Letzt wird der Chip als Treiber für Mosfets benutzt welche die Zelle auf den balancing widerstand schalten. Die notwendige Kommunikation erfolgt über einen proprietären 2 drahtigen linearen isolierten SPI Bus. Jeder Chip hat dabei 4 Adressbits zur Konfigurierung. Das Kommunikationsinterface zischen dem Iso SPI und dem SPI bus des Mikrocontroller erfolgt über den LTC6820 welcher für exakt diese Aufgabe entwickelt wurde. Mit den 5 Eingängen am Chip sind nun 11 verschiedene NTC`s auszuwerten, dies geschieht mit Hilfe eines Demuxers und eines Invertierers.
 
 Zum Verständnis der Logik ist im folgenden einmal beispielhaft der Signalablauf dargestellt.
-Die Bits SEL0 (0) und SEL1 (1) vom BMS Chip U1 gehen auf die Eingänge A und B am Demuxer U6. G2A (0) und G2B (0) sind immer auf Low gesetzt und G1 (1) immer auf High. Mit der Tabelle \ref{Demuxer_Logiktabelle} aus dem Datenblatt wird nun der Ausgang von Y0 bis Y3 bestimmt.
+Die Bits SEL0 und SEL1, in diesem Beispiel Low und High, vom LTC 6804 (U1) gehen auf die Eingänge A und B am Demuxer (U6). G2A und G2B sind immer auf Low gesetzt und G1 immer auf High. Mit der Tabelle \ref{Demuxer_Logiktabelle} aus dem Datenblatt wird nun der Ausgang von Y0 bis Y3 bestimmt.
 
 \begin{figure}
 	\centering
@@ -81,7 +91,7 @@ Die Bits SEL0 (0) und SEL1 (1) vom BMS Chip U1 gehen auf die Eingänge A und B a
 	\hline
 \end{tabular}
 
-Diese Signale gehen nun in die beiden Invertierer U2 \& U5. Der Ausgang des Invertierer stellt die Versorgung des NTC dar.
+Diese Signale gehen nun in die beiden Invertierer U2 \& U5. Der Ausgang des Invertierers stellt die Versorgung des NTC dar.
 
 \begin{tabular}{|c|c|}
 	\hline
@@ -122,10 +132,14 @@ Diese Signale gehen nun in die beiden Invertierer U2 \& U5. Der Ausgang des Inve
 
 zusammen mit dem NTC Steckerlayout ergibt dies also das an NTCin1 bis NTCin3 jeweils ein Signal von einem NTC anliegt.
 
+In der Abbildung \ref{fig:amsbalancingschematic} ist der Balancing Aufbau der einzelnen Zellen zu sehen. Dabei werden pro Zelle immer zwei Pins der LTC6804 gebraucht, einer zum steuern des Fet`s und einer zum messen der Zellspannung. das sind respektive die S und C Pins. Die Balancing Leistung wurde auf 2 Watt festgelegt. Damit kommen wir bei einer Zellspannung von 4,2V auf einen Widerstand von ca. 10 Ohm. Zusätzlich ist parallel zu jedem Wiederstand eine LED verschaltet mit der die Aktivität des BMS im betrieb sichtbar wird.
 
-
-
-
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{bilder/AMS_Balancing_Schematic}
+	\caption{}
+	\label{fig:amsbalancingschematic}
+\end{figure}
 
 
 \begin{figure}
@@ -181,6 +195,7 @@ Teilberechnungen erklären
 
 \FloatBarrier
 \section{HV Distribution}
+Bei der HV Distribution handelt es sich um eine Box welche mittig hinter dem Fahrer angeordnet ist. Diese Box beinhaltet alles an HV Elektrik was nicht im Akkumulator oder in den Umrichtern zu finden ist. Hier ist auch der Service Disconnect untergebracht.
 
 \FloatBarrier
 \subsection{TSMP}
@@ -233,8 +248,6 @@ Daraus schlussfolgert sich das die 15k$\Omega$ Widerstände mit einem Leistungsr
 \FloatBarrier
 \subsection{BSPD}
 
-VAC Sensorboard
-Logik
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{"bilder/BSPD Blockdiagramm"}
@@ -415,6 +428,7 @@ Die Entladezeit kann wie beim BSPD über die bestimmt werden, in diesem Fall nä
 
 \FloatBarrier
 \section{TSAL}
+Das Tractive System Activation Light ist eine Lampe im Mainhoop die 360 Grad rundherum zum Fahrzeug anzeigt ob das tractive system eingeschaltet ist oder nicht und ob ein fehler vorliegt. Damit ergeben sich drei Zustände, Tsal Rot blinkend heißt TS on, TSAL grün leuchtend heißt TS off und Tsal aus heißt entweder Low Volatge system ausgeschaltet oder fehler im TS. Die gesamte logik ist dabei in nicht programmierbaren bausteinen aka mikrocontrollern o.ä. umzusetzen.
 
 \FloatBarrier
 \subsection{Logik auf Discharge}
@@ -430,6 +444,15 @@ Das Herz der Schaltung ist ein Verarmungstyp N-Fet. Wenn die Gate Source Spannun
 
 \FloatBarrier
 \subsection{Logik auf AMS Master}
+
+Nachdem jetzt die diversen Signale für den Zustand der AIR`s etc. vorliegen geht es darum sie logisch miteinander zu verschalten. Zuerst einmal wird dafür in U8a-c verglichen ob die vorhergesehen und tatsächlichen Zustände für die Relais übereinstimmen. Die XOR Gatter geben dabei immer einen High Pegel und damit einen Fehlerzustand aus wenn dies nicht der Fall ist. Zweitens gilt es nun zu plausibilisieren ob auch Spannung auf dem System anliegt. Sofern entweder der Precharge oder das positive AIR und das negative AIR geschlossen ist bedeutet dies das der Stromkreis geschlossen ist. Damit sollte Spannung anliegen. Da die Relais Signale bereits plausibilisiert wurden geht es bei dieser Schaltung nur darum zu prüfen ob das Spannungssignal etwas anzeigt wenn dies vom Relais Zustand her der Fall sein sollte. Der Fehlerzustand tritt in der Schaltung nur ein wenn die Ausgänge von U11A und U12A High sind was wiederum dadurch hervorgerufen wird, wenn bei U11A das Signal vom Precharge oder das vom positiven AIR High ist und bei U12A das Signal vom negativen AIR high ist und das Danger V Signal Low ist. Anschließend werden all diese Signale noch mit dem AIR error Ausgang verodert und in den Latch gegeben. Der Latch besteht hauptsächlich aus dem FlipFlop U26A. Der Sinn dieses ist, das wenn ein Fehler gesetzt wird dieser auch permanent bestehen bleibt und das System sich nicht selbst zurücksetzten kann. Um beim einschalten des Systems unplausible Zustände abzufangen befindet sich ein RC Glied am CLR Eingang des FlipFlop so das dieser solange keine Signale annimmt bis das System den stationären Zustand erreicht hat. Nun gibt es noch an U9B das TSon Signal welches eine veroderung der verschiedenen Relais- und des Spannungssignales darstellt. Heißt wenn irgendwas mit den AIR`s passiert oder Spannung auf dem System liegt ist das TSon. Der Ausgang des Error Latches und des TSon Signales wird nun in ein Nor Gatter gegeben so das der GRN on zustand der das TSal grün aufleuchteten lässt nur eintritt wenn was TS nicht on ist und kein Fehler vorliegt. Weiter ist das Signal noch mit dem POR verundet so, dass das Grün Signal erst aufleuchtet wenn das System auch tatsächlich arbeitet.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{"bilder/TSAL Logik AMS Master"}
+	\caption{}
+	\label{fig:tsal-logik-ams-master}
+\end{figure}
 
 \FloatBarrier
 \subsection{Schaltung auf TSAL}

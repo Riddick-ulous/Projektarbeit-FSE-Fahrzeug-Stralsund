@@ -208,6 +208,58 @@ Erklärung ACFC
 Berechnung excel etwas aufhübschen und anhängen
 Teilberechnungen erklären
 
+Bei der Topologie des Hochvolt DCDC Wandlers handelt es sich um einen Active clamp forward transformer einen Eintaktflusswandler mit Entmagnetisierung des Trafokerns über eine Fangschaltung aus Mosfet, Wiederstand und Kondensator. Man hat sich speziell für diese Fangschaltung und nicht für einen Transformator mit entmagnetisierungsspule entschieden da man so aus dem Bereich des sonder gefertigten Transformators rauskommt. Bisher wurden im Rahmen des Formula student Projektes nur DC Wandler ohne galvanische Trennung eingesetzt. Dabei handelte es sich in der Regel um den klassischen auf oder Abwärtswandler. Die Topologie des Eintaktflusswandler ist bei diesem Leistungsbereich nach Aussage einiger Hersteller für die relevanten integrierten Schaltungen zwar an der obersten grenze dessen was sinnvoll möglich ist, zeichnet sich aber durch seine große Ähnlichkeit zum nicht galvanisch getrennten Abwärtswandler und damit seine verhältnismäßige Einfachheit aus. Folgend der vereinfachte Aufbau beider wandlertopologien in den Abbildungen \ref{fig:buckconverter} und \ref{fig:forwardconverter} zur Gegenüberstellung.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\linewidth]{bilder/Buck_converter.svg}
+	\caption{}
+	\label{fig:buckconverter}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.5\linewidth]{bilder/Forward_converter.svg}
+	\caption{}
+	\label{fig:forwardconverter}
+\end{figure}
+
+Von der Firma Linear Technology existiert ein IC, der LT3752. dieser IC ist speziell für den Aufbau von Wandlern dieser Topologie gedacht. Weiter existiert die Demo Schaltung DC1929A basierend auf diesem IC. hierbei handelt es sich um einen 400V zu 12V Wandler mit einer Ausgangsleistung von 200W. Das hier vorliegende Design wurde mithilfe des Datenblattes des LT3752, des LT8311 und mithilfe der Schematik als auch der Layout Dateien des DC1929A erstellt.
+
+Zur Auflistung der Ausgangsparameter.
+
+\begin{table}
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		Parameter & Wert & Einheit &Kommentar \\
+		\hline
+		V\textsubscript{Out} & 24 & V & Boardnetzspannung \\
+		\hline
+		P\textsubscript{Out} & 960 & W & Leistungsverbrauch LV System Maßgeblich Lüfter\\
+		\hline
+		V\textsubscript{in min} & 230 & V & 2V Entladeschluss plus Sicherheit \\
+		\hline
+		V\textsubscript{in max} & 630 & V & 4,25V Ladeschluss plus Sicherheit \\
+		\hline
+		I\textsubscript{max} & 40 & A &\\
+		\hline
+		F\textsubscript{Osc} & 100 & kHz & Basiert auf Referenzdesign\\
+		\hline
+		Foldback Ratio &  & - & Datenblatt\\
+		\hline
+		Int\textsubscript{VCC} & 10 & V & \\
+		\hline
+		t\textsubscript{amb} & 50 & °C & angenommen\\
+		\hline
+		t\textsubscript{max} & 125 & °C & max. Temperatur für Automotive Komponenten\\
+		\hline
+	\end{tabular}
+\end{table}
+
+Mit diesen Werten muss nun ein passender Transformator gefunden werden.
+
+
 \FloatBarrier
 \section{HV Distribution}
 Bei der HV Distribution handelt es sich um eine Box welche mittig hinter dem Fahrer angeordnet ist. Diese Box beinhaltet alles an HV Elektrik was nicht im Akkumulator oder in den Umrichtern zu finden ist. Hier ist auch der Service Disconnect untergebracht.
@@ -471,3 +523,14 @@ Nachdem jetzt die diversen Signale für den Zustand der AIR`s etc. vorliegen geh
 
 \FloatBarrier
 \subsection{Schaltung auf TSAL}
+
+Das TSAL besteht wesentlich aus drei funktionellen Blöcken. Der Blink-schaltkreis basierend auf einem NE555, Die Led`s selber und ein LED Treiber mit seiner Beschaltung. Der LED Treiber ist nach Datenblatt aufgebaut, das Red und das Green Signal gehen beide auf den PWM Eingang des Treibers so das wenn das TSAL aus sein soll der Treiber in den Sleep mode geht. Bei den LEd`s handelt es sich um Horticulture 6868 Ceramic Led`s von Würth Elektronik. Diese wurden in den vorherigen Jahren auch auf dem Bremslicht verwendet und zeichnen sich durch hohe Leistungsdichte aus. Am ende der LED Ketten befindet sich ein Mosfet welcher durch das Red oder Green Signal durchgeschaltet und damit der Stromkreis um die LED`s geschlossen wird. Der NE555 wird genutzt um ein Taktsignal mit einer Frequenz von 2-5 Hz zu erzeugen. Dies wird benötigt da das TSAL im Falle des eingeschalteten Tractive Systems mit einer Frequenz in diesem Bereich rot blinken soll.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{"bilder/Tsal Schematic"}
+	\caption{}
+	\label{fig:tsal-schematic}
+\end{figure}
+
+\FloatBarrier

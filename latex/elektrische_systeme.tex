@@ -70,6 +70,7 @@ Zum Verständnis der Logik ist im folgenden einmal beispielhaft der Signalablauf
 Die Bits SEL0 und SEL1, in diesem Beispiel Low und High, vom LTC 6804 (U1) gehen auf die Eingänge A und B am Demuxer (U6). G2A und G2B sind immer auf Low gesetzt und G1 immer auf High. Mit der Tabelle \ref{Demuxer_Logiktabelle} aus dem Datenblatt wird nun der Ausgang von Y0 bis Y3 bestimmt.
 
 \begin{figure}
+	
 	\centering
 	\includegraphics[width=0.3\linewidth]{bilder/AMS_demuxer_logiktabelle}
 	\caption{}
@@ -78,50 +79,54 @@ Die Bits SEL0 und SEL1, in diesem Beispiel Low und High, vom LTC 6804 (U1) gehen
 \end{figure}
 
 \FloatBarrier
-
-\begin{tabular}{|c|c|}
-	\hline
-	Y0 & 1 \\
-	\hline
-	Y1 & 1 \\
-	\hline
-	Y2 & 0 \\
-	\hline
-	Y3 & 1 \\
-	\hline
-\end{tabular}
+\begin{table}
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		Y0 & 1 \\
+		\hline
+		Y1 & 1 \\
+		\hline
+		Y2 & 0 \\
+		\hline
+		Y3 & 1 \\
+		\hline
+	\end{tabular}
+\end{table}
 
 Diese Signale gehen nun in die beiden Invertierer U2 \& U5. Der Ausgang des Invertierers stellt die Versorgung des NTC dar.
-
-\begin{tabular}{|c|c|}
-	\hline
-	NTC-sig0 & 0 \\
-	\hline
-	NTC-sig0 & 0 \\
-	\hline
-	NTC-sig1 & 1 \\
-	\hline
-	NTC-sig2 & 0 \\
-	\hline
-	NTC-sig3 & 0 \\
-	\hline
-	NTC-sig4 & 0 \\
-	\hline
-	NTC-sig5 & 0 \\
-	\hline
-	NTC-sig6 & 1 \\
-	\hline
-	NTC-sig7 & 0 \\
-	\hline
-	NTC-sig8 & 0 \\
-	\hline
-	NTC-sig9 & 0 \\
-	\hline
-	NTC-sig10 & 0 \\
-	\hline
-	NTC-sig11 & 1 \\
-
-\end{tabular}
+\begin{table}
+	\centering
+	\begin{tabular}{|c|c|}
+		\hline
+		NTC-sig0 & 0 \\
+		\hline
+		NTC-sig0 & 0 \\
+		\hline
+		NTC-sig1 & 1 \\
+		\hline
+		NTC-sig2 & 0 \\
+		\hline
+		NTC-sig3 & 0 \\
+		\hline
+		NTC-sig4 & 0 \\
+		\hline
+		NTC-sig5 & 0 \\
+		\hline
+		NTC-sig6 & 1 \\
+		\hline
+		NTC-sig7 & 0 \\
+		\hline
+		NTC-sig8 & 0 \\
+		\hline
+		NTC-sig9 & 0 \\
+		\hline
+		NTC-sig10 & 0 \\
+		\hline
+		NTC-sig11 & 1 \\
+		\hline
+	\end{tabular}
+\end{table}
 
 \begin{figure}
 	\centering
@@ -184,6 +189,16 @@ Kern dieser Schaltung ist der ADUM 3190. dabei handelt es sich um einen Isoliert
 \FloatBarrier
 \subsubsection{IMD Monitoring}
 
+Bei dem IMD handelt es sich um ein Bender Isometer IR155-320x. Dieses Isolationsmessgerät wird von der Formula Student empfohlen und wird den Teams in der regel von dem unternehmen kostenlos zur Verfügung gestellt.
+Das IMD hat zwei Ausgänge die für die Auswertung des Messergebnis relevant sind. Einmal ein digitales OK HS Signal und ein PWM Signal Mhs oder Mls je nach Variante. Das OK Signal gibt alle relevanten Informationen aus in der Form das low geht wenn z.b ein Isolationsfehler oder ein Gerätefehler erkannt wurde. Das PWM Signal ermöglicht es z.b den Fehler weiter einzugrenzen oder den aktuellen Messwert auszugeben. Dementsprechend muss das OK Signal rein analog den shutdwon circuit betätigen können während der PWM Ausgang nur Information ist und an einen Mikrocontroller angeschlossen wird. Beim startup ist das PRE als auch das CLR signal am D FlipFlop U7A Low. dadurch ist der Ausgang Q High was aufgrund der Diode D14 aber keinen Einfluss auf die restliche Schaltung hat. Die Spannung am gate des P-Channel Fet Q3 ist Low und die Spannung an der Source ist High, dadurch liegt eine negative Gate Source Spannung an so das der Fet geschlossen ist. Dementsprechend ist die Spannung an der source annähernd low. Nun sollte sofern kein Fehler seitens des IMD vorliegt das OK Signal High gehen. Dadurch öffnet der Fet Q3, gleichzeitig bleibt Q vom FlipFlop high. Nun liegt Spannung an der Basis von Q5 und es fließt ein Basis Emitter Strom so das auch ein Collector Emittor Strom fließen kann. Dadurch liegt zusammen mit den Widerständen R37 und R38 eine negative Gate Source Spannung an Q4 an so das der P Channel Fet durchschaltet und der Shutdown Circuit geschlossen wird. Daraufhin schaltet der POR high so das der zustand vom Flip Flop gespeichert wird und somit High bleibt. Wenn das Ok Signal nun Low geht weil ein Fehler auftritt, wird Q auf Low gesetzt. Wenn Ok nun wieder High geht weil z.b. der Fehler wieder aufgehoben ist, beispielsweise durch einen Wackelkontakt an einem der Messeingänge wird der aktuelle zustand gespeichert welcher Low ist, so das die Schaltung sich nicht mehr selbst zurücksetzen kann. Ein Wiedereinschalten ist nur durch den POR möglich.
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{"bilder/IMD Monitoring schematic"}
+	\caption{}
+	\label{fig:imd-monitoring-schematic}
+\end{figure}
 
 
 \FloatBarrier

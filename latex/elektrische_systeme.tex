@@ -208,7 +208,7 @@ Erklärung ACFC
 Berechnung excel etwas aufhübschen und anhängen
 Teilberechnungen erklären
 
-Bei der Topologie des Hochvolt DCDC Wandlers handelt es sich um einen Active clamp forward transformer einen Eintaktflusswandler mit Entmagnetisierung des Trafokerns über eine Fangschaltung aus Mosfet, Wiederstand und Kondensator. Man hat sich speziell für diese Fangschaltung und nicht für einen Transformator mit entmagnetisierungsspule entschieden da man so aus dem Bereich des sonder gefertigten Transformators rauskommt. Bisher wurden im Rahmen des Formula student Projektes nur DC Wandler ohne galvanische Trennung eingesetzt. Dabei handelte es sich in der Regel um den klassischen auf oder Abwärtswandler. Die Topologie des Eintaktflusswandler ist bei diesem Leistungsbereich nach Aussage einiger Hersteller für die relevanten integrierten Schaltungen zwar an der obersten grenze dessen was sinnvoll möglich ist, zeichnet sich aber durch seine große Ähnlichkeit zum nicht galvanisch getrennten Abwärtswandler und damit seine verhältnismäßige Einfachheit aus. Folgend der vereinfachte Aufbau beider wandlertopologien in den Abbildungen \ref{fig:buckconverter} und \ref{fig:forwardconverter} zur Gegenüberstellung.
+Bei der Topologie des Hochvolt DCDC Wandlers handelt es sich um einen Active clamp forward transformer einen Eintaktflusswandler mit Entmagnetisierung des Trafokerns über eine Fangschaltung aus Mosfet, Wiederstand und Kondensator. Man hat sich speziell für diese Fangschaltung und nicht für einen Transformator mit entmagnetisierungsspule entschieden da man so aus dem Bereich des sonder gefertigten Transformators rauskommt. Bisher wurden im Rahmen des Formula student Projektes nur DC Wandler ohne galvanische Trennung eingesetzt. Dabei handelte es sich in der Regel um den klassischen Auf- oder Abwärtswandler. Die Topologie des Eintaktflusswandler ist bei diesem Leistungsbereich nach Aussage einiger Hersteller für die relevanten integrierten Schaltungen zwar an der obersten grenze dessen was sinnvoll möglich ist, zeichnet sich aber durch seine große Ähnlichkeit zum nicht galvanisch getrennten Abwärtswandler und damit seine verhältnismäßige Einfachheit aus. Folgend der vereinfachte Aufbau beider wandlertopologien in den Abbildungen \ref{fig:buckconverter} und \ref{fig:forwardconverter} zur Gegenüberstellung.
 
 \begin{figure}
 	\centering
@@ -224,7 +224,7 @@ Bei der Topologie des Hochvolt DCDC Wandlers handelt es sich um einen Active cla
 	\label{fig:forwardconverter}
 \end{figure}
 
-Von der Firma Linear Technology existiert ein IC, der LT3752. dieser IC ist speziell für den Aufbau von Wandlern dieser Topologie gedacht. Weiter existiert die Demo Schaltung DC1929A basierend auf diesem IC. hierbei handelt es sich um einen 400V zu 12V Wandler mit einer Ausgangsleistung von 200W. Das hier vorliegende Design wurde mithilfe des Datenblattes des LT3752, des LT8311 und mithilfe der Schematik als auch der Layout Dateien des DC1929A erstellt.
+Von der Firma Linear Technology existiert ein IC, der LT3752. Dieser IC ist speziell für den Aufbau von Wandlern dieser Topologie gedacht. Weiter existiert die Demo Schaltung DC1929A basierend auf diesem IC. Hierbei handelt es sich um einen 400V zu 12V Wandler mit einer Ausgangsleistung von 200W. Das hier vorliegende Design wurde mithilfe des Datenblattes des LT3752, des LT8311 und mithilfe der Schematik als auch der Layout Dateien des DC1929A erstellt.
 
 Zur Auflistung der Ausgangsparameter.
 
@@ -257,7 +257,107 @@ Zur Auflistung der Ausgangsparameter.
 	\end{tabular}
 \end{table}
 
-Mit diesen Werten muss nun ein passender Transformator gefunden werden.
+Mit diesen Werten muss nun ein passender Transformator gefunden werden. Hierfür wurden diverse Hersteller kontaktiert. Bei der Firma Champs Technologies gab es eine erfolgreiche Rückmeldung in der Form das Sie einen Transformator im Angebot habend der für unsere Anwendung relativ gut passt, den R41-AC-2202. 
+
+Zur Kontrolle können wir eine Rechnung durchführen. Zuerst ermitteln wir den maximalen Duty Cycle
+
+\begin{equation}
+	\label{maximaler duty cycle}
+	\glsc{symb:D_max} = 0,6 (typischer Wert laut Datenblatt)
+\end{equation}
+
+Hiermit könne wir nun das ideale Wicklungsverhältnis bestimmen
+
+\begin{equation}
+	\glsc{symb:NP/NS_ideal} = \dfrac{\glsc{symb:V_inmin}}{\glsc{symb:V_out}}*\glsc{symb:D_max}
+\end{equation}
+
+Dann brauchen wir zum Vergleich das reale Verhältnis von Primär zu Sekundärwicklungen
+
+\begin{equation}
+	\glsc{symb:NP/NS} = \dfrac{1}{\glsc{symb:NS/NP}}
+\end{equation}
+
+Indem wir nun 2 Transformatoren mit der Primärseite in Parallel und der Sekundärseite in Reihe verschalten können wir das Wicklungsverhältnis halbieren.
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		\multicolumn{3}{|c|}{Eingangsparameter} & Bemerkung\\
+		\hline
+		\glsc{symb:NS/NP} & 0,091 & \ensuremath{-} &\\
+		\hline
+		\multicolumn{3}{|c|}{Ergebnisse} & \\
+		\hline
+		\glsc{symb:NP/NS_ideal} & 5,75 & \ensuremath{-} &  \\
+		\hline
+		\glsc{symb:NP/NS} & 5,495 & \ensuremath{-} &  \\
+		\hline
+	\end{tabular}
+\end{table}
+
+Nun können wir den minimalen Duty cycle bestimmen. Dieser lässt sich für den Betrieb über folgende Gleichung ermitteln
+
+\begin{equation}
+	\label{minimaler duty cycle}
+	\glsc{symb:D_min} = \dfrac{\glsc{symb:V_out}}{\glsc{symb:V_inmax}}*\glsc{symb:NP/NS}
+\end{equation}
+
+alternativ kann der absolut minimale duty cycle aus der minimalen on time des primär Mosfets bestimmt werden dabei ist \glsc{symb:T_blank} die Wartezeit vor der Strommessung für erreichen des stationären zustand. Dieser Wert wurde mit einem 73,2 kOhm Wiederstand auf 454ns eingestellt (vorgeschlagener Wert aus Datenblatt). Die Strommessung benötigt 220 ns.
+
+Damit ergibt sich die minimale on time
+
+\begin{equation}
+	\label{minimale on time}
+	\glsc{symb:OnTime_min} = \glsc{symb:T_blank} + \glsc{symb:T_Sense}
+\end{equation}
+
+Die Zykluszeit bestimmt sich mit 
+
+\begin{equation}
+	\glsc{symb:T_cycle} = \dfrac{1}{\glsc{symb:f_osc}}
+\end{equation}
+
+damit ergibt sich
+
+\begin{equation}
+	\glsc{symb:D_min} = \glsc{symb:OnTime_min} / \glsc{symb:T_cycle}
+\end{equation}
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|c|c|}
+		\hline
+		\multicolumn{3}{|c|}{Eingangsparameter} & Bemerkung\\
+		\hline
+		\glsc{symb:T_blank} & 454 & \ensuremath{ns} & \\
+		\hline
+		\glsc{symb:T_Sense} & 220 & \ensuremath{ns} & \\
+		\hline
+		\multicolumn{3}{|c|}{Ergebnisse} & \\
+		\hline
+		\glsc{symb:D_min}1 & 20,93 & \ensuremath{\%} & \\
+		\hline
+		\glsc{symb:T_cycle}1 & 10000 & \ensuremath{ns} & \\
+		\hline
+		\glsc{symb:D_min}2 & 6,74 & \ensuremath{\%} & \\
+		\hline
+	\end{tabular}
+\end{table}
+
+Im folgenden soll nun die Auslegung von Ausgangs Induktivität als auch Kapazität erfolgen. Hierfür benötigen wir zu Berechnung der Induktivität den Ripple Strom an der Induktivität. Als Faustregel kann man diesen mit 20-40 \% vom maximalen Strom annehmen. Ziel der Induktivität ist es aus den einzelnen Stromimpulsen der Schaltstufe einen konstanten Ausgangsstrom zu erzeugen. Je kleiner diese Impulse sind, desto größer muss die entsprechende Induktivität gewählt werden. Wir wollen das der Wandler die meiste zeit im CCM (continious conduction mode) arbeitet da die gesamte Auslegen auf dieser Basis erfolgt. Der DCM (discontinous conduction mode) wird erreicht wenn der Stromverbrauch des Systems kleiner ist als der Ripplestrom in der Induktivität. Der minimale stromverbauch für das Fahrzeug wurde ermittelt indem alle Datenblatt stromverbräuche der einzelnen Systeme aufaddiert wurden und liegt bei ca. 4A respektive 100W.
+
+\begin{equation}
+	\glsc{symb:L_O} = (1-((1/\glsc{symb:V_inmax})*\glsc{symb:NP/NS}*\glsc{symb:V_out}))*\dfrac{1}{\glsc{symb:I_Ripple}}*\glsc{symb:V_out}*\dfrac{1}{\glsc{symb:f_osc}}
+\end{equation}
+
+Die Ripplespannung \glsc{symb:V_Ripple} wird auf 1\% der Ausgangsspannung festgelegt und damit 0,24 V. Nun brauchen wir noch den ESR (Equivalenten Seriellen Wiederstand) der Kondensatoren welche verwendet werden sollen. Es ist gängige praxis einige Keramik Kondesatoren mit niedrigem ESR zu verwenden und ein größeren Elektrolytkondensator zur Dämpfung größere Lasttransienten. Diese Rechnung würde man nun mit einem angenommenen typischen ESR von z.b 3 mOhm durchführen und Sie dann für die tatsächlichen Werte wiederholfen wenn entsprechende Kondensatoren ausgewählt wurden.
+
+\begin{equation}
+	\glsc{symb:C_O} = \dfrac{\glsc{symb:I_Ripple}}{(8*\glsc{symb:f_osc}*(\glsc{symb:V_Ripple}-\glsc{symb:I_Ripple}*\glsc{symb:ESR}))}
+\end{equation}
+
 
 
 \FloatBarrier

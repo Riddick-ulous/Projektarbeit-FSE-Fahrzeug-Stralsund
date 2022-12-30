@@ -246,7 +246,7 @@ Zur Auflistung der Ausgangsparameter.
 		\hline
 		F\textsubscript{Osc} & 100 & kHz & Basiert auf Referenzdesign\\
 		\hline
-		Foldback Ratio &  & - & Datenblatt\\
+		Foldback Ratio & 2 & - & Datenblatt\\
 		\hline
 		Int\textsubscript{VCC} & 10 & V & \\
 		\hline
@@ -277,17 +277,17 @@ Indem wir nun 2 Transformatoren mit der Primärseite in Parallel und der Sekund�
 
 \begin{table}[h]
 	\centering
-	\begin{tabular}{|c|c|c|c|}
+	\begin{tabular}{|c|c|c|}
 		\hline
-		\multicolumn{3}{|c|}{Eingangsparameter} & Bemerkung\\
+		\multicolumn{3}{|c|}{Eingangsparameter}\\
 		\hline
-		\glsc{symb:NS/NP} & 0,091 & \ensuremath{-} &\\
+		\glsc{symb:NS/NP} & 0,091 & \ensuremath{-} \\
 		\hline
-		\multicolumn{3}{|c|}{Ergebnisse} & \\
+		\multicolumn{3}{|c|}{Ergebnisse} \\
 		\hline
-		\glsc{symb:NP/NS_ideal} & 5,75 & \ensuremath{-} &  \\
+		\glsc{symb:NP/NS_ideal} & 5,75 & \ensuremath{-}   \\
 		\hline
-		\glsc{symb:NP/NS} & 5,495 & \ensuremath{-} &  \\
+		\glsc{symb:NP/NS} & 5,495 & \ensuremath{-}   \\
 		\hline
 	\end{tabular}
 \end{table}
@@ -299,10 +299,16 @@ Nun können wir den minimalen Duty cycle bestimmen. Dieser lässt sich für den 
 	\glsc{symb:D_min} = \dfrac{\glsc{symb:V_out}}{\glsc{symb:V_inmax}}*\glsc{symb:NP/NS} = 20,93
 \end{equation}
 
-Im folgenden soll nun die Auslegung von Ausgangs Induktivität als auch Kapazität erfolgen. Hierfür benötigen wir zu Berechnung der Induktivität den Ripple Strom an der Induktivität. Als Faustregel kann man diesen mit 20-40 \% vom maximalen Strom annehmen. Ziel der Induktivität ist es aus den einzelnen Stromimpulsen der Schaltstufe einen konstanten Ausgangsstrom zu erzeugen. Je kleiner diese Impulse sind, desto größer muss die entsprechende Induktivität gewählt werden. Wir wollen das der Wandler die meiste zeit im CCM (continious conduction mode) arbeitet da die gesamte Auslegen auf dieser Basis erfolgt. Der DCM (discontinous conduction mode) wird erreicht wenn der Stromverbrauch des Systems kleiner ist als der Ripplestrom in der Induktivität. Der minimale stromverbauch für das Fahrzeug wurde ermittelt indem alle Datenblatt stromverbräuche der einzelnen Systeme aufaddiert wurden und liegt bei ca. 4A respektive 100W.
+Im folgenden soll nun die Auslegung von Ausgangs Induktivität (L1 \& L2) als auch Kapazität (C13 - 15) erfolgen. Hierfür benötigen wir zu Berechnung der Induktivität den Ripple Strom an der Induktivität. Als Faustregel kann man diesen mit 20-40 \% vom maximalen Strom annehmen. Ziel der Induktivität ist es aus den einzelnen Stromimpulsen der Schaltstufe einen konstanten Ausgangsstrom zu erzeugen. Je kleiner diese Impulse sind, desto größer muss die entsprechende Induktivität gewählt werden. Wir wollen das der Wandler die meiste zeit im CCM (continious conduction mode) arbeitet da die gesamte Auslegen auf dieser Basis erfolgt. Der DCM (discontinous conduction mode) wird erreicht wenn der Stromverbrauch des Systems kleiner ist als der Ripplestrom in der Induktivität. Der minimale stromverbauch für das Fahrzeug wurde ermittelt indem alle Datenblatt stromverbräuche der einzelnen Systeme aufaddiert wurden und liegt bei ca. 4A respektive 100W.
 
 \begin{equation}
 	\glsc{symb:L_O} = (1-((1/\glsc{symb:V_inmax})*\glsc{symb:NP/NS}*\glsc{symb:V_out}))*\dfrac{1}{\glsc{symb:I_Ripple}}*\glsc{symb:V_out}*\dfrac{1}{\glsc{symb:f_osc}}
+\end{equation}
+
+Das Ergebnis dieser Rechnung sind 47,44 uH. Für diese Induktivität könnte man vier AGP4233-153ME der Firma Coilcraft zusammenschalten um auf 60uH zu kommen. Diese sind jedoch viel zu groß für den Bauraum so das die größtmögliche in den Bauraum passende Spulenkombination gewählt wurde. Hierbei handelt es sich um vier AGM2222-562ME die zusammen 22,4uH mitbringen. Hiermit könne wir nun den Ripplestrom bestimmen welchen wir für die Auslegung des Kondensators brauchen.
+
+\begin{equation}
+	\glsc{symb:I_Ripple} = \dfrac{\glsc{symb:V_out}}{\glsc{symb:L_O}*\glsc{symb:f_osc}} * 1 - \dfrac{\glsc{symb:V_out}} {\glsc{symb:V_inmax}} * \glsc{symb:NP/NS}
 \end{equation}
 
 Die Ripplespannung \glsc{symb:V_Ripple} wird auf 1\% der Ausgangsspannung festgelegt und damit 0,24 V. Nun brauchen wir noch den ESR (Equivalenten Seriellen Wiederstand) der Kondensatoren welche verwendet werden sollen. Es ist gängige praxis einige Keramik Kondesatoren mit niedrigem ESR zu verwenden und ein größeren Elektrolytkondensator zur Dämpfung größere Lasttransienten. Diese Rechnung würde man nun mit einem angenommenen typischen ESR von z.b 3 mOhm durchführen und Sie dann für die tatsächlichen Werte wiederholfen wenn entsprechende Kondensatoren ausgewählt wurden. Bei vielen Kondesatoren ist im Datenblatt oft nur ein Dissipation Faktor angegeben, in diesem Fall sollte man beim Hersteller nach weiteren informationen suchen. SO hat die Firma Würth ELektronik Diagramme zur ESR in ihrem separatem tool, dem Red Expert. in Abbildung \ref{fig:we-esr-cap} ein Beispiel wie solch ein Diagramm auszusehen hat.
@@ -324,7 +330,7 @@ Die Ripplespannung \glsc{symb:V_Ripple} wird auf 1\% der Ausgangsspannung festge
 		\hline
 		\multicolumn{3}{|c|}{Eingangsparameter}\\
 		\hline
-		\glsc{symb:I_Ripple} & 4 & \ensuremath{A}  \\
+		\glsc{symb:I_Ripple} & 4 -> 8,47 & \ensuremath{A}  \\
 		\hline
 		\glsc{symb:V_Ripple} & 0,24 & \ensuremath{V} \\
 		\hline
@@ -332,23 +338,23 @@ Die Ripplespannung \glsc{symb:V_Ripple} wird auf 1\% der Ausgangsspannung festge
 		\hline		
 		\multicolumn{3}{|c|}{Ergebnisse} \\
 		\hline
-		\glsc{symb:L_O}1 & 47,44 & \ensuremath{uH} \\
+		\glsc{symb:L_O}1 & 47,44 -> 22,4 & \ensuremath{uH} \\
 		\hline
-		\glsc{symb:C_O}1 & 21,4 & \ensuremath{uF} \\
+		\glsc{symb:C_O}1 & 45,334 & \ensuremath{uF} \\
 		\hline
 	\end{tabular}
 \end{table}
 
-Für die Induktivität wurden vier AGP4233-153ME der Firma Coilcraft in reihe mit einer Gesamtinduktivität von 60 uH gewählt. Für die Kapazität zwei 22uF MLCC`s und ein 2,2mF Elko in Parallel der Firma Würth Elektronik.
+Für die Kapazität werden zwei 22uF MLCC`s und ein 2,2mF Elko der Firma Würth Elektronik in parallel verschaltet
 
-Nun folgt die Berechnung der Fangschaltung bestehend aus Clamp Kondensator und einem RC Snubber.
+Nun folgt die Berechnung der Fangschaltung bestehend aus Clamp Kondensator und einem RC Snubber (C16 - 18 \& 20 - 22 \& R15).
 
 \begin{equation}
 	\glsc{symb:C_CL} = \dfrac{10}{\glsc{symb:H_Prim}} * (\dfrac{1-\glsc{symb:D_min}}{2*\pi*\glsc{symb:f_osc}})^2
 \end{equation}
 
 mit \glsc{symb:H_Prim} in uH
-und \glsc{symb:H_Prim} in kHz
+und \glsc{symb:f_osc} in kHz
 
 Nun können wir den Snubber mit folgenden Formeln aus dem Datenblatt berechnen
 
@@ -360,6 +366,69 @@ Nun können wir den Snubber mit folgenden Formeln aus dem Datenblatt berechnen
 	\glsc{symb:R_S} = (\dfrac{1} {1 - \glsc{symb:D_max}} ) * \sqrt{\dfrac{\glsc{symb:H_Prim}} {\glsc{symb:C_CL}}}
 \end{equation}
 mit \glsc{symb:H_Prim} in H
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\multicolumn{3}{|c|}{Eingangsparameter}\\
+		\hline
+		\glsc{symb:H_Prim} & 3900 & \ensuremath{uH}  \\
+		\hline	
+		\multicolumn{3}{|c|}{Ergebnisse} \\
+		\hline
+		\glsc{symb:C_CL}1 & 4,1 & \ensuremath{nF} \\
+		\hline
+		\glsc{symb:C_S}1 & 24,4 & \ensuremath{nF} \\
+		\hline
+		\glsc{symb:R_S}1 & 2297 & \ensuremath{\Omega} \\
+		\hline
+	\end{tabular}
+\end{table}
+
+Nun folgt die Berechnung der Schaltorgane, beginnend mit dem Primärseitigen Powerswitch (Q6). Zu erst bestimmen wir die maximale Drain Spannung wie folgt.
+
+\begin{equation}
+	\glsc{symb:V_DS} = \dfrac{\gls{symb:V_inmax}^2}{\gls{symb:V_inmax}-(\glsc{symb:V_out} * \glsc{symb:NP/NS})} * Sicherheit(20\%)
+\end{equation}
+
+Dann bestimmen wir die einzelnen Leistungsabfälle am Schalter.
+
+\begin{equation}
+	\glsc{symb:P_conduction} = \glsc{symb:NP/NS} * \dfrac{\glsc{symb:V_out}} {\glsc{symb:V_inmax}} * (\glsc{symb:NS/NP} * \glsc{symb:I_out})^2 * \glsc{symb:R_DS on}
+\end{equation}
+
+\begin{equation}
+	\glsc{symb:P_Gatedriver} = \glsc{symb:Q_G} * \glsc{symb:INTV_CC} * \glsc{symb:f_osc}
+\end{equation}
+
+\begin{equation}
+	\glsc{symb:P_Turn on} = \dfrac{1}{2} * \glsc{symb:I_out} * \glsc{symb:NS/NP} * \glsc{symb:V_DS} * \dfrac{\glsc{symb:Q_GD}}{\glsc{symb:I_Gate}} * \glsc{symb:f_osc}
+\end{equation}
+
+\begin{equation}
+	\glsc{symb:P_Turn off} = \dfrac{1}{2} * \glsc{symb:I_out} * \glsc{symb:NS/NP} * \dfrac{\glsc{symb:V_inmax}}{1-\glsc{symb:D_max}} * \dfrac{\glsc{symb:Q_GD}}{\glsc{symb:I_Gate}} * \glsc{symb:f_osc}
+\end{equation}
+
+\begin{equation}
+	\glsc{symb:P_gesamt} = \glsc{symb:P_conduction} + \glsc{symb:P_Gatedriver} + \glsc{symb:P_Turn off} + \glsc{symb:P_Turn off}
+\end{equation}
+
+
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{bilder/HVDCDC_Transformer_Schematic}
+	\caption{}
+	\label{fig:hvdcdctransformerschematic}
+\end{figure}
+
+
+
+
+
+
+
 
 \FloatBarrier
 \section{HV Distribution}

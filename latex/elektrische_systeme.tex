@@ -259,12 +259,7 @@ Zur Auflistung der Ausgangsparameter.
 
 Mit diesen Werten muss nun ein passender Transformator gefunden werden. Hierfür wurden diverse Hersteller kontaktiert. Bei der Firma Champs Technologies gab es eine erfolgreiche Rückmeldung in der Form das Sie einen Transformator im Angebot habend der für unsere Anwendung relativ gut passt, den R41-AC-2202. 
 
-Zur Kontrolle können wir eine Rechnung durchführen. Zuerst ermitteln wir den maximalen Duty Cycle
-
-\begin{equation}
-	\label{maximaler duty cycle}
-	\glsc{symb:D_max} = 0,6 (typischer Wert laut Datenblatt)
-\end{equation}
+Zur Kontrolle können wir eine Rechnung durchführen. Der maximale Duty Cycle \glsc{symb:D_max} liegt laut Datenblatt typischerweise bei 60\%.
 
 Hiermit könne wir nun das ideale Wicklungsverhältnis bestimmen
 
@@ -301,50 +296,8 @@ Nun können wir den minimalen Duty cycle bestimmen. Dieser lässt sich für den 
 
 \begin{equation}
 	\label{minimaler duty cycle}
-	\glsc{symb:D_min} = \dfrac{\glsc{symb:V_out}}{\glsc{symb:V_inmax}}*\glsc{symb:NP/NS}
+	\glsc{symb:D_min} = \dfrac{\glsc{symb:V_out}}{\glsc{symb:V_inmax}}*\glsc{symb:NP/NS} = 20,93
 \end{equation}
-
-alternativ kann der absolut minimale duty cycle aus der minimalen on time des primär Mosfets bestimmt werden dabei ist \glsc{symb:T_blank} die Wartezeit vor der Strommessung für erreichen des stationären zustand. Dieser Wert wurde mit einem 73,2 kOhm Wiederstand auf 454ns eingestellt (vorgeschlagener Wert aus Datenblatt). Die Strommessung benötigt 220 ns.
-
-Damit ergibt sich die minimale on time
-
-\begin{equation}
-	\label{minimale on time}
-	\glsc{symb:OnTime_min} = \glsc{symb:T_blank} + \glsc{symb:T_Sense}
-\end{equation}
-
-Die Zykluszeit bestimmt sich mit 
-
-\begin{equation}
-	\glsc{symb:T_cycle} = \dfrac{1}{\glsc{symb:f_osc}}
-\end{equation}
-
-damit ergibt sich
-
-\begin{equation}
-	\glsc{symb:D_min} = \glsc{symb:OnTime_min} / \glsc{symb:T_cycle}
-\end{equation}
-
-\begin{table}[h]
-	\centering
-	\begin{tabular}{|c|c|c|c|}
-		\hline
-		\multicolumn{3}{|c|}{Eingangsparameter} & Bemerkung\\
-		\hline
-		\glsc{symb:T_blank} & 454 & \ensuremath{ns} & \\
-		\hline
-		\glsc{symb:T_Sense} & 220 & \ensuremath{ns} & \\
-		\hline
-		\multicolumn{3}{|c|}{Ergebnisse} & \\
-		\hline
-		\glsc{symb:D_min}1 & 20,93 & \ensuremath{\%} & \\
-		\hline
-		\glsc{symb:T_cycle}1 & 10000 & \ensuremath{ns} & \\
-		\hline
-		\glsc{symb:D_min}2 & 6,74 & \ensuremath{\%} & \\
-		\hline
-	\end{tabular}
-\end{table}
 
 Im folgenden soll nun die Auslegung von Ausgangs Induktivität als auch Kapazität erfolgen. Hierfür benötigen wir zu Berechnung der Induktivität den Ripple Strom an der Induktivität. Als Faustregel kann man diesen mit 20-40 \% vom maximalen Strom annehmen. Ziel der Induktivität ist es aus den einzelnen Stromimpulsen der Schaltstufe einen konstanten Ausgangsstrom zu erzeugen. Je kleiner diese Impulse sind, desto größer muss die entsprechende Induktivität gewählt werden. Wir wollen das der Wandler die meiste zeit im CCM (continious conduction mode) arbeitet da die gesamte Auslegen auf dieser Basis erfolgt. Der DCM (discontinous conduction mode) wird erreicht wenn der Stromverbrauch des Systems kleiner ist als der Ripplestrom in der Induktivität. Der minimale stromverbauch für das Fahrzeug wurde ermittelt indem alle Datenblatt stromverbräuche der einzelnen Systeme aufaddiert wurden und liegt bei ca. 4A respektive 100W.
 
@@ -352,13 +305,61 @@ Im folgenden soll nun die Auslegung von Ausgangs Induktivität als auch Kapazit�
 	\glsc{symb:L_O} = (1-((1/\glsc{symb:V_inmax})*\glsc{symb:NP/NS}*\glsc{symb:V_out}))*\dfrac{1}{\glsc{symb:I_Ripple}}*\glsc{symb:V_out}*\dfrac{1}{\glsc{symb:f_osc}}
 \end{equation}
 
-Die Ripplespannung \glsc{symb:V_Ripple} wird auf 1\% der Ausgangsspannung festgelegt und damit 0,24 V. Nun brauchen wir noch den ESR (Equivalenten Seriellen Wiederstand) der Kondensatoren welche verwendet werden sollen. Es ist gängige praxis einige Keramik Kondesatoren mit niedrigem ESR zu verwenden und ein größeren Elektrolytkondensator zur Dämpfung größere Lasttransienten. Diese Rechnung würde man nun mit einem angenommenen typischen ESR von z.b 3 mOhm durchführen und Sie dann für die tatsächlichen Werte wiederholfen wenn entsprechende Kondensatoren ausgewählt wurden.
+Die Ripplespannung \glsc{symb:V_Ripple} wird auf 1\% der Ausgangsspannung festgelegt und damit 0,24 V. Nun brauchen wir noch den ESR (Equivalenten Seriellen Wiederstand) der Kondensatoren welche verwendet werden sollen. Es ist gängige praxis einige Keramik Kondesatoren mit niedrigem ESR zu verwenden und ein größeren Elektrolytkondensator zur Dämpfung größere Lasttransienten. Diese Rechnung würde man nun mit einem angenommenen typischen ESR von z.b 3 mOhm durchführen und Sie dann für die tatsächlichen Werte wiederholfen wenn entsprechende Kondensatoren ausgewählt wurden. Bei vielen Kondesatoren ist im Datenblatt oft nur ein Dissipation Faktor angegeben, in diesem Fall sollte man beim Hersteller nach weiteren informationen suchen. SO hat die Firma Würth ELektronik Diagramme zur ESR in ihrem separatem tool, dem Red Expert. in Abbildung \ref{fig:we-esr-cap} ein Beispiel wie solch ein Diagramm auszusehen hat.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=0.4\linewidth]{"bilder/WE ESR Cap"}
+	\caption{}
+	\label{fig:we-esr-cap}
+\end{figure}
 
 \begin{equation}
 	\glsc{symb:C_O} = \dfrac{\glsc{symb:I_Ripple}}{(8*\glsc{symb:f_osc}*(\glsc{symb:V_Ripple}-\glsc{symb:I_Ripple}*\glsc{symb:ESR}))}
 \end{equation}
 
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\multicolumn{3}{|c|}{Eingangsparameter}\\
+		\hline
+		\glsc{symb:I_Ripple} & 4 & \ensuremath{A}  \\
+		\hline
+		\glsc{symb:V_Ripple} & 0,24 & \ensuremath{V} \\
+		\hline
+		\glsc{symb:ESR} & 1,6 & \ensuremath{m\Omega} \\
+		\hline		
+		\multicolumn{3}{|c|}{Ergebnisse} \\
+		\hline
+		\glsc{symb:L_O}1 & 47,44 & \ensuremath{uH} \\
+		\hline
+		\glsc{symb:C_O}1 & 21,4 & \ensuremath{uF} \\
+		\hline
+	\end{tabular}
+\end{table}
 
+Für die Induktivität wurden vier AGP4233-153ME der Firma Coilcraft in reihe mit einer Gesamtinduktivität von 60 uH gewählt. Für die Kapazität zwei 22uF MLCC`s und ein 2,2mF Elko in Parallel der Firma Würth Elektronik.
+
+Nun folgt die Berechnung der Fangschaltung bestehend aus Clamp Kondensator und einem RC Snubber.
+
+\begin{equation}
+	\glsc{symb:C_CL} = \dfrac{10}{\glsc{symb:H_Prim}} * (\dfrac{1-\glsc{symb:D_min}}{2*\pi*\glsc{symb:f_osc}})^2
+\end{equation}
+
+mit \glsc{symb:H_Prim} in uH
+und \glsc{symb:H_Prim} in kHz
+
+Nun können wir den Snubber mit folgenden Formeln aus dem Datenblatt berechnen
+
+\begin{equation}
+	\glsc{symb:C_S} = 6 * \glsc{symb:C_CL}
+\end{equation}
+
+\begin{equation}
+	\glsc{symb:R_S} = (\dfrac{1} {1 - \glsc{symb:D_max}} ) * \sqrt{\dfrac{\glsc{symb:H_Prim}} {\glsc{symb:C_CL}}}
+\end{equation}
+mit \glsc{symb:H_Prim} in H
 
 \FloatBarrier
 \section{HV Distribution}

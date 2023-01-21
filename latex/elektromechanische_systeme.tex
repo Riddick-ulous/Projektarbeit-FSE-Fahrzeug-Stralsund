@@ -8,198 +8,193 @@ An dieser Stelle geht mein Dank an Tim Schweers, der dieses Projekt besonders in
 
 \subsection{Die Akkuzelle}
 
-Wichtig bei der zellenauswahl ist das stets jede individuelle zelle für sich begutachtet werden muss. es gibt bei den diversen Bauformen und chemischen Zusammensetzungen gewissen Tendenzen welche im folgen erläutert werden. Jedoch ist die Überlappung dieser Eigenschaften in der Regel so groß das sich augenscheinlich vollkommen unterschiedliche Zellen für einen ähnlichen Einsatzzweck eignen.
+Wichtig bei der Zellenauswahl ist das stets jede individuelle Zelle für sich begutachtet werden muss. Es gibt bei den diversen Bauformen und chemischen Zusammensetzungen gewissen Tendenzen welche im Folgenden erläutert werden. Jedoch ist die Überlappung dieser Eigenschaften in der Regel so groß das sich augenscheinlich vollkommen unterschiedliche Zellen für einen ähnlichen Einsatzzweck eignen.
 \FloatBarrier
 \subsubsection{Vergleich der Speicherarten}
 
-im nachfolgenden wird die zuerst die Energie berechnet die ein klassiches Formula Studentfahrzeug bei einem typischen bremsvorgang freisetzt und damit die enrgie die mann mindestens speichern können müsste um mit der speciherform auf sinnvolle art und weise eine rekuperation umszusetzten. Im anschluss wird diese energie in eine ungefähre masse an speicherelementen umgesetzt um zu zeigen inwiefern sich diese form der enrgiespeicherung für den einsatz eignet. im nachfolgenden wird die masse an speciherelementen bestimmt um 6 Kwh energie zu speichern da dies der typsiche energieverbrauch eines formula student fahrzueuges im Endurance ist. dieser wert wurde im rahmen eines benchmarkings mit den fahrzeuigen anderer teams über die letzten jahre 2016 bis 2019 errechnet.
-
-Im folgenden errechnen wir die Energie welche bei einem durchschnittlich Bremsvorghang eines formula student fahrzeuges aufgenommen werden müsste. 
+Im nachfolgenden wird die zuerst die Energie berechnet die ein Formula Student Fahrzeug bei einem Bremsvorgang freisetzt und damit die Energie die man speichern können müsste um mit der Speicherform auf sinnvolle Art und Weise eine Rekuperation umzusetzen. Im Anschluss wird diese Energie in eine ungefähre Masse umgesetzt um zu zeigen inwiefern sich diese Form der Energiespeicherung für den Einsatz eignet. Im nachfolgenden wird die Masse bestimmt um 6 KWh Energie zu speichern da, dies der Energieverbrauch eines Formula Student Fahrzeuges in der Disziplin des Endurance ist. Dieser Wert wurde im Rahmen eines Benchmarkings mit den Fahrzeugen anderer Teams über die letzten Jahre 2016 bis 2019, sowie einer \acfirst{LTS} errechnet.
+\\
+\\
+Im folgenden errechnen wir die Energie welche bei einem durchschnittlich Bremsvorgang eines Formula Student Fahrzeug aufgenommen werden müsste. 
 
 \begin{equation}
 \glsc{symb:E_kin} = \dfrac{1}{2} * \glsc{symb:m} * \glsc{symb:v}^2
 \end{equation}
 
-\glsc{symb:m} = 220Kg
-\\
-\glsc{symb:v}\textsubscript{Start} = 30m/s
-\\
-\glsc{symb:v}\textsubscript{end} = 5m/s
-\\
-\glsc{symb:E_kin} * \glsc{symb:mu} = 74,8kJ
-\\
+\begin{table}[h]
+	\centering
+	\caption{Bremsvorgang Berechnung}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\multicolumn{3}{|c|}{Eingangsparameter} \\
+		\hline
+		\glsc{symb:m}\textsubscript{Fahrzeug} & 300 & \ensuremath{m/s}\\
+		\hline
+		\glsc{symb:v}\textsubscript{Start} & 30 & \ensuremath{m/s}\\
+		\hline
+		\glsc{symb:v}\textsubscript{end} & 5 & \ensuremath{m/s}\\
+		\hline
+		\multicolumn{3}{|c|}{Ergebnisse} \\
+		\hline
+		\glsc{symb:E_kin} & 93,8 & \ensuremath{KJ}\\
+		\hline
+	\end{tabular}
+\end{table}
 
 Physikalische Speicher (Kondensatoren)
 \\
-	Kondensatoren erreichen ein sehr hohes Leistungsgewicht, zeichnen sich jedoch durch eine geringe Energiedichte aus, sowohl gravimetrisch als auch volumetrisch. daher eignet sich diese Form der Energiespeicherung nur um kurzfristige transienten zu glätten aber nicht um gar ganze Bremsvorgänge an Energie zu speichern.\\
-	Der Kondensator mit der höchsten energiedicht welcher bei Würth Elektronik verfügbar ist erreicht 3600J/Kg. Somit würde man ca. 20Kg dieser Kondensatoren brauchen um damit effektiv rekuperieren zu können. Bei einem Gewicht für die akuzellen alleine im TY22 von ca. 30,7Kg ergibt sich das der superkondensator nach akltuellem stand keine sinnvoll einsetzbare technologie darstellt.
+Kondensatoren erreichen ein sehr hohes Leistungsgewicht, zeichnen sich jedoch durch eine geringe Energiedichte aus, sowohl gravimetrisch als auch volumetrisch. Daher eignet sich diese Form der Energiespeicherung nur um kurzfristige transienten zu glätten aber nicht als Hauptenergiespeicher\\
+Der Kondensator mit der höchsten energiedicht welcher bei \ac{WE} verfügbar ist erreicht 3600 J/Kg. Somit würde man ca. 26 Kg dieser Kondensatoren brauchen um damit rekuperieren zu können. Bei einem angepeilten Gewicht von ca. 50 Kg für den gesamten Energiespeicher stellt dies nach aktuellem Stand keine sinnvoll einsetzbare Technologie dar.
+\\
 \\
 Thermische Speicher (Salzakkumulator)
 \\
-	sind im rahmen der formula student verboten Stand 2022, daher wird hier nicht weiter auf diese form des energiespeichers eingegangen
+Diese sind im Rahmen der Formula Student verboten Stand 2022, daher wird hier nicht weiter auf diese Form des Energiespeichers eingegangen
+\\
 \\
 Mechanische Speicher (Schwungrad)
 \\
-	Zeichnung sich durch relativ gute energiedichte als auch leistungdichte aus und bilden damit wahrscheinlich am ehesten eine realistische form des kurfristigen speichers für ein formula student fahrzeug. Jedoch sind solche systeme sehr komplex sowohl mechanisch, elektrisch als auch regelungstechnisch im vergleich zu den anderen systemen. Die lagerung und sichere unterbringung des schwungrades in einem formel fahrzeug birgt große technische herausforderungen
+Sie zeichnen sich durch gute Energie- als auch Leistung/-dichte aus und bilden damit wahrscheinlich am ehesten eine realistische Form des kurzfristigen Energiespeichers für ein Formula Student Fahrzeug. Jedoch sind solche Systeme sehr komplex, sowohl mechanisch, elektrisch als auch regelungstechnisch im Vergleich zu den anderen Systemen. Die Lagerung und sichere Unterbringung des Schwungrades in einem Formel Fahrzeug birgt große technische Herausforderungen.
 \\
-Chemische Speicher (Klassische Akkuzelle)
 \\
-	Der typische im Rahmen der formula studnet von allen teams eingesetzte energiespeicher. In der verfügbaren bandbreite findet man so ziemlich das optimum an leistungs als auch energiedichte.
+Chemische Speicher (Akkuzelle)
+\\
+Der typische im Rahmen der Formula Student von allen Teams eingesetzte Energiespeicher. In der verfügbaren Bandbreite findet man so ziemlich das Optimum an Leistungs- als auch Energie/-dichte.
 \FloatBarrier
 \subsubsection{Runde vs Pouch vs Prismatische Zellen}
-%tabelle
-(
-	Puch zelle
 
-in der regelung höhere packungsdichte möglich damit höherte volumetrische enrgie und lkeistungsdichte
-in der regel weniger zellen weniger als 300 manschmal sogar nur 150
-weiches gehäuse ist leicht zu beschädigen, bedarf vorischtiger umgang 
-aufblähen beim laden und entladen muss bei konstruktion berücksichtigt werden sonst platzenb der zellen möglich
+Die Puchzelle\\
+ermöglicht in der Regelung höhere Packungsdichten und liefert damit eine höhere volumetrische Leistungs- als auch Energie/-dichte. Meist werden verhältnismäßig wenige Akkuzellen benötigt z.b 150 Stück, was die mechanische Komplexität verringert. Jedoch muss bei der Konstruktion hier berücksichtigt werden das die Zellen unter Belastung aufblähen und damit im verbauten zustand Raum benötigen um sich ausdehnen können. Weiter sind diese Zellen aufgrund der Hülle welche aus einer dünnen Folie besteht anfällig gegenüber Beschädigungen.\\
+\\
+Die Rundzelle\\
+hat den Vorteil der Standardisierung und damit der guten Verfügbarkeit als auch Austauschbarkeit für künftige Designänderungen. Erfahrungsgemäß sind die Fertigungstoleranzen hier verhältnismäßig eng gesteckt so das ein Matching der Zellen entfallen kann. Es bedarf jedoch meist sehr vieler Zellen um den Akku aufzubauen z.b. ca. 600 Stück was die mechanische Komplexität nach oben treibt.\\
+\\
+Die Prismatische Zelle
+\\
+Hierbei handelt es sich \ac{idR} um vorgefertigte Pakete aus Pouch- oder Rund/-Zellen welche Anschraubpunkte, Terminals für die Busbar und Steckverbinder für das \ac{AMS} als auch die Temperaturmessung mitbringen. Meist kann hier eine passende Steuerung gleich mit erworben werden. Dieses System vereinfacht den Entwicklungsaufwand drastisch, ist jedoch sehr teuer. Erfahrungsgemäß wird hier der 2 bis 3 fache Betrag im Vergleich zu den anderen Lösungen fällig. Weiter ist das System deutlich schwerer aufgrund des Vorhaltens von universalen Schnittstellen und damit schlechterer Systemintegrierung.\\
+\\
 
-
-Rundzelle
-
-geringere fertigungstoleranzen durch serienfertigung idr kein matching erforderlich
-hoher grad an standardisierung damit folgen mechanische austauschbarkeit und gute marktverfügbarkeit
-Hartes gehäuse damit geringe wahrscheinlichkeit von penetrastion durch spitze objekte
-bedarf in der regel sehr vieler zellen 600 und mehr, daher hohe mechanische komplexität
-
-Prismatische Zellen
-
-vorgefertigtes paket aus rund oder pouchzellen
-sehr wenige zellen kleiner 150
-sehr geringe mechanische komplexität da das paket in der regel mit elektrischen und mechanischen anbindungspunkten kommt meist sind auch schon temperatur sensoren integriert
-meist jedoch sehr schwer aufgrund der ausrichtung auf industrielle bedürfnisse
-
-
-Im rahmen des TY22 haben wir uns für den einsatz von rundzellen entschieden da diese nach unserem kenntnisstand gravimetrisch die höchste energiedichte liefern wir uns langfristig auf ein konzept festelgen wollten und so bei einsatz einer neuen akkuztelle nur gerinfügige änderungen an dem akku machen müssen sofern das 18650 format weiterhin populär bleibt. Außerdem war dies im rahmen der lieferschwierigkeiten im bereich der akuzellen im jahr 2021 die beste option um tatsächlich auch an akkuzellen für den bau des fahrzeuges zu kommen
-)
+Im rahmen des TY22 haben wir uns für den Einsatz von Rundzellen entschieden da diese nach unserem Kenntnisstand gravimetrisch die höchste Energiedichte liefern, wir uns langfristig auf ein Konzept festlegen wollten und so bei Einsatz einer neuen Akkuzelle nur geringfügige Änderungen an dem Akku machen müssen, sofern das 18650 Format weiterhin populär bleibt. Außerdem war dies im Rahmen der Lieferschwierigkeiten im Bereich der Akkuzellen im Jahr 2021 die beste Option um tatsächlich auch an Akkuzellen für den Bau des Fahrzeuges zu kommen.
 \FloatBarrier
-\subsubsection{Zellchemie und Rekuperation}
 
-Im folgenden eine tabellarische gegenüberstellung von \acfirst{LiFePo4} zellen und \acfirst{Li-ion} Zellen. Diese Tabelle basiert auf einer Sichtung von mehr als 30 verschiedenen Akkuzellen welche im rahmen des Projektes auf ihre Eignung für den Einsatz im Fahrzeug geprüft wurden. Liion umfasst dabei ein konglomerat aus diversen zellchemien welches eigentlich auch lifepo4 mit einschließt. Zur vereinfachung des vergleiches wurden alle liion chemieen mit einem typ. arbeitsbereich von 3-4,2 hierunter zusammengafasst. Die hierbei aufgrund der hohen löeistungsdichte am häufigsten vertretene Chemie ist LiNiMnCoO2
-
-
-
-In der analyse ergibt sich das bild das sich \acfirst{LiFePo4} zellen für ein konzept mit hohem rekupoerationsanteil aber niederiger gesamtkapazität eignet während sich liion zellen für ein konzepot mit niedrigerem rekuperationsanteil und hoher gesamtkapazität eignen. Weiterhin muss hier berücksichtigt werden das Lifepo4 zellen meist ein niederigers temperaturmlimit beim laden als beim entladen haben was im betrieb zu einem vorzeitigen ausfall der rekuperation durch zu hohe akkutemperaturen führen kann. daher ist das Temperaturmanagment hier von besonderer Bedeutung.
-
-Das konzept mit hohen rekuströmen ist nur beim AWD Fahrzeug sinvoll anwendbar da hier auch die gesamte bremsenergie, abzüglich der verlsute im antriebsstran und einiger spitzenlasten welche die mechanische bremsanlage abfangen muss, verfügbar ist. Aufgrund der hohen komplexität des AWD systemes wurde beim TY22 auf ein 2WD System gesetzt. Daher ist der einsatz von konkret LiNiMnCoO2 zellen am ehesten sinvoll.
-\FloatBarrier
 \subsubsection{Die Zellauswahl}
-Um zu sehen ob eine Zelle für den geplanten Einsatz geeignet ist, muss zuerst ermittelt werden wie ein Vollständig konfigurierter akku hiermit aussehen würde um die eckdaten zu ermitteln. Dies Wurde mit der hilfe einer excel tabelle umgesetzt. 
+Um zu sehen ob eine Zelle für den geplanten Einsatz geeignet ist, muss zuerst ermittelt werden wie ein Vollständig konfigurierter Akku hiermit aussehen würde um die Eckdaten zu ermitteln. Dies wurde mit der Hilfe einer Excel Tabelle umgesetzt. 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.2\linewidth]{bilder/Ausschnitt_zellvergleich}
-	\caption{}
+	\caption{Ausschnitt aus der Zellauswahl Excel}
 	\label{fig:Ausschnitt_zellvergleich}
 \end{figure}
 \FloatBarrier
-Unter dem Punkt Input Daten werden die Zellparameter aus dem Datenblatt der Zelle angegeben. Unter den Akkuparametern werden nun die Zielbgedingungen bzw, Grenzwerte für den Akku Bestimmt. Die min Avg. P. ist hierbei ein Parameter für die im endurance angestrebte leistung, die max.V ergibt sich aus der sapnnungsfestigkeit des TS besonders relevant sind hierbei die Elektromotoren. Die min Wh geben die mindest vorgesehene akkukapazität vor und die min max. P. die angestrebte maximale leistung die der akku können muss. Aus diesen parametern wird folgend eine minimal benötigte Zellanzahl bestimmt. Unter dem Punkt Akkuconfig wird nun die vorhgerig höchstze bestimmte zellanzahl ermittlewt und gerundet. hieraus bestimmen wir nun die Anzahl der parallel und seriell verschalteten zellen und runden auf ganze zellen.
-Dies ergibt dann einige Gesamtparameter für den akku.
-Unter dem Abschnitt stackaufteilung werden die zellen jetzt nach den parametern des Regelwerkes möglichst optimal in stacks aufgeteilt. Der zielwert hierbei ist es das die tatsächliche Anzahl an Akkuzellen größer ist als die vorher errechnete benötigte Anzahl, es wird also aufgerundet. Weiter soll möglichst eine gerade anzahl an stacks heauskommen so das sich die stacks im akku möglichst leicht verteilen lassen. Hierbei können wir drei verschiedene anzahlen von zellen pro BMS vorgeben die analysiert werden sollen.
-Schlussendlich ist das ergebnis ein fertig konfiguirierter akku. Diese konfigurationen können nun gegenübergestellt und die anzahl der weiter zu analysierenden zellen eigegrenzt werden.
+Unter dem Punkt Input Daten werden die Zellparameter aus dem Datenblatt der Zelle angegeben. Unter den Akkuparametern werden nun die Zielbedingungen bzw., Grenzwerte für den Akku bestimmt. Die min Avg. P. ist hierbei ein Parameter für die im Endurance angestrebte Leistung, die max.V ergibt sich aus der Spannungsfestigkeit des \ac{TS}, besonders relevant sind hierbei die Elektromotoren. Die min. Wh geben die mindestens vorgesehene Akkukapazität vor und die min. max. P. die angestrebte maximale Leistung die der Akku leisten muss. Aus diesen Parametern wird folgend eine minimal benötigte Zellanzahl bestimmt. Unter dem Punkt Akkuconfig wird nun die vorherig höchste bestimmte Zellanzahl ermittelt und gerundet. Hieraus bestimmen wir nun die Anzahl der parallel und seriell verschalteten Zellen und runden auf ganze Zellen.\\
+Dies ergibt dann einige Gesamtparameter für den akku.\\
+Unter dem Abschnitt Stackaufteilung werden die Zellen jetzt nach den Parametern des Regelwerkes möglichst optimal in Stacks aufgeteilt. Der Zielwert hierbei ist es, dass die tatsächliche Anzahl an Akkuzellen größer ist als die vorher errechnete benötigte Anzahl, es wird also aufgerundet. Weiter soll möglichst eine gerade Anzahl an Stacks herauskommen so das sich die Stacks im Akku möglichst leicht verteilen lassen. Hierbei können wir drei verschiedene Anzahlen von Zellen pro \ac{AMS} vorgeben die analysiert werden sollen.\\
+Schlussendlich ist das Ergebnis ein fertig konfigurierter Akku. Diese Konfigurationen können nun gegenübergestellt und die Anzahl der weiter zu analysierenden Zellen eingegrenzt werden.\\
+\\
+Zur weiteren Analyse wurde auf Messdaten zurückgegriffen welche auf den Internetseiten dampfakkus.de und lygte-info.dk bereitgestellt wird. Aus diesen Daten ergeben sich folgende 2 Diagramme.
 
-Zur weiteren Analyse wurde auf Messdaten zurückgegriffen welche auf den Seiten dampfakkus.de und lygte-info.dk bereitgestellt wird. Aus diesen Daten ergeben sich folgende 2 Diagramme.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.6\linewidth]{bilder/Kapazitaet_ueber_Entladestrom}
-	\caption{}
+	\caption{Kapazität über Entladestrom}
 	\label{fig:Kapazitaet_ueber_Entladestrom}
 \end{figure}
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.6\linewidth]{bilder/Temperatur_ueber_Entladestrom}
-	\caption{}
+	\caption{Temperatur über Entladestrom}
 	\label{fig:Temperatur_ueber_Entladestrom}
 \end{figure}
-Das erste Diagramm ermöglichts es einen eindruck von der Entlladeeffizienz des Akkus besonders bei hohen Strömen zu bekommen. Das Optimum wäre hier eine Horizontale Linie am oberen Rand des diagrammes. Hierbei sticht die Samsung INR21700-30T besonders hervor.
-Das zweitere Diagramm ermöglich uns einen eindruck von der thermischen performance zu erlangen. Laut regelwerk der Formula Student darf keine akuzellen zu einem Zeitpunkt die 60°C marke überschreitern. Nichtbeacjten führt zur disqualifikation. hierbei sticht auch die vorher genannte samsung zelle hervor als auch die Vapcell INR18650
-Hierbei vergleichen wir Rundezellen von verschiedenen Baumaßen, ein Vollständiger akku mit den Samsung INR21700-30T wäre 7Kg schwerer als einer mit der Sony VTC6. Daher müssen am ende alle erlangenden Erkenntnisse Berücksichtigt werden.
+
+Das erste Diagramm ermöglicht es einen Eindruck von der Entladeeffizienz des Akkus, besonders bei hohen Strömen zu bekommen. Das Optimum wäre hier eine Horizontale Linie am oberen Rand des Diagramms. Hierbei sticht die Samsung INR21700-30T besonders hervor.\\
+Das zweite Diagramm ermöglicht uns einen Eindruck von der thermischen Performance zu erlangen. Laut Regelwerk der Formula Student darf keine Akkuzelle zu einem Zeitpunkt die 60°C Marke überschreiten. Nichtbeachten führt zur Disqualifikation. hierbei sticht auch die vorher genannte Samsung Zelle hervor als auch die Vapcell INR18650\\
+Hierbei vergleichen wir Rundzellen von verschiedenen Baumaßen, ein Vollständiger Akku mit den Samsung INR21700-30T wäre 7Kg schwerer als einer mit der Sony VTC6. Daher müssen am Ende alle erlangenden Erkenntnisse Berücksichtigt werden.
 
 %evtl. netzgrafik von den top 2 oder 3 zellen machen. als finale gegenüberstellung 
 \FloatBarrier
 \subsubsection{Elektrisches Modell der Zelle}
-Das Elektrische Modell ist für die modellierung in der Rundenzeitsimulation relevant. Hierbei werden die limitierungen die sich aus dem Akku und dem restlichen antriebsstrang ergeben mit simuliert ein beispiel ist die sinkende antriebsleistung bei abfallen der spannung durch sinkenden SOC. Das aktuelle modell greift dabei auf zwei datensätze zu um das verhalten zu modellieren. Einmal die Entladeeffizienz bzw. einen korrigierten entladestrom, als auch auf ein Spannungskennfeld über entladestrom und SOC. Beide Abbildung folgen für die Sony VTC6. Die Daten entstammen wieder der Webseiten dampfakkus.de und lygte-info.dk.
+Das Elektrische Modell ist für die Modellierung in der \ac{LTS} relevant. Hierbei werden die Limitierungen die sich aus dem Akku und dem restlichen Antriebsstrang ergeben simuliert. Ein Beispiel ist die sinkende Antriebsleistung bei abfallen der Spannung durch sinkenden \acfirst{SOC}. Das aktuelle Modell greift dabei auf zwei Datensätze zu um das verhalten zu modellieren. Einmal die Entladeeffizienz bzw. einen korrigierten Entladestrom, als auch auf ein Spannungskennfeld über den Entladestrom und \ac{SOC}. Die folgenden Abbildungen \ref{fig:Entladeeffizienz_VTC6} und \ref{fig:Spannung_ueber_SOC_Strom} gelten für die Sony VTC6. Die Daten entstammen wieder der Webseiten dampfakkus.de und lygte-info.dk.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{bilder/Entladeeffizienz_VTC6}
-	\caption{}
+	\caption{Entladeeffizienz VTC6}
 	\label{fig:Entladeeffizienz_VTC6}
 \end{figure}
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{bilder/Spannung_ueber_SOC_Strom}
-	\caption{}
+	\caption{Spannungskennfeld VTC6}
 	\label{fig:Spannung_ueber_SOC_Strom}
 \end{figure}
 
 \subsubsection{Temperaturmodell der Zelle}
-
-Auf Basis der Masterarbeit Experimentelle Untersuchung von Batteriesystemen im simulierten niedrigen Erdorbit von Agnes Klein an der Universität Stuttgart konnte ich ein simples thermisches modell der akkuzelle in einer excel tabelle ersytellen. Bei dieser arbeit wurde unter anderem die akkuzellen des types VTC6 innerhalb einer thermnal vakuum kammer betrieben und die thermischen paramter der zelle ermittelt. In folgender Grafik finden sie die dabei ermittelten parameter.
+%Quelle!!!
+Auf Basis der Masterarbeit Experimentelle Untersuchung von Batteriesystemen im simulierten niedrigen Erdorbit von Agnes Klein an der Universität Stuttgart konnte ich ein simples thermisches Modell der Akkuzelle erstellen. Bei dieser Arbeit wurde unter anderem die Akkuzellen des Types VTC6 innerhalb einer Thermal Vakuum Kammer betrieben und die thermischen Paramter der Zelle ermittelt. In folgender Grafik \ref{fig:parameterthermischesmodellvtc6} finden sie die dabei ermittelten Parameter.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.4\linewidth]{bilder/Parameter_thermisches_modell_VTC6}
-	\caption{}
+	\caption{Parameter des thermischen Modells der VTC6}
 	\label{fig:parameterthermischesmodellvtc6}
 \end{figure}
 
 
-Damit ergibt sich folgendes Modell.
+Damit ergibt sich folgende Gleichung.
 
 \begin{equation}
 	\glsc{symb:T_celli+1} = (\glsc{symb:I_cell}^2 * \glsc{symb:R_cell} - \glsc{symb:G_th} * (\glsc{symb:T_celli} - \glsc{symb:T_u}) - \glsc{symb:G_r} * \glsc{symb:SBoltz} * (\glsc{symb:T_celli} - \glsc{symb:T_u})^4) * \dfrac{1}{\glsc{symb:C_B} * \glsc{symb:m_Cell}} + \glsc{symb:T_celli}
 \end{equation}
 
-Mit diesem Modell ergeben sich folgende Kurvenverläufe für eine Auswahl Entladeströmen
+Mit dieser Gleichung ergeben sich folgende Kurvenverläufe für eine Auswahl von Entladeströmen.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{bilder/temperatur_über_energie_vtc6_thermo_modell}
-	\caption{}
+	\caption{Temperatur über Energieverbrauch VTC6}
 	\label{fig:temperaturuberenergievtc6thermomodell}
 \end{figure}
-
-Mithilfe der folgenden Grafik von der Universität BRNO (MATEC Web of Conferences 313, 00045 (2020)) können wir einen Plausibilitätscheck durchführen. Wir haben hier Messdaten von der Sony VTC6. hierbei sind jedoch die Testbedingungen unbekannt. Als grobe Abschätzung sollte dies jedoch ausreichen
+%Quelle
+Mithilfe der Grafik \ref{fig:messdatenvtc6-temperatur-kapazitat-spannung} von der Universität BRNO (MATEC Web of Conferences 313, 00045 (2020)) können wir einen Plausibilitätscheck durchführen. Wir haben hier Messdaten von der Sony VTC6. Hierbei sind jedoch die Testbedingungen unbekannt.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{"bilder/Messdaten_VTC6_ temperatur kapazität spannung"}
-	\caption{}
+	\caption{Messdaten BRNO Temperatur über Energieverbrauch}
 	\label{fig:messdatenvtc6-temperatur-kapazitat-spannung}
 \end{figure}
 
-Wir sehen das das erstellte modell für den 10A graph um ca. 3°C abweicht. Weiterhin sehen wir das bei der 20A linie die 90°C ca. 0,5Ah früher erreichen. Diese Abweichungen nicht insignifikant, zeigen jedoch das unser modell eher zu hohe als zu niedrige temperaturen ausgiebt was für die zuverlässigkeit des fahrzeuges positiv ist da eine auslegung der kühlung mit diesem modell wahrscheinlich zu einer überkühlung und damit zu einem zu hohen gewicht des kühlsystemes führt was für das erste fahrzeug kein sonderliches problemn darstellt. Die abweichung dürfte darauf zurückzuführen sein das die modellparameter im vakkum ermittelt worden und insofern wärmeübertragung durch konvektion etc. nicht berücksichttigt werden konnte. Um diesem sachverhgalt weiter auf die gründe zu gehen wurde im anschluss eine Simulation mit ansys fluent durchgeführt.
+Wir sehen, dass das erstellte Modell für den 10 A Graphen um ca. 3°C abweicht. Weiterhin sehen wir das bei der 20 A Linie die 90°C ca. 0,5 Ah früher erreichen. Diese Abweichungen sind nicht insignifikant, zeigen jedoch das unser Modell eher zu hohe als zu niedrige Temperaturen ausgibt was für die Zuverlässigkeit des Fahrzeuges positiv ist, da eine Auslegung der Kühlung mit diesem Modell wahrscheinlich zu einer Überkühlung und damit zu einem zu hohen Gewicht des Kühlsystems führt was für das erste Fahrzeug kein sonderlich großes Problem darstellt. Die Abweichung dürfte darauf zurückzuführen sein das die Modellparameter im Vakuum ermittelt wurden und insofern Wärmeübertragung durch Konvektion etc. nicht berücksichtigt werden konnte. Um diesem Sachverhalt weiter auf den Grund zu gehen wurde im Anschluss eine Simulation mit Ansys Fluent durchgeführt.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{bilder/Accu_Sim_therm_7_2A_45min_simple_mesh}
-	\caption{}
+	\caption{Mesh der Multiphysik Fluent Simulation des Akkustacks}
 	\label{fig:accusimtherm72a45minsimplemesh}
 \end{figure}
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{bilder/Accu_Sim_therm_7_2A_45min_simple}
-	\caption{}
+	\caption{Multiphysik Simulationsergebnis Akkustack}
 	\label{fig:accusimtherm72a45minsimple}
 \end{figure}
 
-In dieser simulationb wurde ein gesamter akkustack in seinem gehäuse simuliert. dabei wurde mit einem konstanten strom von 7,2A simuliert. Dieser strom ergibt sich aus der rundenzeitsimulation siehe sectrion. Die Simulation wurde für 32min laufen gelassen um eine gesamtes endurance darzustellen. Ziel der simuzlation ist es die effekte der konvektion zu berücksichtigen aber auch zu sehen in wiefern sich die zellen gegenseitig beeinflussen. Allerdings wurden auch diverse vereinfachungen getroffen insofern das die akkuzellen sich uniform aufwäremn. In der realität dürfte man am negativen pol der akuzelle eine deutlich höhere temperatur feststellen könne als auf der positiven seite. weiterhin wurden diverse teile wie die elektrische isolierung etc. weggelassen da dies den simulations aufwand sonst erheblich vergrößert hätte und die simulation so schon 2 tage benötigt hat. zur analyse, wir sehen nach der simulationszeiot eine hot spot temperature von 64,85°C und eine niedrigste temperatur von 62,85°C. In dieser hinsicht stimmt die ansys simulation eher mit der 10A kurve aus unserem modell zusammen als mit den messdaten. Zusammengefasst stellt man fest das definitiv weitere arbeit in diesem themenbereich von nöten wäre um zu einer optimalen lösung zu kommen dies jedoch aufgrund des engen zeitplanes und des enoremn anderweitigen aufwandes nicht möglich ist.
+In dieser Simulation wurde ein gesamter Akkustack in seinem Gehäuse simuliert. Dabei wurde mit einem konstanten Strom von 7,2 A simuliert. Dieser Strom ergibt sich aus der r\ac{LTS} siehe sectrion?????. Die Simulation wurde für 32 min laufen gelassen um ein gesamtes Endurance darzustellen. Ziel der Simulation ist es die Effekte der Konvektion zu berücksichtigen, aber auch zu sehen inwiefern sich die Zellen gegenseitig beeinflussen. Allerdings wurden auch diverse Vereinfachungen getroffen insofern das die Akkuzellen sich uniform aufwärmen. In der Realität dürfte man am negativen Pol der Akkuzelle eine deutlich höhere Temperatur feststellen können als auf der positiven Seite. Weiterhin wurden diverse Teile wie die elektrische Isolierung etc. weggelassen da dies den Simulationsaufwand sonst erheblich vergrößert hätte. Mit den vorliegenden Vereinfachungen lief die Simulation für 46 Stunden.\\
+Zur Analyse, wir sehen nach der Simulationszeit eine Höchsttemperatur von 64,85°C und eine Tiefsttemperatur von 62,85°C. In dieser Hinsicht stimmt die Ansys Simulation eher mit der 10 A kurve aus unserem Modell zusammen als mit den Messdaten. Zusammengefasst stellt man fest das definitiv weitere Arbeit in diesem Themenbereich von Nöten wäre, um zu einer optimalen Lösung zu kommen, dies jedoch aufgrund des engen Zeitplanes und des enormen anderweitigen Aufwandes nicht möglich ist.
 \FloatBarrier
 
 \subsubsection{Der Stack Aufbau} %(mit Tim)%
 
-Für die konstruktion des Akkustacks gab es im Laufe der Saison viele Iterationen. Die folgend erläuterte ist eine Optimierte Version derer die für den TY22 gebaut wurde.
+Für die Konstruktion des Akkustacks gab es im Laufe der Saison viele Iterationen. Die folgend erläuterte ist eine Optimierte Version derer die für den TY22 gebaut wurde.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{bilder/Stackaufbau_Prinzipskizze}
-	\caption{}
+	\caption{Prinzipskizze Stackaufbau}
 	\label{fig:stackaufbauprinzipskizze}
 \end{figure}
 
-Die zellen sind liegend in fünfer packeten gestapelten und mit einem versatz aneinander gereiht um den leerraum zwischen den zellen möglichst lein zu halten. Die Busbars verbinden immer ein 5er Negativpole mit einem 5er positiv pole. Zusätzlich befinden sich in der näöhe der zellen 2 ausrichtpins um die busbar auf dem stack bei der montage positionieren zu können. Der aufbau auf dn Polen besteht aus einer angeschweißten Busbar, darauf folgt ein abriebfester isolator, und dann eine trennwand des akkus. nach innen haben wir noch einen 3D gedruckten Halter in dem die Akuzellen ausgerichtet werden. Dieses ganze paket wird mit blindnieten vernietet. Ziel hierbei ist es einen möglichst guten thermischen kontakt von den Polen der Zelle zum Akkugehäuse herzustellen. Selbiges ist aus aluminium und Flächig mit dem Monocoque verschraubt welches auch aus aluminium gefertigt ist. dies ergibt eine riesige thermische masse und stellt so eine Kühlung für den akku bereit. Die stack seitenwand liegt als L-Profil vor, und wird anschließend mit demm akkuboden mit hilfe von M3 Senkkopfschrauben und Ovalmuttern verschraubt. In diesem zuge sind in die 3D gedruckten querversteifungen im stack ovalmuttern eingeklebt. Diese querversteifung sorgen einerseits für mechanische stabilität, stellen aber auch anbindungspunkte für den AMS Slave als auch für die Maintenace Plug steckverbinder bereit. Die Busbar ist auch als L Profil ausgeführt und lappt oben über den Stack über, diese finnen werden seitens des AMS slaves mit hilfe von federkontakten kontaktiert um eine verbindung für die spannungsmessung als auch das balancing herzustellen. Die NTC sensoren befinden sich in den Leerstelln wo keine Nieten benötigt werden, immer eine Niete mittig in drei zellen. Sie sind rückseitig auf die Busbar geklebt. Um das design günstig zu halten kann die verbidnung kann über 0,35mm\^2 kabel erfolgen welche Sensor seitig auf Lötpads und AMS seitig in einen stecker gebracht werden. Bei der Steckverbinderauswahl hier ist zu achten das der er über einen verrigelungsmnechanismus verfügt, und nicht zu klein ist. Besonders kleine Steckverbinder machen an der stelle die verarbeitung schwer oder praktisch unmöglich. Präferiert wäre hier ein Flex PCB, dies ist jedoch idR. recht teuer. In dem Stackhalter müssen entsprechende Einkerbungen vorgehalten werden durch die die Kabel zu führen sind. In die anbindung des AMS Slave ist ein feature vizusehen welches eine leichte extraktion des stacks aus dem akku erlaubt, und bei der konstruktion der maintenance plugs ist auf ergonomie zu achten, so das ein mensch mit einem HV handschuh noch gefahrlos einen solchen ziehen kann. Weiter ist bei den maintenace Plugs auf verstecksicherheit zu achten. Ein letzter Punkt ist die positionierung des CTMD, also entweder des i button oder dieser kleinen kabelgebunden sensoren mit dem steuergerät, je nachdem was die FSG verwenden möge. Hier ist besonders die positionierung des CTMD am Hotspot schwer nachzuweisen. eine simualtion kann hier eine richtung aufzeigen, stellt jedoch einen großen zeitaufwand dar und ist im allgemeinen so ungenau (ohne signifikanten Zeitaufwand), dass sich nur sehr begrenzt belastbare aussagen hiermit treffen lassen.
+Die Zellen sind liegend in Fünferpaketen gestapelt und mit einem Versatz aneinander gereiht um den Leerraum zwischen den Zellen möglichst klein zu halten. Die Busbars verbinden immer ein 5er Negativpole mit einem 5er positiv Pole. Zusätzlich befinden sich in der nähe der Zellen 2 Ausrichtpins um die Busbar auf dem Stack bei der Montage positionieren zu können. Der Aufbau auf den Polen besteht aus einer angeschweißten Busbar, darauf folgt ein abriebfester Isolator, und dann die Trennwand des Akkus. nach Innen haben wir noch einen 3D gedruckten Halter in dem die Akkuzellen ausgerichtet werden. Dieses ganze Paket wird mit Blindnieten vernietet. Ziel hierbei ist es einen möglichst guten thermischen Kontakt von den Polen der Zelle zum Akkugehäuse herzustellen. Selbiges ist aus Aluminium und Flächig mit dem Monocoque verschraubt welches auch aus Aluminium gefertigt ist. dies ergibt eine riesige thermische Masse und stellt so eine Kühlung für den Akku bereit. Die Stack-Seitenwand liegt als L-Profil vor, und wird anschließend mit dem Akkuboden mit Hilfe von M3 Senkkopfschrauben und Ovalmuttern verschraubt. In diesem Zuge sind in die 3D gedruckten Querversteifungen im Stack Ovalmuttern eingeklebt. Diese Querversteifung sorgen einerseits für mechanische Stabilität, stellen aber auch Anbindungspunkte für den \ac{AMS}-Slave als auch für die Maintenance Plug Steckverbinder bereit. Die Busbar ist auch als L-Profil ausgeführt und lappt oben über den Stack über, diese Finnen werden seitens des \ac{AMS}-Slaves mit Hilfe von Federkontakten kontaktiert um eine Verbindung für die Spannungsmessung als auch das Balancing herzustellen. Die \acfirst{NTC}-Sensoren befinden sich in den Leerstellen wo keine Nieten benötigt werden, immer eine Niete mittig in drei Zellen. Die \ac{NTC}`s sind rückseitig auf die Busbar geklebt. Um das Design günstig zu halten kann die Verbindung über 0,25 mm\^2 Kabel erfolgen, welche Sensorseitig auf Lötpads und \ac{AMS}-seitig in einen Stecker gebracht werden. Bei der Steckverbinderauswahl ist zu beachten das er über einen Verriegelungsmechanismus verfügt, und nicht zu klein ist. Besonders kleine Steckverbinder machen an der stelle die Verarbeitung schwer oder praktisch unmöglich. Präferiert wäre hier ein Flex-\acfirst{PCB}, dies ist jedoch \ac{idR} recht teuer. In dem Stackhalter müssen entsprechende Einkerbungen vorgehalten werden durch die die Kabel zu führen sind. In die Anbindung des \ac{AMS}-Slave ist ein Feature vorzusehen welches eine leichte Extraktion des Stacks aus dem Akku erlaubt, und bei der Konstruktion der Maintenance Plugs ist auf Ergonomie zu achten, so das ein Mensch mit einem \ac{HV}-Handschuh noch gefahrlos einen solchen ziehen kann. Weiter ist bei den Maintenance Plugs auf Verstecksicherheit zu achten. Ein letzter Punkt ist die Positionierung des \acfirst{CTMD}, also entweder des i-Button oder der kabelgebunden Sensoren mit Steuergerät, je nachdem was die \acfirst{FSG} verwenden möge. Hier ist besonders die Positionierung des \ac{CTMD} am Hotspot schwer nachzuweisen. Eine Simulation kann hier eine Richtung aufzeigen, stellt jedoch einen großen Zeitaufwand dar und ist im allgemeinen so ungenau (ohne signifikanten Zeitaufwand), dass sich nur sehr begrenzt belastbare Aussagen hiermit treffen lassen.
 
 \FloatBarrier
 

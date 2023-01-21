@@ -8,3 +8,9 @@ Abkürzungen
 
 Verweise
 \ref{"label"}
+
+Notizen Projektarbeit
+Ohm = Omega (suchen und ersetzten)
+Erste zeile beginnt mit leerzeichen?
+Große schaltpläne in den anhang
+Quellen wie einfügen

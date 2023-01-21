@@ -1,0 +1,10 @@
+Abkürzungen
+	Im Text erstes mal
+\acfirst{"Abkürzung"}
+	Im text danach
+\ac{"Abkürzung"}
+	Im Abkürzungsverzeichnis
+\acro{"Abkürzung"}{\markup{A}b \markup{K}ürzung} 
+
+Verweise
+\ref{"label"}

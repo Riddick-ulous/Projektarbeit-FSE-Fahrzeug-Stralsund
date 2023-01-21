@@ -3,71 +3,73 @@
 
 \chapter{Elektrische Systeme}
 An dieser Stelle geht mein Dank an die Alumni aus dem Bereich der Elektrotechnik, die diese ganze Reise mit ihrer fachlichen Referenz und beispiellosen Motivation erst möglich gemacht habe. Hervorzuheben ist auch das schier endlose maß an Geduld in Anbetracht der Steilen Lernkurve innerhalb des Teams. Besonders hervorzuheben sind hierbei Leon Löser, Eric Gorkow und Axel Lange. Danke euch.
-\acfirst{IMD}
 \FloatBarrier
 \section{Akkumulator}
-Im Akkumulator befinden sich neben den Zellen in Ihren Zellstacks und dem Batterie managment System auch diverse andere systeme die zum betrieb des Fahrzeuges essentiell sind. Diese Systeme werden im folgenden Kapitel erläutert. An Dieser stelle eine Übersicht wo sich diese Systeme befinden und wie sie zusammenhängen.
+Im Akkumulator befinden sich neben den Zellen in Ihren Zellstacks und dem \acfirst{AMS} auch diverse andere Systeme die zum Betrieb des Fahrzeuges essentiell sind. Diese Systeme werden im folgenden Kapitel erläutert. Bild \ref{fig:accumulator-layout} gibt eine Übersicht wo sich diese Systeme befinden und wie sie zusammenhängen.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{"bilder/Accumulator Layout"}
-	\caption{}
+	\includegraphics[width=0.9\linewidth]{"bilder/Accumulator Layout"}
+	\caption{Akkumulator Layout}
 	\label{fig:accumulator-layout}
 \end{figure}
 
 \FloatBarrier
 
-\subsection{AMS Master und Slave}
-In diesem Kapitel werden die Subsysteme des Akkumulator Managment Systems näher betrachtet.
+\subsection{\ac{AMS} Master und Slave}
+In diesem Kapitel werden die Subsysteme des \ac{AMS} näher betrachtet.
 \FloatBarrier
 
 \subsubsection{Precharge}
-Der Precharge verhindert einen Funkenschlag und damit das verschweißen der Akku Isolationsrelais beim Schließen. Dies wird erreicht indem der Zwischenkreis bereits vor dem Durchschalten der AIR`s auf die Akkuspannung aufgeladen wird. Anhand des folgenden Blockschaltbildes lassen sich die einzelnen funktionellen Blöcke herausarbeiten.
+Der Precharge verhindert einen Funkenschlag und damit das Verschweißen der \acfirst{AIR}`s beim Schließen. Dies wird erreicht indem der Zwischenkreis bereits vor dem Durchschalten der \ac{AIR}`s auf die Akkuspannung aufgeladen wird. Anhand des folgenden Blockschaltbildes lassen sich die einzelnen funktionellen Blöcke herausarbeiten.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{"bilder/Precharge Blockschaltbild"}
-	\caption{}
+	\caption{Blockschaltbild Precharge}
 	\label{fig:precharge-blockschaltbild}
 \end{figure}
 
-Kernelement ist die Verbindung der positiven Seite des Zwischenkreises mit der positiven Seite des Akkumulators über ein mechanisches Relais, und die Überwachung selbigens. Diese kann nicht mit einer AUX Beschaltung umgesetzt werden, da Relais in diesem Leistungsbereich idR nicht mit derartigen Funktionen ausgerüstet sind. Eine Besonderheit bei dem gewählten Relais ist die geringe Baugröße, aber auch ein damit einhergehendes niedriges Stromrating, so das der Einschaltstrom des Relais der Strom sehr klein gehalten werden muss. Aus diesem Grunde bedarf es einer Stromquelle welche zu beginn einen niedrigen Strom liefert, und diesem dann nach dem erfolgten schalten anhebt. Nun zur Klärung der einzelnen funktionellen Gruppen und der Schaltzustände.
+Kernelement ist die Verbindung der positiven Seite des Zwischenkreises mit der positiven Seite des Akkumulators über ein mechanisches Relais, und die Überwachung selbigens. Diese kann nicht mit einer AUX Beschaltung umgesetzt werden, da Relais in diesem Leistungsbereich \acfirst{idR} nicht mit derartigen Funktionen ausgerüstet sind. Eine Besonderheit bei dem gewählten Relais ist die geringe Baugröße, aber auch ein damit einhergehendes niedriges Stromrating, so das der Einschaltstrom des Relais sehr klein gehalten werden muss. Aus diesem Grunde bedarf es einer Stromquelle welche zu beginn einen niedrigen Strom liefert, und diesen dann nach dem erfolgten Schalten anhebt. Nun zur Klärung der einzelnen funktionellen Gruppen und der Schaltzustände.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{"bilder/Precharge Blockschaltbild Detail"}
-	\caption{}
+	\caption{Detail Schaltplan Precharge}
 	\label{fig:precharge-blockschaltbild-detail}
 \end{figure}
 
 Der Precharge schaltet durch sobald SC\textsubscript{end} high wird. Dies führt zum Durchschalten des Relais. Nun fließt ein Strom über M1 zum Relais, bei der Verschaltung von M1 und R54 handelt es sich um eine Konstantstromquelle welche 0,05A liefert. Wie diese Art von Schaltung im Detail funktioniert ist unter \ref{sec: TSAL Logik Discharge} näher erläutert. Parallel fließt ein Strom über U3 zu C58 und lädt diesen. Nach kurzer Zeit führt dies dazu das Q10 durchschaltet, nun wird der Strom durch den Widerstand der PTC Elemente begrenzt so das der Strom auf ca. 0.6 A ansteigen kann. Die Überwachung erfolgt indem mithilfe eines DC Wandlers die Akkuspannung um 24V angehoben wird und diese über einen Optokoppler auf das Precharge Relais gelegt wird. Sobald das Relais geschlossen ist fließt somit ein Strom über U22 sodass bei PCHRG\textsubscript{ACT} eine Spannung anliegt.
-
+\\
 Im Ausschaltmoment wird das Relais durch die Kapazität C12 für kurze Zeit offen gehalten sodass zuerst der Mosfet Q10 abschaltet und so die Schaltleistung im Relais minimiert wird.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{bilder/Precharge_Complete}
-	\caption{}
+	\caption{Schaltplan Precharge}
 	\label{fig:prechargecomplete}
 \end{figure}
 \FloatBarrier
 
-\subsubsection{AIR Detection}
+\subsubsection{\ac{AIR} Detection}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{bilder/AIR_conditioning}
-	\caption{}
+	\caption{Schaltplan AIR}
 	\label{fig:airconditioning}
 \end{figure}
 
-Sinn der AIR detection ist es die Signale vom AIR in Sinnvolle Logikpegel umzusetzen welche im späteren verlauf weiter verwendet werden können. Oben rechts auf der Schematik sind die AIRs dargestellt. Relevant sind dabei die X Signale welche den Schaltzustand des Relais kontrollieren und die AUX Signale welche den Schaltzustand überwachen. Die AUX Signale werden mit 3,3V über einen Gleichwertigen 1 kOhm Spannungsteiler versorgt, so das bei geöffnetem Relais die 3,3V an AUX 1 anliegen, bei geschlossenem Relais durch den Spannungsteiler 1,65V und bei einem Kurzschluss in der Signalleitung zu Masse 0V anliegen. Diese Spannungspegel werden jetzt in einer komparatorschaltung verglichen. Die oben beiden Komparatoren geben ein High Signal aus wenn die Spannung an den AUX Kontakten kleiner ist als die Referenzspannung und damit die Relais geschlossen oder auf Masse kurzgeschlossen sind. Die beiden unteren Komparatoren geben ein Low Signal aus wenn die Spannung größer ist als die Referenzspannung und damit das Relais geschlossen oder geöffnet ist. Sofern also der tatsächliche zustand des Relais High ist un der Fehler Low kann zum Beispiel geschlussfolgert werden das jenes Relais geschlossen ist.
+Sinn der \ac{AIR} Detection ist es die Signale von den \ac{AIR}`s in Sinnvolle Logikpegel umzusetzen welche im späteren Verlauf weiter verwendet werden können. Oben rechts auf dem Schaltplan sind die \ac{AIR}`s dargestellt. Relevant sind dabei die X-Signale welche den Schaltzustand des Relais kontrollieren und die AUX Signale welche den Schaltzustand überwachen. Die AUX Signale werden mit 3,3 V über einen Gleichwertigen 1 kOhm Spannungsteiler versorgt, so das bei geöffnetem Relais die 3,3V an AUX 1 anliegen, bei geschlossenem Relais durch den Spannungsteiler 1,65V und bei einem Kurzschluss in der Signalleitung zu Masse 0V anliegen. Diese Spannungspegel werden jetzt in einer Komparatorschaltung verglichen. Die beiden oberen Komparatoren geben ein High-Signal aus wenn die Spannung an den AUX Kontakten kleiner ist als die Referenzspannung und damit die Relais geschlossen oder auf Masse kurzgeschlossen sind. Die beiden unteren Komparatoren geben ein Low-Signal aus wenn die Spannung größer ist als die Referenzspannung und damit das Relais geschlossen oder geöffnet ist. Sofern also der tatsächliche Zustand des Relais High ist und der Fehler Low kann zum Beispiel geschlussfolgert werden das jenes Relais geschlossen ist.
 \FloatBarrier
-\subsubsection{AMS}
-Das eigentliche Batteriemanagement wird von vom LTC 6804 übernommen. hierbei handelt es sich um eine integrierte Schaltung welche speziell für die Aufgabe des batteriemanagment von Linear Technology entwickelt wurde. Relevante aufgaben dieses Chips ist die differentielle Messung der Zellspannungen im Stack. Weiter übernimmt der IC die Temperatur Messung über 5 frei nutzbare GPIO`s welche auch ADC Funktionalität unterstützen. Zu guter Letzt wird der Chip als Treiber für Mosfets benutzt welche die Zelle auf den balancing widerstand schalten. Die notwendige Kommunikation erfolgt über einen proprietären 2 drahtigen linearen isolierten SPI Bus. Jeder Chip hat dabei 4 Adressbits zur Konfigurierung. Das Kommunikationsinterface zischen dem Iso SPI und dem SPI bus des Mikrocontroller erfolgt über den LTC6820 welcher für exakt diese Aufgabe entwickelt wurde. Mit den 5 Eingängen am Chip sind nun 11 verschiedene NTC`s auszuwerten, dies geschieht mit Hilfe eines Demuxers und eines Invertierers.
-
+\subsubsection{\ac{AMS}}
+Das eigentliche Batteriemanagement wird von vom LTC 6804 übernommen. Hierbei handelt es sich um eine integrierte Schaltung welche speziell für die Aufgabe des Batteriemanagments von Linear Technology entwickelt wurde. Relevante aufgaben dieses Chips ist die differentielle Messung der Zellspannungen im Stack. Weiter übernimmt der IC die Temperatur Messung über 5 frei nutzbare \acfirst{GPIO}`s welche auch \acfirst{ADC} Funktionalität unterstützen. Zu guter Letzt wird der Chip als Treiber für Mosfets benutzt welche die Zelle auf den balancing Widerstand schalten. Die notwendige Kommunikation erfolgt über einen proprietären 2 drahtigen linearen isolierten \acfirst{SPI} Bus. Jeder Chip hat dabei 4 Adressbits zur Konfigurierung. Das Kommunikationsinterface zischen dem Iso \ac{SPI} und dem \ac{SPI} Bus des Mikrocontroller erfolgt über den LTC 6820 welcher für exakt diese Aufgabe entwickelt wurde. Mit den 5 Eingängen am Chip sind nun 11 verschiedene NTC`s auszuwerten, dies geschieht mit Hilfe eines Demuxers und eines Invertierers.
+\\
+\\
 Zum Verständnis der Logik ist im folgenden einmal beispielhaft der Signalablauf dargestellt.
 Die Bits SEL0 und SEL1, in diesem Beispiel Low und High, vom LTC 6804 (U1) gehen auf die Eingänge A und B am Demuxer (U6). G2A und G2B sind immer auf Low gesetzt und G1 immer auf High. Mit der Tabelle \ref{Demuxer_Logiktabelle} aus dem Datenblatt wird nun der Ausgang von Y0 bis Y3 bestimmt.
+
+!!!Fehler in Logik, ersetzen durch 238 (Leon Chatverlauf).!!!
 
 \begin{figure}
 	
@@ -95,6 +97,7 @@ Die Bits SEL0 und SEL1, in diesem Beispiel Low und High, vom LTC 6804 (U1) gehen
 \end{table}
 
 Diese Signale gehen nun in die beiden Invertierer U2 \& U5. Der Ausgang des Invertierers stellt die Versorgung des NTC dar.
+
 \begin{table}
 	\centering
 	\begin{tabular}{|c|c|}
@@ -155,77 +158,75 @@ In der Abbildung \ref{fig:amsbalancingschematic} ist der Balancing Aufbau der ei
 \end{figure}
 
 \FloatBarrier
-\subsubsection{HV Indicator}
+\subsubsection{\acfirst{HV} Indicator}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{bilder/HV_indicator_schematic}
-	\caption{}
+	\caption{Schaltplan \ac{HV}-Indicator}
 	\label{fig:hvindicatorschematic}
 \end{figure}
 
-Der HV Indikator ist ein rotes Licht auf dem Akkumulator, sofern an HV Terminals des Akkus eine gefährliche Spannung liegt muss dieses Licht erleuchten und dem Bediener somit anzeigen das es z.b. nicht sicher ist den Akku vom Zwischenkreis zu trennen da dieser noch unter Spannung steht. Die Anzeige erfolgt über eine Rote LED wessen licht mit einer Glasfaser von der Platine zum Deckel geleitet wird. Die Ansteuerung der LED erfolgt über einen kleinen DC Wandler, den Viper06. Dieser Wandler verfügt über einen Drain Source startup Voltage von 25-40V. Das bedeutet, bei einer Spannung in diesem Bereich beginnt der Chip zu arbeiten. Dieser Strom fließt dann zur LED so das diese zu leuchten beginnt. Die Feedback Schaltung ist direkt an den Spannungsausgang gekoppelt so das wir die interne Spannungsreferenz von 3,2 V - 3,4 V nutzen. Die Vorwiederstände vor der LED sind dementsprechend ausgelegt.
+Der \ac{HV} Indikator ist ein rotes Licht auf dem Akkumulator. Sofern an \ac{HV} Terminals des Akkus eine gefährliche Spannung liegt muss dieses Licht erleuchten und dem Bediener somit anzeigen das es z.b. nicht sicher ist den Akku vom Zwischenkreis zu trennen da dieser noch unter Spannung steht. Die Anzeige erfolgt über eine Rote LED wessen Licht mit einer Glasfaser von der Platine zum Deckel geleitet wird. Die Ansteuerung der LED erfolgt über einen kleinen DC Wandler, den Viper 06. Dieser Wandler verfügt über eine drain source startup voltage von 25-40V. Das bedeutet, bei einer Spannung in diesem Bereich beginnt der Chip zu arbeiten. Dieser Strom fließt dann zur LED, so das diese zu leuchten beginnt. Die Feedback Schaltung ist direkt an den Spannungsausgang gekoppelt so das wir die interne Spannungsreferenz von 3,2 V - 3,4 V nutzen. Die Vorwiederstände vor der LED sind dementsprechend ausgelegt.
 
 \FloatBarrier
-\subsubsection{HV Messung}
-Sinn der HV Messung ist es die Spannung welche am Akku als auch am Zwischenkreis anliegt erfassen und digitalisieren zu können. Dadurch kann zusammen mit dem Signal vom Stromsensor z.b. die DC Leistung bestimmt und geloggt werden. 
+\subsubsection{\ac{HV} Messung}
+Sinn der \ac{HV} Messung ist es, die Spannung welche am Akku als auch am Zwischenkreis anliegt, erfassen und digitalisieren zu können. Dadurch kann zusammen mit dem Signal vom Stromsensor z.b. die DC Leistung bestimmt und geloggt werden. 
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{bilder/HV_Measurement_PNG}
-	\caption{}
+	\caption{Schaltplan \ac{HV}-Messung}
 	\label{fig:hvmeasurementpng}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.4\linewidth]{"bilder/Blockdiagramm ADUM3190"}
-	\caption{}
+	\caption{Blockdiagramm ADUM 3190}
 	\label{fig:blockdiagramm-adum3190}
 \end{figure}
 
-Kern dieser Schaltung ist der ADUM 3190. dabei handelt es sich um einen Isolierten Operationsverstärker. Der positive Eingang ist über einen Spannungsteiler mit dem HV-Kreis verbunden. Der negative Eingang ist mit dem Ausgang des OPV rückgekoppelt so das ein Spannungsfolger mit einer Verstärkung von 1 entsteht. Aus dem 10Mohm und dem 55,6kOhm widerstand ergibt sich eine Verhältnis von 179,86V im HV Kreis zu einem Volt am Eingang des OPV. Das ergibt eine maximale Eingangsspannung für die Schaltung von 593,54V da hierbei eine Ausgangsspannung von 3,3V erreicht wird. Bei dem R2S-2405/H handelt es sich um einen isolierten DC Wandler um den Chip HV seitig mit Strom zu versorgen. Die Komparatorschaltung um U15 gibt bei überschreiten der gefährlichen Spannung einen High Pegel aus. Die Spannung über den positiven Eingang der komparatorschaltung liegt bei 0,232V so das bei einer TS Spannung von größer 41,73V der High Pegel anliegen sollte. Laut Regelwerk sollte dieser Pegel spätestens bei 60V anliegen.
+Kern dieser Schaltung ist der ADUM 3190. Dabei handelt es sich um einen Iso-\acfirst{OPV}. Der positive Eingang ist über einen Spannungsteiler mit dem \ac{HV}-Kreis verbunden. Der negative Eingang ist mit dem Ausgang des \ac{OPV} rückgekoppelt so das ein Spannungsfolger mit einer Verstärkung von 1 entsteht. Aus dem 10 Mohm und dem 55,6 kOhm Widerstand ergibt sich eine Verhältnis von 179,86 V im \ac{HV}-Kreis zu einem Volt am Eingang des \ac{OPV}. Das ergibt eine maximale Eingangsspannung für die Schaltung von 593,54 V da hierbei eine Ausgangsspannung von 3,3 V erreicht wird. Bei dem R2S-2405/H handelt es sich um einen isolierten DC-Wandler um den Chip \ac{HV}-seitig mit Strom zu versorgen. Die Komparatorschaltung um U15 gibt bei überschreiten der gefährlichen Spannung einen High-Pegel aus. Die Spannung über den positiven Eingang der Komparatorschaltung liegt bei 0,232 V so das bei einer \acfirst{TS}-Spannung von größer 41,73 V der High-Pegel anliegen sollte. Laut Regelwerk sollte dieser Pegel spätestens bei 60 V anliegen.
 
 \FloatBarrier
-\subsubsection{IMD Monitoring}
+\subsubsection{\acfirst{IMD} Monitoring}
 
-Bei dem IMD handelt es sich um ein Bender Isometer IR155-320x. Dieses Isolationsmessgerät wird von der Formula Student empfohlen und wird den Teams in der regel von dem unternehmen kostenlos zur Verfügung gestellt.
-Das IMD hat zwei Ausgänge die für die Auswertung des Messergebnis relevant sind. Einmal ein digitales OK HS Signal und ein PWM Signal Mhs oder Mls je nach Variante. Das OK Signal gibt alle relevanten Informationen aus in der Form das low geht wenn z.b ein Isolationsfehler oder ein Gerätefehler erkannt wurde. Das PWM Signal ermöglicht es z.b den Fehler weiter einzugrenzen oder den aktuellen Messwert auszugeben. Dementsprechend muss das OK Signal rein analog den shutdwon circuit betätigen können während der PWM Ausgang nur Information ist und an einen Mikrocontroller angeschlossen wird. Beim startup ist das PRE als auch das CLR signal am D FlipFlop U7A Low. dadurch ist der Ausgang Q High was aufgrund der Diode D14 aber keinen Einfluss auf die restliche Schaltung hat. Die Spannung am gate des P-Channel Fet Q3 ist Low und die Spannung an der Source ist High, dadurch liegt eine negative Gate Source Spannung an so das der Fet geschlossen ist. Dementsprechend ist die Spannung an der source annähernd low. Nun sollte sofern kein Fehler seitens des IMD vorliegt das OK Signal High gehen. Dadurch öffnet der Fet Q3, gleichzeitig bleibt Q vom FlipFlop high. Nun liegt Spannung an der Basis von Q5 und es fließt ein Basis Emitter Strom so das auch ein Collector Emittor Strom fließen kann. Dadurch liegt zusammen mit den Widerständen R37 und R38 eine negative Gate Source Spannung an Q4 an so das der P Channel Fet durchschaltet und der Shutdown Circuit geschlossen wird. Daraufhin schaltet der POR high so das der zustand vom Flip Flop gespeichert wird und somit High bleibt. Wenn das Ok Signal nun Low geht weil ein Fehler auftritt, wird Q auf Low gesetzt. Wenn Ok nun wieder High geht weil z.b. der Fehler wieder aufgehoben ist, beispielsweise durch einen Wackelkontakt an einem der Messeingänge wird der aktuelle zustand gespeichert welcher Low ist, so das die Schaltung sich nicht mehr selbst zurücksetzen kann. Ein Wiedereinschalten ist nur durch den POR möglich.
-
+Bei dem \ac{IMD} handelt es sich um ein Bender Isometer IR155-320x. Dieses Isolationsmessgerät wird von der Formula Student empfohlen und wird den Teams in der Regel von dem Unternehmen kostenlos zur Verfügung gestellt.
+Das \ac{IMD} hat zwei Ausgänge die für die Auswertung des Messergebnisses relevant sind. Einmal ein digitales OK-HS-Signal und ein \acfirst{PWM}-Signal M\textsubscript{hs} oder M\textsubscript{ls} je nach Variante. Das OK-Signal gibt alle relevanten Informationen aus in der Form das es low geht wenn z.b ein Isolationsfehler oder ein Gerätefehler erkannt wurde. Das \ac{PWM}-Signal ermöglicht es z.b den Fehler weiter einzugrenzen oder den aktuellen Messwert auszugeben. Dementsprechend muss das OK-Signal rein analog den \acfirst{SDC} betätigen können während der \ac{PWM}-Ausgang nur als Informationsquelle  dient und an einen Mikrocontroller angeschlossen werden darf. 
+\\
+\\
+Beim Startup ist das PRE- als auch das CLR-Signal am D-FlipFlop U7A low. Dadurch ist der Ausgang Q high was aufgrund der Diode D14 aber keinen Einfluss auf die restliche Schaltung hat. Die Spannung am Gate des P-Channel-Fet Q3 ist low und die Spannung an der Source ist high, dadurch liegt eine negative Gate-Source Spannung an so das der Fet geschlossen ist. Dementsprechend ist die Spannung an der Source annähernd low. Nun sollte, sofern kein Fehler seitens des \ac{IMD} vorliegt das OK-Signal high gehen. Dadurch öffnet der Fet Q3, gleichzeitig bleibt Q vom FlipFlop high. Nun liegt Spannung an der Basis von Q5 und es fließt ein Basis-Emitter-Strom so das auch ein Kollektor-Emittor-Strom fließen kann. Dadurch liegt zusammen mit den Widerständen R37 und R38 eine negative Gate-Source-Spannung an Q4 an, so das der P-Channel-Fet durchschaltet und der \ac{SDC} geschlossen wird. Daraufhin schaltet der \acfirst{POR} high so das der Zustand vom FlipFlop gespeichert wird und somit high bleibt. Wenn das Ok-Signal nun low geht weil ein Fehler auftritt, wird Q auf low gesetzt. Wenn Ok nun wieder high geht weil z.b. der Fehler wieder aufgehoben ist, beispielsweise durch einen Wackelkontakt an einem der Messeingänge, wird der aktuelle Zustand gespeichert welcher low ist, so das die Schaltung sich nicht mehr selbst zurücksetzen kann. Ein Wiedereinschalten ist nur durch den \ac{POR} möglich.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{"bilder/IMD Monitoring schematic"}
-	\caption{}
+	\caption{Schaltplan IMD Monitoring}
 	\label{fig:imd-monitoring-schematic}
 \end{figure}
 
 
 \FloatBarrier
-\subsection{HV DCDC}
-Visio blockmodell
-Erklärung ACFC
-Berechnung excel etwas aufhübschen und anhängen
-Teilberechnungen erklären
-
-Bei der Topologie des Hochvolt DCDC Wandlers handelt es sich um einen Active clamp forward transformer einen Eintaktflusswandler mit Entmagnetisierung des Trafokerns über eine Fangschaltung aus Mosfet, Wiederstand und Kondensator. Man hat sich speziell für diese Fangschaltung und nicht für einen Transformator mit entmagnetisierungsspule entschieden da man so aus dem Bereich des sonder gefertigten Transformators rauskommt. Bisher wurden im Rahmen des Formula student Projektes nur DC Wandler ohne galvanische Trennung eingesetzt. Dabei handelte es sich in der Regel um den klassischen Auf- oder Abwärtswandler. Die Topologie des Eintaktflusswandler ist bei diesem Leistungsbereich nach Aussage einiger Hersteller für die relevanten integrierten Schaltungen zwar an der obersten grenze dessen was sinnvoll möglich ist, zeichnet sich aber durch seine große Ähnlichkeit zum nicht galvanisch getrennten Abwärtswandler und damit seine verhältnismäßige Einfachheit aus. Folgend der vereinfachte Aufbau beider wandlertopologien in den Abbildungen \ref{fig:buckconverter} und \ref{fig:forwardconverter} zur Gegenüberstellung.
+\subsection{\ac{HV}-DC-DC}
+Bei der Topologie des \ac{HV}-DC-DC-Wandlers handelt es sich um einen active clamp forward transformer oder auch einen Eintaktflusswandler mit Entmagnetisierung des Trafokerns über eine Fangschaltung aus Mosfet, Wiederstand und Kondensator. Man hat sich speziell für diese Fangschaltung und nicht für einen Transformator mit Entmagnetisierungsspule entschieden da man so aus dem Bereich des Sonderangefertigten-Transformators rauskommt. Bisher wurden im Rahmen des Formula Student Projektes nur DC-Wandler ohne galvanische Trennung eingesetzt. Dabei handelte es sich in der Regel um den klassischen Auf- oder Abwärtswandler. Die Topologie des Eintaktflusswandler ist bei diesem Leistungsbereich nach Aussage einiger Hersteller für die relevanten integrierten Schaltungen zwar an der obersten Grenze dessen was sinnvoll möglich ist, zeichnet sich aber durch seine große Ähnlichkeit zum nicht galvanisch getrennten Abwärtswandler und damit seine verhältnismäßige Einfachheit aus. Folgend der vereinfachte Aufbau beider Wandlertopologien in den Abbildungen \ref{fig:buckconverter} und \ref{fig:forwardconverter} zur Gegenüberstellung.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.5\linewidth]{bilder/Buck_converter.svg}
-	\caption{}
+	\caption{Buck Konverter Topologie}
 	\label{fig:buckconverter}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.5\linewidth]{bilder/Forward_converter.svg}
-	\caption{}
+	\caption{Eintaktflusswandler Topologie}
 	\label{fig:forwardconverter}
 \end{figure}
 
-Von der Firma Linear Technology existiert ein IC, der LT3752. Dieser IC ist speziell für den Aufbau von Wandlern dieser Topologie gedacht. Weiter existiert die Demo Schaltung DC1929A basierend auf diesem IC. Hierbei handelt es sich um einen 400V zu 12V Wandler mit einer Ausgangsleistung von 200W. Das hier vorliegende Design wurde mithilfe des Datenblattes des LT3752, des LT8311 und mithilfe der Schematik als auch der Layout Dateien des DC1929A erstellt.
-
+Von der Firma Linear Technology existiert ein \acfirst{IC}, der LT 3752. Dieser \ac{IC} ist speziell für den Aufbau von Wandlern dieser Topologie gedacht. Weiter existiert die Demo Schaltung DC 1929A basierend auf diesem \ac{IC}. Hierbei handelt es sich um einen 400 V zu 12 V Wandler mit einer Ausgangsleistung von 200 W. Das hier vorliegende Design wurde mithilfe des Datenblattes, des LT 3752, des LT 8311 und mithilfe der Schaltpläne als auch der Layout Dateien des DC 1929A erstellt.
+\\
+\\
 Zur Auflistung der Ausgangsparameter.
 
 \begin{table}
@@ -238,9 +239,9 @@ Zur Auflistung der Ausgangsparameter.
 		\hline
 		P\textsubscript{Out} & 960 & W & Leistungsverbrauch LV System Maßgeblich Lüfter\\
 		\hline
-		V\textsubscript{in min} & 230 & V & 2V Entladeschluss plus Sicherheit \\
+		V\textsubscript{in min} & 230 & V & 2 V Entladeschluss plus Sicherheit \\
 		\hline
-		V\textsubscript{in max} & 630 & V & 4,25V Ladeschluss plus Sicherheit \\
+		V\textsubscript{in max} & 630 & V & 4,25 V Ladeschluss plus Sicherheit \\
 		\hline
 		I\textsubscript{max} & 40 & A &\\
 		\hline
@@ -257,17 +258,19 @@ Zur Auflistung der Ausgangsparameter.
 	\end{tabular}
 \end{table}
 
-Mit diesen Werten muss nun ein passender Transformator gefunden werden. Hierfür wurden diverse Hersteller kontaktiert. Bei der Firma Champs Technologies gab es eine erfolgreiche Rückmeldung in der Form das Sie einen Transformator im Angebot habend der für unsere Anwendung relativ gut passt, den R41-AC-2202. 
-
+Mit diesen Werten muss nun ein passender Transformator gefunden werden. Hierfür wurden diverse Hersteller kontaktiert. Bei der Firma Champs Technologies gab es eine erfolgreiche Rückmeldung in der Form, dass Sie einen Transformator im Angebot habend der für unsere Anwendung relativ gut passt, den R41-AC-2202.
+\\
+\\
 Zur Kontrolle können wir eine Rechnung durchführen. Der maximale Duty Cycle \glsc{symb:D_max} liegt laut Datenblatt typischerweise bei 60\%.
-
+\\
+\\
 Hiermit könne wir nun das ideale Wicklungsverhältnis bestimmen
 
 \begin{equation}
 	\glsc{symb:NP/NS_ideal} = \dfrac{\glsc{symb:V_inmin}}{\glsc{symb:V_out}}*\glsc{symb:D_max}
 \end{equation}
 
-Dann brauchen wir zum Vergleich das reale Verhältnis von Primär zu Sekundärwicklungen
+Dann brauchen wir zum Vergleich das reale Verhältnis von Primär zu Sekundärwicklungen.
 
 \begin{equation}
 	\glsc{symb:NP/NS} = \dfrac{1}{\glsc{symb:NS/NP}}
@@ -292,31 +295,31 @@ Indem wir nun 2 Transformatoren mit der Primärseite in Parallel und der Sekund�
 	\end{tabular}
 \end{table}
 
-Nun können wir den minimalen Duty cycle bestimmen. Dieser lässt sich für den Betrieb über folgende Gleichung ermitteln
+Nun können wir den minimalen Duty cycle bestimmen. Dieser lässt sich für den Betrieb über folgende Gleichung ermitteln.
 
 \begin{equation}
 	\label{minimaler duty cycle}
 	\glsc{symb:D_min} = \dfrac{\glsc{symb:V_out}}{\glsc{symb:V_inmax}}*\glsc{symb:NP/NS} = 20,93
 \end{equation}
 
-Im folgenden soll nun die Auslegung von Ausgangs Induktivität (L1 \& L2) als auch Kapazität (C13 - 15) erfolgen. Hierfür benötigen wir zu Berechnung der Induktivität den Ripple Strom an der Induktivität. Als Faustregel kann man diesen mit 20-40 \% vom maximalen Strom annehmen. Ziel der Induktivität ist es aus den einzelnen Stromimpulsen der Schaltstufe einen konstanten Ausgangsstrom zu erzeugen. Je kleiner diese Impulse sind, desto größer muss die entsprechende Induktivität gewählt werden. Wir wollen das der Wandler die meiste zeit im CCM (continious conduction mode) arbeitet da die gesamte Auslegen auf dieser Basis erfolgt. Der DCM (discontinous conduction mode) wird erreicht wenn der Stromverbrauch des Systems kleiner ist als der Ripplestrom in der Induktivität. Der minimale stromverbauch für das Fahrzeug wurde ermittelt indem alle Datenblatt stromverbräuche der einzelnen Systeme aufaddiert wurden und liegt bei ca. 4A respektive 100W.
+Im folgenden soll nun die Auslegung von Ausgangs Induktivität (L1 \& L2) als auch Kapazität (C13 - 15) erfolgen. Hierfür benötigen wir zu Berechnung der Induktivität den Ripple-Strom an der Induktivität. Als Faustregel kann man diesen mit 20-40 \% vom maximalen Strom annehmen. Ziel der Induktivität ist es aus den einzelnen Stromimpulsen der Schaltstufe einen konstanten Ausgangsstrom zu erzeugen. Je kleiner diese Impulse sind, desto größer muss die entsprechende Induktivität gewählt werden. Wir wollen das der Wandler die meiste zeit im \acfirst{CCM} arbeitet, da die gesamte Auslegen auf dieser Basis erfolgt. Der \acfirst{DCM} wird erreicht wenn der Stromverbrauch des Systems kleiner ist als der Ripple-Strom in der Induktivität. Der minimale Stromverbauch für das Fahrzeug wurde ermittelt indem alle Datenblatt Stromverbräuche der einzelnen Systeme aufaddiert wurden und liegt bei ca. 4 A respektive 100 W.
 
 \begin{equation}
 	\glsc{symb:L_O} = (1-((1/\glsc{symb:V_inmax})*\glsc{symb:NP/NS}*\glsc{symb:V_out}))*\dfrac{1}{\glsc{symb:I_Ripple}}*\glsc{symb:V_out}*\dfrac{1}{\glsc{symb:f_osc}}
 \end{equation}
 
-Das Ergebnis dieser Rechnung sind 47,44 uH. Für diese Induktivität könnte man vier AGP4233-153ME der Firma Coilcraft zusammenschalten um auf 60uH zu kommen. Diese sind jedoch viel zu groß für den Bauraum so das die größtmögliche in den Bauraum passende Spulenkombination gewählt wurde. Hierbei handelt es sich um vier AGM2222-562ME die zusammen 22,4uH mitbringen. Hiermit könne wir nun den Ripplestrom bestimmen welchen wir für die Auslegung des Kondensators brauchen.
+Das Ergebnis dieser Rechnung sind 47,44 uH. Für diese Induktivität könnte man vier AGP4233-153ME der Firma Coilcraft zusammenschalten um auf 60 uH zu kommen. Diese sind jedoch viel zu groß für den Bauraum so das die größtmögliche in den Bauraum passende Spulenkombination gewählt wurde. Hierbei handelt es sich um vier AGM2222-562ME die zusammen 22,4uH mitbringen. Hiermit könne wir nun den neuen Ripple-Strom bestimmen welchen wir für die Auslegung des Kondensators brauchen.
 
 \begin{equation}
 	\glsc{symb:I_Ripple} = \dfrac{\glsc{symb:V_out}}{\glsc{symb:L_O}*\glsc{symb:f_osc}} * 1 - \dfrac{\glsc{symb:V_out}} {\glsc{symb:V_inmax}} * \glsc{symb:NP/NS}
 \end{equation}
 
-Die Ripplespannung \glsc{symb:V_Ripple} wird auf 1\% der Ausgangsspannung festgelegt und damit 0,24 V. Nun brauchen wir noch den ESR (Equivalenten Seriellen Wiederstand) der Kondensatoren welche verwendet werden sollen. Es ist gängige praxis einige Keramik Kondesatoren mit niedrigem ESR zu verwenden und ein größeren Elektrolytkondensator zur Dämpfung größere Lasttransienten. Diese Rechnung würde man nun mit einem angenommenen typischen ESR von z.b 3 mOhm durchführen und Sie dann für die tatsächlichen Werte wiederholfen wenn entsprechende Kondensatoren ausgewählt wurden. Bei vielen Kondesatoren ist im Datenblatt oft nur ein Dissipation Faktor angegeben, in diesem Fall sollte man beim Hersteller nach weiteren informationen suchen. SO hat die Firma Würth ELektronik Diagramme zur ESR in ihrem separatem tool, dem Red Expert. in Abbildung \ref{fig:we-esr-cap} ein Beispiel wie solch ein Diagramm auszusehen hat.
+Die Ripple-Spannung \glsc{symb:V_Ripple} wird auf 1\% der Ausgangsspannung festgelegt (0,24 V). Nun brauchen wir noch den \acfirst{ESR} der Kondensatoren welche verwendet werden sollen. Es ist gängige Praxis einige Keramik Kondensatoren mit niedrigem \ac{ESR} zu verwenden und ein größeren Elektrolytkondensator zur Dämpfung größere Last-transienten. Diese Rechnung würde man nun mit einem angenommenen typischen \ac{ESR} von z.b 3 mOhm durchführen und Sie dann für die tatsächlichen Werte wiederholen, wenn entsprechende Kondensatoren ausgewählt wurden. Bei vielen Kondensatoren ist im Datenblatt oft nur ein \acfirst{DF} angegeben, in diesem Fall sollte man beim Hersteller nach weiteren Informationen suchen. So hat die Firma \acfirst{WE} Diagramme zur \ac{ESR} in ihrem separatem Tool, dem Red Expert. In der Abbildung \ref{fig:we-esr-cap} ein Beispiel wie solch ein Diagramm aussehen kann.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.4\linewidth]{"bilder/WE ESR Cap"}
-	\caption{}
+	\caption{\ac{ESR} Kondensator}
 	\label{fig:we-esr-cap}
 \end{figure}
 
@@ -345,8 +348,8 @@ Die Ripplespannung \glsc{symb:V_Ripple} wird auf 1\% der Ausgangsspannung festge
 	\end{tabular}
 \end{table}
 
-Für die Kapazität werden zwei 22uF MLCC`s und ein 2,2mF Elko der Firma Würth Elektronik in parallel verschaltet
-
+Für die Kapazität werden zwei 22 uF \acfirst{MLCC}`s und ein 2,2 mF \acfirst{Elko} der Firma \ac{WE} in parallel verschaltet.
+\\
 Nun folgt die Berechnung der Fangschaltung bestehend aus Clamp Kondensator und einem RC Snubber (C16 - 18 \& 20 - 22 \& R15).
 
 \begin{equation}
@@ -354,9 +357,10 @@ Nun folgt die Berechnung der Fangschaltung bestehend aus Clamp Kondensator und e
 \end{equation}
 
 mit \glsc{symb:H_Prim} in uH
+\\
 und \glsc{symb:f_osc} in kHz
-
-Nun können wir den Snubber mit folgenden Formeln aus dem Datenblatt berechnen
+\\
+Nun können wir den Snubber mit folgenden Formeln aus dem Datenblatt berechnen.
 
 \begin{equation}
 	\glsc{symb:C_S} = 6 * \glsc{symb:C_CL}
@@ -386,7 +390,7 @@ mit \glsc{symb:H_Prim} in H
 	\end{tabular}
 \end{table}
 
-Nun folgt die Berechnung der Schaltorgane, beginnend mit dem Primärseitigen Powerswitch (Q6). Zu erst bestimmen wir die maximale Drain Spannung wie folgt.
+Nun folgt die Berechnung der Schaltorgane, beginnend mit dem Primärseitigen Powerswitch (Q6). Zu erst bestimmen wir die maximale Drain-Spannung wie folgt.
 
 \begin{equation}
 	\glsc{symb:V_DS} = \dfrac{\gls{symb:V_inmax}^2}{\gls{symb:V_inmax}-(\glsc{symb:V_out} * \glsc{symb:NP/NS})} * Sicherheit(20\%)
@@ -414,8 +418,6 @@ Dann bestimmen wir die einzelnen Leistungsabfälle am Schalter.
 	\glsc{symb:P_gesamt} = \glsc{symb:P_conduction} + \glsc{symb:P_Gatedriver} + \glsc{symb:P_Turn off} + \glsc{symb:P_Turn off}
 \end{equation}
 
-
-
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{bilder/HVDCDC_Transformer_Schematic}
@@ -423,22 +425,18 @@ Dann bestimmen wir die einzelnen Leistungsabfälle am Schalter.
 	\label{fig:hvdcdctransformerschematic}
 \end{figure}
 
-
-
-
-
-
-
+!!!!!!weiter????!!!!
 
 \FloatBarrier
 \section{HV Distribution}
-Bei der HV Distribution handelt es sich um eine Box welche mittig hinter dem Fahrer angeordnet ist. Diese Box beinhaltet alles an HV Elektrik was nicht im Akkumulator oder in den Umrichtern zu finden ist. Hier ist auch der Service Disconnect untergebracht.
+Bei der HV Distribution handelt es sich um eine Box welche mittig hinter dem Fahrer angeordnet ist. Diese Box beinhaltet alles an \ac{HV}-Elektrik was nicht im Akkumulator oder in den Umrichtern zu finden ist. Hier ist auch der Service Disconnect untergebracht.
 
 \FloatBarrier
-\subsection{TSMP}
-Die Tractive System Measuring Points befinden sich seitlich am Fahrzeug wo auch der Hauptschalter zu finden ist. Sie stellen eine genormte Schnittstelle dar um mit einem Duspol, oder Multimeter an die Spannung des Tractive Systems gelangen zu können. Hierbei müssen laut Regelwerk geschirmte Bananenstecker eingesetzt werden. Weiter muss für die Buchsen am Fahrzeug eine Abdeckkappe oder Blindstecker vorgesehen werden. Zur Absicherung der TSMP müssen diese mit Widerständen in reihe an den HV Kreis angebunden werden. Das Regelwerk sieht hierbei in unserem Spannungsbereich 15k$\Omega$ vor. Der Kritische wert wonach die TSMP ausgelegt werden müssen ist das Leistungsrating, da diese auf kontinuierlichen Kurzschluss ausgelegt sein müssen.
-
-Eine Formel zu Berechnung der Leistung am Widerstand ist folgende
+\subsection{\acfirst{TSMP}}
+Die \ac{TSMP} befinden sich seitlich am Fahrzeug wo auch der Hauptschalter zu finden ist. Sie stellen eine genormte Schnittstelle dar um mit einem Duspol, oder Multimeter an die Spannung des \ac{TS} gelangen zu können. Hierbei müssen laut Regelwerk geschirmte Bananenstecker eingesetzt werden. Weiter muss für die Buchsen am Fahrzeug eine Abdeckkappe oder Blindstecker vorgesehen werden. Zur Absicherung der \ac{TSMP} müssen diese mit Widerständen in Reihe an den \ac{HV}-Kreis angebunden werden. Das Regelwerk sieht hierbei in unserem Spannungsbereich 15k$\Omega$ vor. Der Kritische Wert wonach die \ac{TSMP} ausgelegt werden müssen ist das Leistungsrating, da diese auf kontinuierlichen Kurzschluss ausgelegt sein müssen.
+\\
+\\
+Eine Formel zu Berechnung der Leistung am Widerstand ist folgende.
 
 \begin{equation}
 	\label{eqn:Leistung am Wiederstand}
@@ -483,18 +481,19 @@ Da im Kurzschlussfall die Spannung über beide Widerstände anliegt, verdoppelt 
 Daraus schlussfolgert sich das die 15k$\Omega$ Widerstände mit einem Leistungsrating von mindestens 12 W benötigt werden.
 
 \FloatBarrier
-\subsection{BSPD}
+\subsection{\acfirst{BSPD}}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{"bilder/BSPD Blockdiagramm"}
-	\caption{}
+	\caption{BSPD Blockdiagramm}
 	\label{fig:bspd-blockdiagramm}
 \end{figure}
 
-Die Aufgabe des BSPD ist es das Fahrzeug in dem Fall einer Störung des Gaspedales in einen Sicheren zustand zu überführen. Hierfür wird der Strom zu den Umrichtern als auch der Bremsdruck gemessen und beim eintreten eines im Regelwerk definierten schwellwertes für das gleichzeitige auftreten beider Signale muss das abschalten des Antriebes erfolgen. Das Folgende Blockdiagramm soll einen Überblick über den signalfluss ermöglichen.
-
-Bei den Eingangsignalen handelt es sich um analoge spannungen. Für Sigfnalaufbereitung oder auch Digitalisierung der Signale werden Schitds Trigger einbgesetzt, Die Logik besteht aus diversen Logikgattern und die Set/reset Schaltung besteht aus RC Gliedern mit nachgeschaltetetn schmidt triggern. Beim Shutdowncircuit handelt es sich um ein Solid State Relay welches von der BSPD Logik schlussendlich angestuert werden soll, ein öffnen des Shutdwon circuit führt damnit zu einem Herunterfahren des Antriebes.
+Die Aufgabe des \ac{BSPD} ist es das Fahrzeug in dem Fall einer Störung des Gaspedales in einen Sicheren Zustand zu überführen. Hierfür wird der Strom zu den Umrichtern als auch der Bremsdruck gemessen und beim Eintreten eines im Regelwerk definierten Schwellwertes für das gleichzeitige auftreten beider Signale muss das Abschalten des Antriebes erfolgen. Das \ref{fig:bspd-blockdiagramm} soll einen Überblick über den Signalfluss ermöglichen.
+\\
+\\
+Bei den Eingangsignalen handelt es sich um analoge Spannungen. Für Signalaufbereitung oder auch Digitalisierung der Signale werden Schmitt-Trigger eingesetzt. Die Logik besteht aus diversen Logikgattern und die Set-/Reset-Schaltung besteht aus RC-Gliedern mit nachgeschalteten Schmitt-Triggern. Beim \ac{SDC} handelt es sich um ein \acfirst{SSR} welches von der BSPD Logik schlussendlich angestuert werden soll, ein öffnen des Shutdwon circuit führt damnit zu einem Herunterfahren des Antriebes.
 
 Zur Auslegung von Schmidt Triggern
 \begin{figure}

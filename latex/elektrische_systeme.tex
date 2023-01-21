@@ -673,13 +673,14 @@ Die Formel für die Berechnung der \ac{PTC}-Elemente ist dem Datenblatt für die
 	\end{tabular}
 \end{table}
 
-Damit ergibt sich das 2 PTC`s des Typ 17R251 oder 17R501 verwendet werden müssen. 
-
-Die Entladezeit kann wie beim BSPD über die bestimmt werden, in diesem Fall näherungsweise über die 3 fache Zeitkonstante. Damit ergibt sich eine Entladezeit von max. 1,2s.
+Damit ergibt sich das 2 \ac{PTC}`s des Typ 17R251 oder 17R501 verwendet werden müssen. 
+\\
+\\
+Die Entladezeit kann wie beim \ac{BSPD} über die Zeitkonstante bestimmt werden, in diesem Fall näherungsweise über die 3 fache. Damit ergibt sich eine Entladezeit von max. 1,2 s.
 
 \FloatBarrier
-\section{TSAL}
-Das Tractive System Activation Light ist eine Lampe im Mainhoop die 360 Grad rundherum zum Fahrzeug anzeigt ob das tractive system eingeschaltet ist oder nicht und ob ein fehler vorliegt. Damit ergeben sich drei Zustände, Tsal Rot blinkend heißt TS on, TSAL grün leuchtend heißt TS off und Tsal aus heißt entweder Low Volatge system ausgeschaltet oder fehler im TS. Die gesamte logik ist dabei in nicht programmierbaren bausteinen aka mikrocontrollern o.ä. umzusetzen.
+\section{\acfirst{TSAL}}
+Das \ac{TSAL} ist eine Lampe im Mainhoop die 360 Grad rundherum zum Fahrzeug anzeigt ob das \ac{TS} eingeschaltet ist oder nicht und ob ein Fehler vorliegt. Damit ergeben sich drei Zustände, \ac{TSAl} Rot blinkend heißt \ac{TS}-on, \ac{TSAL} grün leuchtend heißt \ac{TS}-off und \ac{TSAL} aus heißt entweder \acfirst{LVS} ausgeschaltet oder Fehler im \ac{TS}. Die gesamte Logik ist dabei in nicht programmierbaren Bausteinen umzusetzen.
 
 \FloatBarrier
 \subsection{Logik auf Discharge}
@@ -687,33 +688,33 @@ Das Tractive System Activation Light ist eine Lampe im Mainhoop die 360 Grad run
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{"bilder/Binäre Spannungserkennung"}
-	\caption{}
+	\caption{Schaltplan Konstantstromquelle Discharge}
 	\label{fig:binare-spannungserkennung}
 \end{figure}
 
-Das Herz der Schaltung ist ein Verarmungstyp N-Fet. Wenn die Gate Source Spannung V\textsubscript{GS} = 0 V ist, dann lässt dieser Fet Strom durch. Ab einer Spannung von 47V wird die Zehner diode durchbrochen und ein Strom fließt, dieser Strom verursacht einen Spannungsabfall am Wiederstand R18 von ca. 2,2V bei einem mA so das V\textsubscript{GS} negativ wird und der Fet den Stromfluss zu begrenzen beginnt. Der Fet agiert zusammen mit dem Widerstand wie eine Konstantstromquelle. Diese Steuert den Optokoppler durch so das wir auf der LV Seite ein Signal erzeugt haben.
+Das Herz der Schaltung ist ein Verarmungstyp N-Fet. Wenn die Gate-Source Spannung V\textsubscript{GS} = 0 V ist, dann lässt dieser Fet Strom durch. Ab einer Spannung von 47 V wird die Zehnerdiode durchbrochen und ein Strom fließt, dieser Strom verursacht einen Spannungsabfall am Wiederstand R18 von ca. 2,2 V bei einem mA so das V\textsubscript{GS} negativ wird und der Fet den Stromfluss zu begrenzen beginnt. Der Fet agiert zusammen mit dem Widerstand wie eine Konstantstromquelle. Diese Steuert den Optokoppler durch so das wir auf der \ac{LV}-Seite ein Signal erzeugt haben.
 
 \FloatBarrier
-\subsection{Logik auf AMS Master}
+\subsection{Logik auf \ac{AMS} Master}
 
-Nachdem jetzt die diversen Signale für den Zustand der AIR`s etc. vorliegen geht es darum sie logisch miteinander zu verschalten. Zuerst einmal wird dafür in U8a-c verglichen ob die vorhergesehen und tatsächlichen Zustände für die Relais übereinstimmen. Die XOR Gatter geben dabei immer einen High Pegel und damit einen Fehlerzustand aus wenn dies nicht der Fall ist. Zweitens gilt es nun zu plausibilisieren ob auch Spannung auf dem System anliegt. Sofern entweder der Precharge oder das positive AIR und das negative AIR geschlossen ist bedeutet dies das der Stromkreis geschlossen ist. Damit sollte Spannung anliegen. Da die Relais Signale bereits plausibilisiert wurden geht es bei dieser Schaltung nur darum zu prüfen ob das Spannungssignal etwas anzeigt wenn dies vom Relais Zustand her der Fall sein sollte. Der Fehlerzustand tritt in der Schaltung nur ein wenn die Ausgänge von U11A und U12A High sind was wiederum dadurch hervorgerufen wird, wenn bei U11A das Signal vom Precharge oder das vom positiven AIR High ist und bei U12A das Signal vom negativen AIR high ist und das Danger V Signal Low ist. Anschließend werden all diese Signale noch mit dem AIR error Ausgang verodert und in den Latch gegeben. Der Latch besteht hauptsächlich aus dem FlipFlop U26A. Der Sinn dieses ist, das wenn ein Fehler gesetzt wird dieser auch permanent bestehen bleibt und das System sich nicht selbst zurücksetzten kann. Um beim einschalten des Systems unplausible Zustände abzufangen befindet sich ein RC Glied am CLR Eingang des FlipFlop so das dieser solange keine Signale annimmt bis das System den stationären Zustand erreicht hat. Nun gibt es noch an U9B das TSon Signal welches eine veroderung der verschiedenen Relais- und des Spannungssignales darstellt. Heißt wenn irgendwas mit den AIR`s passiert oder Spannung auf dem System liegt ist das TSon. Der Ausgang des Error Latches und des TSon Signales wird nun in ein Nor Gatter gegeben so das der GRN on zustand der das TSal grün aufleuchteten lässt nur eintritt wenn was TS nicht on ist und kein Fehler vorliegt. Weiter ist das Signal noch mit dem POR verundet so, dass das Grün Signal erst aufleuchtet wenn das System auch tatsächlich arbeitet.
+Nachdem die diversen Signale für den Zustand der \ac{AIR}`s etc. vorliegen geht es darum sie logisch miteinander zu verschalten. Zuerst wird dafür in U8a-c verglichen ob die vorhergesehen und tatsächlichen Zustände für die Relais übereinstimmen. Die XOR-Gatter geben dabei immer einen high-Pegel und damit einen Fehlerzustand aus, wenn dies nicht der Fall ist. Zweitens gilt es nun zu plausibilisieren ob auch Spannung auf dem System anliegt. Sofern entweder der Precharge oder das positive \ac{AIR} und das negative \ac{AIR} geschlossen ist bedeutet dies, dass der Stromkreis geschlossen ist. Damit sollte Spannung anliegen. Da die Relais Signale bereits plausibilisiert wurden geht es bei dieser Schaltung darum zu prüfen ob das Spannungssignal etwas anzeigt, wenn dies vom Relais Zustand her der Fall sein sollte. Der Fehlerzustand tritt in der Schaltung nur ein wenn die Ausgänge von U11A und U12A high sind, was wiederum dadurch hervorgerufen wird, das bei U11A das Signal vom Precharge oder das vom positiven \ac{AIR} high ist und bei U12A das Signal vom negativen \ac{AIR} high ist und das Danger-V-Signal low ist. Anschließend werden all diese Signale noch mit dem \ac{AIR}-error-Ausgang verodert und in den Latch gegeben. Der Latch besteht hauptsächlich aus dem FlipFlop U26A. Der Sinn dieses ist, das wenn ein Fehler gesetzt wird dieser auch permanent bestehen bleibt und das System sich nicht selbst zurücksetzten kann. Um beim einschalten des Systems unplausible Zustände abzufangen befindet sich ein RC-Glied am CLR-Eingang des FlipFlop so das dieser solange keine Signale annimmt bis das System den stationären Zustand erreicht hat. Nun gibt es noch an U9B das \ac{TS}-on Signal welches eine veroderung der verschiedenen Relais- und des Spannungs/-signales darstellt. Heißt wenn irgendwas mit den .\ac{AIR}`s passiert oder Spannung auf dem System liegt ist das \ac{TS}-on. Der Ausgang des Error Latches und des \ac{TS}-on Signales wird nun in ein NOR-Gatter gegeben so das der GRN-on Zustand der das \ac{TSAL} grün aufleuchten lässt nur eintritt wenn was \ac{TS} nicht on ist und kein Fehler vorliegt. Weiter ist das Signal noch mit dem \ac{POR} verundet so, dass das Grün-Signal erst aufleuchtet wenn das System auch tatsächlich arbeitet.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{"bilder/TSAL Logik AMS Master"}
-	\caption{}
+	\caption{Schaltplan \ac{TSAL}-Logik \ac{AMS}-Master}
 	\label{fig:tsal-logik-ams-master}
 \end{figure}
 
 \FloatBarrier
-\subsection{Schaltung auf TSAL}
+\subsection{Schaltung auf \ac{TSAL}}
 
-Das TSAL besteht wesentlich aus drei funktionellen Blöcken. Der Blink-schaltkreis basierend auf einem NE555, Die Led`s selber und ein LED Treiber mit seiner Beschaltung. Der LED Treiber ist nach Datenblatt aufgebaut, das Red und das Green Signal gehen beide auf den PWM Eingang des Treibers so das wenn das TSAL aus sein soll der Treiber in den Sleep mode geht. Bei den LEd`s handelt es sich um Horticulture 6868 Ceramic Led`s von Würth Elektronik. Diese wurden in den vorherigen Jahren auch auf dem Bremslicht verwendet und zeichnen sich durch hohe Leistungsdichte aus. Am ende der LED Ketten befindet sich ein Mosfet welcher durch das Red oder Green Signal durchgeschaltet und damit der Stromkreis um die LED`s geschlossen wird. Der NE555 wird genutzt um ein Taktsignal mit einer Frequenz von 2-5 Hz zu erzeugen. Dies wird benötigt da das TSAL im Falle des eingeschalteten Tractive Systems mit einer Frequenz in diesem Bereich rot blinken soll.
+Das \ac{TSAL} besteht wesentlich aus drei funktionellen Blöcken. Der Blink-Schaltkreis basierend auf einem NE 555, Die \acfirst{LED}`s selber und ein \ac{LED}-Treiber mit seiner Beschaltung. Der \ac{LED}-Treiber ist nach Datenblatt aufgebaut. Das Red und Green Signal gehen beide auf den \ac{PWM}-Eingang des Treibers so das wenn das \ac{TSAL} aus sein soll der Treiber in den sleep mode geht. Bei den \ac{LED}`s handelt es sich um Horticulture 6868 Ceramic \ac{LED}`s von \ac{WE}. Diese wurden in den vorherigen Jahren auch auf dem Bremslicht verwendet und zeichnen sich durch hohe Leistungsdichte aus. Am ende der \ac{LED}-Ketten befindet sich ein Mosfet welcher durch das Red oder Green Signal durchgeschaltet und damit der Stromkreis um die \ac{LED}`s geschlossen wird. Der NE 555 wird genutzt um ein Taktsignal mit einer Frequenz von 2-5 Hz zu erzeugen. Dies wird benötigt da das \ac{TSAL} im Falle des eingeschalteten \ac{TS} mit einer Frequenz in diesem Bereich rot blinken soll.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{"bilder/Tsal Schematic"}
-	\caption{}
+	\caption{Schaltplan \ac{TSAL}}
 	\label{fig:tsal-schematic}
 \end{figure}
 

@@ -231,6 +231,7 @@ Zur Auflistung der Ausgangsparameter.
 
 \begin{table}
 	\centering
+	\caption{Ausgangsparameter DCDC Wandler}
 	\begin{tabular}{|c|c|c|c|}
 		\hline
 		Parameter & Wert & Einheit &Kommentar \\
@@ -280,6 +281,7 @@ Indem wir nun 2 Transformatoren mit der Primärseite in Parallel und der Sekund�
 
 \begin{table}[h]
 	\centering
+	\caption{Berechnung Wicklungsverhältnis}
 	\begin{tabular}{|c|c|c|}
 		\hline
 		\multicolumn{3}{|c|}{Eingangsparameter}\\
@@ -329,6 +331,7 @@ Die Ripple-Spannung \glsc{symb:V_Ripple} wird auf 1\% der Ausgangsspannung festg
 
 \begin{table}[h]
 	\centering
+	\caption{Berechnung Ausgangs- Kapazität und Induktivität}
 	\begin{tabular}{|c|c|c|}
 		\hline
 		\multicolumn{3}{|c|}{Eingangsparameter}\\
@@ -373,6 +376,7 @@ mit \glsc{symb:H_Prim} in H
 
 \begin{table}[h]
 	\centering
+	\caption{Snubber Berechnung}
 	\begin{tabular}{|c|c|c|}
 		\hline
 		\multicolumn{3}{|c|}{Eingangsparameter}\\
@@ -421,7 +425,7 @@ Dann bestimmen wir die einzelnen Leistungsabfälle am Schalter.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{bilder/HVDCDC_Transformer_Schematic}
-	\caption{}
+	\caption{Schaltplan \ac{HV}-DCDC Transformer}
 	\label{fig:hvdcdctransformerschematic}
 \end{figure}
 
@@ -461,6 +465,7 @@ Da im Kurzschlussfall die Spannung über beide Widerstände anliegt, verdoppelt 
 
 \begin{table}[h]
 	\centering
+	\caption{\ac{TSMP} Berechnung}
 	\begin{tabular}{|c|c|c|}
 		\hline
 		\multicolumn{3}{|c|}{Eingangsparameter} \\
@@ -493,36 +498,39 @@ Daraus schlussfolgert sich das die 15k$\Omega$ Widerstände mit einem Leistungsr
 Die Aufgabe des \ac{BSPD} ist es das Fahrzeug in dem Fall einer Störung des Gaspedales in einen Sicheren Zustand zu überführen. Hierfür wird der Strom zu den Umrichtern als auch der Bremsdruck gemessen und beim Eintreten eines im Regelwerk definierten Schwellwertes für das gleichzeitige auftreten beider Signale muss das Abschalten des Antriebes erfolgen. Das \ref{fig:bspd-blockdiagramm} soll einen Überblick über den Signalfluss ermöglichen.
 \\
 \\
-Bei den Eingangsignalen handelt es sich um analoge Spannungen. Für Signalaufbereitung oder auch Digitalisierung der Signale werden Schmitt-Trigger eingesetzt. Die Logik besteht aus diversen Logikgattern und die Set-/Reset-Schaltung besteht aus RC-Gliedern mit nachgeschalteten Schmitt-Triggern. Beim \ac{SDC} handelt es sich um ein \acfirst{SSR} welches von der BSPD Logik schlussendlich angestuert werden soll, ein öffnen des Shutdwon circuit führt damnit zu einem Herunterfahren des Antriebes.
-
-Zur Auslegung von Schmidt Triggern
+Bei den Eingangsignalen handelt es sich um analoge Spannungen. Für Signalaufbereitung oder auch Digitalisierung der Signale werden Schmitt-Trigger eingesetzt. Die Logik besteht aus diversen Logikgattern und die Set-/Reset-Schaltung besteht aus RC-Gliedern mit nachgeschalteten Schmitt-Triggern. Beim \ac{SDC} handelt es sich um ein \acfirst{SSR} welches von der \ac{BSPD}-Logik schlussendlich angesteuert werden soll. Ein öffnen des \ac{SDC} führt damit zu einem Herunterfahren des Antriebes.
+\\
+\\
+Zur Auslegung von Schmitt-Triggern.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.5\linewidth]{bilder/Schmitt-trigger-diagramm.png}
-	\caption{}
+	\caption{Signal am Schmitt-Trigger}
 	\label{fig:schmitt-trigger-diagramm}
 \end{figure}
 
-Die Funktionsweise eines Schmitt Trigger kann anhand des Bildes erkannt werden. Er ermöglicht es ein analoges Signal in ein Digitales umzuwandeln, dabei ist es möglich festzulegen welche Spannungspegel am Ausgang des Schmitt Trigger anliegen (\glsc{symb:U_HA} und \glsc{symb:U_LA}) und bei welchen Spannungspegeln der Trigger High respektive Low schalten soll (\glsc{symb:U_H}und \glsc{symb:U_L}). Das vorliegen unterschiedilcher Pegel zum Schalten wird Hysterese genannt. Grund für das vorliegen ist das verhindern des rapiden Umschaltens zwischen High und Low direkt an dem Schwellwert aufgrund von Signalrauschen.
+Die Funktionsweise eines Schmitt-Trigger kann anhand des Bildes erkannt werden. Er ermöglicht es ein analoges Signal in ein Digitales umzuwandeln. Dabei ist es möglich festzulegen welche Spannungspegel am Ausgang des Schmitt-Trigger anliegen (\glsc{symb:U_HA} und \glsc{symb:U_LA}) bei welchen Spannungspegeln der Trigger high respektive low schalten soll (\glsc{symb:U_H} und \glsc{symb:U_L}). Das vorliegen unterschiedlicher Pegel zum Schalten wird Hysterese genannt. Sinn für das vorliegen ist, das Verhindern des rapiden Umschaltens zwischen high und low Zustand direkt am Schwellwert aufgrund von Signalrauschen.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{"bilder/TPS Failure detection"}
-	\caption{}
+	\caption{Schaltplan Stromsignal Konditionierung}
 	\label{fig:tps-failure-detection}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.5\linewidth]{"bilder/nichtinvertierender Trigger"}
-	\caption{}
+	\caption{Topologie des nicht Invertierenden Schmitt-Trigger}
 	\label{fig:nichtinvertierender-trigger}
 \end{figure}
 
-Folgend Beispielhaft die Auslegung eines Nicht Invertierenden Schmitt Triggers wie er im Bild unten zu sehen ist. Die andere Ausführung ist die eines Invertierenden.
-
+Folgend Beispielhaft die Auslegung eines nicht Invertierenden Schmitt-Triggers wie er im Bild \ref{fig:nichtinvertierender-trigger} zu sehen ist. Die andere Ausführung ist die eines Invertierenden.
+\\
+\\
 Zur Berechnung sollten sich \glsc{symb:U_HA} und \glsc{symb:U_LA} sowie \glsc{symb:U_H} und \glsc{symb:U_L} aus dem Betriebsfall ergeben. R\textsubscript{1} sowie R\textsubscript{3} können frei gewählt werden. R\textsubscript{1} ist hierbei der Verbund aus R\textsubscript{3} und R\textsubscript{4}.
-
+\\
+\\
 Die beiden folgenden Gleichung liegen zu Grunde
 
 \begin{equation}
@@ -531,14 +539,14 @@ Die beiden folgenden Gleichung liegen zu Grunde
 	mit R\textsubscript{1}=\dfrac{R\textsubscript{3}*R\textsubscript{4}}{R\textsubscript{3}+R\textsubscript{4}}
 \end{equation}
 
-Und
+Und.
 
 \begin{equation}
 	\label{eqn:Untere Hysteresespannung Schmitt Trigger}
 	\glsc{symb:U_L}=\glsc{symb:U_ref}-(\glsc{symb:U_ref}-\glsc{symb:U_HA})*\dfrac{R\textsubscript{1}}{R\textsubscript{1}+R\textsubscript{2}}
 \end{equation}
 
-Mit den folgenden Gleichungen lassen sich R\textsubscript{2} und R\textsubscript{4} bestimmen
+Mit den folgenden Gleichungen lassen sich R\textsubscript{2} und R\textsubscript{4} bestimmen.
 
 \begin{equation}
 	\label{eqn:Berechnung R2 Schmitt Trigger}
@@ -558,14 +566,16 @@ Mit den folgenden Gleichungen lassen sich R\textsubscript{2} und R\textsubscript
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{"bilder/BSPD Integrator"}
-	\caption{}
+	\caption{Schaltplan \ac{BSPD}-Integrator}
 	\label{fig:bspd-integrator}
 \end{figure}
 
-Zur Auslegung der Zeitsteuerung
-
-Die Zeitsteuerung besteht aus einem Kondensator C2 welcher über den Widerstand R20 geladen wird, einer Diode D3 um Rückkopplung zu vermeiden, einem Widerstand R23 um den Kondensator langsam zu entladen, einem Spannungsfolger OP2 um die Schaltung von dem nachgeschalteten Schmitt Trigger zu entkoppeln und einem Transistor T3 der den Kondensator in kurzer Zeit bei Bedarf entladen kann.
-
+Zur Auslegung der Zeitsteuerung.
+\\
+\\
+Die Zeitsteuerung besteht aus einem Kondensator C2 welcher über den Widerstand R20 geladen wird, einer Diode D3 um Rückkopplung zu vermeiden, einem Widerstand R23 um den Kondensator langsam zu entladen, einem Spannungsfolger OP2 um die Schaltung von dem nachgeschalteten Schmitt-Trigger zu entkoppeln und einem Transistor T3 der den Kondensator in kurzer Zeit bei Bedarf entladen kann.
+\\
+\\
 Für die Berechnung ist die Ladezeit des Kondensators über den Widerstand R20 bis zur Schaltspannung des Schmitt Triggers zu ermitteln. Dies lässt sich mit folgender Gleichung Lösen. 
 
 \begin{equation}
@@ -584,6 +594,7 @@ Mit Beispielhaften Auslegeparametern ergeben sich folgende Werte.
 
 \begin{table}[h]
 	\centering
+	\caption{Schmitt-Trigger Rechnung}
 	\begin{tabular}{|c|c|c|}
 		\hline
 		\multicolumn{3}{|c|}{Eingangsparameter} \\
@@ -599,14 +610,15 @@ Mit Beispielhaften Auslegeparametern ergeben sich folgende Werte.
 	\end{tabular}
 \end{table}
 
-Das BSPD-Sensorboard hat zum Zweck einen Stromsensor zu kreieren der ein Stromsignal von 0-100A in ein Spannungssignal von 0.5-4.5V über den Bereich von 0-10A zu erzeugen. Die 0.5V Offset haben zum ziel eine Kurzschlusserkennung auf Masse als auch auf Versorgung zu ermöglichen. Der relevante Messbereich von 0-10A entsteht aus den Regelwerksanforderungen die vorgeben das der Fehlerzustand bei einer abgerufenen Leistung größer 5kW eingestellt werden muss was bei 600V in einem Strom von 8,3A resultiert. Dieser Bereich muss möglichst robust ausgewertet werden können.
-
-Zur genauen Funktion, U1 ist ein Hall Effekt Stromsensor mit einem Übersetzungsfaktor von 1000. Heißt 10A ergeben 10mA Stromfluss am Ausgang. Der Widerstand R2 ist so gewählt das bei einem Strom von 10mA, 5V über den Widerstand abfallen und wir so in den Messbereich kommen. Der Widerstand R1 ermöglicht nun das konstante einspeisen von ca. 0,5V und die Diode das Begrenzen der max. Spannung auf 4,5V.
+Das  \ac{BSPD}-Sensorboard hat zum Zweck einen Stromsensor zu kreieren der ein Stromsignal von 0-100 A in ein Spannungssignal von 0,5-4,5 V über den Bereich von 0-10 A zu erzeugen. Die 0.5 V Offset haben zum Ziel eine Kurzschlusserkennung auf Masse als auch auf Versorgung zu ermöglichen. Der relevante Messbereich von 0-10 A entsteht aus den Regelwerksanforderungen die vorgeben das der Fehlerzustand bei einer abgerufenen Leistung größer 5kW eingestellt werden muss, was bei 600 V in einem Strom von 8,3 A resultiert. Dieser Bereich muss möglichst robust ausgewertet werden können.
+\\
+\\
+Zur genauen Funktion. U1 ist ein Hall-Effekt Stromsensor mit einem Übersetzungsfaktor von 1000. Heißt 10 A ergeben 10 mA Stromfluss am Ausgang. Der Widerstand R2 ist so gewählt das bei einem Strom von 10 mA, 5 V über den Widerstand abfallen und wir so in den Messbereich kommen. Der Widerstand R1 ermöglicht nun das konstante einspeisen von ca. 0,5 V und die Diode das Begrenzen der max. Spannung auf 4,5 V.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{"bilder/Sensorboard Schaltung"}
-	\caption{}
+	\caption{Schaltplan \ac{BSPD}-Sensorboard}
 	\label{fig:sensorboard-schaltung}
 \end{figure}
 
@@ -616,15 +628,17 @@ Die Discharge Schaltung soll bei Abschalten des Fahrzeug die Zwischenkreiskonden
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{bilder/Discharge}
-	\caption{}
+	\caption{Schaltplan Discharge}
 	\label{fig:discharge}
 \end{figure}
 
-Dies kann mit Hilfe von PTC Widerständen geschehen. Das Regelwerk sieht vor das der Zwischenkreis in maximal 5s auf 60VDC oder weniger zu bringen ist. Dies muss für 3 aufeinanderfolgende Entladevorgänge möglich sein. 
-
-Die Ansteuerung erfolgt über den SDC welcher über den Steckverbinder C2 eingebunden ist. Von dort wird der Optokoppler U1 bestromt. Dieser Steuert Strom vom Gate des Mosfets Q1 weg Richtung TS- so das der Mosfet öffnet. Wenn der SDC geöffnet wird, steigt die Spannung am Gate auf 20V und der Mosfet steuert TS+ auf TS- über die PTC Wiederstände durch. Dadurch wird die Spannung im zwischenkreis in den PTC elementen abgebaut.
-
-Die Formel für die Berechnung der PTC Elemenete ist dem Datenblatt für die PTCEL Serie der Firma Vishay zu entnehmen.
+Dies kann mit Hilfe von \acfirst{PTC}-Widerständen geschehen. Das Regelwerk sieht vor das der Zwischenkreis in maximal 5 s auf 60 VDC oder weniger zu bringen ist. Dies muss für 3 aufeinanderfolgende Entladevorgänge möglich sein. 
+\\
+\\
+Die Ansteuerung erfolgt über den \ac{SDC} welcher über den Steckverbinder C2 eingebunden ist. Von dort wird der Optokoppler U1 bestromt. Dieser steuert Strom vom Gate des Mosfet`s Q1 weg Richtung \ac{TS}- so das der Mosfet öffnet. Wenn der \ac{SDC} geöffnet wird, steigt die Spannung am Gate auf 20 V und der Mosfet steuert \ac{TS}+ auf \ac{TS}- über die \ac{PTC}-Widerstände durch. Dadurch wird die Spannung im Zwischenkreis in den \ac{PTC}-Elementen abgebaut.
+\\
+\\
+Die Formel für die Berechnung der \ac{PTC}-Elemente ist dem Datenblatt für die PTCEL Serie der Firma Vishay zu entnehmen.
 
 \begin{equation}
 	\label{eqn:PTC Berechnung}
@@ -633,6 +647,7 @@ Die Formel für die Berechnung der PTC Elemenete ist dem Datenblatt für die PTC
 
 \begin{table}[h]
 	\centering
+	\caption{\ac{PTC} Berechnung}
 	\begin{tabular}{|c|c|c|c|}
 		\hline
 		\multicolumn{4}{|c|}{Eingangsparameter} \\

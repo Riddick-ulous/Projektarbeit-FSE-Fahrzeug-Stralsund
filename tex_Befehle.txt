@@ -14,3 +14,9 @@ Ohm = Omega (suchen und ersetzten)
 Erste zeile beginnt mit leerzeichen?
 Große schaltpläne in den anhang
 Quellen wie einfügen
+
+handbuch emrax 208 in anhang (Kabelquerschnitt nach VDE)
+
+Innenwiederstandsberedchung akku
+
+Inverter = Umrichter

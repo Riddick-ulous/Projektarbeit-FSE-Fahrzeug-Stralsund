@@ -4,22 +4,22 @@
 \chapter{Mechanische Systeme}
 An dieser Stelle geht mein Dank an Florian Irle, der obwohl er sich eigentlich etwas aus dem Projekt zurückhalten wollte, mit einem beispiellosen Tatendrang an der Entwicklung und Konstruktion des Antriebssysteme besonders des Getriebegehäuses und des Gussprozesses mitgearbeitet hat.
 
-\section{Antriebslayout}
+%\section{Antriebslayout}
+%
+%2WD ein motor (diff)
+%2Wd zwei motor (gewähltes konzept, Torque vektoring/hinterachslenkung)
+%4WD (Komplexität ungefederte massen etc.)
+%
+%kurz was gibt es und warum machen wir das was wir machen
+%referenz zu vorher erstellten Dokumenten
+%
+%\section{Packaging}
+%Packaging leistungskennzahl. Volumenfüllungsgrad, schwerpunkt position, wartungsaufwand
+%CAD Stuff benötigt
 
-2WD ein motor (diff)
-2Wd zwei motor (gewähltes konzept, Torque vektoring/hinterachslenkung)
-4WD (Komplexität ungefederte massen etc.)
+%\section{Systeme}
 
-kurz was gibt es und warum machen wir das was wir machen
-referenz zu vorher erstellten Dokumenten
-
-\section{Packaging}
-Packaging leistungskennzahl. Volumenfüllungsgrad, schwerpunkt position, wartungsaufwand
-CAD Stuff benötigt
-
-\section{Systeme}
-
-\subsection{Kühlung} (zusammen mit Julian Vogt und???)
+\subsection{Kühlung}
 
 \begin{figure}[H]
 	\centering
@@ -28,10 +28,8 @@ CAD Stuff benötigt
 	\label{abb:Coolingssystem}
 \end{figure}
 
-
-\subsubsection{Radiator \& Lüfter} (zusammen mit Julian Vogt und???)
-Radiator Berechnung
-Die Berechnung des Radiators basiert auf der Annahme das hier eine Ähnlichkeitstheorie Anwendung finden kann. Hierbei wurden die bekannten realen (index r) Eingangsparameter aus Messungen am Vorjahresfahrzeug mit den Modellparametern (index m) für das kommende Fahrzeug in Beziehung gesetzt. Konkret die Temperaturdifferenz am eintritt und der Wärmestrom. Hierbei wurde kein klassischer Weg bekannt aus der Thermodynamik über NTU-Schaubilder etc. gewählt da die geometrischen Parameter des Radiators abgesehen von der frontalen Netzfläche nicht bekannt waren. Zur genaueren Betrachtung sollte dieses Vorgehen in Zukunft angewendet werden. Folgend die angewendete Formel.
+\subsubsection{Radiator \& Lüfter}
+Die Berechnung des Radiators basiert auf der Annahme das hier eine Ähnlichkeitstheorie Anwendung finden kann. Hierbei wurden die bekannten realen (index r) Eingangsparameter aus Messungen am Vorjahresfahrzeug mit den Modellparametern (index m) für das kommende Fahrzeug in Beziehung gesetzt. Konkret die Temperaturdifferenz am Eintritt und der Wärmestrom. Hierbei wurde kein klassischer Weg bekannt aus der Thermodynamik über NTU-Schaubilder etc. gewählt da die geometrischen Parameter des Radiators abgesehen von der frontalen Netzfläche nicht bekannt waren. Zur genaueren Betrachtung sollte dieses Vorgehen in Zukunft vergleichend angewendet werden. Folgend die angewendete Formel.
 
 \begin{equation}
 		\label{eqn:KühlerÄhnlichkeitsformel}
@@ -39,17 +37,17 @@ Die Berechnung des Radiators basiert auf der Annahme das hier eine Ähnlichkeits
 \end{equation}
 
 Sie besagt, dass das Verhältnis der Kühlerflächen proportional zu dem Verhältnis von Wärmestrom und Eingangstemperaturdifferenz ist.\\
-
-Hierbei ist \glsc{symb:A_r} vom Vorjahresfahrzeug bekannt, \glsc{symb:Qdot_r} ergibt sich mit folgender Formel aus den Vor und Rücklauftemperaturen vom Wärmetauscher sowie dem Wassermassenstrom welche beim TY19 gemessen wurden.
+\\
+Hierbei ist \glsc{symb:A_r} vom Vorjahresfahrzeug bekannt, \glsc{symb:Qdot_r} ergibt sich mit folgender Formel aus den Vor- und Rück/-lauftemperaturen vom Wärmetauscher sowie dem Wassermassenstrom welche beim TY19 gemessen wurden.
 
 \begin{equation}
 	\glsc{symb:Qdot_r} = \glsc{symb:Cv_wasser} * \glsc{symb:Vdot_wasser} * \glsc{symb:rho_wasser} * (\gls{symb:t_ein Wasser} - \glsc{symb:t_aus Wasser}) * Anzahl\textsubscript{Kühler}
 \end{equation}
 
-\glsc{symb:Qdot_m} wird mit Hilfe der Rundenzeitsimulation ermittelt. Hier werden sämtlich Verluste die in das Kühlsystem eingetragen im rahmen der Rundenzeit Berechnung über den FSG Fahrtzyklus gemittelt mit gerechnet.\\
-
+\glsc{symb:Qdot_m} wird mit Hilfe der \ac{LTS} ermittelt. Hier werden sämtlich Verluste die in das Kühlsystem eingetragen werden im Rahmen der Rundenzeitberechnung über den Endurance Fahrtzyklus gemittelt mit gerechnet.\\
+\\
 \glsc{symb:deltaT_ein m} wird mit 30 K angenommen. Die max. Temperatur des Kühlwassers sollte 60°C nicht überschreiten währen im Hochsommer mit Umgebungstemperaturen von 30°C zu rechnen ist.\\
-
+\\
 Mit der Formel \ref{eqn:KühlerÄhnlichkeitsformel} umgestellt nach \glsc{symb:A_m} kann nun die Kühlerfläche für das Elektrofahrzeug bestimmt werden.
 
 \begin{equation}
@@ -91,17 +89,17 @@ Dies führt zu folgenden Ergebnissen.
 	\end{tabular}
 \end{table}
 
-Dies ergibt mit unserem Modell eine Reduktion auf 26,46 \% der vorherigen Kühlerfläche. Die Baugröße die am ende für den Kühler gewählt wurde entspricht ca. 50 \% der Kühlerfläche also das doppelte vom Rechenergebnis. Eine derart hohe Sicherheit ist darauf zurückzuführen das die Berechnung von Wärmeübertragern generell keine sehr exakte Wissenschaft ist und Der Bauraum eine derartige Überdimensionierung an der stelle zugelassen hat.\\
+Dies ergibt mit unserem Modell eine Reduktion auf 26,46 \% der vorherigen Kühlerfläche. Die Baugröße die am ende für den Kühler gewählt wurde entspricht ca. 50 \% der Kühlerfläche also das doppelte vom Rechenergebnis. Eine derart hohe Sicherheit ist darauf zurückzuführen das die Berechnung von Wärmeübertragern generell keine sehr exakte Wissenschaft ist und der Bauraum eine derartige Überdimensionierung an der Stelle zugelassen hat.\\
 \\
-Für die Auslegung des Lüfters wurde von der Aerodynamik Abteilung vorgegeben das man die Abluft des Systems nutzen möchte um das Strömungsprofil am Diffusor zu verwenden. Hierfür mussten Strömungsgeschwindigkeiten im Bereich der 80-90 km/h am Auslass erreicht werden. Für den Lüfter wurde auch in den letzten Jahren am Verbrenner ein Drohnennmotor mit Propeller und externer Ansteuerung verwendet da dies deutlich leichter ist als eine fertige Einheit. In diesem Zuge sollten Volumenstrom und Ausgangsgeschwindigkeiten für verschiedene Konzepte berechnet werden können. Aufgrund der Größe des Kühlers kamen nur 4 Zoll oder kleiner Propeller in Frage. Weiterhin ist die Fragestellung aufgekommen ob ein Propeller ausgelegt für Freiströmung sinnvoll vor einem Lamellen Kreuzstrom Wärmeübertrager einzusetzen ist. Hierfür wurde zum Vergleich ein Lüfter von der Firma EBM Papst beschafft um die Leistungsdaten schlussendlich vergleichen zu können.\\
-
-Für drohnemotoren sind in der regel Daten für Schubkraft und Leistung verfügbar. Dies Lässt sich mit Hilfe des 2. Newtonschen Gesetztes dem Impulssatz umrechnen. Wir nehmen dabei an das unser Fahrzeug still steht. Dies führt zu folgender Gleichung
+Für die Auslegung des Lüfters wurde von der Aerodynamik Abteilung vorgegeben das man die Abluft des Systems nutzen möchte um das Strömungsprofil am Diffusor zu beeinflussen. Hierfür mussten Strömungsgeschwindigkeiten im Bereich der 80-90 km/h am Auslass erreicht werden. Für den Lüfter wurde auch in den letzten Jahren am Verbrenner ein Drohnennmotor mit Propeller und externer Ansteuerung verwendet, da dies deutlich leichter ist als eine fertige Einheit. In diesem Zuge sollten Volumenstrom und Ausgangsgeschwindigkeiten für verschiedene Konzepte berechnet werden können. Aufgrund der Größe des Kühlers kamen nur 4 Zoll oder kleiner Propeller in Frage. Weiterhin ist die Fragestellung aufgekommen ob ein Propeller ausgelegt für Freiströmung sinnvoll vor einem Lamellen-Kreuzstrom-Wärmeübertrager einzusetzen ist. Hierfür wurde zum Vergleich ein Lüfter von der Firma EBM-Papst beschafft um die Leistungsdaten schlussendlich vergleichen zu können.\\
+\\
+Für Drohnenmotoren sind in der Regel Daten für Schubkraft und Leistung verfügbar. Dies Lässt sich mit Hilfe des 2. Newtonschen Gesetztes, dem Impulssatz, umrechnen. Wir nehmen dabei an das unser Fahrzeug still steht. Dies führt zu folgender Gleichung.
 
 \begin{equation}
 	\glsc{symb:F_Schub} = \glsc{symb:mdot_Luft} * \glsc{symb:v_Luft}
 \end{equation}
 
-Dies lässt sich mit folgenden Formeln Umstellen
+Dies lässt sich mit folgenden Formeln Umstellen.
 
 \begin{equation}
 	\glsc{symb:mdot_Luft} = \glsc{symb:Vdot_Luft} * \glsc{symb:rho_Luft}
@@ -110,21 +108,21 @@ Dies lässt sich mit folgenden Formeln Umstellen
 	\glsc{symb:Vdot_Luft} = \glsc{symb:A_Prop} * \glsc{symb:v_Luft}
 \end{equation}
 
-Und führt zu
+Und führt zu.
 
 \begin{equation}
 	\glsc{symb:v_Luft} = \sqrt{\dfrac{\glsc{symb:F_Schub}} {\glsc{symb:A_Prop} * \glsc{symb:rho_Luft}}}
 \end{equation}
 
 Mit diesen Gleichungen können wir auch den Volumen- und Massenstrom bestimmen.\\
-
+\\
 Mit folgender Formel lässt sich die Luftleistung bestimmen.
 
 \begin{equation}
 	\glsc{symb:P_Luft} = \dfrac{\glsc{symb:mdot_Luft}}{2} * \glsc{symb:v_Luft}^2
 \end{equation}
 
-Damit können wir schlussendlich die Effizienz des Design beurteilen
+Damit können wir schlussendlich die Effizienz des Design beurteilen.
 
 \begin{equation}
 	\glsc{symb:eta_Luefter} = \dfrac{\glsc{symb:P_Luft}}{\glsc{symb:P_elektrisch}}
@@ -162,6 +160,7 @@ Entschieden wurde sich am ende für den T-Motor F2004-1700KV zusammen mit dem Ge
 \end{table}
 
 Im Rahmen der Systembetrachtung wurden am tatsächlichen Aufbau einige Messdaten genommen.
+
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|c|c|c|}
@@ -181,7 +180,7 @@ Im Rahmen der Systembetrachtung wurden am tatsächlichen Aufbau einige Messdaten
 	\end{tabular}
 \end{table}
 
-Mit Hilfe der Vorherigen Rechnung können wir nun den gleichen Rechenweg Rückwärts gehen um uns wieder alle übrigen Parameter zu berechnen. Die Lüftauströmfläche beträgt dabei \ensuremath{0,004173m^2}.
+Mit Hilfe der Vorherigen Rechnung können wir nun den gleichen Rechenweg Rückwärts gehen um uns wieder alle übrigen Parameter zu berechnen. Die Lüftausströmfläche beträgt dabei \ensuremath{0,004173m^2}.
 
 \begin{table}[h]
 	\centering
@@ -213,19 +212,16 @@ Mit Hilfe der Vorherigen Rechnung können wir nun den gleichen Rechenweg Rückw�
 	\end{tabular}
 \end{table}
 
-Laut EBM Papst liegen die zu erwartende effizienzen bei einem Axialgebläse im Bereich von 25\% - 65\%. Daran ist zu erkennen das unser aktueller Lüfter von EBM noch nicht die effizienteste Lösungen darstellt und unser Drohnenmotor eine sehr ineffiziente Lösung darstellt. Dennoch ein Aufbau mit Lüftern von EBM wiegt ca. 560g während der Aufbau mit Drohnennmotoren bei ca. 55g liegt. Allein diese gewichtsersparnis ist den einsatz dieses gebläses schon wert. Empfehlenswert wäre an der Stelle die Optimierung des Rotorblattes auf den vorliegenden Anwendungsfall.
+Laut EBM Papst liegen die zu erwartende Effizienzen bei einem Axialgebläse im Bereich von 25\% - 65\%. Daran ist zu erkennen das unser aktueller Lüfter von EBM noch nicht die effizienteste Lösungen darstellt und unser Drohnenmotor eine sehr ineffiziente Lösung ist. Dennoch ein Aufbau mit Lüftern von EBM wiegt ca. 560 g während der Aufbau mit Drohnennmotoren bei ca. 55 g liegt. Allein diese Gewichtsersparnis ist den Einsatz dieses Gebläses wert. Empfehlenswert wäre an der Stelle die Optimierung des Rotorblattes auf den vorliegenden Anwendungsfall.
 
 
-\subsubsection{Wasserpumpe und Schläuche} (zusammen mit Julian Vogt und???)
+\subsubsection{Wasserpumpe und Schläuche}
 
-
-Für die Auslegung des Wasserkreislaufes sind die Druckabfälle der einzelsysteme relevant hierfür eine systemüberischt
-
-auf tikzedit grafik verlinken
-
-Desweiteren sind für die betrachtung weitere Parameter relevant. Laut Motorhersteller liegt der optimale Wasservolumenstrom bei 6-8 \ensuremath{l/min}. Aus der Vorhergehenden Betrachtung geht hervor das die umzusetzende Wärmeleistung bei 5364W liegt. Der angepeilte Luftvolumenstrom durch einen Kühler beläuft sich auf 756 \ensuremath{m^3/h}.
-
-Mit den folgenden beiden Diagrammen der Schwämmle GmbH\&Co. KG aus dem Leistungsdatenblatt für die ELW Serie lässt sich der Druckabfall über den Radiator bestimmen.  Wärmeleistung.
+Für die Auslegung des Wasserkreislaufes sind die Druckabfälle der Einzelsysteme relevant, zur Referenz die Systemübersicht \ref{abb:Coolingssystem}\\
+\\
+Des weiteren sind für die Betrachtung weitere Parameter relevant. Laut Motorhersteller liegt der optimale Wasservolumenstrom bei 6-8 \ensuremath{l/min}. Aus der Vorhergehenden Betrachtung geht hervor das die umzusetzende Wärmeleistung bei 5364 W liegt. Der angepeilte Luftvolumenstrom durch einen Kühler beläuft sich auf 756 \ensuremath{m^3/h}.\\
+\\
+Mit den folgenden beiden Diagrammen \ref{fig:elwleistung-uber-volumenstrom} und \ref{fig:elw-druckabfall-uber-volumenstrom} der Schwämmle GmbH\&Co. KG aus dem Leistungsdatenblatt für die ELW Serie lässt sich der Druckabfall über den Radiator bestimmen.
 
 \begin{figure}[h]
 	\centering
@@ -234,7 +230,7 @@ Mit den folgenden beiden Diagrammen der Schwämmle GmbH\&Co. KG aus dem Leistung
 	\label{fig:elwleistung-uber-volumenstrom}
 \end{figure}
 
-Unser angestrebter Radiator entspricht mit seiner Netzfläche am ehesten dem ELW3. Dies würde bei den bisher bekannten Betriebsdaten zu eine Kühlleistung von 90 W/K oder auch 2700W führen. Oder bei zwei Einheiten zu 5400W. Dies ist sehr nah an der angestrebten
+Unser angestrebter Radiator entspricht mit seiner Netzfläche am ehesten dem ELW3. Dies würde bei den bisher bekannten Betriebsdaten zu eine Kühlleistung von 90 W/K oder auch 2700 W führen. Oder bei zwei Einheiten zu 5400 W. Dies ist sehr nah an der angestrebten Wärmeleistung.
 
 \begin{figure}[h]
 	\centering
@@ -243,10 +239,10 @@ Unser angestrebter Radiator entspricht mit seiner Netzfläche am ehesten dem ELW
 	\label{fig:elw-druckabfall-uber-volumenstrom}
 \end{figure}
 
-Die Grafik ist an dieser stelle etwas verwirrend da der ELW 2 und der ELW3 die Farben getauscht haben. Da es sich hierbei jedoch um die einzigen Daten handelt die aufgetrieben werden konnten wird an dieser stelle angenommen das Die grüne Linie für den ELW3 steht und die Lila Linie den ELW 2 darstellt. Dies ist die sichere anmahne da dies im zweifel zu einem zu hohen Druckabfall und damit einer Überdimensionierung der Anlage führt.\\
-Anhand dieser Grafik kann also nun der Druckabfall zu einem entsprechenden Wasservolumenstrom abgelesen werden.
-
-Für den Inverter gibt es im Datenblatt ein fertiges Diagramm.
+Die Grafik \ref{fig:elw-druckabfall-uber-volumenstrom} ist an dieser Stelle etwas verwirrend da der ELW 2 und der ELW3 die Farben getauscht hat. Da es sich hierbei jedoch um die einzigen Daten handelt die aufgetrieben werden konnten wird an dieser Stelle angenommen das die grüne Linie für den ELW3 steht und die Lila Linie den ELW 2 darstellt. Dies ist die sichere Annahme, da dies im zweifel zu einem zu hohen Druckabfall und damit einer Überdimensionierung der Anlage führt.\\
+Anhand dieser Grafik kann also nun der Druckabfall zu einem entsprechenden Wasservolumenstrom abgelesen werden.\\
+\\
+Für den Inverter gibt es im Datenblatt ein fertiges Diagramm, siehe \ref{fig:cooling-characteristik}.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{"bilder/Druckabfall DTI500LC"}
@@ -254,7 +250,7 @@ Für den Inverter gibt es im Datenblatt ein fertiges Diagramm.
 	\label{fig:cooling-characteristik}
 \end{figure}
 
-Für den Motor existieren leider nur Daten an einem einzigen Punkt. An den anderen verläufen ist jedoch in der regel ein quadratischer verlauf zu erkennen weswegen hier quadratisch regressiert wurde. Wir beginnen mit der allgemeine Formel
+Für den Motor existieren leider nur Daten an einem einzigen Punkt. An den anderen Graphen ist jedoch in der Regel ein quadratischer Verlauf zu erkennen, weswegen hier quadratisch regressiert wurde. Wir beginnen mit der allgemeine Formel
 
 \begin{equation}
 	Y = A x^2 + B x + C
@@ -266,7 +262,7 @@ Die Linie soll durch den Nullpunkt verlaufen damit wird C = 0 und wir nehmen an 
 	Y = A x^2
 \end{equation}
 
-eingesetzt ergibt sich
+eingesetzt ergibt sich.
 
 \begin{equation}
 	0,6 bar = A * (7 l/min)^2  
@@ -276,11 +272,11 @@ eingesetzt ergibt sich
 	  = 0,01224 \dfrac{bar}{(l/min)^2}
 \end{equation}
 
-Für die Leitungen würde eine extensive Berechnung durchgeführt auf die an dieser stelle leider aus zeit gründen nicht näher eingegangen werden kann. die Schlussfolgerung ist jedoch das die Verluste vernachlässigbar klein sind. \\
-
-Die Daten für die Pumpen entstammen direkt den Datenblättern.\\
-
-Alle Ergebnisse sind nun in der Systemkennlinie abgebildet
+Für die Leitungen wurde eine extensive Berechnung durchgeführt, auf die an dieser Stelle leider aus Zeitgründen nicht näher eingegangen werden kann. Die Schlussfolgerung ist jedoch das die Verluste vernachlässigbar klein sind. \\
+\\
+Die Daten für die Pumpen entstammen direkt den Datenblättern\\
+\\
+Alle Ergebnisse sind nun in der Systemkennlinie \ref{fig:kuhlsystemkennlinie} abgebildet
 
 \begin{figure}[h]
 	\centering
@@ -289,71 +285,72 @@ Alle Ergebnisse sind nun in der Systemkennlinie abgebildet
 	\label{fig:kuhlsystemkennlinie}
 \end{figure}
 
-Der Punkt an dem sich die Linien der jeweiligen Pumpe mit der Linie des Gesamtsystem schneidet ist der Betriebspunkt des Systems. Dieser Druckabfall und dieser Volumenstrom sollten sich im betrieb einstellen. Bei der Grafik muss beachtet werden das dies von der Pumpe beachtet aus betrachtet wird und daher der Volumenstrom doppelt so groß ist wie am kühler aufgrund der zwei separaten Kühleinheiten.
+Der Punkt an dem sich die Linien der jeweiligen Pumpe mit der Linie des Gesamtsystem schneidet ist der Betriebspunkt des Systems. Dieser Druckabfall und dieser Volumenstrom sollten sich im Betrieb einstellen. Bei der Grafik \ref{fig:kuhlsystemkennlinie} muss beachtet werden das dies von der Pumpe aus betrachtet wird und daher der Volumenstrom doppelt so groß ist wie am kühler aufgrund der zwei separaten Kühleinheiten.
 
 
-\subsubsection{Outbound vs Inbound}
-Radnabenmotor vs interner motor 
-ungeferte massen
-packaging im rad problem(Planetengetriebe) fertigungsaufwand innenzahnkranz, generell zahnräder
-keine Antriebswellen
-besseres packaging im auto
 
-\subsection{Antrieb} (Michel und Linus)
-Kettentrieb vs Stirnradgetriebe
-	Kettentrieb leichter günstiger, simpler (keine öldichtigkeit von nöten)
-	Getriebe Kompakter, weniger Umschlagspiel (rekuperativbetrieb), weniger wartungsintensiv (kettentrieb hält ca. 6-8h)
-zahnrad auslegung
-	Getriebebeleg (Basics)
-	Soiftware kurz es gibt Sie wie sie heißt und fertig
-Zahnrad fertigung
-	Profilstoßen
-	Profilfräsen (Scheiben odser schaft)
-	Wälzfräsenm
-	Waserstrahlen
-Kettentrieb alternative
-	Auslegung (berechnungen)
-Wellen auslegung
-	Überschalgsrechnung (Getriebebeleg) 
-	Anbindungsmaße (Lager, tripoden, zahräder etc)
-Lagerberechnung
-FEM detour
-	Netzunabhängigkerit
-	konvergenz
-	Kräfte richtig antragen
-	Feste flächen richtig wählen
-	kräfte richtig berechnen
-	Kontaktflächen bestimmen
-	Feinheitsgrade des netz
-	Inventor Casual fixe abschätzung oder einfache probleme vs Ansys Profi tool für komplexe verlässliche analyse
-
-\subsubsection{Gussgehäuse vs Fräsgehäuse vs Schweißgehäuse} (Flo Irle)
-Vor und nachteile
-	Guss günstig
-	Fräsen Einfache auslegung
-	Schweiß einfache fertigung
-	
-
-eingehen aufs gussgehäuse
-
-SES anforderungen
-Flexural rigidity
-E modul vs yield strenght welche verbnesserungen bringen wo was
-Gussimulation
-FEM Bilder
-CAD Bilder
-Formkasten
-Heizofen
-tiegel
-trageschere
-gussmaterial auswahl
-kellen etc. für zusätze
-wärmebehandlung
-materialtests
-zusatzstoffe guss
-stuff von Floh?
-
-\subsubsection{Antriebswellen und Tripoden} Störle und schrang
-excel tabellen und stuff von Störle und schrang
-
-FEM sim bilder von Schrang
+%\subsubsection{Outbound vs Inbound}
+%Radnabenmotor vs interner motor 
+%ungeferte massen
+%packaging im rad problem(Planetengetriebe) fertigungsaufwand innenzahnkranz, generell zahnräder
+%keine Antriebswellen
+%besseres packaging im auto
+%
+%\subsection{Antrieb} (Michel und Linus)
+%Kettentrieb vs Stirnradgetriebe
+%	Kettentrieb leichter günstiger, simpler (keine öldichtigkeit von nöten)
+%	Getriebe Kompakter, weniger Umschlagspiel (rekuperativbetrieb), weniger wartungsintensiv (kettentrieb hält ca. 6-8h)
+%zahnrad auslegung
+%	Getriebebeleg (Basics)
+%	Soiftware kurz es gibt Sie wie sie heißt und fertig
+%Zahnrad fertigung
+%	Profilstoßen
+%	Profilfräsen (Scheiben odser schaft)
+%	Wälzfräsenm
+%	Waserstrahlen
+%Kettentrieb alternative
+%	Auslegung (berechnungen)
+%Wellen auslegung
+%	Überschalgsrechnung (Getriebebeleg) 
+%	Anbindungsmaße (Lager, tripoden, zahräder etc)
+%Lagerberechnung
+%FEM detour
+%	Netzunabhängigkerit
+%	konvergenz
+%	Kräfte richtig antragen
+%	Feste flächen richtig wählen
+%	kräfte richtig berechnen
+%	Kontaktflächen bestimmen
+%	Feinheitsgrade des netz
+%	Inventor Casual fixe abschätzung oder einfache probleme vs Ansys Profi tool für komplexe verlässliche analyse
+%
+%\subsubsection{Gussgehäuse vs Fräsgehäuse vs Schweißgehäuse} (Flo Irle)
+%Vor und nachteile
+%	Guss günstig
+%	Fräsen Einfache auslegung
+%	Schweiß einfache fertigung
+%	
+%
+%eingehen aufs gussgehäuse
+%
+%SES anforderungen
+%Flexural rigidity
+%E modul vs yield strenght welche verbnesserungen bringen wo was
+%Gussimulation
+%FEM Bilder
+%CAD Bilder
+%Formkasten
+%Heizofen
+%tiegel
+%trageschere
+%gussmaterial auswahl
+%kellen etc. für zusätze
+%wärmebehandlung
+%materialtests
+%zusatzstoffe guss
+%stuff von Floh?
+%
+%\subsubsection{Antriebswellen und Tripoden} Störle und schrang
+%excel tabellen und stuff von Störle und schrang
+%
+%FEM sim bilder von Schrang

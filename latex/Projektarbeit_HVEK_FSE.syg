@@ -163,11 +163,10 @@
 \glossaryentry{symbolE"\_kin?\glossentry{symb:E_kin}|setentrycounter[]{page}"\glsnumberformat}{32}
 \glossaryentry{symbolm?\glossentry{symb:m}|setentrycounter[]{page}"\glsnumberformat}{32}
 \glossaryentry{symbolv?\glossentry{symb:v}|setentrycounter[]{page}"\glsnumberformat}{32}
-\glossaryentry{symbolm?\glossentry{symb:m}|setentrycounter[]{page}"\glsnumberformat}{32}
-\glossaryentry{symbolv?\glossentry{symb:v}|setentrycounter[]{page}"\glsnumberformat}{32}
+\glossaryentry{symbolm?\glossentry{symb:m}|setentrycounter[]{page}"\glsnumberformat}{33}
+\glossaryentry{symbolv?\glossentry{symb:v}|setentrycounter[]{page}"\glsnumberformat}{33}
 \glossaryentry{symbolv?\glossentry{symb:v}|setentrycounter[]{page}"\glsnumberformat}{33}
 \glossaryentry{symbolE"\_kin?\glossentry{symb:E_kin}|setentrycounter[]{page}"\glsnumberformat}{33}
-\glossaryentry{symbolmu?\glossentry{symb:mu}|setentrycounter[]{page}"\glsnumberformat}{33}
 \glossaryentry{symbolT"\_celli+1?\glossentry{symb:T_celli+1}|setentrycounter[]{page}"\glsnumberformat}{38}
 \glossaryentry{symbolI"\_cell?\glossentry{symb:I_cell}|setentrycounter[]{page}"\glsnumberformat}{38}
 \glossaryentry{symbolR"\_cell?\glossentry{symb:R_cell}|setentrycounter[]{page}"\glsnumberformat}{38}
@@ -196,14 +195,14 @@
 \glossaryentry{symbolteinwasser?\glossentry{symb:t_ein Wasser}|setentrycounter[]{page}"\glsnumberformat}{65}
 \glossaryentry{symboltauswasser?\glossentry{symb:t_aus Wasser}|setentrycounter[]{page}"\glsnumberformat}{65}
 \glossaryentry{symbolQdotm?\glossentry{symb:Qdot_m}|setentrycounter[]{page}"\glsnumberformat}{65}
-\glossaryentry{symboldeltaTeinm?\glossentry{symb:deltaT_ein m}|setentrycounter[]{page}"\glsnumberformat}{66}
-\glossaryentry{symbolAm?\glossentry{symb:A_m}|setentrycounter[]{page}"\glsnumberformat}{66}
-\glossaryentry{symbolAm?\glossentry{symb:A_m}|setentrycounter[]{page}"\glsnumberformat}{66}
-\glossaryentry{symbolAr?\glossentry{symb:A_r}|setentrycounter[]{page}"\glsnumberformat}{66}
-\glossaryentry{symbolQdotm?\glossentry{symb:Qdot_m}|setentrycounter[]{page}"\glsnumberformat}{66}
-\glossaryentry{symboldeltaTeinm?\glossentry{symb:deltaT_ein m}|setentrycounter[]{page}"\glsnumberformat}{66}
-\glossaryentry{symbolQdotr?\glossentry{symb:Qdot_r}|setentrycounter[]{page}"\glsnumberformat}{66}
-\glossaryentry{symboldeltaTeinr?\glossentry{symb:deltaT_ein r}|setentrycounter[]{page}"\glsnumberformat}{66}
+\glossaryentry{symboldeltaTeinm?\glossentry{symb:deltaT_ein m}|setentrycounter[]{page}"\glsnumberformat}{65}
+\glossaryentry{symbolAm?\glossentry{symb:A_m}|setentrycounter[]{page}"\glsnumberformat}{65}
+\glossaryentry{symbolAm?\glossentry{symb:A_m}|setentrycounter[]{page}"\glsnumberformat}{65}
+\glossaryentry{symbolAr?\glossentry{symb:A_r}|setentrycounter[]{page}"\glsnumberformat}{65}
+\glossaryentry{symbolQdotm?\glossentry{symb:Qdot_m}|setentrycounter[]{page}"\glsnumberformat}{65}
+\glossaryentry{symboldeltaTeinm?\glossentry{symb:deltaT_ein m}|setentrycounter[]{page}"\glsnumberformat}{65}
+\glossaryentry{symbolQdotr?\glossentry{symb:Qdot_r}|setentrycounter[]{page}"\glsnumberformat}{65}
+\glossaryentry{symboldeltaTeinr?\glossentry{symb:deltaT_ein r}|setentrycounter[]{page}"\glsnumberformat}{65}
 \glossaryentry{symbolAr?\glossentry{symb:A_r}|setentrycounter[]{page}"\glsnumberformat}{66}
 \glossaryentry{symbolteinwasser?\glossentry{symb:t_ein Wasser}|setentrycounter[]{page}"\glsnumberformat}{66}
 \glossaryentry{symboltauswasser?\glossentry{symb:t_aus Wasser}|setentrycounter[]{page}"\glsnumberformat}{66}
@@ -215,38 +214,38 @@
 \glossaryentry{symbolQdotm?\glossentry{symb:Qdot_m}|setentrycounter[]{page}"\glsnumberformat}{66}
 \glossaryentry{symbolQdotr?\glossentry{symb:Qdot_r}|setentrycounter[]{page}"\glsnumberformat}{66}
 \glossaryentry{symbolAm?\glossentry{symb:A_m}|setentrycounter[]{page}"\glsnumberformat}{66}
-\glossaryentry{symbolSchubkraft?\glossentry{symb:F_Schub}|setentrycounter[]{page}"\glsnumberformat}{67}
-\glossaryentry{symbolmdotLuft?\glossentry{symb:mdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{67}
-\glossaryentry{symbolvLuft?\glossentry{symb:v_Luft}|setentrycounter[]{page}"\glsnumberformat}{67}
-\glossaryentry{symbolmdotLuft?\glossentry{symb:mdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{67}
-\glossaryentry{symbolVdotLuft?\glossentry{symb:Vdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{67}
-\glossaryentry{symbolLuft?\glossentry{symb:rho_Luft}|setentrycounter[]{page}"\glsnumberformat}{67}
-\glossaryentry{symbolVdotLuft?\glossentry{symb:Vdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{67}
-\glossaryentry{symbolPropellerfläche?\glossentry{symb:A_Prop}|setentrycounter[]{page}"\glsnumberformat}{67}
-\glossaryentry{symbolvLuft?\glossentry{symb:v_Luft}|setentrycounter[]{page}"\glsnumberformat}{67}
-\glossaryentry{symbolvLuft?\glossentry{symb:v_Luft}|setentrycounter[]{page}"\glsnumberformat}{67}
-\glossaryentry{symbolSchubkraft?\glossentry{symb:F_Schub}|setentrycounter[]{page}"\glsnumberformat}{67}
-\glossaryentry{symbolPropellerfläche?\glossentry{symb:A_Prop}|setentrycounter[]{page}"\glsnumberformat}{67}
-\glossaryentry{symbolLuft?\glossentry{symb:rho_Luft}|setentrycounter[]{page}"\glsnumberformat}{67}
+\glossaryentry{symbolSchubkraft?\glossentry{symb:F_Schub}|setentrycounter[]{page}"\glsnumberformat}{66}
+\glossaryentry{symbolmdotLuft?\glossentry{symb:mdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{66}
+\glossaryentry{symbolvLuft?\glossentry{symb:v_Luft}|setentrycounter[]{page}"\glsnumberformat}{66}
+\glossaryentry{symbolmdotLuft?\glossentry{symb:mdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{66}
+\glossaryentry{symbolVdotLuft?\glossentry{symb:Vdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{66}
+\glossaryentry{symbolLuft?\glossentry{symb:rho_Luft}|setentrycounter[]{page}"\glsnumberformat}{66}
+\glossaryentry{symbolVdotLuft?\glossentry{symb:Vdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{66}
+\glossaryentry{symbolPropellerfläche?\glossentry{symb:A_Prop}|setentrycounter[]{page}"\glsnumberformat}{66}
+\glossaryentry{symbolvLuft?\glossentry{symb:v_Luft}|setentrycounter[]{page}"\glsnumberformat}{66}
+\glossaryentry{symbolvLuft?\glossentry{symb:v_Luft}|setentrycounter[]{page}"\glsnumberformat}{66}
+\glossaryentry{symbolSchubkraft?\glossentry{symb:F_Schub}|setentrycounter[]{page}"\glsnumberformat}{66}
+\glossaryentry{symbolPropellerfläche?\glossentry{symb:A_Prop}|setentrycounter[]{page}"\glsnumberformat}{66}
+\glossaryentry{symbolLuft?\glossentry{symb:rho_Luft}|setentrycounter[]{page}"\glsnumberformat}{66}
 \glossaryentry{symbolPLuft?\glossentry{symb:P_Luft}|setentrycounter[]{page}"\glsnumberformat}{67}
 \glossaryentry{symbolmdotLuft?\glossentry{symb:mdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{67}
 \glossaryentry{symbolvLuft?\glossentry{symb:v_Luft}|setentrycounter[]{page}"\glsnumberformat}{67}
 \glossaryentry{symboletaLuefter?\glossentry{symb:eta_Luefter}|setentrycounter[]{page}"\glsnumberformat}{67}
 \glossaryentry{symbolPLuft?\glossentry{symb:P_Luft}|setentrycounter[]{page}"\glsnumberformat}{67}
 \glossaryentry{symbolPelektrisch?\glossentry{symb:P_elektrisch}|setentrycounter[]{page}"\glsnumberformat}{67}
-\glossaryentry{symbolPropellerfläche?\glossentry{symb:A_Prop}|setentrycounter[]{page}"\glsnumberformat}{68}
-\glossaryentry{symbolSchubkraft?\glossentry{symb:F_Schub}|setentrycounter[]{page}"\glsnumberformat}{68}
-\glossaryentry{symbolPelektrisch?\glossentry{symb:P_elektrisch}|setentrycounter[]{page}"\glsnumberformat}{68}
-\glossaryentry{symbolLuft?\glossentry{symb:rho_Luft}|setentrycounter[]{page}"\glsnumberformat}{68}
-\glossaryentry{symbolvLuft?\glossentry{symb:v_Luft}|setentrycounter[]{page}"\glsnumberformat}{68}
-\glossaryentry{symbolmdotLuft?\glossentry{symb:mdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{68}
-\glossaryentry{symbolVdotLuft?\glossentry{symb:Vdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{68}
-\glossaryentry{symbolPLuft?\glossentry{symb:P_Luft}|setentrycounter[]{page}"\glsnumberformat}{68}
-\glossaryentry{symboletaLuefter?\glossentry{symb:eta_Luefter}|setentrycounter[]{page}"\glsnumberformat}{68}
-\glossaryentry{symbolvLuft?\glossentry{symb:v_Luft}|setentrycounter[]{page}"\glsnumberformat}{68}
-\glossaryentry{symbolPelektrisch?\glossentry{symb:P_elektrisch}|setentrycounter[]{page}"\glsnumberformat}{68}
-\glossaryentry{symbolvLuft?\glossentry{symb:v_Luft}|setentrycounter[]{page}"\glsnumberformat}{68}
-\glossaryentry{symbolPelektrisch?\glossentry{symb:P_elektrisch}|setentrycounter[]{page}"\glsnumberformat}{68}
+\glossaryentry{symbolPropellerfläche?\glossentry{symb:A_Prop}|setentrycounter[]{page}"\glsnumberformat}{67}
+\glossaryentry{symbolSchubkraft?\glossentry{symb:F_Schub}|setentrycounter[]{page}"\glsnumberformat}{67}
+\glossaryentry{symbolPelektrisch?\glossentry{symb:P_elektrisch}|setentrycounter[]{page}"\glsnumberformat}{67}
+\glossaryentry{symbolLuft?\glossentry{symb:rho_Luft}|setentrycounter[]{page}"\glsnumberformat}{67}
+\glossaryentry{symbolvLuft?\glossentry{symb:v_Luft}|setentrycounter[]{page}"\glsnumberformat}{67}
+\glossaryentry{symbolmdotLuft?\glossentry{symb:mdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{67}
+\glossaryentry{symbolVdotLuft?\glossentry{symb:Vdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{67}
+\glossaryentry{symbolPLuft?\glossentry{symb:P_Luft}|setentrycounter[]{page}"\glsnumberformat}{67}
+\glossaryentry{symboletaLuefter?\glossentry{symb:eta_Luefter}|setentrycounter[]{page}"\glsnumberformat}{67}
+\glossaryentry{symbolvLuft?\glossentry{symb:v_Luft}|setentrycounter[]{page}"\glsnumberformat}{67}
+\glossaryentry{symbolPelektrisch?\glossentry{symb:P_elektrisch}|setentrycounter[]{page}"\glsnumberformat}{67}
+\glossaryentry{symbolvLuft?\glossentry{symb:v_Luft}|setentrycounter[]{page}"\glsnumberformat}{67}
+\glossaryentry{symbolPelektrisch?\glossentry{symb:P_elektrisch}|setentrycounter[]{page}"\glsnumberformat}{67}
 \glossaryentry{symbolvLuft?\glossentry{symb:v_Luft}|setentrycounter[]{page}"\glsnumberformat}{68}
 \glossaryentry{symbolVdotLuft?\glossentry{symb:Vdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{68}
 \glossaryentry{symbolmdotLuft?\glossentry{symb:mdot_Luft}|setentrycounter[]{page}"\glsnumberformat}{68}

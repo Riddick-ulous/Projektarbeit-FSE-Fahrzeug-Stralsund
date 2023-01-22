@@ -275,8 +275,11 @@ Die Dokumentation hierfür finden sie in den folgenden Tabellen \ref{tab:stecker
 
 Verpolschutz, richtige pins auf heiß0er seite, etc. etwas mehr ausführen
 
-\begin{tabular}{|c|c|c|c|c|c|}
+\begin{table}
 	\label{tab:steckertypen}
+	\caption{Steckertypen Tabelle}
+\begin{tabular}{|c|c|c|c|c|c|}
+	
 	\hline
 	\multicolumn{6}{|c|}{Steckertypen} \\
 	\hline
@@ -297,10 +300,15 @@ Verpolschutz, richtige pins auf heiß0er seite, etc. etwas mehr ausführen
 	Würth WRBHD2.54 & W2B & Wire & No & LV & 10 \\
 	\hline
 \end{tabular}
+\end{table}
 
-\begin{minipage}{8cm}
+\begin{table}
+	\centering
+	\label{tab:Kabel&SteckerFarbtabelle}
+	\caption{Kabel \& Stecker Farbtabelle}
+\begin{tabular}{ll}
+	
 \begin{tabularx}{8cm}{|c|c|}
-	\label{tab:KabelFarbtabelle}
 	\hline
 	\multicolumn{2}{|c|}{\textbf{\large {Farbtabelle}}} \\
 	\hline
@@ -376,11 +384,9 @@ Verpolschutz, richtige pins auf heiß0er seite, etc. etwas mehr ausführen
 	\path[fill=blue,opacity=0.3](f.north west)--(f.south west) -- (f.south east) -- cycle;
 	\path[fill=white,opacity=0.3](f.north east)--(f.south east) -- (f.north west) -- cycle;
 \end{tikzpicture}
-\end{minipage}
 
-\begin{minipage}{6cm}
+
 \begin{tabularx}{6cm}{|c|c|}
-	\label{tab:MizuP25Farbtabelle}
 	\hline
 	\multicolumn{2}{|c|}{\textbf{Mizu P25}} \\
 	\hline
@@ -432,18 +438,6 @@ Verpolschutz, richtige pins auf heiß0er seite, etc. etwas mehr ausführen
 	\hline
 	\cellcolor{red!30} 24V & 3 \\
 	\hline
-\end{tabularx}
-
-\begin{tikzpicture}[remember picture,overlay]
- 	\path[fill=blue,opacity=0.3](g.north west)--(g.south west) -- (g.south east) -- cycle;
-	\path[fill=white,opacity=0.3](g.north east)--(g.south east) -- (g.north west) -- cycle;
-\end{tikzpicture}
-
-\end{minipage}
-
-\begin{tabularx}{6cm}{|X|c|}
-	\label{tab:BinderP25Farbtabelle}
-	\hline
 	\multicolumn{2}{|c|}{\textbf{Binder SubM9}} \\
 	\hline
 	\multicolumn{2}{|c|}{\cellcolor{black!30} CAN 4Pin} \\
@@ -457,6 +451,15 @@ Verpolschutz, richtige pins auf heiß0er seite, etc. etwas mehr ausführen
 	\cellcolor{yellow!30} \centering{CANL} & 4 \\
 	\hline
 \end{tabularx}
+
+\begin{tikzpicture}[remember picture,overlay]
+ 	\path[fill=blue,opacity=0.3](g.north west)--(g.south west) -- (g.south east) -- cycle;
+	\path[fill=white,opacity=0.3](g.north east)--(g.south east) -- (g.north west) -- cycle;
+\end{tikzpicture}
+
+\end{tabular}
+
+\end{table}
 
 \subsection{\ac{CAN}-Bus}
 Beim \ac{CAN}-Bus handelt es sich um ein Multi-Master Bus mit zwei normalerweise verdrillten symmetrischen Datenleitungen. Wichtig zu beachten ist das der \ac{CAN}-Bus immer als Linientopologie aufgebaut werden sollte und dabei die Anzahl an Stichleitungen möglichst klein zu halten ist. Weiterhin muss an den enden der Linie ein 120 $\Omega$ Widerstand eingesetzt werden. Für Stichleitungen empfiehlt sich bei Problemen in der Buskommunikation ein 4,7 k$\Omega$ Widerstand zur Terminierung der Datenleitungen einzusetzen.

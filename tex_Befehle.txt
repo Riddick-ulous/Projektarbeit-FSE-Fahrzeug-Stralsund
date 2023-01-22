@@ -22,3 +22,6 @@ Innenwiederstandsberedchung akku
 Inverter = Umrichter
 
 AUX = abkürzung
+
+schriftart kabel farbtabelle
+überschneidung text mit tabelle (Kabelfarbtabelle)

@@ -5,7 +5,7 @@
 An dieser Stelle geht mein Dank an die Alumni aus dem Bereich der Elektrotechnik, die diese ganze Reise mit ihrer fachlichen Referenz und beispiellosen Motivation erst möglich gemacht habe. Hervorzuheben ist auch das schier endlose maß an Geduld in Anbetracht der Steilen Lernkurve innerhalb des Teams. Besonders hervorzuheben sind hierbei Leon Löser, Eric Gorkow und Axel Lange. Danke euch.
 \FloatBarrier
 \section{Akkumulator}
-Im Akkumulator befinden sich neben den Zellen in Ihren Zellstacks und dem \acfirst{AMS} auch diverse andere Systeme die zum Betrieb des Fahrzeuges essentiell sind. Diese Systeme werden im folgenden Kapitel erläutert. Bild \ref{fig:accumulator-layout} gibt eine Übersicht wo sich diese Systeme befinden und wie sie zusammenhängen.
+Im Akkumulator befinden sich neben den Zellen in Ihren Zellstacks und dem \acfirst{AMS} auch diverse andere Systeme die zum Betrieb des Fahrzeuges essentiell sind. Diese Systeme werden im folgenden Kapitel erläutert. Die Abbildung \ref{fig:accumulator-layout} gibt eine Übersicht wo sich diese Systeme befinden und wie sie zusammenhängen.
 
 \begin{figure}
 	\centering
@@ -14,16 +14,7 @@ Im Akkumulator befinden sich neben den Zellen in Ihren Zellstacks und dem \acfir
 	\label{fig:accumulator-layout}
 \end{figure}
 
-\begin{figure}
-	\centering
-	\includegraphics[width=0.7\linewidth]{bilder/2022-05-02-01-01-02-50704-st_hv_accuulator_rectangular_V10_for_EDR}
-	\caption{Iso Ansicht Gesamtbaugruppe Akkumulator}
-	\label{fig:2022-05-02-01-01-02-50704-sthvaccuulatorrectangularv10foredr}
-\end{figure}
-
-
 \FloatBarrier
-
 \subsection{\ac{AMS} Master und Slave}
 In diesem Kapitel werden die Subsysteme des \ac{AMS} näher betrachtet.
 \FloatBarrier
@@ -517,7 +508,7 @@ Zur Auslegung von Schmitt-Triggern.
 	\label{fig:schmitt-trigger-diagramm}
 \end{figure}
 
-Die Funktionsweise eines Schmitt-Trigger kann anhand des Bildes erkannt werden. Er ermöglicht es ein analoges Signal in ein Digitales umzuwandeln. Dabei ist es möglich festzulegen welche Spannungspegel am Ausgang des Schmitt-Trigger anliegen (\glsc{symb:U_HA} und \glsc{symb:U_LA}) bei welchen Spannungspegeln der Trigger high respektive low schalten soll (\glsc{symb:U_H} und \glsc{symb:U_L}). Das vorliegen unterschiedlicher Pegel zum Schalten wird Hysterese genannt. Sinn für das vorliegen ist, das Verhindern des rapiden Umschaltens zwischen high und low Zustand direkt am Schwellwert aufgrund von Signalrauschen.
+Die Funktionsweise eines Schmitt-Trigger kann anhand der Abbildung \ref{fig:schmitt-trigger-diagramm} erkannt werden. Er ermöglicht es ein analoges Signal in ein Digitales umzuwandeln. Dabei ist es möglich festzulegen welche Spannungspegel am Ausgang des Schmitt-Trigger anliegen (\glsc{symb:U_HA} und \glsc{symb:U_LA}) bei welchen Spannungspegeln der Trigger high respektive low schalten soll (\glsc{symb:U_H} und \glsc{symb:U_L}). Das vorliegen unterschiedlicher Pegel zum Schalten wird Hysterese genannt. Sinn für das vorliegen ist, das Verhindern des rapiden Umschaltens zwischen high und low Zustand direkt am Schwellwert aufgrund von Signalrauschen.
 
 \begin{figure}
 	\centering
@@ -533,7 +524,7 @@ Die Funktionsweise eines Schmitt-Trigger kann anhand des Bildes erkannt werden. 
 	\label{fig:nichtinvertierender-trigger}
 \end{figure}
 
-Folgend Beispielhaft die Auslegung eines nicht Invertierenden Schmitt-Triggers wie er im Bild \ref{fig:nichtinvertierender-trigger} zu sehen ist. Die andere Ausführung ist die eines Invertierenden.
+Folgend Beispielhaft die Auslegung eines nicht Invertierenden Schmitt-Triggers wie er in der Abbildung \ref{fig:nichtinvertierender-trigger} zu sehen ist. Die andere Ausführung ist die eines Invertierenden.
 \\
 \\
 Zur Berechnung sollten sich \glsc{symb:U_HA} und \glsc{symb:U_LA} sowie \glsc{symb:U_H} und \glsc{symb:U_L} aus dem Betriebsfall ergeben. R\textsubscript{1} sowie R\textsubscript{3} können frei gewählt werden. R\textsubscript{1} ist hierbei der Verbund aus R\textsubscript{3} und R\textsubscript{4}.

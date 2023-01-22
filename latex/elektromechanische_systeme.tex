@@ -229,15 +229,16 @@ Bei den Schweißverfahren teilt sich nun der Weg in das Laser bzw. \acfirst{WIG}
 \subsubsection{Der Akkumulator Container}
 
 Der Akku besteht aus 12 Einzelstacks. Hierbei befinden sich 6 nebeneinander und davon 2 Reihen hintereinander. In der vorderen Sektion die unter den Fahrersitz ragt befinden sich die \ac{AIR}`s als auch die übrige Akkumulator Elektronik wie das \ac{IMD} der \ac{AMS}-Mster und der \ac{HV}-DCDC.
+
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{bilder/Akku_Layout}
-	\caption{Layout des Akkumulators}
-	\label{fig:akkulayout}
+	\includegraphics[width=0.7\linewidth]{bilder/HV_Akkumulator_Layout}
+	\caption{}
+	\label{fig:hvakkumulatorlayout}
 \end{figure}
-Der Akkumulatorcontainer besteht aus Aluminium. Dabei muss vom Regelwerk her der Boden mindestens 3,2 mm und die wände 2,3 mm Dick sein. Gewählt wurden respektive 4 mm und 2,5 mm. In der ersten Version handelt es sich bei dem Container um mehrere geschweißte Biegeteile. Solch ein Konstrukt zeichnet sich jedoch durch derart starken Schweißverzug aus das bei der Folgeversion eine Kombination aus Nieten kleben, schrauben und schweißen anzuraten ist. Gerade mit dem überarbeiten Stack Konzept lässt sich eine reine Schweißkonstruktion nicht mehr umsetzten. Hierbei währen die Stackwände vernietet und verschraubt, die Bodenwanne eine Biege-Schweißteil, der Deckel ein Biegeteil und etwaige interne Anbindung für z.b die \ac{HV}-Stecker sind geklebt.
 
-!!Bild von aktueller CAD mit beschriftung!!
+
+Der Akkumulatorcontainer besteht aus Aluminium. Dabei muss vom Regelwerk her der Boden mindestens 3,2 mm und die wände 2,3 mm Dick sein. Gewählt wurden respektive 4 mm und 2,5 mm. In der ersten Version handelt es sich bei dem Container um mehrere geschweißte Biegeteile. Solch ein Konstrukt zeichnet sich jedoch durch derart starken Schweißverzug aus das bei der Folgeversion eine Kombination aus Nieten kleben, schrauben und schweißen anzuraten ist. Gerade mit dem überarbeiten Stack Konzept lässt sich eine reine Schweißkonstruktion nicht mehr umsetzten. Hierbei währen die Stackwände vernietet und verschraubt, die Bodenwanne eine Biege-Schweißteil, der Deckel ein Biegeteil und etwaige interne Anbindung für z.b die \ac{HV}-Stecker sind geklebt.
 
 \section{Elektromotor}
 Für die Auswahl des Elektromotors gibt es 5 verschiedene in der Formula Student allgemein anerkannte Lösungen. Diese werden nachfolgend erläutert.\\
@@ -504,12 +505,10 @@ Für den \ac{DC}-Bus wurde das gleiche vorgehen angewandt. Hier bekommen wir den
 \subsection{Hochvolt Kabelbaum}
 
 \begin{figure}[h]
-	\center
 	\includegraphics[page=1,width=1\linewidth]{bilder/Tractive_System_Schematic_V4.pdf}
 	\caption[\ac{TS} Schaltplan Seite 1]{}
 	\label{fig:tractivesystemschematic1}
 	
-	\center
 	\includegraphics[page=2,width=1\linewidth,]{bilder/Tractive_System_Schematic_V4.pdf}
 	\caption[\ac{TS} Schaltplan Seite 2]{}
 	\label{fig:tractivesystemschematic2}
@@ -526,7 +525,53 @@ Ansonsten gilt zu beachten das man gerade diese Mehradrigen Kabel, sprich Kabel 
  
  \FloatBarrier
 \subsection{Sicherungsauslegung}
-Die Sicherung muss stets der schwächste Teil eines Stromkreises sein. In diesem Sinne muss also bei der Auslegung der Stecker darauf geachtet werden das deren Rating höher ist als das der Sicherung oder wir müssen im Umkehrschluss schauen dass, das Rating der Sicherung niedriger ist als das der anderen Komponenten. Für \ac{DC}-Sicherungen mit einer derart hohen Betriebsspannung und einem derart hohen Kurzschlussstrom reichen Flachstecksicherung wie sie im \ac{LV}-Bereich zu finden sind nicht mehr aus. Hier müssen z.b sandgefüllte Sicherungen verwendet werden. Sinn dahinter ist es den Lichtbogen der sich beim durchbrennen der Sicherung bildet zu löschen. Dies ist bei einer typischen \ac{LV}-Sicherung nicht gegeben. Zum Thema Kurschlussrom, dieser errechnet sich aus dem Innenwiederstand des gesamten Akkus und der anliegenden Spannung. Wir Rechnen hier immer im schlimmsten Fall sprich alle Zellen sind was den Innenwiederstand angeht eher im niedrigeren Bereich und der Akku ist voll geladen. Dabei reden wir von 556,75 V Spannung und 0,528 $\Omega$ Innenwiederstand !!!!(Berechnung des Innenwiederstands einfügen 132S 5P 0,02Ohm pro zelle)!!!! Daraus ergibt sich ein Kurzschlussstrom von 1054 A. Der Kurzschlussstrom sollte mit dem rated breaking current verglichen werden. Ist der Kurzschlussstrom niedriger ist die Sicherung geeignet. Dann haben wir bei der Sicherung das Spannungsrating welches eingehalten werden muss. Auf Basis dieser Daten kann eine Sicherung bzw. eine Baureihe herausgesucht werden. In unserem Fall ergaben die Recherchen die AE7 EV Fuse von Adler Elektrik. Die Querschnittberechnung hat ein Kabel von 16 mm\^2 und daher 80 A ergeben. Diese 80 A legen wir auch bei der Sicherung zu Grunde. Dies ergibt die AE72800i25. Daraufhin lässt sich im Datenblatt am Zeit-Strom Schaubild \ref{fig:zeitstromtsfuse} ablesen wie lange die Sicherung bei Unterschiedlichen Strömen braucht um auszulösen. Es ergibt sich eine zeit von ca. 400 s bei einem Strom von 150 A und eine Zeit von ca. 0,5 ms bei Kurzschlussstrom.
+Die Sicherung muss stets der schwächste Teil eines Stromkreises sein. In diesem Sinne muss also bei der Auslegung der Stecker darauf geachtet werden das deren Rating höher ist als das der Sicherung oder wir müssen im Umkehrschluss schauen dass, das Rating der Sicherung niedriger ist als das der anderen Komponenten. Für \ac{DC}-Sicherungen mit einer derart hohen Betriebsspannung und einem derart hohen Kurzschlussstrom reichen Flachstecksicherung wie sie im \ac{LV}-Bereich zu finden sind nicht mehr aus. Hier müssen z.b sandgefüllte Sicherungen verwendet werden. Sinn dahinter ist es den Lichtbogen der sich beim durchbrennen der Sicherung bildet zu löschen. Dies ist bei einer typischen \ac{LV}-Sicherung nicht gegeben. \\
+Zum Thema Kurschlussrom, dieser errechnet sich aus dem Innenwiederstand des gesamten Akkus und der anliegenden Spannung. Wir Rechnen hier immer im schlimmsten Fall sprich alle Zellen sind was den Innenwiederstand angeht eher im niedrigeren Bereich und der Akku ist voll geladen.\\
+\\
+Die Formel für den Innenwiederstand des Akkus ergibt sich aus der Parallel und Reihenschaltung der identischen Innenwiederstände der Akkuzelle.
+
+\begin{equation}
+	\glsc{symb:R_Akku} = \dfrac{\glsc{symb:R_cell}} {\glsc{symb:N_Parallel}} * \glsc{symb:N_Seriell}
+\end{equation}
+
+Die Formel für den Spannung.
+
+\begin{equation}	
+	\glsc{symb:U_Akku} = \glsc{symb:N_Seriell} * \glsc{symb:U_cell}
+\end{equation}
+
+Die Formel für den Kurzschlussstrom.
+
+\begin{equation}
+	\glsc{symb:I_Akku} = \dfrac{\glsc{symb:U_Akku}}{\glsc{symb:R_Akku}}
+\end{equation}
+
+\begin{table}[h]
+	\centering
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\multicolumn{3}{|c|}{Eingangswerte} \\
+		\hline
+		\glsc{symb:R_cell} & 8 & \ensuremath{m\Omega} \\
+		\hline		
+		\glsc{symb:U_cell} & 4,25 & \ensuremath{V} \\
+		\hline
+		\glsc{symb:N_Parallel} & 5 & \ensuremath{-} \\
+		\hline
+		\glsc{symb:N_Seriell} & 132 & \ensuremath{-} \\
+		\hline		
+		\multicolumn{3}{|c|}{Ergebnisse} \\
+		\hline
+		\glsc{symb:R_Akku} & 211,2 & \ensuremath{m\Omega} \\
+		\hline
+		\glsc{symb:U_Akku} & 561 & \ensuremath{V} \\
+		\hline		
+		\glsc{symb:I_Akku} & 2656 & \ensuremath{A} \\
+		\hline
+	\end{tabular}
+\end{table}
+
+Der Kurzschlussstrom sollte mit dem rated breaking current verglichen werden. Ist der Kurzschlussstrom niedriger ist die Sicherung geeignet. Dann haben wir bei der Sicherung das Spannungsrating welches eingehalten werden muss. Auf Basis dieser Daten kann eine Sicherung bzw. eine Baureihe herausgesucht werden. In unserem Fall ergaben die Recherchen die AE7 EV Fuse von Adler Elektrik. Die Querschnittberechnung hat ein Kabel von 16 mm\^2 und daher 80 A ergeben. Diese 80 A legen wir auch bei der Sicherung zu Grunde. Dies ergibt die AE72800i25. Daraufhin lässt sich im Datenblatt am Zeit-Strom Schaubild \ref{fig:zeitstromtsfuse} ablesen wie lange die Sicherung bei Unterschiedlichen Strömen braucht um auszulösen. Es ergibt sich eine zeit von ca. 400 s bei einem Strom von 150 A und eine Zeit von ca. 0,5 ms bei Kurzschlussstrom.
 
 \begin{figure}[h]
 	\centering

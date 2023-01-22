@@ -35,7 +35,7 @@ numbers=noenddot   % Gliederungsnummern ohne abschließenden Punkt darstellen
 %\usepackage[latin1]{inputenc} % Zeichencodierung nach ISO-8859-1
 \usepackage[utf8]{inputenc}   %	Zeichencodierung nach UTF-8 (Unicode)
 \usepackage[T1]{fontenc}
-\usepackage{lmodern}
+\usepackage{lmodern} %Schriftart Latim modern
 \usepackage[T1]{url}
 \usepackage[final]{graphicx}
 \usepackage[automark]{scrlayer-scrpage}
@@ -43,9 +43,7 @@ numbers=noenddot   % Gliederungsnummern ohne abschließenden Punkt darstellen
 %\usepackage[first,light]{draftcopy} % Für Probedruck
 \usepackage{tabularx}
 \usepackage{tikz}
-\newcommand\tikzmark[2][]{
-	\tikz[remember picture,inner sep=\tabcolsep,outer sep=0,baseline=(#1.base),align=left]{\node[minimum width=\hsize](#1){$#2$};}
-}
+
 \usepackage[plainpages=false,pdfpagelabels,hypertexnames=false]{hyperref}
 
 %%% Modifications
@@ -71,9 +69,13 @@ numbers=noenddot   % Gliederungsnummern ohne abschließenden Punkt darstellen
 \usetikzlibrary{arrows, arrows.meta, shapes.geometric}
 \usepgfplotslibrary{patchplots}
 \usepackage{grffile}
-
 \usepackage{subfig}
 
+\tikzset{
+	font={\upshape\selectfont}}
+\newcommand\tikzmark[2][]{
+	\tikz[remember picture,baseline=(#1.base),align=left]{\node[minimum width=\hsize](#1){$#2$};}
+}
 
 % Tiefe der Kapitelnummerierung beeinflussen
 \setcounter{secnumdepth}{3} % Tiefe der Nummerierung

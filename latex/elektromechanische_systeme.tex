@@ -41,42 +41,33 @@ Im folgenden errechnen wir die Energie welche bei einem durchschnittlich Bremsvo
 	\end{tabular}
 \end{table}
 
-Physikalische Speicher (Kondensatoren)
-\\
+\textbf{Physikalische Speicher (Kondensatoren)}\\
 Kondensatoren erreichen ein sehr hohes Leistungsgewicht, zeichnen sich jedoch durch eine geringe Energiedichte aus, sowohl gravimetrisch als auch volumetrisch. Daher eignet sich diese Form der Energiespeicherung nur um kurzfristige transienten zu glätten aber nicht als Hauptenergiespeicher\\
-Der Kondensator mit der höchsten energiedicht welcher bei \ac{WE} verfügbar ist erreicht 3600 J/Kg. Somit würde man ca. 26 Kg dieser Kondensatoren brauchen um damit rekuperieren zu können. Bei einem angepeilten Gewicht von ca. 50 Kg für den gesamten Energiespeicher stellt dies nach aktuellem Stand keine sinnvoll einsetzbare Technologie dar.
+Der Kondensator mit der höchsten energiedicht welcher bei \ac{WE} verfügbar ist erreicht 3600 J/Kg. Somit würde man ca. 26 Kg dieser Kondensatoren brauchen um damit rekuperieren zu können. Bei einem angepeilten Gewicht von ca. 50 Kg für den gesamten Energiespeicher stellt dies nach aktuellem Stand keine sinnvoll einsetzbare Technologie dar.\\
 \\
+\textbf{Thermische Speicher (Salzakkumulator)}\\
+Diese sind im Rahmen der Formula Student verboten Stand 2022, daher wird hier nicht weiter auf diese Form des Energiespeichers eingegangen\\
 \\
-Thermische Speicher (Salzakkumulator)
+\textbf{Mechanische Speicher (Schwungrad)}\\
+Sie zeichnen sich durch gute Energie- als auch Leistung/-dichte aus und bilden damit wahrscheinlich am ehesten eine realistische Form des kurzfristigen Energiespeichers für ein Formula Student Fahrzeug. Jedoch sind solche Systeme sehr komplex, sowohl mechanisch, elektrisch als auch regelungstechnisch im Vergleich zu den anderen Systemen. Die Lagerung und sichere Unterbringung des Schwungrades in einem Formel Fahrzeug birgt große technische Herausforderungen.\\
 \\
-Diese sind im Rahmen der Formula Student verboten Stand 2022, daher wird hier nicht weiter auf diese Form des Energiespeichers eingegangen
-\\
-\\
-Mechanische Speicher (Schwungrad)
-\\
-Sie zeichnen sich durch gute Energie- als auch Leistung/-dichte aus und bilden damit wahrscheinlich am ehesten eine realistische Form des kurzfristigen Energiespeichers für ein Formula Student Fahrzeug. Jedoch sind solche Systeme sehr komplex, sowohl mechanisch, elektrisch als auch regelungstechnisch im Vergleich zu den anderen Systemen. Die Lagerung und sichere Unterbringung des Schwungrades in einem Formel Fahrzeug birgt große technische Herausforderungen.
-\\
-\\
-Chemische Speicher (Akkuzelle)
-\\
+\textbf{Chemische Speicher (Akkuzelle)}\\
 Der typische im Rahmen der Formula Student von allen Teams eingesetzte Energiespeicher. In der verfügbaren Bandbreite findet man so ziemlich das Optimum an Leistungs- als auch Energie/-dichte.
 \FloatBarrier
 \subsubsection{Runde vs Pouch vs Prismatische Zellen}
 
-Die Puchzelle\\
+\textbf{Die Puchzelle}\\
 ermöglicht in der Regelung höhere Packungsdichten und liefert damit eine höhere volumetrische Leistungs- als auch Energie/-dichte. Meist werden verhältnismäßig wenige Akkuzellen benötigt z.b 150 Stück, was die mechanische Komplexität verringert. Jedoch muss bei der Konstruktion hier berücksichtigt werden das die Zellen unter Belastung aufblähen und damit im verbauten zustand Raum benötigen um sich ausdehnen können. Weiter sind diese Zellen aufgrund der Hülle welche aus einer dünnen Folie besteht anfällig gegenüber Beschädigungen.\\
 \\
-Die Rundzelle\\
+\textbf{Die Rundzelle}\\
 hat den Vorteil der Standardisierung und damit der guten Verfügbarkeit als auch Austauschbarkeit für künftige Designänderungen. Erfahrungsgemäß sind die Fertigungstoleranzen hier verhältnismäßig eng gesteckt so das ein Matching der Zellen entfallen kann. Es bedarf jedoch meist sehr vieler Zellen um den Akku aufzubauen z.b. ca. 600 Stück was die mechanische Komplexität nach oben treibt.\\
 \\
-Die Prismatische Zelle
-\\
+\textbf{Die Prismatische Zelle}\\
 Hierbei handelt es sich \ac{idR} um vorgefertigte Pakete aus Pouch- oder Rund/-Zellen welche Anschraubpunkte, Terminals für die Busbar und Steckverbinder für das \ac{AMS} als auch die Temperaturmessung mitbringen. Meist kann hier eine passende Steuerung gleich mit erworben werden. Dieses System vereinfacht den Entwicklungsaufwand drastisch, ist jedoch sehr teuer. Erfahrungsgemäß wird hier der 2 bis 3 fache Betrag im Vergleich zu den anderen Lösungen fällig. Weiter ist das System deutlich schwerer aufgrund des Vorhaltens von universalen Schnittstellen und damit schlechterer Systemintegrierung.\\
 \\
-
 Im rahmen des TY22 haben wir uns für den Einsatz von Rundzellen entschieden da diese nach unserem Kenntnisstand gravimetrisch die höchste Energiedichte liefern, wir uns langfristig auf ein Konzept festlegen wollten und so bei Einsatz einer neuen Akkuzelle nur geringfügige Änderungen an dem Akku machen müssen, sofern das 18650 Format weiterhin populär bleibt. Außerdem war dies im Rahmen der Lieferschwierigkeiten im Bereich der Akkuzellen im Jahr 2021 die beste Option um tatsächlich auch an Akkuzellen für den Bau des Fahrzeuges zu kommen.
-\FloatBarrier
 
+\FloatBarrier
 \subsubsection{Die Zellauswahl}
 Um zu sehen ob eine Zelle für den geplanten Einsatz geeignet ist, muss zuerst ermittelt werden wie ein Vollständig konfigurierter Akku hiermit aussehen würde um die Eckdaten zu ermitteln. Dies wurde mit der Hilfe einer Excel Tabelle siehe Abbildung \ref{fig:Ausschnitt_zellvergleich} umgesetzt. 
 \begin{figure}[h]
@@ -249,24 +240,24 @@ Der Akkumulatorcontainer besteht aus Aluminium. Dabei muss vom Regelwerk her der
 !!Bild von aktueller CAD mit beschriftung!!
 
 \section{Elektromotor}
-Für die Auswahl des Elektromotors gibt es 5 verschiedene in der Formula Student allgemein anerkannte Lösungen. Diese werden nachfolgend erläutert.
-
-\subsection{Emrax}
-Beim Emrax Motor handelt es sich um eine Axial Flux \acfirst{PMSM}. Zusammenfassend sind die Emrax Motoren sehr flach, haben aber einen großen Durchmesser. Sie zeichnen sich durch ein hohes Drehmoment und damit verhältnismäßig niedrige Drehzahlen aus, im Bereich von 7-8K \acfirst{RPM}. Sie sind nur in recht großen Formaten und damit großen Leistungen erhältlich so das ein 1 oder 2 Motoren Antriebskonzept realisierbar ist. Außerdem handelt es sich hierbei um eine reine Kauflösung. 
-
-\subsection{AMK}
-Die AMK Motoren sind Radial Flux \ac{PMSM}. Sie sind insofern eher lang und haben kleine Durchmesser. Die Bauform gleicht insofern eher dem klassischen Elektromotor. Sie zeichnen sich durch extrem hohe Drehzahlen aus, oberhalb der 20k und damit durch eine enorme Leistungsdichte. Sie sind in eher kleinen Leistungsbereichen zu bekommen so das beinahe nur ein Allradantrieb sinnvoll umsetzbar ist. Auch hierbei handelt es sich um eine reine Kauflösung. 
-
-\subsection{Fischer}
-Die Motoren von Fischer sind im großen und ganzen gleichzusetzen mit den AMK Motoren. Der große Unterschied ist das hier das Gehäuse selbst designt werden muss und alle Teile selber gefertigt werden müssen. Dies stellt große Herausforderungen die Fertigungstechnik da es sich dabei auch um 5-Achs gefräste Titanteile handelt.
-
-\subsection{Asia \& Co}
-Eine weitere Optionen wäre es günstige Motoren eines Asiatischen Hersteller zu beschaffen, als Beispiel wäre hier die Firma Freerchhobby zu nennen, es gibt aber viele mehr. Diese Motoren zeichnen sich durch ein herausragend niedrigen Preis aus sowohl für den Motor als auch den zugehörigen Motorcontroller. Problematisch hierbei ist, das diese Motoren in der Regel nur bis Spannungsbereiche von 120 V verfügbar sind. Der dabei bei 80 kW resultierende Strom ist enorm. Heißt das entweder die Leistung zu reduzieren wäre oder die elektrische des Auslegung des \ac{TS} besondere Ansprüche gestellt hätte. Weiter stellt sich hier die Frage der Zuverlässigkeit. 2014 bis 2016 ist man im Racing Team einen Einzylindermotor der Firma Borossi gefahren, welcher sich durch nicht vorhandene Haltbarkeit auszeichnete und so 3 Saisons in folge torpedierte. Daher sind die anderen optionen sofern erschwinglich vorzuziehen. Sollte das Budget aber besonders eng sein, können diese Motoren durchaus eine valide Alternative darstellen.
-
-\subsection{Selbstbau}
-Der Selbstbau ist die nächste Entwicklungsstufe nach dem Fischer Motor. Nun gilt es nicht nur den Motor selber zu Fertigen sondern auch die gesamte Vorauslegung zu machen. Es gibt nur wenige Teams die einen Selbstbau wagen, und noch weniger setzen es erfolgreich um.
-
-\subsection{Entscheidungsfindung}
+Für die Auswahl des Elektromotors gibt es 5 verschiedene in der Formula Student allgemein anerkannte Lösungen. Diese werden nachfolgend erläutert.\\
+\\
+\textbf{Emrax}\\
+Beim Emrax Motor handelt es sich um eine Axial Flux \acfirst{PMSM}. Zusammenfassend sind die Emrax Motoren sehr flach, haben aber einen großen Durchmesser. Sie zeichnen sich durch ein hohes Drehmoment und damit verhältnismäßig niedrige Drehzahlen aus, im Bereich von 7-8K \acfirst{RPM}. Sie sind nur in recht großen Formaten und damit großen Leistungen erhältlich so das ein 1 oder 2 Motoren Antriebskonzept realisierbar ist. Außerdem handelt es sich hierbei um eine reine Kauflösung. \\
+\\
+\textbf{AMK}\\
+Die AMK Motoren sind Radial Flux \ac{PMSM}. Sie sind insofern eher lang und haben kleine Durchmesser. Die Bauform gleicht insofern eher dem klassischen Elektromotor. Sie zeichnen sich durch extrem hohe Drehzahlen aus, oberhalb der 20k und damit durch eine enorme Leistungsdichte. Sie sind in eher kleinen Leistungsbereichen zu bekommen so das beinahe nur ein Allradantrieb sinnvoll umsetzbar ist. Auch hierbei handelt es sich um eine reine Kauflösung. \\
+\\
+\textbf{Fischer}\\
+Die Motoren von Fischer sind im großen und ganzen gleichzusetzen mit den AMK Motoren. Der große Unterschied ist das hier das Gehäuse selbst designt werden muss und alle Teile selber gefertigt werden müssen. Dies stellt große Herausforderungen die Fertigungstechnik da es sich dabei auch um 5-Achs gefräste Titanteile handelt.\\
+\\
+\textbf{Asia \& Co}\\
+Eine weitere Optionen wäre es günstige Motoren eines Asiatischen Hersteller zu beschaffen, als Beispiel wäre hier die Firma Freerchhobby zu nennen, es gibt aber viele mehr. Diese Motoren zeichnen sich durch ein herausragend niedrigen Preis aus sowohl für den Motor als auch den zugehörigen Motorcontroller. Problematisch hierbei ist, das diese Motoren in der Regel nur bis Spannungsbereiche von 120 V verfügbar sind. Der dabei bei 80 kW resultierende Strom ist enorm. Heißt das entweder die Leistung zu reduzieren wäre oder die elektrische des Auslegung des \ac{TS} besondere Ansprüche gestellt hätte. Weiter stellt sich hier die Frage der Zuverlässigkeit. 2014 bis 2016 ist man im Racing Team einen Einzylindermotor der Firma Borossi gefahren, welcher sich durch nicht vorhandene Haltbarkeit auszeichnete und so 3 Saisons in folge torpedierte. Daher sind die anderen optionen sofern erschwinglich vorzuziehen. Sollte das Budget aber besonders eng sein, können diese Motoren durchaus eine valide Alternative darstellen.\\
+\\
+\textbf{Selbstbau}\\
+Der Selbstbau ist die nächste Entwicklungsstufe nach dem Fischer Motor. Nun gilt es nicht nur den Motor selber zu Fertigen sondern auch die gesamte Vorauslegung zu machen. Es gibt nur wenige Teams die einen Selbstbau wagen, und noch weniger setzen es erfolgreich um.\\
+\\
+\textbf{Entscheidungsfindung}\\
 Im Rahmen dieser Projektarbeit soll das Konzept für den ersten E-antrieb unseres Formula Student Teams entstehen. Damit kommen bereits viele Herausforderungen, so das wenn möglich der Aufwand und die Komplexität zu verringern ist. Damit wurde sich für den Emrax Motor entschieden, da ein Selbstbau als auch nein Allradantrieb nicht zur Option standen
 
 \section{Wechselrichter}
@@ -277,11 +268,9 @@ Der Wechselrichter wird benötigt um den Motor sauber anzusteuern. Ziel ist es a
 \section{Kabelbaum} (zusammen mit Nico Bieberich)
 Der Kabelbaum lässt sich bei einem Elektrofahrzeug in mehrere Funktionsgruppen unterteilen. Einmal haben wir den Datenbus zur Kommunikation der Steuergeräte im Fahrzeug. In unserem Fall ist das ein \acfirst{CAN}-Bus. Dann den sogenannten \ac{SDC} zur Absicherung der Systeme bzw. einleiten eines sicheren Zustandes in dem Fall das ein Fehler auftritt. Weiter gibt es die Gruppe der \ac{HV}-Kabel dies umfasst Leistungsführende Leiter für Akku, Umrichter und Motor als auch \ac{HV}-Signalleiter für z.b. die \ac{TSMP}. Dann haben wir noch die \ac{LV}-Versorgung für alle Systeme im Fahrzeug. Dann gibt es den Sensorbaum, dieser umfasst die Versorgungs- als auch Daten/-Leitungen für jegliche Sensorik im Fahrzeug. Abschließend gibt es noch alles andere was sich nicht hierunter kategorisieren lässt. Dies umfasst z.b einzelne analoge oder digitale Datenleitungen wie z.b die Ethernet Leitung für den \ac{FSG} Logger oder die Abzweigleitung des Bremsdruckes für das \ac{BSPD}. Auf die einzelnen Gruppen wird im folgenden detailliert eingegangen.\\
 \\
-Wichtige generelle Überlegungen beim Kabelbaum sind jegliche Maßnahmen die den Kabelstrang \acfirst{DAU} sicher machen. Sprich verpolsichere Steckverbinder, Belegung der Stecker so, dass ohne Verpolschutz kein Kapitalschaden eintritt, Logische Farbcodierung sowohl der Kabel, als wenn möglich auch der Steckverbinder, sodass beim Zusammenbau keine Fehler gemacht werden und dies einheitliche über Jahre durchgängige geführt und damit auch Dokumentiert.\\
+Wichtige generelle Überlegungen beim Kabelbaum sind jegliche Maßnahmen die den Kabelstrang \acfirst{DAU} sicher machen. Sprich verpolsichere Steckverbinder. Belegung der Stecker so, dass ohne Verpolschutz kein Kapitalschaden eintritt. Auswahl des richtigen Steckers für die "heiße" Seite, heißt der Steckverbinder der uneingesteckt unter Spannung steht sollte ein Berührungsschutz aufweisen. Logische Farbcodierung sowohl der Kabel, als wenn möglich auch der Steckverbinder, sodass beim Zusammenbau keine Fehler gemacht werden und dies einheitliche über Jahre durchgängige geführt und damit auch Dokumentiert.\\
 \\
 Die Dokumentation hierfür finden sie in den folgenden Tabellen \ref{tab:steckertypen}, \ref{tab:KabelFarbtabelle}, \ref{tab:MizuP25Farbtabelle}, \ref{tab:BinderP25Farbtabelle}
-
-Verpolschutz, richtige pins auf heiß0er seite, etc. etwas mehr ausführen
 
 \begin{table}
 	\label{tab:steckertypen}
@@ -480,7 +469,7 @@ Die \ac{LVS} Versorgung läuft in einer Sterntopologie von der Fusebox aus. Hier
 
 Der Sensorkabelbaum besteht aus beinahe ausschließlich 4 Ader Kabeln welche 24 V, 5 V, GND und ein Signal führen. Diese Kabel laufen sternförmig von jedem der Sensorhubs zu den entsprechenden Sensoren.
 
-\subsection{Shutdown Circuit}
+\subsection{\ac{SDC}}
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=1\linewidth]{bilder/Shutdowncircuit}
@@ -526,7 +515,7 @@ Für den \ac{DC}-Bus wurde das gleiche vorgehen angewandt. Hier bekommen wir den
 	\label{fig:tractivesystemschematic2}
 	\end{figure}
 
-Der HV Kabelbaum besteht aus 3 Kabelsträngen, einer befindet sich innerhalb des Akkus, einer innerhalb der \ac{HV}-Distribution und einer verbindet diese beiden Geräte sowie die Motoren und die Inverter miteinander.\\
+Der HV Kabelbaum besteht aus 3 Kabelsträngen, einer befindet sich innerhalb des Akkus, einer innerhalb der \ac{HV}-Distribution und einer verbindet diese beiden Geräte sowie die Motoren und die Umrichter miteinander.\\
 \\
 Wichtig zu beachten ist das alle \ac{HV}-Kabel Orange und entsprechend isoliert sein müssen. Außerdem dürfen \ac{HV}- und \ac{LV}/-Kabel nicht zusammen verlegt werden bzw. sollte es der Fall sein müssen die \ac{LV}-Kabel auch nach \ac{HV} Spezifikation isoliert sein.\\
 Es gilt besondere Achtsamkeit bei den Leiterquerschnitten sowie den Mindestbiegeradien an den Tag zu legen. Bei den Steckern ist besonders das Spannungsrating Problematisch, da hier gerne nur das \acfirst{AC}- oder \ac{DC}/-Rating gegeben wird und hier dann entsprechend umzurechnen ist. Hierbei wird das \ac{AC}-Rating mal 1,41 gerechnet um das korrespondierende \ac{DC}-Rating zu erhalten. \\
@@ -567,9 +556,7 @@ Die \ac{AIR}`s haben es zum ziel das \ac{HV}-Netz des Akku galvanisch vom restli
 Bei der Auswahl des Relais ist auf das Spannungsrating als auch das Stromrating zu achten, aber auch auf die Schaltspannung, sprich die Spannung des Steuerkreises. Weiter ist der Schaltstrom ein interessantes Kriterium, da es sich bei solch einer Relaisspule um eine Induktive Last handelt liegt ein recht hoher Einschaltstrom vor, welcher vom speisenden Netz getragen werden können muss, in unserem vom \ac{SDC}. Für den TY22 wurde das DCNEV150-M von Littlefuse gewählt.
 
 \FloatBarrier
-\section{Ladesystem / Handcart} (zusammen mit Flo Irle)
-Charger Schematic erklären
-ladegerätauswahl (Ladeleistung)
+\section{Ladesystem / Handcart}
 
 Das Handcart dient einerseits zum Transport des Akku außerhalb des Fahrzeuges als auch zum laden des Akku. Die Auswahl des Ladegerätes beschränkte sich an der Stelle auf ein Gerät welches wir von der Firma Schulz Elektronik kostenlos bekommen konnten. Hierbei ist dennoch zu beachten das dieses gerät die Ladeschlussspannung erreichen kann sprich 600+ Volt abbilden können sollte, als auch über ein programmierbares Steuerinterface verfügen sollte, so das eine automatisierte Laderegelung ermöglicht wird. Weiter ist die Leistung des Gerätes interessant, mehr ist hierbei erst einmal besser, wobei 15 KW mehr als ausreichen sollten da hiermit ein 7,5 KWh Akku in ca. 30 min geladen werden kann.\\
 Beim dem Design des Handcartes ist sowohl in elektrischer- als auch mechanischer/-Hinsicht auf Regelkonformität zu achten. Einerseits gibt es Reglementierung für die maximalen mechanischen Abmaße als auch der Einsatz einer Totmannbremse. andererseits muss das Handcart wie das Fahrzeug über \ac{TSMP}, \ac{IMD}-Licht uvm. verfügen. Besondere Anforderung ist hierbei das beim laden der Status des Akku ausgegeben werden können muss. Heißt die Spannung als auch die Temperatur der Zellen muss Anzeigbar sein. Dies ist beim TY22 über eine \acfirst{USB}-Verbindung von einem Raspberry Pi zum \ac{AMS} geplant. Der Raspberry Pi ist dabei mit einem Touchdisplay ausgestattet und ermöglicht so die Ausgabe der \ac{AMS}-Daten als auch die Steuerung des Ladevorganges. Zu guter Letzt ist zu beachten dass, das Ladegerät mit in den \ac{SDC} eingebunden werden muss. Dies erfolgt beim Handcart für den TY22 über einen abgriff des \ac{SDC}\textsubscript{END} Signales und eine hierüber erfolgende Ansteuerung eines Relais welche die Interlockleitung des Ladegerätes öffnet oder trennt. Ein trennen dieser Leitung führt laut Datenblatt zu einem unmittelbaren herunterfahren des Ladegerätes.

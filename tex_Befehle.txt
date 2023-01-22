@@ -20,3 +20,5 @@ handbuch emrax 208 in anhang (Kabelquerschnitt nach VDE)
 Innenwiederstandsberedchung akku
 
 Inverter = Umrichter
+
+AUX = abkürzung

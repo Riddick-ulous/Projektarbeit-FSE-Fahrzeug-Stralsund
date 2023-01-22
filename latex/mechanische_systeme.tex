@@ -47,7 +47,7 @@ Hierbei ist \glsc{symb:A_r} vom Vorjahresfahrzeug bekannt, \glsc{symb:Qdot_r} er
 
 \glsc{symb:Qdot_m} wird mit Hilfe der \ac{LTS} ermittelt. Hier werden sämtlich Verluste die in das Kühlsystem eingetragen werden im Rahmen der Rundenzeitberechnung über den Endurance Fahrtzyklus gemittelt mit gerechnet.\\
 \\
-\glsc{symb:deltaT_ein m} wird mit 30 K angenommen. Die max. Temperatur des Kühlwassers sollte 60°C nicht überschreiten währen im Hochsommer mit Umgebungstemperaturen von 30°C zu rechnen ist.\\
+\glsc{symb:deltaT_ein m} wird mit \ensuremath{30 K} angenommen. Die max. Temperatur des Kühlwassers sollte \ensuremath{60°C} nicht überschreiten währen im Hochsommer mit Umgebungstemperaturen von \ensuremath{30°C} zu rechnen ist.\\
 \\
 Mit der Formel \ref{eqn:KühlerÄhnlichkeitsformel} umgestellt nach \glsc{symb:A_m} kann nun die Kühlerfläche für das Elektrofahrzeug bestimmt werden.
 
@@ -90,11 +90,11 @@ Dies führt zu folgenden Ergebnissen.
 	\end{tabular}
 \end{table}
 
-Dies ergibt mit unserem Modell eine Reduktion auf 26,46 \% der vorherigen Kühlerfläche. Die Baugröße die am ende für den Kühler gewählt wurde entspricht ca. 50 \% der Kühlerfläche also das doppelte vom Rechenergebnis. Eine derart hohe Sicherheit ist darauf zurückzuführen das die Berechnung von Wärmeübertragern generell keine sehr exakte Wissenschaft ist und der Bauraum eine derartige Überdimensionierung an der Stelle zugelassen hat.\\
+Dies ergibt mit unserem Modell eine Reduktion auf \ensuremath{26,46 \%} der vorherigen Kühlerfläche. Die Baugröße die am ende für den Kühler gewählt wurde entspricht ca. \ensuremath{50 \%} der Kühlerfläche also das doppelte vom Rechenergebnis. Eine derart hohe Sicherheit ist darauf zurückzuführen das die Berechnung von Wärmeübertragern generell keine sehr exakte Wissenschaft ist und der Bauraum eine derartige Überdimensionierung an der Stelle zugelassen hat.\\
 
 \FloatBarrier
 \subsection{Lüfter}
-Für die Auslegung des Lüfters wurde von der Aerodynamik Abteilung vorgegeben das man die Abluft des Systems nutzen möchte um das Strömungsprofil am Diffusor zu beeinflussen. Hierfür mussten Strömungsgeschwindigkeiten im Bereich der 80-90 km/h am Auslass erreicht werden. Für den Lüfter wurde auch in den letzten Jahren am Verbrenner ein Drohnennmotor mit Propeller und externer Ansteuerung verwendet, da dies deutlich leichter ist als eine fertige Einheit. In diesem Zuge sollten Volumenstrom und Ausgangsgeschwindigkeiten für verschiedene Konzepte berechnet werden können. Aufgrund der Größe des Kühlers kamen nur 4 Zoll oder kleiner Propeller in Frage. Weiterhin ist die Fragestellung aufgekommen ob ein Propeller ausgelegt für Freiströmung sinnvoll vor einem Lamellen-Kreuzstrom-Wärmeübertrager einzusetzen ist. Hierfür wurde zum Vergleich ein Lüfter von der Firma EBM-Papst beschafft um die Leistungsdaten schlussendlich vergleichen zu können.\\
+Für die Auslegung des Lüfters wurde von der Aerodynamik Abteilung vorgegeben das man die Abluft des Systems nutzen möchte um das Strömungsprofil am Diffusor zu beeinflussen. Hierfür mussten Strömungsgeschwindigkeiten im Bereich der \ensuremath{80-90 km/h} am Auslass erreicht werden. Für den Lüfter wurde auch in den letzten Jahren am Verbrenner ein Drohnennmotor mit Propeller und externer Ansteuerung verwendet, da dies deutlich leichter ist als eine fertige Einheit. In diesem Zuge sollten Volumenstrom und Ausgangsgeschwindigkeiten für verschiedene Konzepte berechnet werden können. Aufgrund der Größe des Kühlers kamen nur \ensuremath{4 Zoll} oder kleiner Propeller in Frage. Weiterhin ist die Fragestellung aufgekommen ob ein Propeller ausgelegt für Freiströmung sinnvoll vor einem Lamellen-Kreuzstrom-Wärmeübertrager einzusetzen ist. Hierfür wurde zum Vergleich ein Lüfter von der Firma EBM-Papst beschafft um die Leistungsdaten schlussendlich vergleichen zu können.\\
 \\
 Für Drohnenmotoren sind in der Regel Daten für Schubkraft und Leistung verfügbar. Dies Lässt sich mit Hilfe des 2. Newtonschen Gesetztes, dem Impulssatz, umrechnen. Wir nehmen dabei an das unser Fahrzeug still steht. Dies führt zu folgender Gleichung.
 
@@ -216,14 +216,14 @@ Mit Hilfe der Vorherigen Rechnung können wir nun den gleichen Rechenweg Rückw�
 	\end{tabular}
 \end{table}
 
-Laut EBM Papst liegen die zu erwartende Effizienzen bei einem Axialgebläse im Bereich von 25\% - 65\%. Daran ist zu erkennen das unser aktueller Lüfter von EBM noch nicht die effizienteste Lösungen darstellt und unser Drohnenmotor eine sehr ineffiziente Lösung ist. Dennoch ein Aufbau mit Lüftern von EBM wiegt ca. 560 g während der Aufbau mit Drohnennmotoren bei ca. 55 g liegt. Allein diese Gewichtsersparnis ist den Einsatz dieses Gebläses wert. Empfehlenswert wäre an der Stelle die Optimierung des Rotorblattes auf den vorliegenden Anwendungsfall.
+Laut EBM Papst liegen die zu erwartende Effizienzen bei einem Axialgebläse im Bereich von \ensuremath{25\% - 65\%}. Daran ist zu erkennen das unser aktueller Lüfter von EBM noch nicht die effizienteste Lösungen darstellt und unser Drohnenmotor eine sehr ineffiziente Lösung ist. Dennoch ein Aufbau mit Lüftern von EBM wiegt ca. \ensuremath{560 g} während der Aufbau mit Drohnennmotoren bei ca. \ensuremath{55 g} liegt. Allein diese Gewichtsersparnis ist den Einsatz dieses Gebläses wert. Empfehlenswert wäre an der Stelle die Optimierung des Rotorblattes auf den vorliegenden Anwendungsfall.
 
 \FloatBarrier
 \subsection{Wasserpumpe und Schläuche}
 
 Für die Auslegung des Wasserkreislaufes sind die Druckabfälle der Einzelsysteme relevant, zur Referenz die Systemübersicht \ref{abb:Coolingssystem}\\
 \\
-Des weiteren sind für die Betrachtung weitere Parameter relevant. Laut Motorhersteller liegt der optimale Wasservolumenstrom bei 6-8 \ensuremath{l/min}. Aus der Vorhergehenden Betrachtung geht hervor das die umzusetzende Wärmeleistung bei 5364 W liegt. Der angepeilte Luftvolumenstrom durch einen Kühler beläuft sich auf 756 \ensuremath{m^3/h}.\\
+Des weiteren sind für die Betrachtung weitere Parameter relevant. Laut Motorhersteller liegt der optimale Wasservolumenstrom bei  \ensuremath{6-8l/min}. Aus der Vorhergehenden Betrachtung geht hervor das die umzusetzende Wärmeleistung bei \ensuremath{5364 W} liegt. Der angepeilte Luftvolumenstrom durch einen Kühler beläuft sich auf \ensuremath{756 m^3/h}.\\
 \\
 Mit den folgenden beiden Diagrammen \ref{fig:elwleistung-uber-volumenstrom} und \ref{fig:elw-druckabfall-uber-volumenstrom} der Schwämmle GmbH\&Co. KG aus dem Leistungsdatenblatt für die ELW Serie lässt sich der Druckabfall über den Radiator bestimmen.
 
@@ -234,7 +234,7 @@ Mit den folgenden beiden Diagrammen \ref{fig:elwleistung-uber-volumenstrom} und 
 	\label{fig:elwleistung-uber-volumenstrom}
 \end{figure}
 
-Unser angestrebter Radiator entspricht mit seiner Netzfläche am ehesten dem ELW3. Dies würde bei den bisher bekannten Betriebsdaten zu eine Kühlleistung von 90 W/K oder auch 2700 W führen. Oder bei zwei Einheiten zu 5400 W. Dies ist sehr nah an der angestrebten Wärmeleistung.
+Unser angestrebter Radiator entspricht mit seiner Netzfläche am ehesten dem ELW3. Dies würde bei den bisher bekannten Betriebsdaten zu eine Kühlleistung von \ensuremath{90 W/K} oder auch \ensuremath{2700 W} führen. Oder bei zwei Einheiten zu \ensuremath{5400 W}. Dies ist sehr nah an der angestrebten Wärmeleistung.
 
 \begin{figure}[h]
 	\centering
@@ -260,7 +260,7 @@ Für den Motor existieren leider nur Daten an einem einzigen Punkt. An den ander
 	Y = A x^2 + B x + C
 \end{equation}
 
-Die Linie soll durch den Nullpunkt verlaufen damit wird C = 0 und wir nehmen an das es keinen linearen Anteil gibt, damit wird B = 0. Unsere Gleichung vereinfacht sich zu.
+Die Linie soll durch den Nullpunkt verlaufen damit wird \ensuremath{C = 0} und wir nehmen an das es keinen linearen Anteil gibt, damit wird \ensuremath{B = 0}. Unsere Gleichung vereinfacht sich zu.
 
 \begin{equation}
 	Y = A x^2

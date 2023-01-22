@@ -38,7 +38,7 @@ Kernelement ist die Verbindung der positiven Seite des Zwischenkreises mit der p
 	\label{fig:precharge-blockschaltbild-detail}
 \end{figure}
 
-Der Precharge schaltet durch sobald SC\textsubscript{end} high wird. Dies führt zum Durchschalten des Relais. Nun fließt ein Strom über M1 zum Relais, bei der Verschaltung von M1 und R54 handelt es sich um eine Konstantstromquelle welche 0,05A liefert. Wie diese Art von Schaltung im Detail funktioniert ist unter \ref{sec: TSAL Logik Discharge} näher erläutert. Parallel fließt ein Strom über U3 zu C58 und lädt diesen. Nach kurzer Zeit führt dies dazu das Q10 durchschaltet, nun wird der Strom durch den Widerstand der PTC Elemente begrenzt so das der Strom auf ca. 0.6 A ansteigen kann. Die Überwachung erfolgt indem mithilfe eines DC Wandlers die Akkuspannung um 24V angehoben wird und diese über einen Optokoppler auf das Precharge Relais gelegt wird. Sobald das Relais geschlossen ist fließt somit ein Strom über U22 sodass bei PCHRG\textsubscript{ACT} eine Spannung anliegt.
+Der Precharge schaltet durch sobald SC\textsubscript{end} high wird. Dies führt zum Durchschalten des Relais. Nun fließt ein Strom über M1 zum Relais, bei der Verschaltung von M1 und R54 handelt es sich um eine Konstantstromquelle welche \ensuremath{0,05A} liefert. Wie diese Art von Schaltung im Detail funktioniert ist unter \ref{sec: TSAL Logik Discharge} näher erläutert. Parallel fließt ein Strom über U3 zu C58 und lädt diesen. Nach kurzer Zeit führt dies dazu das Q10 durchschaltet, nun wird der Strom durch den Widerstand der PTC Elemente begrenzt so das der Strom auf ca. \ensuremath{0,6 A} ansteigen kann. Die Überwachung erfolgt indem mithilfe eines DC Wandlers die Akkuspannung um \ensuremath{24 V} angehoben wird und diese über einen Optokoppler auf das Precharge Relais gelegt wird. Sobald das Relais geschlossen ist fließt somit ein Strom über U22 sodass bei PCHRG\textsubscript{ACT} eine Spannung anliegt.
 \\
 Im Ausschaltmoment wird das Relais durch die Kapazität C12 für kurze Zeit offen gehalten sodass zuerst der Mosfet Q10 abschaltet und so die Schaltleistung im Relais minimiert wird.
 
@@ -59,7 +59,7 @@ Im Ausschaltmoment wird das Relais durch die Kapazität C12 für kurze Zeit offe
 	\label{fig:airconditioning}
 \end{figure}
 
-Sinn der \ac{AIR} Detection ist es die Signale von den \ac{AIR}`s in Sinnvolle Logikpegel umzusetzen welche im späteren Verlauf weiter verwendet werden können. Oben rechts auf dem Schaltplan sind die \ac{AIR}`s dargestellt. Relevant sind dabei die X-Signale welche den Schaltzustand des Relais kontrollieren und die \ac{AUX} Signale welche den Schaltzustand überwachen. Die \ac{AUX} Signale werden mit 3,3 V über einen Gleichwertigen 1 k$\Omega$ Spannungsteiler versorgt, so das bei geöffnetem Relais die 3,3V an \ac{AUX} 1 anliegen, bei geschlossenem Relais durch den Spannungsteiler 1,65V und bei einem Kurzschluss in der Signalleitung zu Masse 0V anliegen. Diese Spannungspegel werden jetzt in einer Komparatorschaltung verglichen. Die beiden oberen Komparatoren geben ein High-Signal aus wenn die Spannung an den \ac{AUX} Kontakten kleiner ist als die Referenzspannung und damit die Relais geschlossen oder auf Masse kurzgeschlossen sind. Die beiden unteren Komparatoren geben ein Low-Signal aus wenn die Spannung größer ist als die Referenzspannung und damit das Relais geschlossen oder geöffnet ist. Sofern also der tatsächliche Zustand des Relais High ist und der Fehler Low kann zum Beispiel geschlussfolgert werden das jenes Relais geschlossen ist.
+Sinn der \ac{AIR} Detection ist es die Signale von den \ac{AIR}`s in Sinnvolle Logikpegel umzusetzen welche im späteren Verlauf weiter verwendet werden können. Oben rechts auf dem Schaltplan sind die \ac{AIR}`s dargestellt. Relevant sind dabei die X-Signale welche den Schaltzustand des Relais kontrollieren und die \ac{AUX} Signale welche den Schaltzustand überwachen. Die \ac{AUX} Signale werden mit \ensuremath{3,3V} über einen Gleichwertigen \ensuremath{1 k\Omega} Spannungsteiler versorgt, so das bei geöffnetem Relais die \ensuremath{3,3V} an \ac{AUX} 1 anliegen, bei geschlossenem Relais durch den Spannungsteiler \ensuremath{1,65V} und bei einem Kurzschluss in der Signalleitung zu Masse \ensuremath{0V} anliegen. Diese Spannungspegel werden jetzt in einer Komparatorschaltung verglichen. Die beiden oberen Komparatoren geben ein High-Signal aus wenn die Spannung an den \ac{AUX} Kontakten kleiner ist als die Referenzspannung und damit die Relais geschlossen oder auf Masse kurzgeschlossen sind. Die beiden unteren Komparatoren geben ein Low-Signal aus wenn die Spannung größer ist als die Referenzspannung und damit das Relais geschlossen oder geöffnet ist. Sofern also der tatsächliche Zustand des Relais High ist und der Fehler Low kann zum Beispiel geschlussfolgert werden das jenes Relais geschlossen ist.
 \FloatBarrier
 \subsubsection{\ac{AMS}}
 Das eigentliche Batteriemanagement wird von vom LTC 6804 übernommen. Hierbei handelt es sich um eine integrierte Schaltung welche speziell für die Aufgabe des Batteriemanagments von Linear Technology entwickelt wurde. Relevante aufgaben dieses Chips ist die differentielle Messung der Zellspannungen im Stack. Weiter übernimmt der IC die Temperatur Messung über 5 frei nutzbare \acfirst{GPIO}`s welche auch \acfirst{ADC} Funktionalität unterstützen. Zu guter Letzt wird der Chip als Treiber für Mosfets benutzt welche die Zelle auf den balancing Widerstand schalten. Die notwendige Kommunikation erfolgt über einen proprietären 2 drahtigen linearen isolierten \acfirst{SPI} Bus. Jeder Chip hat dabei 4 Adressbits zur Konfigurierung. Das Kommunikationsinterface zischen dem Iso \ac{SPI} und dem \ac{SPI} Bus des Mikrocontroller erfolgt über den LTC 6820 welcher für exakt diese Aufgabe entwickelt wurde. Mit den 5 Eingängen am Chip sind nun 11 verschiedene NTC`s auszuwerten, dies geschieht mit Hilfe eines Demuxers und eines Invertierers.
@@ -186,7 +186,7 @@ Sinn der \ac{HV} Messung ist es, die Spannung welche am Akku als auch am Zwische
 	\label{fig:hvmeasurementpng}
 \end{figure}
 
-Kern dieser Schaltung ist der ADUM 3190. Dabei handelt es sich um einen Iso-\acfirst{OPV}. Der positive Eingang ist über einen Spannungsteiler mit dem \ac{HV}-Kreis verbunden. Der negative Eingang ist mit dem Ausgang des \ac{OPV} rückgekoppelt so das ein Spannungsfolger mit einer Verstärkung von 1 entsteht. Aus dem 10 M$\Omega$ und dem 55,6 k$\Omega$ Widerstand ergibt sich eine Verhältnis von 179,86 V im \ac{HV}-Kreis zu einem Volt am Eingang des \ac{OPV}. Das ergibt eine maximale Eingangsspannung für die Schaltung von 593,54 V da hierbei eine Ausgangsspannung von 3,3 V erreicht wird. Bei dem R2S-2405/H handelt es sich um einen isolierten DC-Wandler um den Chip \ac{HV}-seitig mit Strom zu versorgen. Die Komparatorschaltung um U15 gibt bei überschreiten der gefährlichen Spannung einen High-Pegel aus. Die Spannung über den positiven Eingang der Komparatorschaltung liegt bei 0,232 V so das bei einer \acfirst{TS}-Spannung von größer 41,73 V der High-Pegel anliegen sollte. Laut Regelwerk sollte dieser Pegel spätestens bei 60 V anliegen.
+Kern dieser Schaltung ist der ADUM 3190. Dabei handelt es sich um einen Iso-\acfirst{OPV}. Der positive Eingang ist über einen Spannungsteiler mit dem \ac{HV}-Kreis verbunden. Der negative Eingang ist mit dem Ausgang des \ac{OPV} rückgekoppelt so das ein Spannungsfolger mit einer Verstärkung von 1 entsteht. Aus dem \ensuremath{10 M\Omega} und dem \ensuremath{55,6 k\Omega} Widerstand ergibt sich eine Verhältnis von \ensuremath{179,86 V} im \ac{HV}-Kreis zu einem Volt am Eingang des \ac{OPV}. Das ergibt eine maximale Eingangsspannung für die Schaltung von \ensuremath{593,54 V} da hierbei eine Ausgangsspannung von \ensuremath{3,3 V} erreicht wird. Bei dem R2S-2405/H handelt es sich um einen isolierten DC-Wandler um den Chip \ac{HV}-seitig mit Strom zu versorgen. Die Komparatorschaltung um U15 gibt bei überschreiten der gefährlichen Spannung einen High-Pegel aus. Die Spannung über den positiven Eingang der Komparatorschaltung liegt bei \ensuremath{0,232 V} so das bei einer \acfirst{TS}-Spannung von größer \ensuremath{41,73 V} der High-Pegel anliegen sollte. Laut Regelwerk sollte dieser Pegel spätestens bei \ensuremath{60V} anliegen.
 
 \FloatBarrier
 \subsubsection{\acfirst{IMD} Monitoring}
@@ -203,7 +203,6 @@ Beim Startup ist das PRE- als auch das CLR-Signal am D-FlipFlop U7A low. Dadurch
 	\caption{Schaltplan IMD Monitoring}
 	\label{fig:imd-monitoring-schematic}
 \end{figure}
-
 
 \FloatBarrier
 \subsection{\ac{HV}-DC-DC}
@@ -223,7 +222,7 @@ Bei der Topologie des \ac{HV}-DC-DC-Wandlers handelt es sich um einen active cla
 	\label{fig:forwardconverter}
 \end{figure}
 
-Von der Firma Linear Technology existiert ein \acfirst{IC}, der LT 3752. Dieser \ac{IC} ist speziell für den Aufbau von Wandlern dieser Topologie gedacht. Weiter existiert die Demo Schaltung DC 1929A basierend auf diesem \ac{IC}. Hierbei handelt es sich um einen 400 V zu 12 V Wandler mit einer Ausgangsleistung von 200 W. Das hier vorliegende Design wurde mithilfe des Datenblattes, des LT 3752, des LT 8311 und mithilfe der Schaltpläne als auch der Layout Dateien des DC 1929A erstellt.
+Von der Firma Linear Technology existiert ein \acfirst{IC}, der LT 3752. Dieser \ac{IC} ist speziell für den Aufbau von Wandlern dieser Topologie gedacht. Weiter existiert die Demo Schaltung DC 1929A basierend auf diesem \ac{IC}. Hierbei handelt es sich um einen \ensuremath{400 V} zu \ensuremath{12 V} Wandler mit einer Ausgangsleistung von \ensuremath{200 W}. Das hier vorliegende Design wurde mithilfe des Datenblattes, des LT 3752, des LT 8311 und mithilfe der Schaltpläne als auch der Layout Dateien des DC 1929A erstellt.
 \\
 \\
 Zur Auflistung der Ausgangsparameter.
@@ -261,7 +260,7 @@ Zur Auflistung der Ausgangsparameter.
 Mit diesen Werten muss nun ein passender Transformator gefunden werden. Hierfür wurden diverse Hersteller kontaktiert. Bei der Firma Champs Technologies gab es eine erfolgreiche Rückmeldung in der Form, dass Sie einen Transformator im Angebot habend der für unsere Anwendung relativ gut passt, den R41-AC-2202.
 \\
 \\
-Zur Kontrolle können wir eine Rechnung durchführen. Der maximale Duty Cycle \glsc{symb:D_max} liegt laut Datenblatt typischerweise bei 60\%.
+Zur Kontrolle können wir eine Rechnung durchführen. Der maximale Duty Cycle \glsc{symb:D_max} liegt laut Datenblatt typischerweise bei \ensuremath{60\%}.
 \\
 \\
 Hiermit könne wir nun das ideale Wicklungsverhältnis bestimmen
@@ -303,19 +302,19 @@ Nun können wir den minimalen Duty cycle bestimmen. Dieser lässt sich für den 
 	\glsc{symb:D_min} = \dfrac{\glsc{symb:V_out}}{\glsc{symb:V_inmax}}*\glsc{symb:NP/NS} = 20,93
 \end{equation}
 
-Im folgenden soll nun die Auslegung von Ausgangs Induktivität (L1 \& L2) als auch Kapazität (C13 - 15) erfolgen. Hierfür benötigen wir zu Berechnung der Induktivität den Ripple-Strom an der Induktivität. Als Faustregel kann man diesen mit 20-40 \% vom maximalen Strom annehmen. Ziel der Induktivität ist es aus den einzelnen Stromimpulsen der Schaltstufe einen konstanten Ausgangsstrom zu erzeugen. Je kleiner diese Impulse sind, desto größer muss die entsprechende Induktivität gewählt werden. Wir wollen das der Wandler die meiste zeit im \acfirst{CCM} arbeitet, da die gesamte Auslegen auf dieser Basis erfolgt. Der \acfirst{DCM} wird erreicht wenn der Stromverbrauch des Systems kleiner ist als der Ripple-Strom in der Induktivität. Der minimale Stromverbauch für das Fahrzeug wurde ermittelt indem alle Datenblatt Stromverbräuche der einzelnen Systeme aufaddiert wurden und liegt bei ca. 4 A respektive 100 W.
+Im folgenden soll nun die Auslegung von Ausgangs Induktivität (L1 \& L2) als auch Kapazität (C13 - 15) erfolgen. Hierfür benötigen wir zu Berechnung der Induktivität den Ripple-Strom an der Induktivität. Als Faustregel kann man diesen mit \ensuremath{20-40 \%} vom maximalen Strom annehmen. Ziel der Induktivität ist es aus den einzelnen Stromimpulsen der Schaltstufe einen konstanten Ausgangsstrom zu erzeugen. Je kleiner diese Impulse sind, desto größer muss die entsprechende Induktivität gewählt werden. Wir wollen das der Wandler die meiste zeit im \acfirst{CCM} arbeitet, da die gesamte Auslegen auf dieser Basis erfolgt. Der \acfirst{DCM} wird erreicht wenn der Stromverbrauch des Systems kleiner ist als der Ripple-Strom in der Induktivität. Der minimale Stromverbauch für das Fahrzeug wurde ermittelt indem alle Datenblatt Stromverbräuche der einzelnen Systeme aufaddiert wurden und liegt bei ca. \ensuremath{4 A} respektive \ensuremath{100 W}.
 
 \begin{equation}
 	\glsc{symb:L_O} = (1-((1/\glsc{symb:V_inmax})*\glsc{symb:NP/NS}*\glsc{symb:V_out}))*\dfrac{1}{\glsc{symb:I_Ripple}}*\glsc{symb:V_out}*\dfrac{1}{\glsc{symb:f_osc}}
 \end{equation}
 
-Das Ergebnis dieser Rechnung sind 47,44 uH. Für diese Induktivität könnte man vier AGP4233-153ME der Firma Coilcraft zusammenschalten um auf 60 uH zu kommen. Diese sind jedoch viel zu groß für den Bauraum so das die größtmögliche in den Bauraum passende Spulenkombination gewählt wurde. Hierbei handelt es sich um vier AGM2222-562ME die zusammen 22,4uH mitbringen. Hiermit könne wir nun den neuen Ripple-Strom bestimmen welchen wir für die Auslegung des Kondensators brauchen.
+Das Ergebnis dieser Rechnung sind \ensuremath{47,44 uH}. Für diese Induktivität könnte man vier AGP4233-153ME der Firma Coilcraft zusammenschalten um auf \ensuremath{60 uH} zu kommen. Diese sind jedoch viel zu groß für den Bauraum so das die größtmögliche in den Bauraum passende Spulenkombination gewählt wurde. Hierbei handelt es sich um vier AGM2222-562ME die zusammen \ensuremath{22,4uH} mitbringen. Hiermit könne wir nun den neuen Ripple-Strom bestimmen welchen wir für die Auslegung des Kondensators brauchen.
 
 \begin{equation}
 	\glsc{symb:I_Ripple} = \dfrac{\glsc{symb:V_out}}{\glsc{symb:L_O}*\glsc{symb:f_osc}} * 1 - \dfrac{\glsc{symb:V_out}} {\glsc{symb:V_inmax}} * \glsc{symb:NP/NS}
 \end{equation}
 
-Die Ripple-Spannung \glsc{symb:V_Ripple} wird auf 1\% der Ausgangsspannung festgelegt (0,24 V). Nun brauchen wir noch den \acfirst{ESR} der Kondensatoren welche verwendet werden sollen. Es ist gängige Praxis einige Keramik Kondensatoren mit niedrigem \ac{ESR} zu verwenden und ein größeren Elektrolytkondensator zur Dämpfung größere Last-transienten. Diese Rechnung würde man nun mit einem angenommenen typischen \ac{ESR} von z.b 3 m$\Omega$ durchführen und Sie dann für die tatsächlichen Werte wiederholen, wenn entsprechende Kondensatoren ausgewählt wurden. Bei vielen Kondensatoren ist im Datenblatt oft nur ein \acfirst{DF} angegeben, in diesem Fall sollte man beim Hersteller nach weiteren Informationen suchen. So hat die Firma \acfirst{WE} Diagramme zur \ac{ESR} in ihrem separatem Tool, dem Red Expert. In der Abbildung \ref{fig:we-esr-cap} ein Beispiel wie solch ein Diagramm aussehen kann.
+Die Ripple-Spannung \glsc{symb:V_Ripple} wird auf \ensuremath{1\%} der Ausgangsspannung festgelegt \ensuremath{(0,24 V)}. Nun brauchen wir noch den \acfirst{ESR} der Kondensatoren welche verwendet werden sollen. Es ist gängige Praxis einige Keramik Kondensatoren mit niedrigem \ac{ESR} zu verwenden und ein größeren Elektrolytkondensator zur Dämpfung größere Last-transienten. Diese Rechnung würde man nun mit einem angenommenen typischen \ac{ESR} von z.b \ensuremath{3 m\Omega} durchführen und Sie dann für die tatsächlichen Werte wiederholen, wenn entsprechende Kondensatoren ausgewählt wurden. Bei vielen Kondensatoren ist im Datenblatt oft nur ein \acfirst{DF} angegeben, in diesem Fall sollte man beim Hersteller nach weiteren Informationen suchen. So hat die Firma \acfirst{WE} Diagramme zur \ac{ESR} in ihrem separatem Tool, dem Red Expert. In der Abbildung \ref{fig:we-esr-cap} ein Beispiel wie solch ein Diagramm aussehen kann.
 
 \begin{figure}
 	\centering
@@ -350,7 +349,7 @@ Die Ripple-Spannung \glsc{symb:V_Ripple} wird auf 1\% der Ausgangsspannung festg
 	\end{tabular}
 \end{table}
 
-Für die Kapazität werden zwei 22 uF \acfirst{MLCC}`s und ein 2,2 mF \acfirst{Elko} der Firma \ac{WE} in parallel verschaltet.
+Für die Kapazität werden zwei \ensuremath{22 uF} \acfirst{MLCC}`s und ein \ensuremath{2,2 mF} \acfirst{Elko} der Firma \ac{WE} in parallel verschaltet.
 \\
 Nun folgt die Berechnung der Fangschaltung bestehend aus Clamp Kondensator und einem RC Snubber (C16 - 18 \& 20 - 22 \& R15).
 
@@ -436,7 +435,7 @@ Bei der HV Distribution handelt es sich um eine Box welche mittig hinter dem Fah
 
 \FloatBarrier
 \subsection{\acfirst{TSMP}}
-Die \ac{TSMP} befinden sich seitlich am Fahrzeug wo auch der Hauptschalter zu finden ist. Sie stellen eine genormte Schnittstelle dar um mit einem Duspol, oder Multimeter an die Spannung des \ac{TS} gelangen zu können. Hierbei müssen laut Regelwerk geschirmte Bananenstecker eingesetzt werden. Weiter muss für die Buchsen am Fahrzeug eine Abdeckkappe oder Blindstecker vorgesehen werden. Zur Absicherung der \ac{TSMP} müssen diese mit Widerständen in Reihe an den \ac{HV}-Kreis angebunden werden. Das Regelwerk sieht hierbei in unserem Spannungsbereich 15k$\Omega$ vor. Der Kritische Wert wonach die \ac{TSMP} ausgelegt werden müssen ist das Leistungsrating, da diese auf kontinuierlichen Kurzschluss ausgelegt sein müssen.
+Die \ac{TSMP} befinden sich seitlich am Fahrzeug wo auch der Hauptschalter zu finden ist. Sie stellen eine genormte Schnittstelle dar um mit einem Duspol, oder Multimeter an die Spannung des \ac{TS} gelangen zu können. Hierbei müssen laut Regelwerk geschirmte Bananenstecker eingesetzt werden. Weiter muss für die Buchsen am Fahrzeug eine Abdeckkappe oder Blindstecker vorgesehen werden. Zur Absicherung der \ac{TSMP} müssen diese mit Widerständen in Reihe an den \ac{HV}-Kreis angebunden werden. Das Regelwerk sieht hierbei in unserem Spannungsbereich \ensuremath{15k\Omega} vor. Der Kritische Wert wonach die \ac{TSMP} ausgelegt werden müssen ist das Leistungsrating, da diese auf kontinuierlichen Kurzschluss ausgelegt sein müssen.
 \\
 \\
 Eine Formel zu Berechnung der Leistung am Widerstand ist folgende.
@@ -482,7 +481,7 @@ Da im Kurzschlussfall die Spannung über beide Widerstände anliegt, verdoppelt 
 	\end{tabular}
 \end{table}
 
-Daraus schlussfolgert sich das die 15k$\Omega$ Widerstände mit einem Leistungsrating von mindestens 12 W benötigt werden.
+Daraus schlussfolgert sich das die \ensuremath{15k\Omega} Widerstände mit einem Leistungsrating von mindestens \ensuremath{12 W} benötigt werden.
 
 \FloatBarrier
 \subsection{\acfirst{BSPD}}
@@ -609,10 +608,10 @@ Mit Beispielhaften Auslegeparametern ergeben sich folgende Werte.
 	\end{tabular}
 \end{table}
 
-Das  \ac{BSPD}-Sensorboard hat zum Zweck einen Stromsensor zu kreieren der ein Stromsignal von 0-100 A in ein Spannungssignal von 0,5-4,5 V über den Bereich von 0-10 A zu erzeugen. Die 0.5 V Offset haben zum Ziel eine Kurzschlusserkennung auf Masse als auch auf Versorgung zu ermöglichen. Der relevante Messbereich von 0-10 A entsteht aus den Regelwerksanforderungen die vorgeben das der Fehlerzustand bei einer abgerufenen Leistung größer 5kW eingestellt werden muss, was bei 600 V in einem Strom von 8,3 A resultiert. Dieser Bereich muss möglichst robust ausgewertet werden können.
+Das  \ac{BSPD}-Sensorboard hat zum Zweck einen Stromsensor zu kreieren der ein Stromsignal von \ensuremath{0-100 A} in ein Spannungssignal von \ensuremath{0,5-4,5 V} über den Bereich von \ensuremath{0-10 A} zu erzeugen. Die \ensuremath{0.5 V} Offset haben zum Ziel eine Kurzschlusserkennung auf Masse als auch auf Versorgung zu ermöglichen. Der relevante Messbereich von \ensuremath{0-10 A} entsteht aus den Regelwerksanforderungen die vorgeben das der Fehlerzustand bei einer abgerufenen Leistung größer 5kW eingestellt werden muss, was bei \ensuremath{600 V} in einem Strom von \ensuremath{8,3 A} resultiert. Dieser Bereich muss möglichst robust ausgewertet werden können.
 \\
 \\
-Zur genauen Funktion. U1 ist ein Hall-Effekt Stromsensor mit einem Übersetzungsfaktor von 1000. Heißt 10 A ergeben 10 mA Stromfluss am Ausgang. Der Widerstand R2 ist so gewählt das bei einem Strom von 10 mA, 5 V über den Widerstand abfallen und wir so in den Messbereich kommen. Der Widerstand R1 ermöglicht nun das konstante einspeisen von ca. 0,5 V und die Diode das Begrenzen der max. Spannung auf 4,5 V.
+Zur genauen Funktion. U1 ist ein Hall-Effekt Stromsensor mit einem Übersetzungsfaktor von 1000. Heißt \ensuremath{10 A} ergeben \ensuremath{10 mA} Stromfluss am Ausgang. Der Widerstand R2 ist so gewählt das bei einem Strom von \ensuremath{10 mA}, \ensuremath{5 V} über den Widerstand abfallen und wir so in den Messbereich kommen. Der Widerstand R1 ermöglicht nun das konstante einspeisen von ca. \ensuremath{0,5 V} und die Diode das Begrenzen der max. Spannung auf \ensuremath{4,5 V}.
 
 \begin{figure}
 	\centering
@@ -631,10 +630,10 @@ Die Discharge Schaltung soll bei Abschalten des Fahrzeug die Zwischenkreiskonden
 	\label{fig:discharge}
 \end{figure}
 
-Dies kann mit Hilfe von \acfirst{PTC}-Widerständen geschehen. Das Regelwerk sieht vor das der Zwischenkreis in maximal 5 s auf 60 VDC oder weniger zu bringen ist. Dies muss für 3 aufeinanderfolgende Entladevorgänge möglich sein. 
+Dies kann mit Hilfe von \acfirst{PTC}-Widerständen geschehen. Das Regelwerk sieht vor das der Zwischenkreis in maximal \ensuremath{5 s} auf \ensuremath{60 VDC} oder weniger zu bringen ist. Dies muss für 3 aufeinanderfolgende Entladevorgänge möglich sein. 
 \\
 \\
-Die Ansteuerung erfolgt über den \ac{SDC} welcher über den Steckverbinder C2 eingebunden ist. Von dort wird der Optokoppler U1 bestromt. Dieser steuert Strom vom Gate des Mosfet`s Q1 weg Richtung \ac{TS}- so das der Mosfet öffnet. Wenn der \ac{SDC} geöffnet wird, steigt die Spannung am Gate auf 20 V und der Mosfet steuert \ac{TS}+ auf \ac{TS}- über die \ac{PTC}-Widerstände durch. Dadurch wird die Spannung im Zwischenkreis in den \ac{PTC}-Elementen abgebaut.
+Die Ansteuerung erfolgt über den \ac{SDC} welcher über den Steckverbinder C2 eingebunden ist. Von dort wird der Optokoppler U1 bestromt. Dieser steuert Strom vom Gate des Mosfet`s Q1 weg Richtung \ac{TS}- so das der Mosfet öffnet. Wenn der \ac{SDC} geöffnet wird, steigt die Spannung am Gate auf \ensuremath{20 V} und der Mosfet steuert \ac{TS}+ auf \ac{TS}- über die \ac{PTC}-Widerstände durch. Dadurch wird die Spannung im Zwischenkreis in den \ac{PTC}-Elementen abgebaut.
 \\
 \\
 Die Formel für die Berechnung der \ac{PTC}-Elemente ist dem Datenblatt für die PTCEL Serie der Firma Vishay zu entnehmen.
@@ -675,7 +674,7 @@ Die Formel für die Berechnung der \ac{PTC}-Elemente ist dem Datenblatt für die
 Damit ergibt sich das 2 \ac{PTC}`s des Typ 17R251 oder 17R501 verwendet werden müssen. 
 \\
 \\
-Die Entladezeit kann wie beim \ac{BSPD} über die Zeitkonstante bestimmt werden, in diesem Fall näherungsweise über die 3 fache. Damit ergibt sich eine Entladezeit von max. 1,2 s.
+Die Entladezeit kann wie beim \ac{BSPD} über die Zeitkonstante bestimmt werden, in diesem Fall näherungsweise über die 3 fache. Damit ergibt sich eine Entladezeit von max. \ensuremath{1,2 s}.
 
 \FloatBarrier
 \section{\acfirst{TSAL}}
@@ -691,7 +690,7 @@ Das \ac{TSAL} ist eine Lampe im Mainhoop die 360 Grad rundherum zum Fahrzeug anz
 	\label{fig:binare-spannungserkennung}
 \end{figure}
 
-Das Herz der Schaltung ist ein Verarmungstyp N-Fet. Wenn die Gate-Source Spannung V\textsubscript{GS} = 0 V ist, dann lässt dieser Fet Strom durch. Ab einer Spannung von 47 V wird die Zehnerdiode durchbrochen und ein Strom fließt, dieser Strom verursacht einen Spannungsabfall am Wiederstand R18 von ca. 2,2 V bei einem mA so das V\textsubscript{GS} negativ wird und der Fet den Stromfluss zu begrenzen beginnt. Der Fet agiert zusammen mit dem Widerstand wie eine Konstantstromquelle. Diese Steuert den Optokoppler durch so das wir auf der \ac{LV}-Seite ein Signal erzeugt haben.
+Das Herz der Schaltung ist ein Verarmungstyp N-Fet. Wenn die Gate-Source Spannung V\textsubscript{GS} = \ensuremath{0 V} ist, dann lässt dieser Fet Strom durch. Ab einer Spannung von \ensuremath{47 V} wird die Zehnerdiode durchbrochen und ein Strom fließt, dieser Strom verursacht einen Spannungsabfall am Wiederstand R18 von ca. \ensuremath{2,2 V} bei einem \ensuremath{mA} so das V\textsubscript{GS} negativ wird und der Fet den Stromfluss zu begrenzen beginnt. Der Fet agiert zusammen mit dem Widerstand wie eine Konstantstromquelle. Diese Steuert den Optokoppler durch so das wir auf der \ac{LV}-Seite ein Signal erzeugt haben.
 
 \FloatBarrier
 \subsection{Logik auf \ac{AMS} Master}
@@ -708,7 +707,7 @@ Nachdem die diversen Signale für den Zustand der \ac{AIR}`s etc. vorliegen geht
 \FloatBarrier
 \subsection{Schaltung auf \ac{TSAL}}
 
-Das \ac{TSAL} besteht wesentlich aus drei funktionellen Blöcken. Der Blink-Schaltkreis basierend auf einem NE 555, Die \acfirst{LED}`s selber und ein \ac{LED}-Treiber mit seiner Beschaltung. Der \ac{LED}-Treiber ist nach Datenblatt aufgebaut. Das Red und Green Signal gehen beide auf den \ac{PWM}-Eingang des Treibers so das wenn das \ac{TSAL} aus sein soll der Treiber in den sleep mode geht. Bei den \ac{LED}`s handelt es sich um Horticulture 6868 Ceramic \ac{LED}`s von \ac{WE}. Diese wurden in den vorherigen Jahren auch auf dem Bremslicht verwendet und zeichnen sich durch hohe Leistungsdichte aus. Am ende der \ac{LED}-Ketten befindet sich ein Mosfet welcher durch das Red oder Green Signal durchgeschaltet und damit der Stromkreis um die \ac{LED}`s geschlossen wird. Der NE 555 wird genutzt um ein Taktsignal mit einer Frequenz von 2-5 Hz zu erzeugen. Dies wird benötigt da das \ac{TSAL} im Falle des eingeschalteten \ac{TS} mit einer Frequenz in diesem Bereich rot blinken soll.
+Das \ac{TSAL} besteht wesentlich aus drei funktionellen Blöcken. Der Blink-Schaltkreis basierend auf einem NE 555, Die \acfirst{LED}`s selber und ein \ac{LED}-Treiber mit seiner Beschaltung. Der \ac{LED}-Treiber ist nach Datenblatt aufgebaut. Das Red und Green Signal gehen beide auf den \ac{PWM}-Eingang des Treibers so das wenn das \ac{TSAL} aus sein soll der Treiber in den sleep mode geht. Bei den \ac{LED}`s handelt es sich um Horticulture 6868 Ceramic \ac{LED}`s von \ac{WE}. Diese wurden in den vorherigen Jahren auch auf dem Bremslicht verwendet und zeichnen sich durch hohe Leistungsdichte aus. Am ende der \ac{LED}-Ketten befindet sich ein Mosfet welcher durch das Red oder Green Signal durchgeschaltet und damit der Stromkreis um die \ac{LED}`s geschlossen wird. Der NE 555 wird genutzt um ein Taktsignal mit einer Frequenz von \ensuremath{2-5 Hz} zu erzeugen. Dies wird benötigt da das \ac{TSAL} im Falle des eingeschalteten \ac{TS} mit einer Frequenz in diesem Bereich rot blinken soll.
 
 \begin{figure}
 	\centering

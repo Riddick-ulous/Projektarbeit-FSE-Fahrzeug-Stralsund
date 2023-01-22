@@ -10,36 +10,27 @@ Verweise
 \ref{"label"}
 
 Notizen Projektarbeit
-Ohm = Omega (suchen und ersetzten)
-Erste zeile beginnt mit leerzeichen?
-Große schaltpläne in den anhang
+
+Große schaltpläne in den anhang (alles weitere zuschneiden)
 Quellen wie einfügen
 
 handbuch emrax 208 in anhang (Kabelquerschnitt nach VDE)
 
-Innenwiederstandsberedchung akku
-
-Inverter = Umrichter
-
-AUX = abkürzung
-
 schriftart kabel farbtabelle
 überschneidung text mit tabelle (Kabelfarbtabelle)
 
-motoauswahl subsections streichen
-
-bild = Abbildung
-
-abbildungen im anhanng ins abbildungsverzeichnis?
-
-strukturierung des Anhangs?
-Alle schaltpläne (Verweise? einfügen mit figure?)
+strukturierung des Anhangs
+Alle schaltpläne
 Excel dateien
 ESF (als Pdf)
 
 
-EDR style einleitung
-
 zweiten acfirst fsg entfernen
 
-layout akkumulator container aufhübschen, evtl anhand rendering
+
+Zusatzschaltpläne welche nicht oder nur Auschnitsweise behandlet wurden.
+sowas wie schaltpläne ganzseitig anhängen
+
+\ensuremath für alle in text einheiten
+
+Spannung ist U nicht V 

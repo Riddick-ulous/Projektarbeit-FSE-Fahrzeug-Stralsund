@@ -19,7 +19,7 @@ An dieser Stelle geht mein Dank an Florian Irle, der obwohl er sich eigentlich e
 
 %\section{Systeme}
 
-\subsection{Kühlung}
+\section{Kühlung}
 
 \begin{figure}[H]
 	\centering
@@ -28,7 +28,8 @@ An dieser Stelle geht mein Dank an Florian Irle, der obwohl er sich eigentlich e
 	\label{abb:Coolingssystem}
 \end{figure}
 
-\subsubsection{Radiator \& Lüfter}
+\FloatBarrier
+\subsection{Radiator}
 Die Berechnung des Radiators basiert auf der Annahme das hier eine Ähnlichkeitstheorie Anwendung finden kann. Hierbei wurden die bekannten realen (index r) Eingangsparameter aus Messungen am Vorjahresfahrzeug mit den Modellparametern (index m) für das kommende Fahrzeug in Beziehung gesetzt. Konkret die Temperaturdifferenz am Eintritt und der Wärmestrom. Hierbei wurde kein klassischer Weg bekannt aus der Thermodynamik über NTU-Schaubilder etc. gewählt da die geometrischen Parameter des Radiators abgesehen von der frontalen Netzfläche nicht bekannt waren. Zur genaueren Betrachtung sollte dieses Vorgehen in Zukunft vergleichend angewendet werden. Folgend die angewendete Formel.
 
 \begin{equation}
@@ -90,7 +91,9 @@ Dies führt zu folgenden Ergebnissen.
 \end{table}
 
 Dies ergibt mit unserem Modell eine Reduktion auf 26,46 \% der vorherigen Kühlerfläche. Die Baugröße die am ende für den Kühler gewählt wurde entspricht ca. 50 \% der Kühlerfläche also das doppelte vom Rechenergebnis. Eine derart hohe Sicherheit ist darauf zurückzuführen das die Berechnung von Wärmeübertragern generell keine sehr exakte Wissenschaft ist und der Bauraum eine derartige Überdimensionierung an der Stelle zugelassen hat.\\
-\\
+
+\FloatBarrier
+\subsection{Lüfter}
 Für die Auslegung des Lüfters wurde von der Aerodynamik Abteilung vorgegeben das man die Abluft des Systems nutzen möchte um das Strömungsprofil am Diffusor zu beeinflussen. Hierfür mussten Strömungsgeschwindigkeiten im Bereich der 80-90 km/h am Auslass erreicht werden. Für den Lüfter wurde auch in den letzten Jahren am Verbrenner ein Drohnennmotor mit Propeller und externer Ansteuerung verwendet, da dies deutlich leichter ist als eine fertige Einheit. In diesem Zuge sollten Volumenstrom und Ausgangsgeschwindigkeiten für verschiedene Konzepte berechnet werden können. Aufgrund der Größe des Kühlers kamen nur 4 Zoll oder kleiner Propeller in Frage. Weiterhin ist die Fragestellung aufgekommen ob ein Propeller ausgelegt für Freiströmung sinnvoll vor einem Lamellen-Kreuzstrom-Wärmeübertrager einzusetzen ist. Hierfür wurde zum Vergleich ein Lüfter von der Firma EBM-Papst beschafft um die Leistungsdaten schlussendlich vergleichen zu können.\\
 \\
 Für Drohnenmotoren sind in der Regel Daten für Schubkraft und Leistung verfügbar. Dies Lässt sich mit Hilfe des 2. Newtonschen Gesetztes, dem Impulssatz, umrechnen. Wir nehmen dabei an das unser Fahrzeug still steht. Dies führt zu folgender Gleichung.
@@ -185,6 +188,7 @@ Mit Hilfe der Vorherigen Rechnung können wir nun den gleichen Rechenweg Rückw�
 \begin{table}[h]
 	\centering
 	\begin{tabular}{|c|c|c|}
+		\hline
 		\multicolumn{3}{|c|}{T-Motor F2004} \\
 		\hline
 		\glsc{symb:v_Luft} & 75 & \ensuremath{km/h} \\
@@ -214,8 +218,8 @@ Mit Hilfe der Vorherigen Rechnung können wir nun den gleichen Rechenweg Rückw�
 
 Laut EBM Papst liegen die zu erwartende Effizienzen bei einem Axialgebläse im Bereich von 25\% - 65\%. Daran ist zu erkennen das unser aktueller Lüfter von EBM noch nicht die effizienteste Lösungen darstellt und unser Drohnenmotor eine sehr ineffiziente Lösung ist. Dennoch ein Aufbau mit Lüftern von EBM wiegt ca. 560 g während der Aufbau mit Drohnennmotoren bei ca. 55 g liegt. Allein diese Gewichtsersparnis ist den Einsatz dieses Gebläses wert. Empfehlenswert wäre an der Stelle die Optimierung des Rotorblattes auf den vorliegenden Anwendungsfall.
 
-
-\subsubsection{Wasserpumpe und Schläuche}
+\FloatBarrier
+\subsection{Wasserpumpe und Schläuche}
 
 Für die Auslegung des Wasserkreislaufes sind die Druckabfälle der Einzelsysteme relevant, zur Referenz die Systemübersicht \ref{abb:Coolingssystem}\\
 \\
@@ -287,7 +291,7 @@ Alle Ergebnisse sind nun in der Systemkennlinie \ref{fig:kuhlsystemkennlinie} ab
 
 Der Punkt an dem sich die Linien der jeweiligen Pumpe mit der Linie des Gesamtsystem schneidet ist der Betriebspunkt des Systems. Dieser Druckabfall und dieser Volumenstrom sollten sich im Betrieb einstellen. Bei der Grafik \ref{fig:kuhlsystemkennlinie} muss beachtet werden das dies von der Pumpe aus betrachtet wird und daher der Volumenstrom doppelt so groß ist wie am kühler aufgrund der zwei separaten Kühleinheiten.
 
-
+\FloatBarrier
 
 %\subsubsection{Outbound vs Inbound}
 %Radnabenmotor vs interner motor 

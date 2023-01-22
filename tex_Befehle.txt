@@ -25,3 +25,21 @@ AUX = abkürzung
 
 schriftart kabel farbtabelle
 überschneidung text mit tabelle (Kabelfarbtabelle)
+
+motoauswahl subsections streichen
+
+bild = Abbildung
+
+abbildungen im anhanng ins abbildungsverzeichnis?
+
+strukturierung des Anhangs?
+Alle schaltpläne (Verweise? einfügen mit figure?)
+Excel dateien
+ESF (als Pdf)
+
+
+EDR style einleitung
+
+zweiten acfirst fsg entfernen
+
+layout akkumulator container aufhübschen, evtl anhand rendering

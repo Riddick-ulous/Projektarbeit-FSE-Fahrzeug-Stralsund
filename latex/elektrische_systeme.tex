@@ -14,6 +14,14 @@ Im Akkumulator befinden sich neben den Zellen in Ihren Zellstacks und dem \acfir
 	\label{fig:accumulator-layout}
 \end{figure}
 
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{bilder/2022-05-02-01-01-02-50704-st_hv_accuulator_rectangular_V10_for_EDR}
+	\caption{Iso Ansicht Gesamtbaugruppe Akkumulator}
+	\label{fig:2022-05-02-01-01-02-50704-sthvaccuulatorrectangularv10foredr}
+\end{figure}
+
+
 \FloatBarrier
 
 \subsection{\ac{AMS} Master und Slave}
@@ -175,16 +183,16 @@ Sinn der \ac{HV} Messung ist es, die Spannung welche am Akku als auch am Zwische
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{bilder/HV_Measurement_PNG}
-	\caption{Schaltplan \ac{HV}-Messung}
-	\label{fig:hvmeasurementpng}
+	\includegraphics[width=0.4\linewidth]{"bilder/Blockdiagramm ADUM3190"}
+	\caption{Blockdiagramm ADUM 3190}
+	\label{fig:blockdiagramm-adum3190}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.4\linewidth]{"bilder/Blockdiagramm ADUM3190"}
-	\caption{Blockdiagramm ADUM 3190}
-	\label{fig:blockdiagramm-adum3190}
+	\includegraphics[width=0.7\linewidth]{bilder/HV_Measurement_PNG}
+	\caption{Schaltplan \ac{HV}-Messung}
+	\label{fig:hvmeasurementpng}
 \end{figure}
 
 Kern dieser Schaltung ist der ADUM 3190. Dabei handelt es sich um einen Iso-\acfirst{OPV}. Der positive Eingang ist über einen Spannungsteiler mit dem \ac{HV}-Kreis verbunden. Der negative Eingang ist mit dem Ausgang des \ac{OPV} rückgekoppelt so das ein Spannungsfolger mit einer Verstärkung von 1 entsteht. Aus dem 10 Mohm und dem 55,6 kOhm Widerstand ergibt sich eine Verhältnis von 179,86 V im \ac{HV}-Kreis zu einem Volt am Eingang des \ac{OPV}. Das ergibt eine maximale Eingangsspannung für die Schaltung von 593,54 V da hierbei eine Ausgangsspannung von 3,3 V erreicht wird. Bei dem R2S-2405/H handelt es sich um einen isolierten DC-Wandler um den Chip \ac{HV}-seitig mit Strom zu versorgen. Die Komparatorschaltung um U15 gibt bei überschreiten der gefährlichen Spannung einen High-Pegel aus. Die Spannung über den positiven Eingang der Komparatorschaltung liegt bei 0,232 V so das bei einer \acfirst{TS}-Spannung von größer 41,73 V der High-Pegel anliegen sollte. Laut Regelwerk sollte dieser Pegel spätestens bei 60 V anliegen.

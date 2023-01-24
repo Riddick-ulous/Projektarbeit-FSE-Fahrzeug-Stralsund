@@ -30,7 +30,7 @@ Besseren schaltplan erstellen (nicos Bild)
 Nice to Have
 Druckverlust rohrberechung
 
-HVDCDC kapitel endet abrupt
+HVDCDC kapitel endet abrupt temperatur berechnuing fehlt
 
 Packagin kapitel
 
@@ -46,3 +46,5 @@ hanbücher zitieren, (DTI500) Emrax 208 Ladegerät, LTC hvdcdc,
 °zeichen in esnuremath finzt net
 
 Umrichter Vergleich
+
+cite wandler topologie bilder

@@ -482,7 +482,7 @@ Wichtig beim \ac{SDC} zu beachten ist das an möglichst vielen Stellen Stichleit
 \FloatBarrier
 \subsection{Kabeldimensionierung}
 %Quelle
-Bei Der Kabeldimensionierung wurden 2 unterschiedliche Ansätze angewandt. Einmal die Dimensionierung nach DIN VDE 0298-4 \cite{DIN VDE 0298-4} und einmal anhand der Tabelle \ref{fig:wire-thickness}. Zweiteres empfiehlt sich standardmäßig für so gut wie alle Anwendungen. Ersterer ist hierbei nur für die Stromführenden \ac{HV}-Leiter sinnvoll anzuwenden. Die Querschnittberechnung ließe sich mit einem physikalischen Modell noch weiter treiben, auf dies wurde jedoch aufgrund des Zeitmangels verzichtet.
+Bei Der Kabeldimensionierung wurden 2 unterschiedliche Ansätze angewandt. Einmal die Dimensionierung nach DIN VDE 0298-4 \cite{DINVDE02984} und einmal anhand der Tabelle \ref{fig:wire-thickness}. Zweiteres empfiehlt sich standardmäßig für so gut wie alle Anwendungen. Ersterer ist hierbei nur für die Stromführenden \ac{HV}-Leiter sinnvoll anzuwenden. Die Querschnittberechnung ließe sich mit einem physikalischen Modell noch weiter treiben, auf dies wurde jedoch aufgrund des Zeitmangels verzichtet.
 Folgend ist einmal die bisher verwendete Tabelle \ref{fig:wire-thickness} aufgeführt.
 Bei der Tabelle ist zu beachten das die Ströme für Chassis Wiring verwendet werden. Unter Power Transmission versteht man hier Leiter die mit geringen Verlusten z.b in einer industriellen Umgebung Ströme über lange Wege z.b. von Haus zu Haus leiten sollen.
 \begin{figure}[h]
@@ -596,7 +596,7 @@ Break Open Current
 Zeichnung zu diesem relai typ
 
 Die \ac{AIR}`s haben es zum ziel das \ac{HV}-Netz des Akku galvanisch vom restlichen Fahrzeug zu trennen indem mit einem Relais \ac{HV}+ und mit dem anderen Relais \ac{HV}- geöffnet wird. Bei diesen Relais handelt es sich in der Regel um, \acfirst{SPST} \acfirst{NO} Relais mit \acfirst{AUX} Kontakten. Heißt wir haben einen Steuerkreis und einen Lastkreis. Im stromlosen Zustand ist der Lastkreis geöffnet und wir haben einen vom Lastkreis getrennten Kreis welcher synchron zum Lastkreis geschaltet wird und somit eine Überwachung des Schaltzustandes des Lastkreises ermöglicht.\\
-Bei der Auswahl des Relais ist auf das Spannungsrating als auch das Stromrating zu achten, aber auch auf die Schaltspannung, sprich die Spannung des Steuerkreises. Weiter ist der Schaltstrom ein interessantes Kriterium, da es sich bei solch einer Relaisspule um eine Induktive Last handelt liegt ein recht hoher Einschaltstrom vor, welcher vom speisenden Netz getragen werden können muss, in unserem vom \ac{SDC}. Für den TY22 wurde das DCNEV150-M \cite{DCNEV150 Datasheet} von Littlefuse gewählt.
+Bei der Auswahl des Relais ist auf das Spannungsrating als auch das Stromrating zu achten, aber auch auf die Schaltspannung, sprich die Spannung des Steuerkreises. Weiter ist der Schaltstrom ein interessantes Kriterium, da es sich bei solch einer Relaisspule um eine Induktive Last handelt liegt ein recht hoher Einschaltstrom vor, welcher vom speisenden Netz getragen werden können muss, in unserem vom \ac{SDC}. Für den TY22 wurde das DCNEV150-M \cite{DCNEV150Datasheet} von Littlefuse gewählt.
 
 \FloatBarrier
 \section{Ladesystem / Handcart}

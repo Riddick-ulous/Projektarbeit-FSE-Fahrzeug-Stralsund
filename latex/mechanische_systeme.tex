@@ -223,15 +223,15 @@ Laut EBM Papst liegen die zu erwartende Effizienzen bei einem Axialgebläse im B
 
 Für die Auslegung des Wasserkreislaufes sind die Druckabfälle der Einzelsysteme relevant, zur Referenz die Systemübersicht \ref{abb:Coolingssystem}\\
 \\
-Des weiteren sind für die Betrachtung weitere Parameter relevant. Laut Motorhersteller \cite{Manual Emrax208} liegt der optimale Wasservolumenstrom bei  \ensuremath{6-8l/min}. Aus der Vorhergehenden Betrachtung geht hervor das die umzusetzende Wärmeleistung bei \ensuremath{5364 W} liegt. Der angepeilte Luftvolumenstrom durch einen Kühler beläuft sich auf \ensuremath{756 m^3/h}.\\
+Des weiteren sind für die Betrachtung weitere Parameter relevant. Laut Motorhersteller \cite{ManualEmrax208} liegt der optimale Wasservolumenstrom bei  \ensuremath{6-8l/min}. Aus der Vorhergehenden Betrachtung geht hervor das die umzusetzende Wärmeleistung bei \ensuremath{5364 W} liegt. Der angepeilte Luftvolumenstrom durch einen Kühler beläuft sich auf \ensuremath{756 m^3/h}.\\
 \\
 Mit den folgenden beiden Diagrammen \ref{fig:elwleistung-uber-volumenstrom} und \ref{fig:elw-druckabfall-uber-volumenstrom} aus dem Leistungsdatenblatt für die ELW-Serie, einem in der Bauart ähnlichen Wärmeübertrager, lässt sich der Druckabfall über den Radiator bestimmen.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{"bilder/ELW_Leistung über Volumenstrom"}
-	\caption{}
-	\label{fig:elwleistung-uber-volumenstrom \cite{DatenblattELW}}
+	\caption{ELW-Leistung über Volumenstrom \cite{DatenblattELW}}
+	\label{fig:elwleistung-uber-volumenstrom}
 \end{figure}
 
 Unser angestrebter Radiator entspricht mit seiner Netzfläche am ehesten dem ELW3. Dies würde bei den bisher bekannten Betriebsdaten zu eine Kühlleistung von \ensuremath{90 W/K} oder auch \ensuremath{2700 W} führen. Oder bei zwei Einheiten zu \ensuremath{5400 W}. Dies ist sehr nah an der angestrebten Wärmeleistung.
@@ -239,18 +239,18 @@ Unser angestrebter Radiator entspricht mit seiner Netzfläche am ehesten dem ELW
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{"bilder/ELW-Druckabfall über Volumenstrom"}
-	\caption{}
-	\label{fig:elw-druckabfall-uber-volumenstrom \cite{DatenblattELW}}
+	\caption{ELW-Druckabfall über Volumenstrom \cite{DatenblattELW}}
+	\label{fig:elw-druckabfall-uber-volumenstrom}
 \end{figure}
 
 Die Grafik \ref{fig:elw-druckabfall-uber-volumenstrom} ist an dieser Stelle etwas verwirrend da der ELW 2 und der ELW3 die Farben getauscht hat. Da es sich hierbei jedoch um die einzigen Daten handelt die aufgetrieben werden konnten wird an dieser Stelle angenommen das die grüne Linie für den ELW3 steht und die Lila Linie den ELW 2 darstellt. Dies ist die sichere Annahme, da dies im zweifel zu einem zu hohen Druckabfall und damit einer Überdimensionierung der Anlage führt.\\
 Anhand dieser Grafik kann also nun der Druckabfall zu einem entsprechenden Wasservolumenstrom abgelesen werden.\\
 \\
-Für den Umrichter gibt es im Datenblatt \cite{manual HV-500} ein fertiges Diagramm, siehe \ref{fig:cooling-characteristik}.
+Für den Umrichter gibt es im Datenblatt ein fertiges Diagramm, siehe \ref{fig:cooling-characteristik}.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{"bilder/Druckabfall DTI500LC"}
-	\caption{}
+	\caption{Druckabfall DTI 500 \cite{manualHV500}}
 	\label{fig:cooling-characteristik}
 \end{figure}
 
@@ -285,7 +285,7 @@ Alle Ergebnisse sind nun in der Systemkennlinie \ref{fig:kuhlsystemkennlinie} ab
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{bilder/Kühlsystemkennlinie}
-	\caption{}
+	\caption{Kühlsystemkennlinie}
 	\label{fig:kuhlsystemkennlinie}
 \end{figure}
 

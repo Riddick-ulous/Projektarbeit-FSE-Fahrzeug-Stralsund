@@ -81,7 +81,6 @@
 }
 
 @TechReport{Technology2022,
-  author    = {PowerStream Technology},
   title     = {Wire Gauge and Current Limits Including Skin Depth and Tensile Strength},
   year      = {2022},
   file      = {:Technology2022 - Wire Gauge and Current Limits Including Skin Depth and Tensile Strength.html:URL},
@@ -91,7 +90,6 @@
 
 @Manual{Viper06,
   title        = {Energy saving high voltage converter for direct feedback},
-  edition      = {2},
   month        = feb,
   organization = {STMicroelectronics},
   year         = {2017},
@@ -99,10 +97,9 @@
   url          = {https://www.st.com/resource/en/datasheet/viper06.pdf},
 }
 
-@Manual{ISOMETER IR155-3203/IR155-3204,
+@Manual{ISOMETERIR155-3203/IR155-3204,
   title        = {Isolationsüberwachungsgerät für ungeerdete DC-Antriebssysteme(IT-Systeme) in Elektrofahrzeugen},
-  edition      = {V004},
-  organization = {Bender GmbH & Co. KG},
+  organization = {Bender GmbH \& Co. KG},
   file         = {:ISOMETER IR155-3203_IR155-3204 - Isolationsüberwachungsgerät Für Ungeerdete DC Antriebssysteme(IT Systeme) in Elektrofahrzeugen.pdf:PDF},
   url          = {https://www.bender.de/fileadmin/content/Products/d/d/IR155-32xx-V004_D00115_D_XXDE.pdf},
 }
@@ -143,8 +140,8 @@
   file         = {:FSRules - Formula Student Rules.pdf:PDF},
 }
 
-@TechReport{Schmitt Trigger Mikrocontroller.net,
-  institution = {Mikrocontroller.net},
+@TechReport{SchmittTriggerMikrocontrollernet,
+  institution = {Mikrocontroller net},
   title       = {Schmitt Trigger},
   year        = {2023},
   month       = jan,
@@ -176,4 +173,5 @@
   title       = {Technische Daten Sony US18650VTC6},
   year        = {2022},
   month       = apr,
-  file        = {:https\://web.archive.org/web/20220119170957/http\://www
+  file        = {:https\://web.archive.org/web/20220119170957/http\://www.dampfakkus.de/akkutest.php?id=645:},
+  url         = {https://web.archive.org/web/202201191

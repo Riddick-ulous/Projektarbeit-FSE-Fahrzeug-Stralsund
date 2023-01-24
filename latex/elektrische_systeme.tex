@@ -166,7 +166,7 @@ In der Abbildung \ref{fig:amsbalancingschematic} ist der Balancing Aufbau der ei
 	\label{fig:hvindicatorschematic}
 \end{figure}
 
-Der \ac{HV} Indikator ist ein rotes Licht auf dem Akkumulator. Sofern an \ac{HV} Terminals des Akkus eine gefährliche Spannung liegt muss dieses Licht erleuchten und dem Bediener somit anzeigen das es z.b. nicht sicher ist den Akku vom Zwischenkreis zu trennen da dieser noch unter Spannung steht. Die Anzeige erfolgt über eine Rote LED wessen Licht mit einer Glasfaser von der Platine zum Deckel geleitet wird. Die Ansteuerung der LED erfolgt über einen kleinen DC Wandler, den Viper 06. Dieser Wandler verfügt über eine drain source startup voltage von 25-40V. Das bedeutet, bei einer Spannung in diesem Bereich beginnt der Chip zu arbeiten. Dieser Strom fließt dann zur LED, so das diese zu leuchten beginnt. Die Feedback Schaltung ist direkt an den Spannungsausgang gekoppelt so das wir die interne Spannungsreferenz von 3,2 V - 3,4 V nutzen. Die Vorwiederstände vor der LED sind dementsprechend ausgelegt.
+Der \ac{HV} Indikator ist ein rotes Licht auf dem Akkumulator. Sofern an \ac{HV} Terminals des Akkus eine gefährliche Spannung liegt muss dieses Licht erleuchten und dem Bediener somit anzeigen das es z.b. nicht sicher ist den Akku vom Zwischenkreis zu trennen da dieser noch unter Spannung steht. Die Anzeige erfolgt über eine Rote LED wessen Licht mit einer Glasfaser von der Platine zum Deckel geleitet wird. Die Ansteuerung der LED erfolgt über einen kleinen DC Wandler, den Viper 06. Dieser Wandler verfügt über eine drain source startup voltage von \ensuremath{25-40V} \cite{Viper06}. Das bedeutet, bei einer Spannung in diesem Bereich beginnt der Chip zu arbeiten. Dieser Strom fließt dann zur LED, so das diese zu leuchten beginnt. Die Feedback Schaltung ist direkt an den Spannungsausgang gekoppelt so das wir die interne Spannungsreferenz von \ensuremath{3,2 V - 3,4 V} nutzen. Die Vorwiederstände vor der LED sind dementsprechend ausgelegt.
 
 \FloatBarrier
 \subsubsection{\ac{HV} Messung}
@@ -191,7 +191,7 @@ Kern dieser Schaltung ist der ADUM 3190. Dabei handelt es sich um einen Iso-\acf
 \FloatBarrier
 \subsubsection{\acfirst{IMD} Monitoring}
 
-Bei dem \ac{IMD} handelt es sich um ein Bender Isometer IR155-320x. Dieses Isolationsmessgerät wird von der Formula Student empfohlen und wird den Teams in der Regel von dem Unternehmen kostenlos zur Verfügung gestellt.
+Bei dem \ac{IMD} handelt es sich um ein Bender Isometer IR155-320x \cite{ISOMETER IR155-3203/IR155-3204}. Dieses Isolationsmessgerät wird von der Formula Student empfohlen und wird den Teams in der Regel von dem Unternehmen kostenlos zur Verfügung gestellt.
 Das \ac{IMD} hat zwei Ausgänge die für die Auswertung des Messergebnisses relevant sind. Einmal ein digitales OK-HS-Signal und ein \acfirst{PWM}-Signal M\textsubscript{hs} oder M\textsubscript{ls} je nach Variante. Das OK-Signal gibt alle relevanten Informationen aus in der Form das es low geht wenn z.b ein Isolationsfehler oder ein Gerätefehler erkannt wurde. Das \ac{PWM}-Signal ermöglicht es z.b den Fehler weiter einzugrenzen oder den aktuellen Messwert auszugeben. Dementsprechend muss das OK-Signal rein analog den \acfirst{SDC} betätigen können während der \ac{PWM}-Ausgang nur als Informationsquelle  dient und an einen Mikrocontroller angeschlossen werden darf. 
 \\
 \\
@@ -222,7 +222,7 @@ Bei der Topologie des \ac{HV}-DC-DC-Wandlers handelt es sich um einen active cla
 	\label{fig:forwardconverter}
 \end{figure}
 
-Von der Firma Linear Technology existiert ein \acfirst{IC}, der LT 3752. Dieser \ac{IC} ist speziell für den Aufbau von Wandlern dieser Topologie gedacht. Weiter existiert die Demo Schaltung DC 1929A basierend auf diesem \ac{IC}. Hierbei handelt es sich um einen \ensuremath{400 V} zu \ensuremath{12 V} Wandler mit einer Ausgangsleistung von \ensuremath{200 W}. Das hier vorliegende Design wurde mithilfe des Datenblattes, des LT 3752, des LT 8311 und mithilfe der Schaltpläne als auch der Layout Dateien des DC 1929A erstellt.
+Von der Firma Linear Technology existiert ein \acfirst{IC}, der LT 3752 \cite{LT3752LT3752-1}. Dieser \ac{IC} ist speziell für den Aufbau von Wandlern dieser Topologie gedacht. Weiter existiert die Demo Schaltung DC 1929A \cite{DC1929A} basierend auf diesem \ac{IC}. Hierbei handelt es sich um einen \ensuremath{400 V} zu \ensuremath{12 V} Wandler mit einer Ausgangsleistung von \ensuremath{200 W}. Das hier vorliegende Design wurde mithilfe des Datenblattes, des LT 3752, des LT 8311 \cite{LT8311} und mithilfe der Schaltpläne als auch der Layout Dateien des DC 1929A erstellt.
 \\
 \\
 Zur Auflistung der Ausgangsparameter.
@@ -435,7 +435,7 @@ Bei der HV Distribution handelt es sich um eine Box welche mittig hinter dem Fah
 
 \FloatBarrier
 \subsection{\acfirst{TSMP}}
-Die \ac{TSMP} befinden sich seitlich am Fahrzeug wo auch der Hauptschalter zu finden ist. Sie stellen eine genormte Schnittstelle dar um mit einem Duspol, oder Multimeter an die Spannung des \ac{TS} gelangen zu können. Hierbei müssen laut Regelwerk geschirmte Bananenstecker eingesetzt werden. Weiter muss für die Buchsen am Fahrzeug eine Abdeckkappe oder Blindstecker vorgesehen werden. Zur Absicherung der \ac{TSMP} müssen diese mit Widerständen in Reihe an den \ac{HV}-Kreis angebunden werden. Das Regelwerk sieht hierbei in unserem Spannungsbereich \ensuremath{15k\Omega} vor. Der Kritische Wert wonach die \ac{TSMP} ausgelegt werden müssen ist das Leistungsrating, da diese auf kontinuierlichen Kurzschluss ausgelegt sein müssen.
+Die \ac{TSMP} befinden sich seitlich am Fahrzeug wo auch der Hauptschalter zu finden ist. Sie stellen eine genormte Schnittstelle dar um mit einem Duspol, oder Multimeter an die Spannung des \ac{TS} gelangen zu können. Hierbei müssen laut Regelwerk \cite{FSRules} geschirmte Bananenstecker eingesetzt werden. Weiter muss für die Buchsen am Fahrzeug eine Abdeckkappe oder Blindstecker vorgesehen werden. Zur Absicherung der \ac{TSMP} müssen diese mit Widerständen in Reihe an den \ac{HV}-Kreis angebunden werden. Das Regelwerk sieht hierbei in unserem Spannungsbereich \ensuremath{15k\Omega} vor. Der Kritische Wert wonach die \ac{TSMP} ausgelegt werden müssen ist das Leistungsrating, da diese auf kontinuierlichen Kurzschluss ausgelegt sein müssen.
 \\
 \\
 Eine Formel zu Berechnung der Leistung am Widerstand ist folgende.
@@ -503,7 +503,7 @@ Zur Auslegung von Schmitt-Triggern.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.5\linewidth]{bilder/Schmitt-trigger-diagramm.png}
-	\caption{Signal am Schmitt-Trigger}
+	\caption{Signal am Schmitt-Trigger \cite{Schmitt Trigger Mikrocontroller.net}}
 	\label{fig:schmitt-trigger-diagramm}
 \end{figure}
 
@@ -519,7 +519,7 @@ Die Funktionsweise eines Schmitt-Trigger kann anhand der Abbildung \ref{fig:schm
 \begin{figure}
 	\centering
 	\includegraphics[width=0.5\linewidth]{"bilder/nichtinvertierender Trigger"}
-	\caption{Topologie des nicht Invertierenden Schmitt-Trigger}
+	\caption{Topologie des nicht Invertierenden Schmitt-Trigger \cite{Schmitt Trigger Mikrocontroller.net}}
 	\label{fig:nichtinvertierender-trigger}
 \end{figure}
 
@@ -611,7 +611,7 @@ Mit Beispielhaften Auslegeparametern ergeben sich folgende Werte.
 Das  \ac{BSPD}-Sensorboard hat zum Zweck einen Stromsensor zu kreieren der ein Stromsignal von \ensuremath{0-100 A} in ein Spannungssignal von \ensuremath{0,5-4,5 V} über den Bereich von \ensuremath{0-10 A} zu erzeugen. Die \ensuremath{0.5 V} Offset haben zum Ziel eine Kurzschlusserkennung auf Masse als auch auf Versorgung zu ermöglichen. Der relevante Messbereich von \ensuremath{0-10 A} entsteht aus den Regelwerksanforderungen die vorgeben das der Fehlerzustand bei einer abgerufenen Leistung größer 5kW eingestellt werden muss, was bei \ensuremath{600 V} in einem Strom von \ensuremath{8,3 A} resultiert. Dieser Bereich muss möglichst robust ausgewertet werden können.
 \\
 \\
-Zur genauen Funktion. U1 ist ein Hall-Effekt Stromsensor mit einem Übersetzungsfaktor von 1000. Heißt \ensuremath{10 A} ergeben \ensuremath{10 mA} Stromfluss am Ausgang. Der Widerstand R2 ist so gewählt das bei einem Strom von \ensuremath{10 mA}, \ensuremath{5 V} über den Widerstand abfallen und wir so in den Messbereich kommen. Der Widerstand R1 ermöglicht nun das konstante einspeisen von ca. \ensuremath{0,5 V} und die Diode das Begrenzen der max. Spannung auf \ensuremath{4,5 V}.
+Zur genauen Funktion. U1 ist ein Hall-Effekt Stromsensor der Firma Vakuumschmelze mit einem Übersetzungsfaktor von 1000 \cite{T60404-N4646-X100}. Heißt \ensuremath{10 A} ergeben \ensuremath{10 mA} Stromfluss am Ausgang. Der Widerstand R2 ist so gewählt das bei einem Strom von \ensuremath{10 mA}, \ensuremath{5 V} über den Widerstand abfallen und wir so in den Messbereich kommen. Der Widerstand R1 ermöglicht nun das konstante einspeisen von ca. \ensuremath{0,5 V} und die Diode das Begrenzen der max. Spannung auf \ensuremath{4,5 V}.
 
 \begin{figure}
 	\centering
@@ -636,7 +636,7 @@ Dies kann mit Hilfe von \acfirst{PTC}-Widerständen geschehen. Das Regelwerk sie
 Die Ansteuerung erfolgt über den \ac{SDC} welcher über den Steckverbinder C2 eingebunden ist. Von dort wird der Optokoppler U1 bestromt. Dieser steuert Strom vom Gate des Mosfet`s Q1 weg Richtung \ac{TS}- so das der Mosfet öffnet. Wenn der \ac{SDC} geöffnet wird, steigt die Spannung am Gate auf \ensuremath{20 V} und der Mosfet steuert \ac{TS}+ auf \ac{TS}- über die \ac{PTC}-Widerstände durch. Dadurch wird die Spannung im Zwischenkreis in den \ac{PTC}-Elementen abgebaut.
 \\
 \\
-Die Formel für die Berechnung der \ac{PTC}-Elemente ist dem Datenblatt für die PTCEL Serie der Firma Vishay zu entnehmen.
+Die Formel für die Berechnung der \ac{PTC}-Elemente ist dem Datenblatt \cite{PTCManual} zu entnehmen.
 
 \begin{equation}
 	\label{eqn:PTC Berechnung}

@@ -1,0 +1,480 @@
+ <!DOCTYPE html>
+<html class="client-nojs" lang="de" dir="ltr">
+<head>
+<meta charset="UTF-8"/>
+<title>Schmitt-Trigger – Mikrocontroller.net</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":[",\t.",".\t,"],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","Januar","Februar","März","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember"],"wgRequestId":"5641186369daa09e5ab6f7c0","wgCSPNonce":false,"wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"Schmitt-Trigger","wgTitle":"Schmitt-Trigger","wgCurRevisionId":105295,"wgRevisionId":105295,"wgArticleId":1352,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Bauteile"],"wgPageContentLanguage":"de","wgPageContentModel":"wikitext","wgRelevantPageName":"Schmitt-Trigger","wgRelevantArticleId":1352,"wgIsProbablyEditable":false,"wgRelevantPageIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[],"wgSmjUseCdn":true,"wgSmjUseChem":true,
+"wgSmjDisplayMath":[],"wgSmjExtraInlineMath":[],"wgSmjScale":1,"wgSmjEnableMenu":true,"wgSmjDisplayAlign":"left"};RLSTATE={"site.styles":"ready","user.styles":"ready","user":"ready","user.options":"loading"};RLPAGEMODULES=["ext.SimpleMathJax","site","mediawiki.page.ready","mediawiki.toc"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.implement("user.options@1i9g4",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});});});</script>
+<script async="" src="/load.php?lang=de&amp;modules=startup&amp;only=scripts&amp;raw=1&amp;skin=mikrocontroller"></script>
+<meta name="ResourceLoaderDynamicStyles" content=""/>
+<link rel="stylesheet" href="/load.php?lang=de&amp;modules=site.styles&amp;only=styles&amp;skin=mikrocontroller"/>
+<meta name="generator" content="MediaWiki 1.38.5"/>
+<meta name="format-detection" content="telephone=no"/>
+<link rel="shortcut icon" href="/favicon.ico"/>
+<link rel="search" type="application/opensearchdescription+xml" href="/opensearch_desc.php" title="Mikrocontroller.net (de)"/>
+<link rel="EditURI" type="application/rsd+xml" href="https://www.mikrocontroller.net/api.php?action=rsd"/>
+<link rel="alternate" type="application/atom+xml" title="Atom-Feed für „Mikrocontroller.net“" href="/index.php?title=Spezial:Letzte_%C3%84nderungen&amp;feed=atom"/>
+ <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+<script>
+(window.RLQ=window.RLQ||[]).push(function(){
+  mw.loader.load( "/assets/application-f2d71c2ed1d24b78179ebccbebca165a3f880192fe2c70f36527daae948debb4.js" );
+});
+</script>
+<link rel="stylesheet" media="all" href="/assets/screen-b3e2163c0c02ee04ff7607e53cbc898e66ce9e5bd6159576f166ae976e5a5aa0.css" />
+<link rel="stylesheet" media="print" href="/assets/print-d245bf6f0a5fe74d9f377c2d91dcaf92e729af0ea914e45fe357de41f1118b55.css" />
+<script async='async' src='https://securepubads.g.doubleclick.net/tag/js/gpt.js'></script>
+<script>
+    var googletag = googletag || {};
+    googletag.cmd = googletag.cmd || [];
+    googletag.cmd.push(function () {
+        var mappingRightSidebar = googletag.sizeMapping().addSize([0, 0], [300, 250]).addSize([800, 600], [[300, 600], [300, 250], [160, 600]]).build();
+        var mappingLeftSidebar = googletag.sizeMapping().addSize([1250, 600], [[160, 600]]).build();
+        googletag.pubads().setForceSafeFrame(true);
+        googletag.pubads().setSafeFrameConfig({
+            allowOverlayExpansion: false,
+            allowPushExpansion: false,
+            sandbox: true
+        });
+        googletag.pubads().setPrivacySettings({
+            restrictDataProcessing: true,
+            nonPersonalizedAds: true
+        });
+        googletag.pubads().setTargeting("mikro-categories", []);
+        googletag.defineSlot('/62616433/Mikrocontroller_Right_Sidebar_1', [[160, 600], [300, 600], [300, 250]], 'div-gpt-ad-1549487225707-0').defineSizeMapping(mappingRightSidebar).addService(googletag.pubads());
+        googletag.defineSlot('/62616433/Mikrocontroller_Left_Sidebar_1', [160, 600], 'div-gpt-ad-1549567092597-0').defineSizeMapping(mappingLeftSidebar).addService(googletag.pubads());
+        googletag.pubads().enableSingleRequest();
+        googletag.pubads().collapseEmptyDivs();
+        googletag.enableServices();
+    });
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-80574-1"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+
+
+var gaProperty = 'UA-80574-1';
+
+gtag('set', 'ads_data_redaction', true);
+
+gtag('js', new Date());
+gtag('set', {
+  'dimension1': '',
+  'dimension2': 'Guest'
+});
+gtag('config', gaProperty, {
+  'anonymize_ip': true,
+  'allow_ad_personalization_signals': false,
+  'allow_google_signals': false
+});
+</script>
+
+
+
+
+</head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-Schmitt-Trigger rootpage-Schmitt-Trigger skin-mikrocontroller action-view">
+    <!--<script src="/javascripts/highlightCurrentLink.js"></script>-->
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <style>#nav-foren-sub {display: none;} </style>
+    <style>#nav-tutorial-sub {display: none;} </style>
+
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed main-menu-toggle" data-toggle="collapse" data-target="#main-nav-collapse" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <button type="button" class="navbar-toggle collapsed login-toggle" data-toggle="collapse" data-target="#login-nav-collapse" aria-expanded="false">
+                    <span class="glyphicon glyphicon-user"></span>
+                </button>
+                <button type="button" class="navbar-toggle collapsed search-toggle" data-toggle="collapse" data-target="" aria-expanded="false">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+                <h1>
+                    <a href="/" class="navbar-brand">
+                        <img src="/images/logo.svg" alt="mikrocontroller.net" class="logo" />
+                    </a>
+                </h1>
+                <div class="pull-left mobile-search">
+                    <form action="https://www.google.de/cse" class="navbar-form clearfix">
+                        <input type="hidden" name="cx" value="partner-pub-1202612203358489:jaffbdxotov"/>
+                        <input type="hidden" name="ie" value="UTF-8"/>
+                        <div class="form-group">
+                            <div class="input-group">
+                                <span class="input-group-addon search">
+                                    <i class="glyphicon glyphicon-search"></i>
+                                </span>
+                                <input name="q" type="text" class="form-control" placeholder="Suchen">
+                                <span class="input-group-addon close-search close-btn">
+                                    <i class="glyphicon glyphicon-remove"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="collapse navbar-collapse navbar-right" id="login-nav-collapse">
+                <ul class="nav navbar-nav hidden-lg visible-xs">
+                    <li>
+                        <a href="/user/login">Log in</a>
+                    </li>
+                    <li>
+                        <a href="/user/register">Join</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="collapse navbar-collapse navbar-right" id="main-nav-collapse">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/">Neuigkeiten</a>
+                    </li>
+                    <li class="dropdown main-menu-dropdown">
+                        <a href="/articles/Hauptseite" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Artikel
+                            <span class="glyphicon glyphicon-menu-down"></span></a>
+                        <div class="dropdown-menu">
+                            <div class="container">
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="/articles/AVR"><strong>AVR</strong></a>
+                                        <a href="/articles/AVR-Tutorial">AVR-Tutorial</a>
+                                        <a href="/articles/AVR-GCC-Tutorial">AVR-GCC-Tutorial</a>
+                                    </li>
+                                    <li>
+                                        <a href="/articles/ARM"><strong>ARM</strong></a>
+                                        <a href="/articles/LPC-Mikrocontroller">LPC</a>
+                                        <a href="/articles/STM32">STM32</a>
+                                        <a href="/articles/Infineon_XMC">XMC</a>
+                                    </li>
+                                    <li>
+                                        <a href="/articles/MSP430"><strong>MSP430</strong></a>
+                                    </li>
+                                    <li>
+                                        <a href="/articles/PIC"><strong>PIC</strong></a>
+                                    </li>
+                                    <li>
+                                        <a href="/articles/Programmierbare_Logik"><strong>FPGA, CPLD & Co.</strong></a>
+                                        <a href="/articles/FPGA">Grundlagen zu FPGAs</a>
+                                        <a href="/articles/Hardwarebeschreibungssprachen/">VHDL & Co.</a>
+                                        <a href="/articles/Xilinx_ISE">Xilinx ISE</a>
+                                    </li>
+                                    <li>
+                                        <a href="/articles/Digitale_Signalverarbeitung"><strong>DSP</strong></a>
+                                    </li>
+                                    <li>
+                                        <a href="/articles/Elektronik_Allgemein"><strong>Elektronik allgemein</strong></a>
+                                        <a href="/articles/SMD_L%C3%B6ten">SMD Löten</a>
+                                        <a href="/articles/Operationsverst%C3%A4rker-Grundschaltungen">Operationsverstärker</a>
+                                        <a href="/articles/Oszilloskop">Oszilloskop</a>
+                                    </li>
+                                    <li>
+                                        <a href="/articles/Hauptseite"><strong>Artikelübersicht
+</strong></a>
+                                    </li>
+                                    <li>
+                                        <a href="/articles/Spezial:Recentchanges"><strong>Letzte Änderungen</strong></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="dropdown main-menu-dropdown open-xs">
+                        <a href="/forum/all" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Forum
+                            <span class="glyphicon glyphicon-menu-down"></span></a>
+                        <div class="dropdown-menu">
+                            <div class="container">
+                                <ul class="sub-menu">
+                                    <li>
+                                        <a href="/forum/all"><i class='icons mikro-all'></i> Beitr&auml;ge in allen Foren</a>
+                                    </li>
+                                    <li>
+                                        <a href="/forum/mikrocontroller-elektronik"><i class='icons mikro-mikrocontroller-elektronik'></i> µC &amp; Elektronik</a>
+                                    </li>
+                                    <li>
+                                        <a href="/forum/analogtechnik"><i class='icons mikro-analogtechnik'></i> Analogtechnik</a>
+                                    </li>
+                                    <li>
+                                        <a href="/forum/fpga-vhdl-cpld"><i class='icons mikro-fpga-vhdl-cpld'></i> FPGA, VHDL &amp; Co.</a>
+                                    </li>
+                                    <li>
+                                        <a href="/forum/dsp"><i class='icons mikro-dsp'></i> DSP</a>
+                                    </li>
+                                    <li>
+                                        <a href="/forum/gcc"><i class='icons mikro-gcc'></i>Compiler &amp; IDEs</a>
+                                    </li>
+                                    <li>
+                                        <a href="/forum/codesammlung"><i class='icons mikro-codesammlung'></i>Projekte &amp; Code</a>
+                                    </li>
+                                    <li>
+                                        <a href="/forum/markt"><i class='icons mikro-markt'></i>Markt</a>
+                                    </li>
+                                    <li>
+                                        <a href="/forum/platinen"><i class='icons mikro-platinen'></i>Platinen</a>
+                                    </li>
+                                    <li>
+                                        <a href="/forum/mechanik"><i class='icons mikro-mechanik'></i>Mechanik & Werkzeug</a>
+                                    </li>
+                                    <li>
+                                        <a href="/forum/hf"><i class='icons mikro-hf'></i>HF, Funk &amp; Felder</a>
+                                    </li>
+                                    <li>
+                                        <a href="/forum/fahrzeugelektronik"><i class='icons mikro-fahrzeugelektronik'></i>Fahrzeugelektronik</a>
+                                    </li>
+                                    <li>
+                                        <a href="/forum/hausbus"><i class='icons mikro-hausbus'></i>Haus &amp; Smart Home</a>
+                                    </li>
+                                    <li>
+                                        <a href="/forum/pc-programmierung"><i class='icons mikro-pc-programmierung'></i>PC-Programmierung</a>
+                                    </li>
+                                    <li>
+                                        <a href="/forum/pc-hardware-software"><i class='icons mikro-pc-hardware-software'></i>PC Hard- &amp; Software</a>
+                                    </li>
+                                    <li>
+                                        <a href="/forum/ausbildung-studium-beruf"><i class='icons mikro-ausbildung-studium-beruf'></i>Ausbildung &amp; Beruf</a>
+                                    </li>
+                                    <li>
+                                        <a href="/forum/offtopic"><i class='icons mikro-offtopic'></i>Offtopic</a>
+                                    </li>
+                                    <li>
+                                        <a href="/forum/website"><i class='icons mikro-website'></i>Webseite</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <form action="https://www.google.de/cse" class="navbar-form navbar-left clearfix hidden-xs" id="cse-search-box">
+                    <input type="hidden" name="cx" value="partner-pub-1202612203358489:jaffbdxotov"/>
+                    <input type="hidden" name="ie" value="UTF-8"/>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <input name="q" type="text" class="form-control" placeholder="Suchen">
+                            <span class="input-group-addon">
+                                <i class="glyphicon glyphicon-search"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <a href="/user/login">
+                        <button type="button" class="btn btn-default login-btn">Login</button>
+                    </a>
+                </form>
+            </div>
+        </div>
+    </nav>
+</header>
+
+	<div id="outer-container">
+    <div id="globalWrapper">
+  <table id="twocolumns">
+  <tr>
+  <td id="sidebar-left" class="sidebar">
+  <!-- google_ad_section_start(weight=ignore) -->
+
+<script>
+<!--
+    function toggle_visibility(id) {
+       var e = document.getElementById(id);
+       if(e.style.display == 'block')
+          e.style.display = 'none';
+       else
+          e.style.display = 'block';
+    }
+//-->
+</script>
+
+	<div id="p-cactions" class="portlet">
+	  <h5><a href="#toggle" onclick="javascript:toggle_visibility('p-cactions-box'); return false;" >&#9654; Dieser Artikel</a></h5>
+	  <div class="box" id="p-cactions-box">
+      <ul>
+	    <li id="ca-nstab-main"
+	       class="selected"	       ><a href="/articles/Schmitt-Trigger">Seite</a></li><li id="ca-talk"
+	       	       ><a href="/articles/Diskussion:Schmitt-Trigger">Diskussion</a></li><li id="ca-viewsource"
+	       	       ><a href="/index.php?title=Schmitt-Trigger&amp;action=edit">Quelltext anzeigen</a></li><li id="ca-history"
+	       	       ><a href="/index.php?title=Schmitt-Trigger&amp;action=history">Versionsgeschichte</a></li>  	  </ul>
+    </div>
+	</div>
+	<div class="portlet" id="p-personal">
+	  <h5><a href="#toggle" onclick="javascript:toggle_visibility('p-personal-box'); return false;">&#9654; Benutzer</a></h5>
+	  <div class="box" id="p-personal-box">
+	    <ul>
+	    <li id="pt-createaccount"><a href="/index.php?title=Spezial:Benutzerkonto_anlegen&amp;returnto=Schmitt-Trigger">Benutzerkonto erstellen</a></li><li id="pt-login"><a href="/index.php?title=Spezial:Anmelden&amp;returnto=Schmitt-Trigger">Anmelden</a></li>	    </ul>
+	  </div>
+	</div>
+  <!-- LOGO
+	<div class="portlet" id="p-logo">
+	  <a style="background-image: url(/resources/assets/change-your-logo.svg);"
+	    href="/articles/Hauptseite"
+	    title="Hauptseite"></a>
+	</div>
+  -->
+	<div id="p-search" class="portlet">
+	  <h5><a href="#toggle" onclick="javascript:toggle_visibility('p-search-box'); return false;">&#9654; Suche</a></h5>
+	  <div class="box" id="p-search-box">
+	    <form name="searchform" action="/articles/Spezial:Suche" id="searchform">
+	      <input id="searchInputX" name="search" type="text" accesskey="f" value="" /><br />
+	      <input type='submit' name="go" class="searchButton"
+	        value="Ausführen"
+	        />&nbsp;<input type='submit' name="fulltext"
+	        class="searchButton"
+	        value="Suche" />
+	    </form>
+	  </div>
+	</div>
+	<div class="portlet" id="p-tb">
+	  <h5><a href="#toggle" onclick="javascript:toggle_visibility('p-tb-box'); return false;">&#9654; Werkzeuge</a></h5>
+	    <div class="box" id="p-tb-box">
+      <ul>
+		  		  <li id="t-whatlinkshere"><a href="/articles/Spezial:Linkliste/Schmitt-Trigger">Links auf diese Seite</a></li>
+		  		  <li id="t-recentchangeslinked"><a href="/articles/Spezial:%C3%84nderungen_an_verlinkten_Seiten/Schmitt-Trigger">Änderungen an verlinkten Seiten</a></li>
+		  	      	      	      	      	      	      	      	      	      <li id="t-specialpages"><a href="/articles/Spezial:Spezialseiten">Spezialseiten</a></li>	      	    </ul>
+      </div>
+	</div>
+  <!-- google_ad_section_end -->
+  
+  <!-- start adsense -->
+    <!-- end adsense -->
+  
+      </td><!-- end of the left (by default at least) column -->
+  <td id="main"><div id="container">
+    <!-- google_ad_section_start -->
+    <a name="top" id="contentTop"></a>
+    		<div id="content">
+    <h1 class="firstHeading">Schmitt-Trigger</h1>
+            <!-- tagline -->
+      <div id="siteSub">Aus der Mikrocontroller.net Artikelsammlung, mit Beiträgen verschiedener Autoren (siehe Versionsgeschichte)</div>
+      <!-- /tagline -->
+      
+    <div id="bodyContent">
+			<!-- subtitle -->
+			<div id="contentSub"></div>
+			<!-- /subtitle -->
+												<!-- jumpto -->
+			<div id="jump-to-nav" class="mw-jump">
+				Wechseln zu:				<a href="#mw-navigation">Navigation</a>, 				<a href="#p-search">Suche</a>
+			</div>
+			<!-- /jumpto -->
+						<!-- bodycontent -->
+			<div id="mw-content-text" class="mw-body-content mw-content-ltr" lang="de" dir="ltr"><div class="mw-parser-output"><div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" /><div class="toctitle" lang="de" dir="ltr"><h2 id="mw-toc-heading">Inhaltsverzeichnis</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1 tocsection-1"><a href="#Einleitung"><span class="tocnumber">1</span> <span class="toctext">Einleitung</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="#Integrierte_Schmitt-Trigger"><span class="tocnumber">2</span> <span class="toctext">Integrierte Schmitt-Trigger</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="#Schmitt-Trigger_mit_Operationsverstärker_oder_Komparator"><span class="tocnumber">3</span> <span class="toctext">Schmitt-Trigger mit Operationsverstärker oder Komparator</span></a>
+<ul>
+<li class="toclevel-2 tocsection-4"><a href="#Nichtinvertierender_Schmitt-Trigger"><span class="tocnumber">3.1</span> <span class="toctext">Nichtinvertierender Schmitt-Trigger</span></a></li>
+<li class="toclevel-2 tocsection-5"><a href="#Invertierender_Schmitt-Trigger"><span class="tocnumber">3.2</span> <span class="toctext">Invertierender Schmitt-Trigger</span></a></li>
+</ul>
+</li>
+<li class="toclevel-1 tocsection-6"><a href="#Siehe_auch"><span class="tocnumber">4</span> <span class="toctext">Siehe auch</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="Einleitung">Einleitung</span></h2>
+<p>Der Schmitt-Trigger bezeichnet eine elementare <a href="/articles/Komparator" title="Komparator">Komparatorschaltung</a> der Elektrotechnik, welche es ermöglicht den <b>einen Spannungspegel</b> für das Umschalten zu <i>High 1</i> und zu <i>Low 0</i>, in <b>zwei gegeneinander verschobene Schaltschwellen</b> zu separieren. Der damit entstandene Spannungsbereich zwischen den neuen Schaltschwellen, führt zu einer <i>Hysterese</i>. 
+Ein Schmitt-Trigger ist an vielen Eingängen von Mikrochips zu finden. Die Schaltung besitzt einen Eingang und einen Ausgang und liefert abhängig vom Eingangspegel und dessen Verlauf immer einen wohl definierten Ausgangspegel. Dabei gilt stets:
+</p>
+<div class="thumb tright"><div class="thumbinner" style="width:300px;"><a href="/articles/Datei:Schmitt-trigger-diagramm.png" class="image"><img alt="" src="https://www.mikrocontroller.net/wikifiles/5/57/Schmitt-trigger-diagramm.png" decoding="async" width="298" height="199" class="thumbimage" /></a>  <div class="thumbcaption"><div class="magnify"><a href="/articles/Datei:Schmitt-trigger-diagramm.png" class="internal" title="vergrößern"></a></div>Beispiel</div></div></div>
+<ul><li>Am Ausgang liegt HIGH an, wenn der Pegel am Eingang eine Spannung U<sub>H</sub> <b>über</b>schreitet.</li>
+<li>Am Ausgang liegt LOW an, wenn der Pegel am Eingang eine Spannung U<sub>L</sub> <b>unter</b>schreitet.</li>
+<li>Dabei wird der bisherige Ausgangspegel aufrechterhalten, wenn sich der Eingangspegel zwischen U<sub>L</sub> und U<sub>H</sub> befindet (Hysterese)</li>
+<li>Der Übergang von LOW auf HIGH bzw. von HIGH auf LOW erfolgt stets mit steiler Flanke.</li></ul>
+<p>Es ist demnach von Relevanz aus welcher Richtung das Signal kommt, wenn dessen Pegel in den Mittenbereich gerät. Durch die Hysterese ist sichergestellt, dass es im Grenzbereich nicht zu einem flatternden Umschalten kommen kann. Dieses Verhalten wird in der Praxis beispielsweise ausgenutzt, um ein verrauschtes Digitalsignal wieder "aufzufrischen" indem verhindert wird, dass kleine Signalschwankungen zu einem Umschalten und einem quasi Prellen des Ausgangs führen.
+</p><p>Der Hysteresebereich ist vergleichsweise eng begrenzt und kann nur eine definiertes Schwankungsbreite abfangen. Daher <b>müssen</b> mechanische Taster bzw. Relaiskontakte zusätzlich <a href="/articles/Entprellung" title="Entprellung">entprellt</a> werden, wenn sie digitale ICs ansteuern sollen. Dies gilt gerade bei einer Generierung von sauberen Taktsignalen. Dafür wird gerne ein <a href="/articles/Filter" title="Filter">Tiefpassfilter</a> verwendet, welcher das Schaltsignal vor dem Schmitt-Trigger Eingang filtert, wodurch unerwünschte Prellimpulse mit hoher Amplitude entfernt werden und das Nutzsignal klarer definiert ist. Das Ziel wäre in diesem Fall die Reduzierung der Amplitudenschwankung auf den Bereich, den der Schmitttrigger noch verarbeiten kann. Idealerweise liegt der Prellbereich deutlich ober- oder unterhalb des Hysteresebereiches. Dies lässt sich dadurch erreichen, dass die Entprellschaltung eine Diode über dem Ladekondensator hat, welche diesen in einer Richtung schneller entlädt, als in der anderen.
+</p><p><br clear="all" />
+</p>
+<h2><span class="mw-headline" id="Integrierte_Schmitt-Trigger">Integrierte Schmitt-Trigger</span></h2>
+<p>Es existieren fertige ICs mit Schmitt-Trigger-Funktionalität. In der 74xx-Reihe ist das beispielsweise der 74xx14, weitere Typen sind im Artikel <a href="/articles/74xx" title="74xx">74xx</a> aufgeführt. In der 4000er-Serie gibt es die Typen 4093 und 40106. Viele Mikrocontroller wie z.&#160;B. der <a href="/articles/AVR" title="AVR">AVR</a> haben bereits Schmitt-Trigger Eingänge, sodass nur noch die beiden Widerstände und der Kondensator benötigt werden. Der Vorteil dieser Schmitt-Trigger ist, daß sie ohne weitere Beschaltung direkt nutzbar und auch sehr schnell sind. Der Nachteil sind die eher ungenauen Schaltschwellen. Manchmal kann man auch einen Schmitt-Trigger aus einem überzähligem, nicht invertierendem Gatter bauen. 
+</p>
+<div class="thumb tleft"><div class="thumbinner" style="width:660px;"><a href="/articles/Datei:Taster_entprellen.png" class="image"><img alt="" src="https://www.mikrocontroller.net/wikifiles/d/d0/Taster_entprellen.png" decoding="async" width="658" height="272" class="thumbimage" /></a>  <div class="thumbcaption"><b>Taster entprellen mit 74HC14</b></div></div></div>
+<p><br clear="all" />
+</p>
+<ul><li><a class="external text" href="https://www.mikrocontroller.net/topic/443055#5276718">Forumsbeitrag</a>: Klassischer Pulsverdoppler mit XOR-Gatter und RC-Glied + Schmitt-Trigger</li></ul>
+<h2><span id="Schmitt-Trigger_mit_Operationsverst.C3.A4rker_oder_Komparator"></span><span class="mw-headline" id="Schmitt-Trigger_mit_Operationsverstärker_oder_Komparator">Schmitt-Trigger mit Operationsverstärker oder Komparator</span></h2>
+<p>Ein Schmitt-Trigger lässt sich auch mit Hilfe eines <a href="/articles/Operationsverst%C3%A4rker-Grundschaltungen" title="Operationsverstärker-Grundschaltungen">Operationsverstärkers</a> oder besser eines <a href="/articles/Komparator" title="Komparator">Komparators</a> aufbauen. Komparatoren sind im Vergleich zu OPVs deutlich schneller. Man sollte sie immer nur als Komparatoren benutzen und nicht als lineare Verstärker. OPVs sollte man nur als Komparatoren beschalten, wenn es nicht um höchste Schaltgeschwindigkeiten geht.
+</p>
+<h3><span class="mw-headline" id="Nichtinvertierender_Schmitt-Trigger">Nichtinvertierender Schmitt-Trigger</span></h3>
+<div class="thumb tright"><div class="thumbinner" style="width:452px;"><a href="/articles/Datei:St_generic.png" class="image"><img alt="" src="https://www.mikrocontroller.net/wikifiles/f/f4/St_generic.png" decoding="async" width="450" height="201" class="thumbimage" /></a>  <div class="thumbcaption">Nichtinvertierender Schmitt-Trigger</div></div></div>
+<p>Am - Eingang des OPV wird die Referenzspannung angelegt. Achtung! Diese liegt im allgemeinen NICHT mittig zwischen den beiden Schaltschwellen. R2 sorgt für die Mitkopplung und damit für die Hysterese. Über das Verhältnis von R1/R2 wird die Hysteresebreite festgelegt. Wird also U<sub>H</sub> am Eingang überschritten, geht der Operationsverstärker in die positive Sättigung U<sub>HA</sub>, wird U<sub>L</sub> unterschritten, geht er in die negative Sättigung U<sub>LA</sub>.
+</p><p><span style="opacity:.5">[math]\displaystyle{ U_{ref}=U_{LA} + (U_H - U_{LA} ) \frac{R_2}{R_1 + R_2} }[/math]</span>
+</p><p><span style="opacity:.5">[math]\displaystyle{ U_{ref}=U_{L} + (U_{HA}-U_L) \frac{R_1}{R_1 + R_2} }[/math]</span>
+</p><p>Durch Gleichsetzen und Umformen der beiden Gleichungen kann man R2 berechnen, wobei R1 vorher festgelegt werden muss.
+</p><p><span style="opacity:.5">[math]\displaystyle{ R_2=R_1 \cdot \frac{U_{HA}-U_{LA}}{U_H - U_L} }[/math]</span>
+</p><p>Durch Einsetzen in die 1. oder 2. Gleichung kann man abschließend U<sub>ref</sub> berechnen. Die Referenzspannung kann man direkt aus einer <a href="/articles/Standardbauelemente#Shuntregler/Spannungsreferenz" title="Standardbauelemente"> Spannungsreferenz</a> oder mit einem einfachen <a href="/articles/Spannungsteiler" title="Spannungsteiler">Spannungsteiler</a> aus der Betriebsspannung generieren. Bei der Berechung des Spannungsteilers zur Referenzspannungserzeugung kann man einen der Widerstände frei wählen. Alle Berechnungen können mit dieser einfachen <a href="https://www.mikrocontroller.net/wikifiles/2/20/Schmitt-trigger.xls" class="internal" title="Schmitt-trigger.xls"> Exceltabelle</a> durchgeführt werden.
+</p>
+<h3><span class="mw-headline" id="Invertierender_Schmitt-Trigger">Invertierender Schmitt-Trigger</span></h3>
+<div class="thumb tright"><div class="thumbinner" style="width:293px;"><a href="/articles/Datei:St_generic_inv.png" class="image"><img alt="" src="https://www.mikrocontroller.net/wikifiles/1/12/St_generic_inv.png" decoding="async" width="291" height="281" class="thumbimage" /></a>  <div class="thumbcaption">Invertierender Schmitt-Trigger</div></div></div>
+<p>Durch einfaches Vertauschen von Uein und Uref kann die Schaltung invertierend arbeiten. Dabei ändern sich allerdings die Formeln zur Berechnung der Widerstände bzw. der Referenzspannung. Dafür gelten 2 Formeln.
+</p><p><span style="opacity:.5">[math]\displaystyle{ U_H=U_{ref} + (U_{HA}-U_{ref}) \frac{R_1}{R_1 + R_2} }[/math]</span>
+</p><p><span style="opacity:.5">[math]\displaystyle{ U_L=U_{ref} - (U_{ref}-U_{LA}) \frac{R_1}{R_1 + R_2} }[/math]</span>
+</p><p>Durch Umformen und Einsetzen erhält man:
+</p><p><span style="opacity:.5">[math]\displaystyle{ R_2=R_1 \frac{U_H-U_{HA}-U_L+U_{LA}}{U_L-U_H} }[/math]</span>
+</p><p><a href="/articles/Datei:Uref.jpg" class="image"><img alt="Uref.jpg" src="https://www.mikrocontroller.net/wikifiles/f/f3/Uref.jpg" decoding="async" width="351" height="157" /></a>
+</p><p>Bei der Berechung des Spannungsteilers zur Erzeugung der Referenzspannung kann man keinen der Widerstände R3 und R4 frei wählen (welche zusammen R1 ersetzen), sie berechnen sich direkt aus R1 und den anderen Eingangsparametern, abgeleitet aus den beiden Formeln.
+</p><p><span style="opacity:.5">[math]\displaystyle{ R_{1}= R3//R4 = \frac{R_3 \cdot R_4}{R_3 + R_4} }[/math]</span>
+</p><p><span style="opacity:.5">[math]\displaystyle{ U_{ref}= V_{CC} \frac{R_3}{R_3 + R_4} }[/math]</span>
+</p><p>Durch Umformen und Einsetzen erhält man: 
+</p><p><span style="opacity:.5">[math]\displaystyle{ R_{4}= R_1 \cdot \frac{V_{CC}}{U_{ref}} }[/math]</span>
+</p><p><span style="opacity:.5">[math]\displaystyle{ R_{3}= R_4 \cdot \frac{U_{ref}}{V_{CC} - U_{ref}} }[/math]</span>
+</p><p>Auch diese Berechungen sind in der <a href="https://www.mikrocontroller.net/wikifiles/2/20/Schmitt-trigger.xls" class="internal" title="Schmitt-trigger.xls"> Exceltabelle</a> verfügbar.
+</p>
+<h2><span class="mw-headline" id="Siehe_auch">Siehe auch</span></h2>
+<ul><li><a class="external text" href="https://www.mikrocontroller.net/topic/291159#3099524">Forumsbeitrag</a>: OP als Schmitt Trigger</li></ul>
+<!-- 
+NewPP limit report
+Cached time: 20230124130118
+Cache expiry: 86400
+Reduced expiry: false
+Complications: []
+CPU time usage: 0.031 seconds
+Real time usage: 0.063 seconds
+Preprocessor visited node count: 85/1000000
+Post‐expand include size: 0/2097152 bytes
+Template argument size: 0/2097152 bytes
+Highest expansion depth: 2/100
+Expensive parser function count: 0/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 1090/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%    0.000      1 -total
+-->
+
+<!-- Saved in parser cache with key uc_wiki:pcache:idhash:1352-0!canonical and timestamp 20230124130117 and revision id 105295. Serialized with JSON.
+ -->
+</div></div>			<!-- /bodycontent -->
+						<!-- printfooter -->
+			<div class="printfooter">
+			Abgerufen von „<a dir="ltr" href="https://www.mikrocontroller.net/index.php?title=Schmitt-Trigger&amp;oldid=105295">https://www.mikrocontroller.net/index.php?title=Schmitt-Trigger&amp;oldid=105295</a>“			</div>
+			<!-- /printfooter -->
+									<!-- catlinks -->
+			<div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="/articles/Spezial:Kategorien" title="Spezial:Kategorien">Kategorie</a>: <ul><li><a href="/articles/Kategorie:Bauteile" title="Kategorie:Bauteile">Bauteile</a></li></ul></div></div>			<!-- /catlinks -->
+									<div class="visualClear"></div>
+			<!-- debughtml -->
+						<!-- /debughtml -->
+
+      <div class="visualClear"></div>
+    </div>
+	</div>
+  </div></td>
+  <!-- google_ad_section_end -->
+      </tr>
+      </table>
+      <!--
+      <div class="visualClear"></div>
+      <div id="footer" style="clear:both">
+    <div id="f-poweredbyico"><a href="https://www.mediawiki.org/"><img src="/resources/assets/poweredby_mediawiki_88x31.png" srcset="/resources/assets/poweredby_mediawiki_132x47.png 1.5x, /resources/assets/poweredby_mediawiki_176x62.png 2x" height="31" width="88" alt="Powered by MediaWiki" loading="lazy" /></a></div>		<ul id="f-list">
+	  <li id="f-lastmod"> Diese Seite wurde zuletzt am 4. Juli 2022 um 20:48 Uhr bearbeitet.</li>	  	  	  	  <li id="f-about"><a href="/articles/Mikrocontroller.net:%C3%9Cber_Mikrocontroller.net" title="Mikrocontroller.net:Über Mikrocontroller.net">Über Mikrocontroller.net</a></li>	  <li id="f-disclaimer"><a href="/articles/Mikrocontroller.net:Impressum" title="Mikrocontroller.net:Impressum">Haftungsausschluss</a></li>	</ul>
+      </div>-->
+    </div>
+
+<script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgPageParseReport":{"limitreport":{"cputime":"0.031","walltime":"0.063","ppvisitednodes":{"value":85,"limit":1000000},"postexpandincludesize":{"value":0,"limit":2097152},"templateargumentsize":{"value":0,"limit":2097152},"expansiondepth":{"value":2,"limit":100},"expensivefunctioncount":{"value":0,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":1090,"limit":5000000},"timingprofile":["100.00%    0.000      1 -total"]},"cachereport":{"timestamp":"20230124130118","ttl":86400,"transientcontent":false}}});mw.config.set({"wgBackendResponseTime":165});});</script></div>
+
+  </body>
+</html>

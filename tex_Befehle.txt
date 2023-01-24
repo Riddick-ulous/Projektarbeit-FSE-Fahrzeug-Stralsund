@@ -9,28 +9,40 @@ Abkürzungen
 Verweise
 \ref{"label"}
 
-Notizen Projektarbeit
+Notizen Projektarbeit:
 
-Große schaltpläne in den anhang (alles weitere zuschneiden)
 Quellen wie einfügen
 
-handbuch emrax 208 in anhang (Kabelquerschnitt nach VDE)
-
-schriftart kabel farbtabelle
-überschneidung text mit tabelle (Kabelfarbtabelle)
+zweiten acfirst fsg entfernen
 
 strukturierung des Anhangs
 Alle schaltpläne
 Excel dateien
 ESF (als Pdf)
-
-
-zweiten acfirst fsg entfernen
-
-
+Große schaltpläne in den anhang (alles weitere zuschneiden)
 Zusatzschaltpläne welche nicht oder nur Auschnitsweise behandlet wurden.
 sowas wie schaltpläne ganzseitig anhängen
+handbuch emrax 208 in anhang (Kabelquerschnitt nach VDE)
 
-\ensuremath für alle in text einheiten
+NTC teil fixen (chip von leon)
+Besseren schaltplan erstellen (nicos Bild)
 
-Spannung ist U nicht V 
+Nice to Have
+Druckverlust rohrberechung
+
+HVDCDC kapitel endet abrupt
+
+Packagin kapitel
+
+schriftart kabel farbtabelle(Problem)
+überschneidung text mit tabelle (Kabelfarbtabelle)
+
+danksagung in separates kapitel
+
+cite kabeldimensionierung
+
+hanbücher zitieren, (DTI500) Emrax 208 Ladegerät, LTC hvdcdc, 
+
+°zeichen in esnuremath finzt net
+
+Umrichter Vergleich

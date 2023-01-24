@@ -94,7 +94,7 @@ Dies ergibt mit unserem Modell eine Reduktion auf \ensuremath{26,46 \%} der vorh
 
 \FloatBarrier
 \subsection{Lüfter}
-Für die Auslegung des Lüfters wurde von der Aerodynamik Abteilung vorgegeben das man die Abluft des Systems nutzen möchte um das Strömungsprofil am Diffusor zu beeinflussen. Hierfür mussten Strömungsgeschwindigkeiten im Bereich der \ensuremath{80-90 km/h} am Auslass erreicht werden. Für den Lüfter wurde auch in den letzten Jahren am Verbrenner ein Drohnennmotor mit Propeller und externer Ansteuerung verwendet, da dies deutlich leichter ist als eine fertige Einheit. In diesem Zuge sollten Volumenstrom und Ausgangsgeschwindigkeiten für verschiedene Konzepte berechnet werden können. Aufgrund der Größe des Kühlers kamen nur \ensuremath{4 Zoll} oder kleiner Propeller in Frage. Weiterhin ist die Fragestellung aufgekommen ob ein Propeller ausgelegt für Freiströmung sinnvoll vor einem Lamellen-Kreuzstrom-Wärmeübertrager einzusetzen ist. Hierfür wurde zum Vergleich ein Lüfter von der Firma EBM-Papst beschafft um die Leistungsdaten schlussendlich vergleichen zu können.\\
+Für die Auslegung des Lüfters wurde von der Aerodynamik Abteilung vorgegeben das man die Abluft des Systems nutzen möchte um das Strömungsprofil am Diffusor zu beeinflussen. Hierfür mussten Strömungsgeschwindigkeiten im Bereich der \ensuremath{80-90 km/h} am Auslass erreicht werden. Für den Lüfter wurde auch in den letzten Jahren am Verbrenner ein Drohnennmotor mit Propeller und externer Ansteuerung verwendet, da dies deutlich leichter ist als eine fertige Einheit. In diesem Zuge sollten Volumenstrom und Ausgangsgeschwindigkeiten für verschiedene Konzepte berechnet werden können. Aufgrund der Größe des Kühlers kamen nur \ensuremath{4 Zoll} oder kleiner Propeller in Frage. Weiterhin ist die Fragestellung aufgekommen ob ein Propeller ausgelegt für Freiströmung sinnvoll vor einem Lamellen-Kreuzstrom-Wärmeübertrager einzusetzen ist. Hierfür wurde zum Vergleich ein Lüfter von der Firma EBM-Papst \cite{3214JH4Datenblatt} beschafft um die Leistungsdaten schlussendlich vergleichen zu können.\\
 \\
 Für Drohnenmotoren sind in der Regel Daten für Schubkraft und Leistung verfügbar. Dies Lässt sich mit Hilfe des 2. Newtonschen Gesetztes, dem Impulssatz, umrechnen. Wir nehmen dabei an das unser Fahrzeug still steht. Dies führt zu folgender Gleichung.
 
@@ -223,15 +223,15 @@ Laut EBM Papst liegen die zu erwartende Effizienzen bei einem Axialgebläse im B
 
 Für die Auslegung des Wasserkreislaufes sind die Druckabfälle der Einzelsysteme relevant, zur Referenz die Systemübersicht \ref{abb:Coolingssystem}\\
 \\
-Des weiteren sind für die Betrachtung weitere Parameter relevant. Laut Motorhersteller liegt der optimale Wasservolumenstrom bei  \ensuremath{6-8l/min}. Aus der Vorhergehenden Betrachtung geht hervor das die umzusetzende Wärmeleistung bei \ensuremath{5364 W} liegt. Der angepeilte Luftvolumenstrom durch einen Kühler beläuft sich auf \ensuremath{756 m^3/h}.\\
+Des weiteren sind für die Betrachtung weitere Parameter relevant. Laut Motorhersteller \cite{Manual Emrax208} liegt der optimale Wasservolumenstrom bei  \ensuremath{6-8l/min}. Aus der Vorhergehenden Betrachtung geht hervor das die umzusetzende Wärmeleistung bei \ensuremath{5364 W} liegt. Der angepeilte Luftvolumenstrom durch einen Kühler beläuft sich auf \ensuremath{756 m^3/h}.\\
 \\
-Mit den folgenden beiden Diagrammen \ref{fig:elwleistung-uber-volumenstrom} und \ref{fig:elw-druckabfall-uber-volumenstrom} der Schwämmle GmbH\&Co. KG aus dem Leistungsdatenblatt für die ELW Serie lässt sich der Druckabfall über den Radiator bestimmen.
+Mit den folgenden beiden Diagrammen \ref{fig:elwleistung-uber-volumenstrom} und \ref{fig:elw-druckabfall-uber-volumenstrom} aus dem Leistungsdatenblatt für die ELW-Serie, einem in der Bauart ähnlichen Wärmeübertrager, lässt sich der Druckabfall über den Radiator bestimmen.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{"bilder/ELW_Leistung über Volumenstrom"}
 	\caption{}
-	\label{fig:elwleistung-uber-volumenstrom}
+	\label{fig:elwleistung-uber-volumenstrom \cite{DatenblattELW}}
 \end{figure}
 
 Unser angestrebter Radiator entspricht mit seiner Netzfläche am ehesten dem ELW3. Dies würde bei den bisher bekannten Betriebsdaten zu eine Kühlleistung von \ensuremath{90 W/K} oder auch \ensuremath{2700 W} führen. Oder bei zwei Einheiten zu \ensuremath{5400 W}. Dies ist sehr nah an der angestrebten Wärmeleistung.
@@ -240,13 +240,13 @@ Unser angestrebter Radiator entspricht mit seiner Netzfläche am ehesten dem ELW
 	\centering
 	\includegraphics[width=0.7\linewidth]{"bilder/ELW-Druckabfall über Volumenstrom"}
 	\caption{}
-	\label{fig:elw-druckabfall-uber-volumenstrom}
+	\label{fig:elw-druckabfall-uber-volumenstrom \cite{DatenblattELW}}
 \end{figure}
 
 Die Grafik \ref{fig:elw-druckabfall-uber-volumenstrom} ist an dieser Stelle etwas verwirrend da der ELW 2 und der ELW3 die Farben getauscht hat. Da es sich hierbei jedoch um die einzigen Daten handelt die aufgetrieben werden konnten wird an dieser Stelle angenommen das die grüne Linie für den ELW3 steht und die Lila Linie den ELW 2 darstellt. Dies ist die sichere Annahme, da dies im zweifel zu einem zu hohen Druckabfall und damit einer Überdimensionierung der Anlage führt.\\
 Anhand dieser Grafik kann also nun der Druckabfall zu einem entsprechenden Wasservolumenstrom abgelesen werden.\\
 \\
-Für den Umrichter gibt es im Datenblatt ein fertiges Diagramm, siehe \ref{fig:cooling-characteristik}.
+Für den Umrichter gibt es im Datenblatt \cite{manual HV-500} ein fertiges Diagramm, siehe \ref{fig:cooling-characteristik}.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{"bilder/Druckabfall DTI500LC"}
@@ -254,7 +254,7 @@ Für den Umrichter gibt es im Datenblatt ein fertiges Diagramm, siehe \ref{fig:c
 	\label{fig:cooling-characteristik}
 \end{figure}
 
-Für den Motor existieren leider nur Daten an einem einzigen Punkt. An den anderen Graphen ist jedoch in der Regel ein quadratischer Verlauf zu erkennen, weswegen hier quadratisch regressiert wurde. Wir beginnen mit der allgemeine Formel
+Für den Motor existieren nur Daten an einem einzigen Punkt. An den anderen Graphen ist jedoch in der Regel ein quadratischer Verlauf zu erkennen, weswegen hier quadratisch regressiert wurde. Wir beginnen mit der allgemeine Formel
 
 \begin{equation}
 	Y = A x^2 + B x + C

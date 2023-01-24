@@ -1,0 +1,179 @@
+@Article{Gut2015,
+  author  = {Gutjahr, Benjamin and Werling, Moritz},
+  title   = {Optimale Fahrzeugquerführung mittels linearer, zeitvarianter MPC},
+  journal = {10. Workshop Fahrerassistenzsysteme (FAS2015),},
+  year    = {2015},
+  pages   = {61--70},
+  file    = {:Optimale_Fahrzeugquerfuehrung_mittels_linearer.pdf:PDF},
+}
+
+@Article{Gut2016,
+  author  = {Gutjahr, Benjamin and Pek, Christian and Gröll, Lutz and Werling, Moritz},
+  title   = {Recheneffiziente Trajektorienoptimierung für Fahrzeuge mittels quadratischem Programm},
+  journal = {at - Automatisierungstechnik},
+  year    = {2016},
+  volume  = {64},
+  number  = {10},
+  pages   = {786},
+  issn    = {01782312},
+  file    = {://AUDIINHOME004.IN.AUDI.VWG/TKY2S95$/Eigene Dateien/Doku/MPP/Gutjahr2016a.pdf:PDF},
+  url     = {https://www.degruyter.com/view/j/auto.2016.64.issue-10/auto-2016-0074/auto-2016-0074.xml},
+}
+
+@PhdThesis{Wer2011,
+  author    = {Werling, Moritz},
+  title     = {Ein neues Konzept für die Trajektoriengenerierung und -stabilisierung in zeitkritischen Verkehrsszenarien},
+  year      = {2011},
+  abstract  = {Durch den Einsatz autonomer Fahrzeuge kann der Straßenverkehr effizienter, komfortabler und vor allem sicherer gestaltet werden. Neben der hierfür erforderlichen Umfeldwahrnehmung stellen besonders die Bewegungsplanung und -ausführung zeitkritischer Fahrmanöver zur Beherrschung von dynamischen Verkehrsszenarien eine große Herausforderung dar. Herkömmliche Verfahren, die trotz trickreicher Modifikationen dieser nicht gewachsen sind, werden konsequent durch trajektorienbasierte Konzepte ersetzt.},
+  doi       = {10.5445/KSP/1000021738},
+  isbn      = {978-3-86644-631-1},
+  issn      = {1614-5267},
+  keywords  = {Trajektorienplanung, Trajektoriengenerierung, Trajektorienregelung, Dynamische Verkehrsszenarien, Autonome Fahrzeuge},
+  language  = {german},
+  pagetotal = {141},
+  publisher = {{KIT Scientific Publishing, Karlsruhe}},
+  series    = {Schriftenreihe des Instituts für Angewandte Informatik - Automatisierungstechnik, Karlsruher Institut für Technologie},
+  volume    = {34},
+}
+
+@Article{Heil2016,
+  author   = {Heil, Thomas and Lange, Alexander and Cramer, Stephanie},
+  title    = {Adaptive and Efficient Lane Change Path Planning for Automated Vehicles},
+  journal  = {19th IEEE Intelligent Transportation Systems Conference},
+  year     = {2016},
+  month    = nov,
+  abstract = {19th IEEE Intelligent Transportation Systems Conference, November 1-4, 2016, Windsor Oceanico Hotel, Rio de Janeiro, Brazil},
+  file     = {:\\\\AUDIINHOME004.IN.AUDI.VWG\\TKY2S95$\\Eigene Dateien\\Doku\\gelesen\\Adaptive_and_Efficient_Lane_Change_Path_Planning_for_Automated.pdf:PDF},
+  keywords = {Automated Vehicle Operation, Motion Planning, Navigation; Driver Assistance Systems},
+}
+
+@Article{doi:10.1080/00207179.2013.875224,
+  author    = {Thomas Lipp and Stephen Boyd},
+  journal   = {International Journal of Control},
+  title     = {Minimum-time speed optimisation over a fixed path},
+  year      = {2014},
+  number    = {6},
+  pages     = {1297-1311},
+  volume    = {87},
+  doi       = {10.1080/00207179.2013.875224},
+  eprint    = {https://doi.org/10.1080/00207179.2013.875224},
+  publisher = {Taylor \& Francis},
+  url       = {https://doi.org/10.1080/00207179.2013.875224},
+}
+
+@MastersThesis{Klein2017,
+  author = {Agnes Klein},
+  school = {Institut fur Energiespeicherung der Universität Stuttgart},
+  title  = {Experimentelle Untersuchung von Batteriesystemen im simulierten niedrigen Erdorbit},
+  year   = {2017},
+}
+
+@Article{Hnidka2020,
+  author    = {Jakub Hnidka and Dalibor Rozehnal and Karel Ma{\v{n}}as},
+  journal   = {{MATEC} Web of Conferences},
+  title     = {Optimization of {SUAV}'s propeller in a hover},
+  year      = {2020},
+  pages     = {00045},
+  volume    = {313},
+  doi       = {10.1051/matecconf/202031300045},
+  editor    = {J. Melcer and K. Kotrasov{\'{a}} and I. Major and A.V. Benin},
+  publisher = {{EDP} Sciences},
+}
+
+@TechReport{Technology2022,
+  author    = {PowerStream Technology},
+  title     = {Wire Gauge and Current Limits Including Skin Depth and Tensile Strength},
+  year      = {2022},
+  file      = {:Technology2022 - Wire Gauge and Current Limits Including Skin Depth and Tensile Strength.html:URL},
+  timestamp = {2023-01-24},
+  url       = {https://www.powerstream.com/Wire_Size.htm},
+}
+
+@Manual{Viper06,
+  title        = {Energy saving high voltage converter for direct feedback},
+  edition      = {2},
+  month        = feb,
+  organization = {STMicroelectronics},
+  year         = {2017},
+  file         = {:Viper06 - Energy Saving High Voltage Converter for Direct Feedback.pdf:PDF},
+  url          = {https://www.st.com/resource/en/datasheet/viper06.pdf},
+}
+
+@Manual{ISOMETER IR155-3203/IR155-3204,
+  title        = {Isolationsüberwachungsgerät für ungeerdete DC-Antriebssysteme(IT-Systeme) in Elektrofahrzeugen},
+  edition      = {V004},
+  organization = {Bender GmbH & Co. KG},
+  file         = {:ISOMETER IR155-3203_IR155-3204 - Isolationsüberwachungsgerät Für Ungeerdete DC Antriebssysteme(IT Systeme) in Elektrofahrzeugen.pdf:PDF},
+  url          = {https://www.bender.de/fileadmin/content/Products/d/d/IR155-32xx-V004_D00115_D_XXDE.pdf},
+}
+
+@Manual{LT3752LT3752-1,
+  title        = {Active Clamp Synchronous Forward Controllers with Internal Housekeeping Controller},
+  month        = jun,
+  organization = {Linear Technology},
+  year         = {2019},
+  file         = {:LT3752LT3752-1 - Active Clamp SynchronousForward Controllers with InternalHousekeeping Controller.pdf:PDF},
+  url          = {https://www.analog.com/media/en/technical-documentation/data-sheets/LT3752-3752-1.pdf},
+}
+
+@Manual{DC1929A,
+  title        = {LT3752-1/LT8311200W Active Clamp ForwardConverter with Input Voltage 150V to 400V},
+  organization = {Linear Technology},
+  year         = {2004},
+  file         = {:DC1929A - LT3752 1_LT8311200W Active Clamp ForwardConverter with Input Voltage 150V to 400V.pdf:PDF},
+  url          = {https://www.analog.com/media/en/technical-documentation/user-guides/dc1929afa.pdf},
+}
+
+@Manual{LT8311,
+  title        = {Synchronous RectifierController with Opto-CouplerDriver for Forward Converters},
+  organization = {Linear Technology},
+  file         = {:LT8311 - Synchronous RectifierController with Opto CouplerDriver for Forward Converters.pdf:PDF},
+  url          = {https://www.analog.com/media/en/technical-documentation/data-sheets/8311f.pdf},
+}
+
+@Standard{FSRules,
+  institution  = {Formula Student Germany},
+  organization = {Formula Student},
+  title        = {Formula Student Rules},
+  language     = {Englisch},
+  revision     = {1.1},
+  type         = {Rulebook},
+  url          = {https://www.formulastudent.de/fileadmin/user_upload/all/2023/rules/FS-Rules_2023_v1.1.pdf},
+  year         = {2023},
+  file         = {:FSRules - Formula Student Rules.pdf:PDF},
+}
+
+@TechReport{Schmitt Trigger Mikrocontroller.net,
+  institution = {Mikrocontroller.net},
+  title       = {Schmitt Trigger},
+  year        = {2023},
+  month       = jan,
+  file        = {:- Schmitt Trigger (1).html:URL},
+  url         = {https://www.mikrocontroller.net/articles/Schmitt-Trigger},
+}
+
+@Manual{T60404-N4646-X100,
+  title        = {Specification N4646},
+  month        = jan,
+  organization = {Vacuumschmelze},
+  year         = {2023},
+  file         = {:-.pdf:PDF},
+  url          = {https://vacuumschmelze.com/03_Documents/Datasheets - Drawings/Current Sensors/4646-X100.pdf},
+}
+
+@Manual{PTCManual,
+  title        = {PTC Thermistors, Inrush Current Limiter and Energy Load-Dump},
+  month        = oct,
+  organization = {Vishay},
+  year         = {2019},
+  file         = {:- (1).pdf:PDF},
+  url          = {https://www.vishay.com/docs/29165/ptcel.pdf},
+}
+
+@TechReport{dampfakkusVTC6,
+  author      = {sk4477 and SabbelMR},
+  institution = {dampfakkus.de},
+  title       = {Technische Daten Sony US18650VTC6},
+  year        = {2022},
+  month       = apr,
+  file        = {:https\://web.archive.org/web/20220119170957/http\://www

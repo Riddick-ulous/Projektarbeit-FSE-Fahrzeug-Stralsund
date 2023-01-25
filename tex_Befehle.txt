@@ -11,7 +11,6 @@ Verweise
 
 Notizen Projektarbeit:
 
-Quellen wie einfügen
 
 zweiten acfirst fsg entfernen
 
@@ -27,24 +26,24 @@ handbuch emrax 208 in anhang (Kabelquerschnitt nach VDE)
 NTC teil fixen (chip von leon)
 Besseren schaltplan erstellen (nicos Bild)
 
-Nice to Have
-Druckverlust rohrberechung
 
-HVDCDC kapitel endet abrupt temperatur berechnuing fehlt
+
+Umrichter Vergleich
+
+
+
+
+	Nice to Have
+
+Druckverlust rohrberechung
 
 Packagin kapitel
 
 schriftart kabel farbtabelle(Problem)
 überschneidung text mit tabelle (Kabelfarbtabelle)
 
-danksagung in separates kapitel
+HVDCDC restliche fet berechnungen addieren
 
-cite kabeldimensionierung
 
-hanbücher zitieren, (DTI500) Emrax 208 Ladegerät, LTC hvdcdc, 
 
-°zeichen in esnuremath finzt net
 
-Umrichter Vergleich
-
-cite wandler topologie bilder

@@ -4,7 +4,6 @@
 \chapter{Elektromechanische Systeme}
 
 \section{Akkumulator}
-An dieser Stelle geht mein Dank an Tim Schweers, der dieses Projekt besonders in der mechanischen Auslegung und der Konstruktion so tatkräftig mitgetragen hat.
 
 \subsection{Die Akkuzelle}
 
@@ -99,7 +98,7 @@ Zur weiteren Analyse wurde auf folgende aufbereitete Messdaten zurückgegriffen.
 \end{figure}
 
 Das erste Diagramm ermöglicht es einen Eindruck von der Entladeeffizienz des Akkus, besonders bei hohen Strömen zu bekommen. Das Optimum wäre hier eine Horizontale Linie am oberen Rand des Diagramms. Hierbei sticht die Samsung INR21700-30T besonders hervor.\\
-Das zweite Diagramm ermöglicht uns einen Eindruck von der thermischen Performance zu erlangen. Laut Regelwerk der Formula Student darf keine Akkuzelle zu einem Zeitpunkt die \ensuremath{60°C} Marke überschreiten. Nichtbeachten führt zur Disqualifikation. hierbei sticht auch die vorher genannte Samsung Zelle hervor als auch die Vapcell INR18650\\
+Das zweite Diagramm ermöglicht uns einen Eindruck von der thermischen Performance zu erlangen. Laut Regelwerk der Formula Student darf keine Akkuzelle zu einem Zeitpunkt die \ensuremath{60^\circ C} Marke überschreiten. Nichtbeachten führt zur Disqualifikation. hierbei sticht auch die vorher genannte Samsung Zelle hervor als auch die Vapcell INR18650\\
 Hierbei vergleichen wir Rundzellen von verschiedenen Baumaßen, ein Vollständiger Akku mit den Samsung INR21700-30T wäre \ensuremath{7Kg} schwerer als einer mit der Sony VTC6. Daher müssen am Ende alle erlangenden Erkenntnisse Berücksichtigt werden.
 
 %evtl. netzgrafik von den top 2 oder 3 zellen machen. als finale gegenüberstellung 
@@ -154,7 +153,7 @@ Mithilfe der Grafik \ref{fig:messdatenvtc6-temperatur-kapazitat-spannung} könne
 	\label{fig:messdatenvtc6-temperatur-kapazitat-spannung}
 \end{figure}
 
-Wir sehen, dass das erstellte Modell für den \ensuremath{10 A} Graphen um ca. \ensuremath{3°C} abweicht. Weiterhin sehen wir das bei der \ensuremath{20 A} Linie die \ensuremath{90°C} ca. \ensuremath{0,5 Ah} früher erreichen. Diese Abweichungen sind nicht insignifikant, zeigen jedoch das unser Modell eher zu hohe als zu niedrige Temperaturen ausgibt was für die Zuverlässigkeit des Fahrzeuges positiv ist, da eine Auslegung der Kühlung mit diesem Modell wahrscheinlich zu einer Überkühlung und damit zu einem zu hohen Gewicht des Kühlsystems führt was für das erste Fahrzeug kein sonderlich großes Problem darstellt. Die Abweichung dürfte darauf zurückzuführen sein das die Modellparameter im Vakuum ermittelt wurden und insofern Wärmeübertragung durch Konvektion etc. nicht berücksichtigt werden konnte. Um diesem Sachverhalt weiter auf den Grund zu gehen wurde im Anschluss eine Simulation mit Ansys Fluent durchgeführt.
+Wir sehen, dass das erstellte Modell für den \ensuremath{10 A} Graphen um ca. \ensuremath{3^\circ C} abweicht. Weiterhin sehen wir das bei der \ensuremath{20 A} Linie die \ensuremath{90^\circ C} ca. \ensuremath{0,5 Ah} früher erreichen. Diese Abweichungen sind nicht insignifikant, zeigen jedoch das unser Modell eher zu hohe als zu niedrige Temperaturen ausgibt was für die Zuverlässigkeit des Fahrzeuges positiv ist, da eine Auslegung der Kühlung mit diesem Modell wahrscheinlich zu einer Überkühlung und damit zu einem zu hohen Gewicht des Kühlsystems führt was für das erste Fahrzeug kein sonderlich großes Problem darstellt. Die Abweichung dürfte darauf zurückzuführen sein das die Modellparameter im Vakuum ermittelt wurden und insofern Wärmeübertragung durch Konvektion etc. nicht berücksichtigt werden konnte. Um diesem Sachverhalt weiter auf den Grund zu gehen wurde im Anschluss eine Simulation mit Ansys Fluent durchgeführt.
 
 \begin{figure}[h]
 	\centering
@@ -171,7 +170,7 @@ Wir sehen, dass das erstellte Modell für den \ensuremath{10 A} Graphen um ca. \
 \end{figure}
 
 In dieser Simulation wurde ein gesamter Akkustack in seinem Gehäuse simuliert. Dabei wurde mit einem konstanten Strom von \ensuremath{7,2 A} simuliert. Dieser Strom ergibt sich aus der \ac{LTS}. Die Simulation wurde für \ensuremath{32 min} laufen gelassen um ein gesamtes Endurance darzustellen. Ziel der Simulation ist es die Effekte der Konvektion zu berücksichtigen, aber auch zu sehen inwiefern sich die Zellen gegenseitig beeinflussen. Allerdings wurden auch diverse Vereinfachungen getroffen insofern das die Akkuzellen sich uniform aufwärmen. In der Realität dürfte man am negativen Pol der Akkuzelle eine deutlich höhere Temperatur feststellen können als auf der positiven Seite. Weiterhin wurden diverse Teile wie die elektrische Isolierung etc. weggelassen da dies den Simulationsaufwand sonst erheblich vergrößert hätte. Mit den vorliegenden Vereinfachungen lief die Simulation für 46 Stunden.\\
-Zur Analyse, wir sehen nach der Simulationszeit eine Höchsttemperatur von \ensuremath{64,85°C} und eine Tiefsttemperatur von \ensuremath{62,85°C}. In dieser Hinsicht stimmt die Ansys Simulation eher mit der \ensuremath{10 A} kurve aus unserem Modell zusammen als mit den Messdaten. Zusammengefasst stellt man fest das definitiv weitere Arbeit in diesem Themenbereich von Nöten wäre, um zu einer optimalen Lösung zu kommen, dies jedoch aufgrund des engen Zeitplanes und des enormen anderweitigen Aufwandes nicht möglich ist.
+Zur Analyse, wir sehen nach der Simulationszeit eine Höchsttemperatur von \ensuremath{64,85^\circ C} und eine Tiefsttemperatur von \ensuremath{62,85^\circ C}. In dieser Hinsicht stimmt die Ansys Simulation eher mit der \ensuremath{10 A} kurve aus unserem Modell zusammen als mit den Messdaten. Zusammengefasst stellt man fest das definitiv weitere Arbeit in diesem Themenbereich von Nöten wäre, um zu einer optimalen Lösung zu kommen, dies jedoch aufgrund des engen Zeitplanes und des enormen anderweitigen Aufwandes nicht möglich ist.
 
 \FloatBarrier
 \subsection{Der Stack Aufbau} %(mit Tim)%
@@ -260,9 +259,32 @@ Der Selbstbau ist die nächste Entwicklungsstufe nach dem Fischer Motor. Nun gil
 Im Rahmen dieser Projektarbeit soll das Konzept für den ersten E-antrieb unseres Formula Student Teams entstehen. Damit kommen bereits viele Herausforderungen, so das wenn möglich der Aufwand und die Komplexität zu verringern ist. Damit wurde sich für den Emrax Motor entschieden, da ein Selbstbau als auch nein Allradantrieb nicht zur Option standen
 
 \section{Wechselrichter}
-Der Wechselrichter wird benötigt um den Motor sauber anzusteuern. Ziel ist es aus Gleichstrom aus dem Akku einen Frequenz und Amplituden regelbaren Strom zu erzeugen mit dem der Motor kontrolliert werden kann. Hier gibt es auch wieder diverse Hersteller die im folgenden verglichen werden sollen
+Der Wechselrichter wird benötigt um den Motor sauber anzusteuern. Ziel ist es aus Gleichstrom aus dem Akku einen Frequenz und Amplituden regelbaren Strom zu erzeugen mit dem der Motor kontrolliert werden kann. Hier gibt es auch wieder diverse Hersteller die im folgenden verglichen werden sollen.
 
-!!!Tabelle!!! mit daten
+\begin{table}
+	\centering
+	\caption{Umrichter Vergleich}
+	\label{tab:Umrichter Vergleicht}
+\begin{tabular}{|c|p{2,5cm}|p{2,5cm}|p{2,5cm}|p{2,5cm}|}
+	\hline
+	& DTI 500 LC & Lenze DCU 6060 & Cascadia CM 200 DZ & Unitek Bamocar\\
+	\hline
+	Gesamtpreis & 10748,5€• & 9745€ & 16912€ & 10836,27€\\
+	\hline
+	Abmaße LBH [mm] & 420*426*77 & 394*310*81 & 314*400*87 & 355*460*135\\
+	\hline
+	Max. Eingangsspannung & 830V & 800V & 840V & 700V\\
+	\hline
+	Max. RMS Strom & 500A & 208A & 200A & 285A\\
+	\hline
+	Gesamtgewicht & 13,4 Kg & 8,4Kg & 15Kg & 17Kg\\
+	\hline
+	Lieferzeit & Feb. 2022 & Sept. 2022 & Mai 2022 & Feb. 2022\\
+	\hline
+\end{tabular}
+\end{table}
+
+Der Lenze Umrichter ist aufgrund von Lieferzeit nicht in Frage gekommen, stellt aber sonst ein gutes Gesamtpaket dar. Der DTI und der Bamocar Umrichter geben sich insgesamt nicht viel mit dem Unterschied das die DTI vom Bauformat her besser in das Fahrzeug passt und daher für das Fahrzeug gewählt wurde. Der Umrichter von Cascadia ist aufgrund des Preises ausgefallen.
 
 \section{Kabelbaum} %(zusammen mit Nico Bieberich)
 Der Kabelbaum lässt sich bei einem Elektrofahrzeug in mehrere Funktionsgruppen unterteilen. Einmal haben wir den Datenbus zur Kommunikation der Steuergeräte im Fahrzeug. In unserem Fall ist das ein \acfirst{CAN}-Bus. Dann den sogenannten \ac{SDC} zur Absicherung der Systeme bzw. einleiten eines sicheren Zustandes in dem Fall das ein Fehler auftritt. Weiter gibt es die Gruppe der \ac{HV}-Kabel dies umfasst Leistungsführende Leiter für Akku, Umrichter und Motor als auch \ac{HV}-Signalleiter für z.b. die \ac{TSMP}. Dann haben wir noch die \ac{LV}-Versorgung für alle Systeme im Fahrzeug. Dann gibt es den Sensorbaum, dieser umfasst die Versorgungs- als auch Daten/-Leitungen für jegliche Sensorik im Fahrzeug. Abschließend gibt es noch alles andere was sich nicht hierunter kategorisieren lässt. Dies umfasst z.b einzelne analoge oder digitale Datenleitungen wie z.b die Ethernet Leitung für den \ac{FSG} Logger oder die Abzweigleitung des Bremsdruckes für das \ac{BSPD}. Auf die einzelnen Gruppen wird im folgenden detailliert eingegangen.\\

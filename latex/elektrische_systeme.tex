@@ -2,7 +2,6 @@
 % Letzte Bearbeitung: 01.05.2022
 
 \chapter{Elektrische Systeme}
-An dieser Stelle geht mein Dank an die Alumni aus dem Bereich der Elektrotechnik, die diese ganze Reise mit ihrer fachlichen Referenz und beispiellosen Motivation erst möglich gemacht habe. Hervorzuheben ist auch das schier endlose maß an Geduld in Anbetracht der Steilen Lernkurve innerhalb des Teams. Besonders hervorzuheben sind hierbei Leon Löser, Eric Gorkow und Axel Lange. Danke euch.
 \FloatBarrier
 \section{Akkumulator}
 Im Akkumulator befinden sich neben den Zellen in Ihren Zellstacks und dem \acfirst{AMS} auch diverse andere Systeme die zum Betrieb des Fahrzeuges essentiell sind. Diese Systeme werden im folgenden Kapitel erläutert. Die Abbildung \ref{fig:accumulator-layout} gibt eine Übersicht wo sich diese Systeme befinden und wie sie zusammenhängen.
@@ -211,14 +210,14 @@ Bei der Topologie des \ac{HV}-DC-DC-Wandlers handelt es sich um einen active cla
 \begin{figure}
 	\centering
 	\includegraphics[width=0.5\linewidth]{bilder/Buck_converter.svg}
-	\caption{Buck Konverter Topologie}
+	\caption{Buck Konverter Topologie \cite{WikiWandlertopo}}
 	\label{fig:buckconverter}
 \end{figure}
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.5\linewidth]{bilder/Forward_converter.svg}
-	\caption{Eintaktflusswandler Topologie}
+	\caption{Eintaktflusswandler Topologie \cite{WikiWandlertopo}}
 	\label{fig:forwardconverter}
 \end{figure}
 
@@ -250,9 +249,9 @@ Zur Auflistung der Ausgangsparameter.
 		\hline
 		Int\textsubscript{VCC} & 10 & V & \\
 		\hline
-		t\textsubscript{amb} & 50 & °C & angenommen\\
+		\glsc{symb:t_amb} & 50 & \ensuremath{^\circ C} & angenommen\\
 		\hline
-		t\textsubscript{max} & 125 & °C & max. Temperatur für Automotive Komponenten\\
+		t\textsubscript{max} & 125 & \ensuremath{^\circ C} & max. Temperatur für Automotive Komponenten\\
 		\hline
 	\end{tabular}
 \end{table}
@@ -420,14 +419,100 @@ Dann bestimmen wir die einzelnen Leistungsabfälle am Schalter.
 	\glsc{symb:P_gesamt} = \glsc{symb:P_conduction} + \glsc{symb:P_Gatedriver} + \glsc{symb:P_Turn off} + \glsc{symb:P_Turn off}
 \end{equation}
 
+Damit ergeben sich die Werte in Tabelle \ref{tab:Leistung am Primär Fet}
+
+\begin{table}[h]
+	\centering
+	\label{tab:Leistung am Primär Fet}
+	\caption{Leistung am Primär Fet}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\multicolumn{3}{|c|}{Eingangsparameter}\\
+		\hline
+		\glsc{symb:R_DS on} & 0,225 & \ensuremath{\Omega}  \\
+		\hline	
+		\glsc{symb:Q_G} & 30 & \ensuremath{nC}\\
+		\hline
+		\glsc{symb:Q_GD} & 6 & \ensuremath{nC}\\
+		\hline
+		\glsc{symb:I_Gate} & 2 & \ensuremath{A}\\
+		\hline
+		\multicolumn{3}{|c|}{Zwischenergebnis} \\
+		\hline			
+		\glsc{symb:V_DS} & 959,13 & \ensuremath{V}\\
+		\hline
+		\glsc{symb:P_conduction}& 6,84 & \ensuremath{W}\\
+		\hline
+		\glsc{symb:P_Gatedriver}& 0,03 & \ensuremath{W}\\
+		\hline
+		\glsc{symb:P_Turn on}& 1,04 & \ensuremath{W}\\
+		\hline
+		\glsc{symb:P_Turn off}& 1,61 & \ensuremath{W}\\
+		\hline
+		\multicolumn{3}{|c|}{Ergebnisse} \\
+		\hline
+		\glsc{symb:P_gesamt} & 9,52 & \ensuremath{W} \\
+		\hline
+	\end{tabular}
+\end{table}
+
+Nun bestimmen wir die Temperatur am Fet indem wir die einzelnen thermischen Widerstände in Reihe schalten und mit der Leistung multiplizieren.
+
+\begin{equation}
+\glsc{symb:R_th_ges} = \glsc{symb:R_th_JC} + \glsc{symb:R_th_CS} + \glsc{symb:R_th_SA}
+\end{equation}
+
+\begin{equation}
+	\glsc{symb:t_Fet} = \glsc{symb:P_gesamt} * \glsc{symb:R_th_ges} + \glsc{symb:t_amb}
+\end{equation}
+
+\glsc{symb:R_th_CS} ergibt sich aus der Kontaktfläche zwischen Fet und Kühlkörper sowie der Wärmedurchgangskoeffizient des Interface Materials. In diesem Fall wird die Wärmeleitpaste Arctic Silver 5 verwendet.
+
+\begin{equation}
+	\glsc{symb:R_th_CS} = \dfrac{1}{\glsc{symb:A_Sink} + \glsc{symb:U_th}} 
+\end{equation}
+
+Eingesetzt ergeben sich nun die Werte in der Tabelle \ref{tab:Temperatur am Primär Fet}
+
+\begin{table}[h]
+	\centering
+	\label{tab:Temperatur am Primär Fet}
+	\caption{Temperatur am Primär Fet}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\multicolumn{3}{|c|}{Eingangsparameter}\\
+		\hline
+		\glsc{symb:R_th_JC} & 0,9 \cite{UJ3C120150K3S} & \ensuremath{K/W} \\
+		\hline	
+		\glsc{symb:R_th_CS} & 0,0089  & \ensuremath{K/W}\\
+		\hline
+		\glsc{symb:R_th_SA} & 3,9 \cite{RA-T2X-38E} & \ensuremath{K/W} \\
+		\hline
+		\glsc{symb:A_Sink} & 322,4 & \ensuremath{mm^2} \\
+		\hline
+		\glsc{symb:U_th} & 0,35 \cite{ArcticSilver} & \ensuremath{W/mm^2*K} \\
+		\hline
+		\multicolumn{3}{|c|}{Zwischenergebnis} \\
+		\hline	
+		\glsc{symb:R_th_CS} & 0,0089 & \ensuremath{K/W} \\		
+		\hline
+		\glsc{symb:R_th_ges} & 4,809 & \ensuremath{V} \\
+		\hline
+		\multicolumn{3}{|c|}{Ergebnisse} \\
+		\hline
+		\glsc{symb:t_Fet} & 95,80 & \ensuremath{^\circ C} \\
+		\hline
+	\end{tabular}
+\end{table}
+
+Diese Berechnung wird analog für die übrigen Fet`s durchgeführt um jeweils zu überprüfen ob ein Kühlkörper benötigt wird bzw. ob der eingesetzte ausreicht.
+
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{bilder/HVDCDC_Transformer_Schematic}
 	\caption{Schaltplan \ac{HV}-DCDC Transformer}
 	\label{fig:hvdcdctransformerschematic}
 \end{figure}
-
-!!!!!!weiter????!!!!
 
 \FloatBarrier
 \section{HV Distribution}
@@ -650,13 +735,13 @@ Die Formel für die Berechnung der \ac{PTC}-Elemente ist dem Datenblatt \cite{PT
 		\hline
 		\multicolumn{4}{|c|}{Eingangsparameter} \\
 		\hline
-		\glsc{symb:T_SW} & 130 & \ensuremath{°C} & Datenblatt Wiederstandsverlauf \\
+		\glsc{symb:T_SW} & 130 & \ensuremath{^\circ C} & Datenblatt Wiederstandsverlauf \\
 		\hline
 		\glsc{symb:K} & 1 & \ensuremath{-} & Datenblatt -> DC \\
 		\hline
 		\glsc{symb:C_th} & 2,3 & \ensuremath{J/K} & Datenblatt -> PTCEL17 \\
 		\hline
-		\glsc{symb:T_u} & 60 & \ensuremath{°C} & Worst Case \\
+		\glsc{symb:T_u} & 60 & \ensuremath{^\circ C} & Worst Case \\
 		\hline
 		\glsc{symb:C} & 400 & \ensuremath{uF} & 2x DTI 500 Kapazität \\
 		\hline

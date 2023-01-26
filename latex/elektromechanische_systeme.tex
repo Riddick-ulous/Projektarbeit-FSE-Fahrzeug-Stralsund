@@ -186,7 +186,7 @@ Für die Konstruktion des Akkustacks gab es im Laufe der Saison viele Iteratione
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{bilder/Stach_for_EDR}
+	\includegraphics[width=1\linewidth]{bilder/Stach_for_EDR}
 	\caption{Iso Ansicht Stack Baugruppe}
 	\label{fig:stachforedr}
 \end{figure}
@@ -230,7 +230,7 @@ Der Akku besteht aus 12 Einzelstacks. Hierbei befinden sich 6 nebeneinander und 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{bilder/HV_Akkumulator_Layout}
-	\caption{}
+	\caption{Akkulayout}
 	\label{fig:hvakkumulatorlayout}
 \end{figure}
 
@@ -525,12 +525,12 @@ Für den \ac{DC}-Bus wurde das gleiche vorgehen angewandt. Hier bekommen wir den
 \subsection{Hochvolt Kabelbaum}
 
 \begin{figure}[h]
-	\includegraphics[page=1,width=1\linewidth]{bilder/Tractive_System_Schematic_V4.pdf}
-	\caption[\ac{TS} Schaltplan Seite 1]{}
+	\includegraphics[width=1\linewidth]{bilder/TS_schematic_akku.PNG}
+	\caption[\ac{TS} Schaltplan Akku]{}
 	\label{fig:tractivesystemschematic1}
 	
-	\includegraphics[page=2,width=1\linewidth,]{bilder/Tractive_System_Schematic_V4.pdf}
-	\caption[\ac{TS} Schaltplan Seite 2]{}
+	\includegraphics[width=1\linewidth,]{bilder/TS_Schematic_Distri.PNG}
+	\caption[\ac{TS} Schaltplan \ac{HV}-Distri]{}
 	\label{fig:tractivesystemschematic2}
 	\end{figure}
 
@@ -591,12 +591,12 @@ Die Formel für den Kurzschlussstrom.
 	\end{tabular}
 \end{table}
 
-Der Kurzschlussstrom sollte mit dem rated breaking current verglichen werden. Ist der Kurzschlussstrom niedriger ist die Sicherung geeignet. Dann haben wir bei der Sicherung das Spannungsrating welches eingehalten werden muss. Auf Basis dieser Daten kann eine Sicherung bzw. eine Baureihe herausgesucht werden. In unserem Fall ergaben die Recherchen die AE7 EV Fuse von Adler Elektrik. Die Querschnittberechnung hat ein Kabel von \ensuremath{16 mm^2} und daher \ensuremath{80 A} ergeben. Diese \ensuremath{80 A} legen wir auch bei der Sicherung zu Grunde. Dies ergibt die AE72800i25 \cite{AE7Specification}. Daraufhin lässt sich im Datenblatt am Zeit-Strom Schaubild \ref{fig:zeitstromtsfuse} ablesen wie lange die Sicherung bei Unterschiedlichen Strömen braucht um auszulösen. Es ergibt sich eine zeit von ca. \ensuremath{400 s} bei einem Strom von \ensuremath{150 A} und eine Zeit von ca. \ensuremath{0,5 ms} bei Kurzschlussstrom.
+Der Kurzschlussstrom sollte mit dem rated breaking current verglichen werden. Ist der Kurzschlussstrom niedriger ist die Sicherung geeignet. Dann haben wir bei der Sicherung das Spannungsrating welches eingehalten werden muss. Auf Basis dieser Daten kann eine Sicherung bzw. eine Baureihe herausgesucht werden. In unserem Fall ergaben die Recherchen die AE7 EV Fuse von Adler Elektrik. Die Querschnittberechnung hat ein Kabel von \ensuremath{16 mm^2} und daher \ensuremath{80 A} ergeben. Diese \ensuremath{80 A} legen wir auch bei der Sicherung zu Grunde. Dies ergibt die AE72800i25 . Daraufhin lässt sich im Datenblatt am Zeit-Strom Schaubild \ref{fig:zeitstromtsfuse} ablesen wie lange die Sicherung bei Unterschiedlichen Strömen braucht um auszulösen. Es ergibt sich eine zeit von ca. \ensuremath{400 s} bei einem Strom von \ensuremath{150 A} und eine Zeit von ca. \ensuremath{0,5 ms} bei Kurzschlussstrom.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=0.7\linewidth]{bilder/Zeit_Strom_TSFUSE}
-	\caption{}
+	\caption{Diagramm Auslösecharakteristik \cite{AE7Specification}}
 	\label{fig:zeitstromtsfuse}
 \end{figure}
 
@@ -628,7 +628,7 @@ Beim dem Design des Handcartes ist sowohl in elektrischer- als auch mechanischer
 
 \begin{figure}
 	\centering
-	\includegraphics[width=1\linewidth]{C:/Users/lukas/Desktop/Charger_Schematic_V3}
+	\includegraphics[width=1\linewidth]{Bilder/Charger Schematic.PNG}
 	\caption{Schaltplan Handcart}
 	\label{fig:chargerschematicv3}
 \end{figure}

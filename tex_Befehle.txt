@@ -23,15 +23,9 @@ Zusatzschaltpläne welche nicht oder nur Auschnitsweise behandlet wurden.
 sowas wie schaltpläne ganzseitig anhängen
 handbuch emrax 208 in anhang (Kabelquerschnitt nach VDE)
 
-NTC teil fixen (chip von leon)
-Besseren schaltplan erstellen (nicos Bild)
-
-
-
-Umrichter Vergleich
-
-
-
+schaltplan precharge in anhang
+einige refs laufen noch nicht
+schaltpläne besser croppen
 
 	Nice to Have
 

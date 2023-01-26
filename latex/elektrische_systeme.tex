@@ -8,7 +8,7 @@ Im Akkumulator befinden sich neben den Zellen in Ihren Zellstacks und dem \acfir
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.9\linewidth]{"bilder/Accumulator Layout"}
+	\includegraphics[width=1\linewidth]{"bilder/Accumulator Layout"}
 	\caption{Akkumulator Layout}
 	\label{fig:accumulator-layout}
 \end{figure}
@@ -23,7 +23,7 @@ Der Precharge verhindert einen Funkenschlag und damit das Verschweißen der \acf
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{"bilder/Precharge Blockschaltbild"}
+	\includegraphics[width=0.6\linewidth]{"bilder/Precharge Blockschaltbild"}
 	\caption{Blockschaltbild Precharge}
 	\label{fig:precharge-blockschaltbild}
 \end{figure}
@@ -32,28 +32,21 @@ Kernelement ist die Verbindung der positiven Seite des Zwischenkreises mit der p
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{"bilder/Precharge Blockschaltbild Detail"}
+	\includegraphics[width=1\linewidth]{"bilder/Precharge Blockschaltbild Detail"}
 	\caption{Detail Schaltplan Precharge}
 	\label{fig:precharge-blockschaltbild-detail}
 \end{figure}
 
-Der Precharge schaltet durch sobald SC\textsubscript{end} high wird. Dies führt zum Durchschalten des Relais. Nun fließt ein Strom über M1 zum Relais, bei der Verschaltung von M1 und R54 handelt es sich um eine Konstantstromquelle welche \ensuremath{0,05A} liefert. Wie diese Art von Schaltung im Detail funktioniert ist unter \ref{sec: TSAL Logik Discharge} näher erläutert. Parallel fließt ein Strom über U3 zu C58 und lädt diesen. Nach kurzer Zeit führt dies dazu das Q10 durchschaltet, nun wird der Strom durch den Widerstand der PTC Elemente begrenzt so das der Strom auf ca. \ensuremath{0,6 A} ansteigen kann. Die Überwachung erfolgt indem mithilfe eines DC Wandlers die Akkuspannung um \ensuremath{24 V} angehoben wird und diese über einen Optokoppler auf das Precharge Relais gelegt wird. Sobald das Relais geschlossen ist fließt somit ein Strom über U22 sodass bei PCHRG\textsubscript{ACT} eine Spannung anliegt.
+Der Precharge schaltet durch sobald SC\textsubscript{end} high wird. Dies führt zum Durchschalten des Relais. Nun fließt ein Strom über M1 zum Relais, bei der Verschaltung von M1 und R54 handelt es sich um eine Konstantstromquelle welche \ensuremath{0,05A} liefert. Wie diese Art von Schaltung im Detail funktioniert ist unter \ref{sec: TSAL Logik Discharge} näher erläutert. Parallel fließt ein Strom über U3 zu C58 und lädt diesen. Nach kurzer Zeit führt dies dazu das Q10 durchschaltet, nun wird der Strom durch den Widerstand der PTC Elemente begrenzt so das der Strom auf ca. \ensuremath{0,6 A} ansteigen kann. Die Überwachung erfolgt indem mithilfe eines DC Wandlers die Akkuspannung um \ensuremath{24 V} angehoben wird und diese über einen Optokoppler auf das Precharge Relais gelegt wird. Sobald das Relais geschlossen ist fließt somit ein Strom über U22 sodass bei PCHRG\textsubscript{ACT} eine Spannung anliegt.\\
 \\
 Im Ausschaltmoment wird das Relais durch die Kapazität C12 für kurze Zeit offen gehalten sodass zuerst der Mosfet Q10 abschaltet und so die Schaltleistung im Relais minimiert wird.
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.7\linewidth]{bilder/Precharge_Complete}
-	\caption{Schaltplan Precharge}
-	\label{fig:prechargecomplete}
-\end{figure}
 \FloatBarrier
 
 \subsubsection{\ac{AIR} Detection}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{bilder/AIR_conditioning}
+	\includegraphics[width=0.8\linewidth]{bilder/AIR_conditioning}
 	\caption{Schaltplan AIR}
 	\label{fig:airconditioning}
 \end{figure}
@@ -62,25 +55,26 @@ Sinn der \ac{AIR} Detection ist es die Signale von den \ac{AIR}`s in Sinnvolle L
 \FloatBarrier
 \subsubsection{\ac{AMS}}
 Das eigentliche Batteriemanagement wird von vom LTC 6804 übernommen. Hierbei handelt es sich um eine integrierte Schaltung welche speziell für die Aufgabe des Batteriemanagments von Linear Technology entwickelt wurde. Relevante aufgaben dieses Chips ist die differentielle Messung der Zellspannungen im Stack. Weiter übernimmt der IC die Temperatur Messung über 5 frei nutzbare \acfirst{GPIO}`s welche auch \acfirst{ADC} Funktionalität unterstützen. Zu guter Letzt wird der Chip als Treiber für Mosfets benutzt welche die Zelle auf den balancing Widerstand schalten. Die notwendige Kommunikation erfolgt über einen proprietären 2 drahtigen linearen isolierten \acfirst{SPI} Bus. Jeder Chip hat dabei 4 Adressbits zur Konfigurierung. Das Kommunikationsinterface zischen dem Iso \ac{SPI} und dem \ac{SPI} Bus des Mikrocontroller erfolgt über den LTC 6820 welcher für exakt diese Aufgabe entwickelt wurde. Mit den 5 Eingängen am Chip sind nun 11 verschiedene NTC`s auszuwerten, dies geschieht mit Hilfe eines Demuxers und eines Invertierers.
-\\
-\\
-Zum Verständnis der Logik ist im folgenden einmal beispielhaft der Signalablauf dargestellt.
-Die Bits SEL0 und SEL1, in diesem Beispiel Low und High, vom LTC 6804 (U1) gehen auf die Eingänge A und B am Demuxer (U6). G2A und G2B sind immer auf Low gesetzt und G1 immer auf High. Mit der Tabelle \ref{Demuxer_Logiktabelle} aus dem Datenblatt wird nun der Ausgang von Y0 bis Y3 bestimmt.
+\begin{figure}
+	\centering
+	\includegraphics[width=0.7\linewidth]{bilder/AMS_NTC_Measurement}
+	\label{fig:amsntcmeasurement}
+	\caption{Schaltplan \ac{AMS}-\ac{NTC}-Messung}
+\end{figure}
 
-!!!Fehler in Logik, ersetzen durch 238 (Leon Chatverlauf).!!!
+Zum Verständnis der Logik ist in der Abbildung \ref{fig:amsntcmeasurement} der Signalablauf dargestellt. Dieser wird nun einmal beispielhaft durchlaufen. Die Bits SEL0 und SEL1, in diesem Beispiel Low und High, vom LTC 6804 (U1) gehen auf die Eingänge A und B am Demuxer (U6). G2A und G2B sind immer auf Low gesetzt und G1 immer auf High. Mit der Tabelle \ref{Demuxer_Logiktabelle} aus dem Datenblatt wird nun der Ausgang von Y0 bis Y3 bestimmt.
 
 \begin{figure}
-	
 	\centering
-	\includegraphics[width=0.3\linewidth]{bilder/AMS_demuxer_logiktabelle}
-	\caption{}
+	\includegraphics[width=0.5\linewidth]{bilder/AMS_demuxer_logiktabelle}
 	\label{Demuxer_Logiktabelle}
-	\label{fig:amsdemuxerlogiktabelle}
+	\caption{Logiktabelle Demux \cite{SN74HCS238}}
 \end{figure}
 
 \FloatBarrier
 \begin{table}
 	\centering
+	\caption{Ausgang Demux}
 	\begin{tabular}{|c|c|}
 		\hline
 		Y0 & 1 \\
@@ -94,13 +88,12 @@ Die Bits SEL0 und SEL1, in diesem Beispiel Low und High, vom LTC 6804 (U1) gehen
 	\end{tabular}
 \end{table}
 
-Diese Signale gehen nun in die beiden Invertierer U2 \& U5. Der Ausgang des Invertierers stellt die Versorgung des NTC dar.
+Diese Signale gehen nun in die beiden Invertierer U2 \& U5. Der Ausgang des Invertierers stellt die Versorgung des \ac{NTC} dar.
 
 \begin{table}
 	\centering
+	\caption{Ausgang Invertierer}
 	\begin{tabular}{|c|c|}
-		\hline
-		NTC-sig0 & 0 \\
 		\hline
 		NTC-sig0 & 0 \\
 		\hline
@@ -129,30 +122,15 @@ Diese Signale gehen nun in die beiden Invertierer U2 \& U5. Der Ausgang des Inve
 	\end{tabular}
 \end{table}
 
-\begin{figure}
-	\centering
-	\includegraphics[width=0.3\linewidth]{bilder/AMS_NTC_steckerlayout}
-	\caption{}
-	\label{fig:amsntcsteckerlayout}
-\end{figure}
+zusammen mit dem \ac{NTC}-Steckerlayout ergibt dies also das an \ac{NTC}\textsubscript{in1} bis \ac{NTC}\textsubscript{in3} jeweils ein Signal von einem \ac{NTC} anliegt.
 
-zusammen mit dem NTC Steckerlayout ergibt dies also das an NTCin1 bis NTCin3 jeweils ein Signal von einem NTC anliegt.
-
-In der Abbildung \ref{fig:amsbalancingschematic} ist der Balancing Aufbau der einzelnen Zellen zu sehen. Dabei werden pro Zelle immer zwei Pins der LTC6804 gebraucht, einer zum steuern des Fet`s und einer zum messen der Zellspannung. das sind respektive die S und C Pins. Die Balancing Leistung wurde auf 2 Watt festgelegt. Damit kommen wir bei einer Zellspannung von 4,2V auf einen Widerstand von ca. 10 $\Omega$. Zusätzlich ist parallel zu jedem Wiederstand eine LED verschaltet mit der die Aktivität des BMS im betrieb sichtbar wird.
+In der Abbildung \ref{fig:amsbalancingschematic} ist der Balancing Aufbau der einzelnen Zellen zu sehen. Dabei werden pro Zelle immer zwei Pins der LTC6804 gebraucht, einer zum steuern des Fet`s und einer zum messen der Zellspannung. das sind respektive die S und C Pins. Die Balancing Leistung wurde auf \ensuremath{2 Watt} festgelegt. Damit kommen wir bei einer Zellspannung von \ensuremath{4,2V} auf einen Widerstand von ca. \ensuremath{10 \Omega}. Zusätzlich ist parallel zu jedem Wiederstand eine \ac{LED} verschaltet mit der die Aktivität des \ac{AMS} im betrieb sichtbar wird.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{bilder/AMS_Balancing_Schematic}
-	\caption{}
+	\caption{Schaltplan \ac{AMS} Balancing}
 	\label{fig:amsbalancingschematic}
-\end{figure}
-
-
-\begin{figure}
-	\centering
-	\includegraphics[width=0.7\linewidth]{bilder/AMS_slave_controller_schematic}
-	\caption{}
-	\label{fig:amsslavecontrollerschematic}
 \end{figure}
 
 \FloatBarrier
@@ -180,7 +158,7 @@ Sinn der \ac{HV} Messung ist es, die Spannung welche am Akku als auch am Zwische
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{bilder/HV_Measurement_PNG}
+	\includegraphics[width=0.9\linewidth]{bilder/HV_Measurement_PNG}
 	\caption{Schaltplan \ac{HV}-Messung}
 	\label{fig:hvmeasurementpng}
 \end{figure}
@@ -198,7 +176,7 @@ Beim Startup ist das PRE- als auch das CLR-Signal am D-FlipFlop U7A low. Dadurch
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{"bilder/IMD Monitoring schematic"}
+	\includegraphics[width=0.9\linewidth]{"bilder/IMD Monitoring schematic"}
 	\caption{Schaltplan IMD Monitoring}
 	\label{fig:imd-monitoring-schematic}
 \end{figure}
@@ -509,7 +487,7 @@ Diese Berechnung wird analog für die übrigen Fet`s durchgeführt um jeweils zu
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{bilder/HVDCDC_Transformer_Schematic}
+	\includegraphics[width=1\linewidth]{bilder/HVDCDC_Transformer_Schematic}
 	\caption{Schaltplan \ac{HV}-DCDC Transformer}
 	\label{fig:hvdcdctransformerschematic}
 \end{figure}
@@ -573,7 +551,7 @@ Daraus schlussfolgert sich das die \ensuremath{15k\Omega} Widerstände mit einem
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{"bilder/BSPD Blockdiagramm"}
+	\includegraphics[width=0.6\linewidth]{"bilder/BSPD Blockdiagramm"}
 	\caption{BSPD Blockdiagramm}
 	\label{fig:bspd-blockdiagramm}
 \end{figure}
@@ -587,7 +565,7 @@ Bei den Eingangsignalen handelt es sich um analoge Spannungen. Für Signalaufber
 Zur Auslegung von Schmitt-Triggern.
 \begin{figure}
 	\centering
-	\includegraphics[width=0.5\linewidth]{bilder/Schmitt-trigger-diagramm.png}
+	\includegraphics[width=0.4\linewidth]{bilder/Schmitt-trigger-diagramm.png}
 	\caption{Signal am Schmitt-Trigger \cite{SchmittTriggerMikrocontrollernet}}
 	\label{fig:schmitt-trigger-diagramm}
 \end{figure}
@@ -596,14 +574,14 @@ Die Funktionsweise eines Schmitt-Trigger kann anhand der Abbildung \ref{fig:schm
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{"bilder/TPS Failure detection"}
+	\includegraphics[width=0.6\linewidth]{"bilder/TPS Failure detection"}
 	\caption{Schaltplan Stromsignal Konditionierung}
 	\label{fig:tps-failure-detection}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.5\linewidth]{"bilder/nichtinvertierender Trigger"}
+	\includegraphics[width=0.4\linewidth]{"bilder/nichtinvertierender Trigger"}
 	\caption{Topologie des nicht Invertierenden Schmitt-Trigger \cite{SchmittTriggerMikrocontrollernet}}
 	\label{fig:nichtinvertierender-trigger}
 \end{figure}
@@ -648,7 +626,7 @@ Mit den folgenden Gleichungen lassen sich R\textsubscript{2} und R\textsubscript
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{"bilder/BSPD Integrator"}
+	\includegraphics[width=0.6\linewidth]{"bilder/BSPD Integrator"}
 	\caption{Schaltplan \ac{BSPD}-Integrator}
 	\label{fig:bspd-integrator}
 \end{figure}
@@ -710,7 +688,7 @@ Zur genauen Funktion. U1 ist ein Hall-Effekt Stromsensor der Firma Vakuumschmelz
 Die Discharge Schaltung soll bei Abschalten des Fahrzeug die Zwischenkreiskondensatoren entladen. Ziel ist es das System möglichst schnell in einen Spannungsfreien und damit sicheren Zustand zu überführen.
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{bilder/Discharge}
+	\includegraphics[width=1\linewidth]{bilder/Discharge}
 	\caption{Schaltplan Discharge}
 	\label{fig:discharge}
 \end{figure}
@@ -770,7 +748,7 @@ Das \ac{TSAL} ist eine Lampe im Mainhoop die 360 Grad rundherum zum Fahrzeug anz
 \label{sec: TSAL Logik Discharge}
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{"bilder/Binäre Spannungserkennung"}
+	\includegraphics[width=0.9\linewidth]{"bilder/Binäre Spannungserkennung"}
 	\caption{Schaltplan Konstantstromquelle Discharge}
 	\label{fig:binare-spannungserkennung}
 \end{figure}
@@ -784,7 +762,7 @@ Nachdem die diversen Signale für den Zustand der \ac{AIR}`s etc. vorliegen geht
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{"bilder/TSAL Logik AMS Master"}
+	\includegraphics[width=1\linewidth]{"bilder/TSAL Logik AMS Master"}
 	\caption{Schaltplan \ac{TSAL}-Logik \ac{AMS}-Master}
 	\label{fig:tsal-logik-ams-master}
 \end{figure}
@@ -796,7 +774,7 @@ Das \ac{TSAL} besteht wesentlich aus drei funktionellen Blöcken. Der Blink-Scha
 
 \begin{figure}
 	\centering
-	\includegraphics[width=0.7\linewidth]{"bilder/Tsal Schematic"}
+	\includegraphics[width=1\linewidth]{"bilder/Tsal Schematic"}
 	\caption{Schaltplan \ac{TSAL}}
 	\label{fig:tsal-schematic}
 \end{figure}

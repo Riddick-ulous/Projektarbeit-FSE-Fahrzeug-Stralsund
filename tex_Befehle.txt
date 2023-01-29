@@ -11,27 +11,14 @@ Verweise
 
 Notizen Projektarbeit:
 
-
-zweiten acfirst fsg entfernen
-
-strukturierung des Anhangs
-Alle schaltpläne
-Excel dateien
-ESF (als Pdf)
-Große schaltpläne in den anhang (alles weitere zuschneiden)
-Zusatzschaltpläne welche nicht oder nur Auschnitsweise behandlet wurden.
-sowas wie schaltpläne ganzseitig anhängen
-handbuch emrax 208 in anhang (Kabelquerschnitt nach VDE)
-
-schaltplan precharge in anhang
-einige refs laufen noch nicht
-schaltpläne besser croppen
+Spice Modell HVDCDC anhängen
+weitere Excel tabellen anhgängen
 
 	Nice to Have
 
 Druckverlust rohrberechung
 
-Packagin kapitel
+Packaging kapitel
 
 schriftart kabel farbtabelle(Problem)
 überschneidung text mit tabelle (Kabelfarbtabelle)

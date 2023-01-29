@@ -58,8 +58,8 @@ Das eigentliche Batteriemanagement wird von vom LTC 6804 übernommen. Hierbei ha
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{bilder/AMS_NTC_Measurement}
-	\label{fig:amsntcmeasurement}
 	\caption{Schaltplan \ac{AMS}-\ac{NTC}-Messung}
+	\label{fig:amsntcmeasurement}
 \end{figure}
 
 Zum Verständnis der Logik ist in der Abbildung \ref{fig:amsntcmeasurement} der Signalablauf dargestellt. Dieser wird nun einmal beispielhaft durchlaufen. Die Bits SEL0 und SEL1, in diesem Beispiel Low und High, vom LTC 6804 (U1) gehen auf die Eingänge A und B am Demuxer (U6). G2A und G2B sind immer auf Low gesetzt und G1 immer auf High. Mit der Tabelle \ref{Demuxer_Logiktabelle} aus dem Datenblatt wird nun der Ausgang von Y0 bis Y3 bestimmt.
@@ -67,8 +67,8 @@ Zum Verständnis der Logik ist in der Abbildung \ref{fig:amsntcmeasurement} der 
 \begin{figure}
 	\centering
 	\includegraphics[width=0.5\linewidth]{bilder/AMS_demuxer_logiktabelle}
-	\label{Demuxer_Logiktabelle}
 	\caption{Logiktabelle Demux \cite{SN74HCS238}}
+	\label{Demuxer_Logiktabelle}
 \end{figure}
 
 \FloatBarrier
@@ -243,7 +243,7 @@ Zur Kontrolle können wir eine Rechnung durchführen. Der maximale Duty Cycle \g
 Hiermit könne wir nun das ideale Wicklungsverhältnis bestimmen
 
 \begin{equation}
-	\glsc{symb:NP/NS_ideal} = \dfrac{\glsc{symb:V_inmin}}{\glsc{symb:V_out}}*\glsc{symb:D_max}
+	\glsc{symb:NP/NS_ideal} = \dfrac{\glsc{symb:V_inmin}}{\glsc{symb:V_out}}*\glsc{symb:D_max_ideal}
 \end{equation}
 
 Dann brauchen wir zum Vergleich das reale Verhältnis von Primär zu Sekundärwicklungen.
@@ -272,14 +272,19 @@ Indem wir nun 2 Transformatoren mit der Primärseite in Parallel und der Sekund�
 	\end{tabular}
 \end{table}
 
-Nun können wir den minimalen Duty cycle bestimmen. Dieser lässt sich für den Betrieb über folgende Gleichung ermitteln.
+Nun können wir den minimalen und maximalen Duty cycle bestimmen. Dieser lässt sich für den Betrieb über folgende Gleichung ermitteln.
 
 \begin{equation}
 	\label{minimaler duty cycle}
-	\glsc{symb:D_min} = \dfrac{\glsc{symb:V_out}}{\glsc{symb:V_inmax}}*\glsc{symb:NP/NS} = 20,93
+	\glsc{symb:D_min} = \dfrac{\glsc{symb:V_out}}{\glsc{symb:V_inmax}}*\glsc{symb:NP/NS} = 20,93%
 \end{equation}
 
-Im folgenden soll nun die Auslegung von Ausgangs Induktivität (L1 \& L2) als auch Kapazität (C13 - 15) erfolgen. Hierfür benötigen wir zu Berechnung der Induktivität den Ripple-Strom an der Induktivität. Als Faustregel kann man diesen mit \ensuremath{20-40 \%} vom maximalen Strom annehmen. Ziel der Induktivität ist es aus den einzelnen Stromimpulsen der Schaltstufe einen konstanten Ausgangsstrom zu erzeugen. Je kleiner diese Impulse sind, desto größer muss die entsprechende Induktivität gewählt werden. Wir wollen das der Wandler die meiste zeit im \acfirst{CCM} arbeitet, da die gesamte Auslegen auf dieser Basis erfolgt. Der \acfirst{DCM} wird erreicht wenn der Stromverbrauch des Systems kleiner ist als der Ripple-Strom in der Induktivität. Der minimale Stromverbauch für das Fahrzeug wurde ermittelt indem alle Datenblatt Stromverbräuche der einzelnen Systeme aufaddiert wurden und liegt bei ca. \ensuremath{4 A} respektive \ensuremath{100 W}.
+\begin{equation}
+	\label{maximaler duty cycle}
+	\glsc{symb:D_max} = \dfrac{\glsc{symb:V_out}}{\glsc{symb:V_inmin}}*\glsc{symb:NP/NS} = 57%
+\end{equation}
+
+Im folgenden soll nun die Auslegung von Ausgangs Induktivität (L1 \& L2) als auch Kapazität (C13 - 15) erfolgen. Hierfür benötigen wir zu Berechnung der Induktivität den Ripple-Strom an der Induktivität. Als Faustregel kann man diesen mit \ensuremath{20-40 \%} vom maximalen Strom annehmen. Ziel der Induktivität ist es aus den einzelnen Stromimpulsen der Schaltstufe einen konstanten Ausgangsstrom zu erzeugen. Je kleiner diese Impulse sind, desto größer muss die entsprechende Induktivität gewählt werden. Wir wollen das der Wandler die meiste zeit im \acfirst{CCM} arbeitet, heißt der Wandler arbeitet mit fester Arbeitsfrequenz und variiert den Duty Cycle. Der \acfirst{DCM} wird erreicht wenn der Stromverbrauch des Systems kleiner ist als der Ripple-Strom in der Induktivität. Hierbei werden einzelne Pulse ausgelassen und somit die Schaltfrequenz reduziert. Dies führt allerdings wie man an den Formeln im folgenden feststellen kann dazu das der Ausgangsripple steigt bzw. je nach Lastzustand variiert. Eine Abhilfe schafft hier der \acfirst{FCCM}, hier wird auch im Bereich wo der Wandler normalerweise im \ac{DCM} arbeiten würde trotzdem im \ac{CCM} gearbeitet. Dabei erlauben wir aber einen Negativen Strom in der Ausgangsinduktivität und somit höhere Verluste und Anforderung an die Sekundärseitigen Fet`s. Aber wir ermöglichen eine konstant hohe Arbeitsfrequenz und damit einen stabileren Ausgang. Daher fiel hier die Entscheidung auf den \ac{FCCM}. Der minimale Stromverbauch für das Fahrzeug wurde ermittelt indem alle Datenblatt Stromverbräuche der einzelnen Systeme aufaddiert wurden und liegt bei ca. \ensuremath{4 A} respektive \ensuremath{100 W}.
 
 \begin{equation}
 	\glsc{symb:L_O} = (1-((1/\glsc{symb:V_inmax})*\glsc{symb:NP/NS}*\glsc{symb:V_out}))*\dfrac{1}{\glsc{symb:I_Ripple}}*\glsc{symb:V_out}*\dfrac{1}{\glsc{symb:f_osc}}
@@ -369,7 +374,7 @@ mit \glsc{symb:H_Prim} in H
 	\end{tabular}
 \end{table}
 
-Nun folgt die Berechnung der Schaltorgane, beginnend mit dem Primärseitigen Powerswitch (Q6). Zu erst bestimmen wir die maximale Drain-Spannung wie folgt.
+Nun folgt die Berechnung der Schaltorgane, beginnend mit dem Primärseitigen Powerswitch (Q6) in Abbildung \ref{fig:hvdcdctransformerschematic}. Alle Formeln entstammen dem Datenblatt des LT 3752 \cite{LT3752LT3752-1}. Zu erst bestimmen wir die maximale Drain-Spannung wie folgt.
 
 \begin{equation}
 	\glsc{symb:V_DS} = \dfrac{\gls{symb:V_inmax}^2}{\gls{symb:V_inmax}-(\glsc{symb:V_out} * \glsc{symb:NP/NS})} * Sicherheit(20\%)
@@ -401,8 +406,8 @@ Damit ergeben sich die Werte in Tabelle \ref{tab:Leistung am Primär Fet}
 
 \begin{table}[h]
 	\centering
-	\label{tab:Leistung am Primär Fet}
 	\caption{Leistung am Primär Fet}
+	\label{tab:Leistung am Primär Fet}
 	\begin{tabular}{|c|c|c|}
 		\hline
 		\multicolumn{3}{|c|}{Eingangsparameter}\\
@@ -454,8 +459,8 @@ Eingesetzt ergeben sich nun die Werte in der Tabelle \ref{tab:Temperatur am Prim
 
 \begin{table}[h]
 	\centering
-	\label{tab:Temperatur am Primär Fet}
 	\caption{Temperatur am Primär Fet}
+	\label{tab:Temperatur am Primär Fet}
 	\begin{tabular}{|c|c|c|}
 		\hline
 		\multicolumn{3}{|c|}{Eingangsparameter}\\
@@ -483,7 +488,203 @@ Eingesetzt ergeben sich nun die Werte in der Tabelle \ref{tab:Temperatur am Prim
 	\end{tabular}
 \end{table}
 
-Diese Berechnung wird analog für die übrigen Fet`s durchgeführt um jeweils zu überprüfen ob ein Kühlkörper benötigt wird bzw. ob der eingesetzte ausreicht.
+Diese Berechnung wird analog für die übrigen Fet`s durchgeführt um jeweils zu überprüfen ob ein Kühlkörper benötigt wird bzw. ob der eingesetzte ausreicht.\\
+\\
+Allerdings müssen für die anderen Fets noch diverse andere Parameter bestimmt bzw. Prameter anders bestimmt werden.
+
+Für den Active Clamp Mosfet (Q4) in Abbildung \ref{fig:hvdcdctransformerschematic} bestimmt sich der Drain Strom aus dem Magnetisierungsstrom des Transformators wie folgt.
+
+\begin{equation}
+ \glsc{symb:I_mag} = 0,5 * \glsc{symb:NP/NS} * \dfrac{\glsc{symb:V_out}}{\glsc{symb:L_O}} * \dfrac{1}{\glsc{symb:f_osc}} * Safety
+\end{equation}
+
+Die Diode des Active Clamp Fets leitet bei jedem ausschalten des Primnärfet`s einen Strom aufgrund der residualen Energie in der Streuinduktivität. Dieser Strom lässt sich mit folgender Formel berechnen.
+
+\begin{equation}
+	\glsc{symb:I_D_max} = \glsc{symb:NS/NP}*\glsc{symb:I_out} + \dfrac{\glsc{symb:I_Ripple}}{2}
+\end{equation}
+
+Die Drain Source Spannung bleibt zum Primärfet gleich.
+
+\begin{table}[h]
+\centering
+\caption{Ergebnisse für den Active Clamp Fet}
+\label{tab:Ergebnisse für den Active Clamp Fet}
+\begin{tabular}{|c|c|c|}
+	\hline
+	\multicolumn{3}{|c|}{Eingangsparameter}\\
+	\hline
+	Safety & 2 & \ensuremath{-} \\
+	\hline	
+	\multicolumn{3}{|c|}{Ergebnisse} \\
+	\hline
+	\glsc{symb:I_mag} & 0,34 & \ensuremath{A} \\
+	\hline
+	\glsc{symb:I_D_max} & 8,05 & \ensuremath{A} \\
+	\hline
+\end{tabular}
+\end{table}
+
+Auf der Sekündärseite müssen nun die Parameter für den Catch Mosfet (Q3) und den Formward Mosfet (Q5) aus Abbildung \ref{fig:hvdcdctransformerschematic} bestimmt werden. Die Formeln hierfür entstammen dem Datenblatt des LT8311 \cite{LT8311}.\\
+\\
+Beginnend mit dem Catch Mosfet bestimmen wir das benötigte V\textsubscript{DS} Rating wie folgt.
+
+\begin{equation}
+	\glsc{symb:U_DS_max_Catch} = \glsc{symb:V_inmax} * \glsc{symb:NS/NP} * Safety\textsubscript{Catch}
+\end{equation}
+
+Dann folgt das I\textsubscript{DS} Rating mit.
+
+\begin{equation}
+\glsc{symb:I_Catch_RMS} = \sqrt{(1-\glsc{symb:D_min}) * (\glsc{symb:I_out}^2+\dfrac{\glsc{symb:I_Ripple}^2}{12})}
+\end{equation}
+
+Die Verluste errechnen sich wieder analog zur Primärseite.\\
+\\
+Für den Forward Mosfet gilt.
+
+\begin{equation}
+	\glsc{symb:U_DS_max_FWD} = \dfrac{\glsc{symb:V_out}}{1-\dfrac{\glsc{symb:V_out}}{\glsc{symb:V_inmin} * \glsc{symb:NS/NP}}} * Safety\textsubscript{FWD}
+\end{equation}
+
+und.
+
+\begin{equation}
+	\glsc{symb:I_FWD_RMS} = \sqrt{\glsc{symb:D_max} * (\glsc{symb:I_out}^2+\dfrac{\glsc{symb:I_Ripple}^2}{12})}
+\end{equation}
+
+\begin{table}[h]
+	\centering
+	\caption{Ergebnisse für die Sekundärseitigen Fet`s}
+	\label{tab:Ergebnisse für die Sekundärseitigen Fet`s}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\multicolumn{3}{|c|}{Eingangsparameter}\\
+		\hline
+		Safety\textsubscript{Catch} & 2 & \ensuremath{-} \\
+		\hline
+		Safety\textsubscript{FWD} & 1,2 & \ensuremath{-} \\
+		\hline
+		\multicolumn{3}{|c|}{Ergebnisse} \\
+		\hline
+		\glsc{symb:U_DS_max_Catch} & 229,32 & \ensuremath{V} \\
+		\hline
+		\glsc{symb:I_Catch_RMS} & 35,63 & \ensuremath{A} \\
+		\hline
+		\glsc{symb:U_DS_max_FWD} & 67,50 & \ensuremath{V} \\
+		\hline
+		\glsc{symb:I_FWD_RMS} & 30,34 & \ensuremath{A} \\
+		\hline
+	\end{tabular}
+\end{table}
+
+Da wir uns für den \ac{FCCM} entschieden haben müssen wir noch ein paar weitere Berechnungen Anstellen. Wir müssen sicherstellen das der Negative Strom durch der Ausgangsinduktivität durch den Catch Fet nicht zu groß wird. Im LT8311 befindet sich eine Sicherheitsfunktion im Rahmen einer Komparatorschaltung mit einem Threshold von \ensuremath{66mV} über den Fet mit zwei Wiederständen in Reihe zur Konfiguration.\\
+\\
+Wir bestimmen zuerst den theoretischen maximalen negativen Strom. Dieser lässt sich leider nicht einfach berechnen sondern lässt sich akkuraterweise nur im Betrieb messen. Zur Vorauslegung wurde hier auf die SPICE Simulation des Wandlers zurückgegriffen. Diese ergibt einen maximalen negativen Strom \glsc{symb:I_reverse_Catch_Fet_Sim} von 4,5A. Damit bestimmen wir nun die Minimale Auslösespannung wie folgt.
+
+\begin{equation}
+	\glsc{symb:U_Trip_min} = \glsc{symb:I_reverse_Catch_Fet_Sim} * \glsc{symb:R_DS on_Catch} * Margin
+\end{equation}
+
+Nun bestimmen wir aus dem Single Pulse Avalanche Rating \glsc{symb:E_AS} und der Drain Source Breakdown Volatge \glsc{symb:U_BR_DSS} für den gewählten Mosfet (IXFK240N25X3) \cite{IXFK240N25X3} die theoretisch maximale Auslösespannung.
+
+\begin{equation}
+	\glsc{symb:U_Trip_max} = \glsc{symb:R_DS on_Catch} * \sqrt{2*\glsc{symb:E_AS}*\frac{1,3 * \glsc{symb:U_BR_DSS} - \glsc{symb:V_out}}{1,3 * \glsc{symb:U_BR_DSS} * \glsc{symb:L_O}}}
+\end{equation}
+
+\begin{equation}
+	\glsc{symb:I_reverse_Catch_max} = \glsc{symb:U_Trip_max} / \glsc{symb:R_DS on_Catch}
+\end{equation}
+
+\begin{table}[h]
+	\centering
+	\caption{Catch Mosfet \ac{FCCM} Berechung}
+	\label{tab:Catch Mosfet FCCM Berechung}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\multicolumn{3}{|c|}{Eingangsparameter}\\
+		\hline
+		\glsc{symb:I_reverse_Catch_Fet_Sim} & 4,5 & \ensuremath{A} \\
+		\hline	
+		\glsc{symb:R_DS on_Catch} & 8 & \ensuremath{m\Omega} \\
+		\hline	
+		Margin & 1,2 & \ensuremath{A} \\
+		\hline	
+		\glsc{symb:E_AS} & 2 & \ensuremath{J} \\
+		\hline	
+		\glsc{symb:U_BR_DSS} & 300 & \ensuremath{V} \\
+		\hline	
+		\multicolumn{3}{|c|}{Ergebnisse} \\
+		\hline
+		\glsc{symb:U_Trip_min} & 43,2 & \ensuremath{mV} \\
+		\hline
+		\glsc{symb:U_Trip_max} & 3274,9 & \ensuremath{mV} \\
+		\hline
+		\glsc{symb:I_reverse_Catch_max} & 409,37 & \ensuremath{A} \\
+		\hline
+	\end{tabular}
+\end{table}
+
+Wir sehen das der gewählte Fet für diesen Einsatz mehr als ausreicht. Die maximale Spannung \glsc{symb:U_Trip_max} ist deutlich größer als die minimal benötigte. Wir können nun einen Strom wählen der zwischen der Simulation und dem maximal möglichen liegt. Da auch das \ac{PCB} sowie andere Komponente den Strom tragen können müssen wählen wir \glsc{symb:I_reverse_Catch} = \ensuremath{60A} da dieser Strom bei den voraussichtlichen Leiterbahnbreiten möglich ist. Die Formel zu Berechnung der Widerstände lautet.
+
+\begin{equation}
+	\glsc{symb:R_CSP} = \glsc{symb:R_CSN} = \dfrac{\glsc{symb:U_Komparator} - \glsc{symb:U_Trip}}{\glsc{symb:I_Komparator}}
+\end{equation}
+
+mit
+
+\begin{equation}
+	\glsc{symb:U_Trip} = \glsc{symb:I_reverse_Catch_max} * \glsc{symb:R_DS on_Catch}
+\end{equation}
+
+\begin{table}[h]
+	\centering
+	\caption{Catch Mosfet \ac{FCCM} Berechung 2}
+	\label{tab:Catch Mosfet FCCM Berechung2}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\multicolumn{3}{|c|}{Eingangsparameter}\\
+		\hline
+		\glsc{symb:U_Komparator} & 66 & \ensuremath{mV} \\
+		\hline	
+		\glsc{symb:I_Komparator} & 40 & \ensuremath{\mu A} \\
+		\hline	
+		\glsc{symb:I_reverse_Catch} & 60 & \ensuremath{A} \\
+		\hline	
+		\multicolumn{3}{|c|}{Ergebnisse} \\
+		\hline
+		\glsc{symb:U_Trip} & 480 & \ensuremath{mV} \\
+		\hline
+		\glsc{symb:R_CSN} \& \glsc{symb:R_CSP} & -10350 & \ensuremath{\Omega} \\
+		\hline
+	\end{tabular}
+\end{table}
+
+Dies ergibt jedoch das Problem das der Wiederstand negativ wird, da \glsc{symb:U_Trip} > \ensuremath{66mV} ist. Das Problem ist das der Innenwiederstand des Fet`s zu groß ist. Heißt wir dimensionieren an dieser Stelle als Ersatz einen Strommesswiderstand. Wir setzen Vorraus das,
+
+\begin{equation}
+	\glsc{symb:R_CSP} = \glsc{symb:R_CSN} = 1k\Omega
+\end{equation}
+
+Damit ergibt sich.
+
+\begin{equation}
+	\glsc{symb:R_SNS} = \dfrac{\glsc{symb:R_CSN} * \glsc{symb:I_Komparator} + \glsc{symb:U_Komparator}}{\glsc{symb:I_reverse_Catch}}
+\end{equation}
+
+\begin{table}[h]
+	\centering
+	\caption{Catch Mosfet \ac{FCCM} Berechung 3}
+	\label{tab:Catch Mosfet FCCM Berechung3}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		\multicolumn{3}{|c|}{Ergebnisse} \\
+		\hline
+		\glsc{symb:R_SNS} & 1.8 & \ensuremath{m\Omega} \\
+		\hline
+	\end{tabular}
+\end{table}
+
 
 \begin{figure}
 	\centering

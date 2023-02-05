@@ -14,6 +14,20 @@ Notizen Projektarbeit:
 Spice Modell HVDCDC anhängen
 weitere Excel tabellen anhgängen
 
+trafo berechnung fehlt(relaer trafo daten und daher warum 2 trafos unklar)
+
+Duty cycle vs duty ratio????
+
+fccm simulieren (negativer strom in Ausagangsinduktivität)
+
+Simulierte leistungverluste des dc wandler mit in die arbeit und Spice Modell
+
+Abgabe 19.02.2023
+
+nächster Termin 08.03. 15-16uhr
+
+
+
 	Nice to Have
 
 Druckverlust rohrberechung
@@ -23,8 +37,16 @@ Packaging kapitel
 schriftart kabel farbtabelle(Problem)
 überschneidung text mit tabelle (Kabelfarbtabelle)
 
-HVDCDC restliche fet berechnungen addieren
 
+
+
+
+
+
+
+Sinusfilter am umrichter
+
+übermodulation
 
 
 

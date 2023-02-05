@@ -29,7 +29,7 @@
 
 \FloatBarrier
 \subsection{Radiator}
-Die Berechnung des Radiators basiert auf der Annahme das hier eine Ähnlichkeitstheorie Anwendung finden kann. Hierbei wurden die bekannten realen (index r) Eingangsparameter aus Messungen am Vorjahresfahrzeug mit den Modellparametern (index m) für das kommende Fahrzeug in Beziehung gesetzt. Konkret die Temperaturdifferenz am Eintritt und der Wärmestrom. Hierbei wurde kein klassischer Weg bekannt aus der Thermodynamik über NTU-Schaubilder etc. gewählt da die geometrischen Parameter des Radiators abgesehen von der frontalen Netzfläche nicht bekannt waren. Zur genaueren Betrachtung sollte dieses Vorgehen in Zukunft vergleichend angewendet werden. Folgend die angewendete Formel.
+Die Berechnung des Radiators basiert auf der Annahme das hier eine Ähnlichkeitstheorie Anwendung finden kann. Hierbei wurden die bekannten realen (index r) Eingangsparameter aus Messungen am Vorjahresfahrzeug mit den Modellparametern (index m) für das kommende Fahrzeug in Beziehung gesetzt. Konkret die Temperaturdifferenz am Eintritt und der Wärmestrom. Hierbei wurde kein klassischer Weg bekannt aus der Thermodynamik über \ac{NTU}-Schaubilder etc. gewählt da die geometrischen Parameter des Radiators abgesehen von der frontalen Netzfläche nicht bekannt waren. Zur genaueren Betrachtung sollte dieses Vorgehen in Zukunft vergleichend angewendet werden. Folgend die angewendete Formel.
 
 \begin{equation}
 		\label{eqn:KühlerÄhnlichkeitsformel}
@@ -46,7 +46,7 @@ Hierbei ist \glsc{symb:A_r} vom Vorjahresfahrzeug bekannt, \glsc{symb:Qdot_r} er
 
 \glsc{symb:Qdot_m} wird mit Hilfe der \ac{LTS} ermittelt. Hier werden sämtlich Verluste die in das Kühlsystem eingetragen werden im Rahmen der Rundenzeitberechnung über den Endurance Fahrtzyklus gemittelt mit gerechnet.\\
 \\
-\glsc{symb:deltaT_ein m} wird mit \ensuremath{30 K} angenommen. Die max. Temperatur des Kühlwassers sollte \ensuremath{60^\circ C} nicht überschreiten währen im Hochsommer mit Umgebungstemperaturen von \ensuremath{30^\circ C} zu rechnen ist.\\
+\glsc{symb:deltaT_ein m} wird mit \ensuremath{30 K} angenommen. Die max. Temperatur des Kühlwassers sollte \ensuremath{60^\circ C} nicht überschreiten während im Hochsommer mit Umgebungstemperaturen von \ensuremath{30^\circ C} zu rechnen ist.\\
 \\
 Mit der Formel \ref{eqn:KühlerÄhnlichkeitsformel} umgestellt nach \glsc{symb:A_m} kann nun die Kühlerfläche für das Elektrofahrzeug bestimmt werden.
 
@@ -89,7 +89,7 @@ Dies führt zu folgenden Ergebnissen.
 	\end{tabular}
 \end{table}
 
-Dies ergibt mit unserem Modell eine Reduktion auf \ensuremath{26,46 \%} der vorherigen Kühlerfläche. Die Baugröße die am ende für den Kühler gewählt wurde entspricht ca. \ensuremath{50 \%} der Kühlerfläche also das doppelte vom Rechenergebnis. Eine derart hohe Sicherheit ist darauf zurückzuführen das die Berechnung von Wärmeübertragern generell keine sehr exakte Wissenschaft ist und der Bauraum eine derartige Überdimensionierung an der Stelle zugelassen hat.\\
+Dies ergibt mit unserem Modell eine Reduktion auf \ensuremath{26,46 \%} der vorherigen Kühlerfläche. Die Baugröße die am Ende für den Kühler gewählt wurde entspricht ca. \ensuremath{50 \%} der Kühlerfläche also das doppelte vom Rechenergebnis. Eine derart hohe Sicherheit ist darauf zurückzuführen das die Berechnung von Wärmeübertragern generell keine sehr exakte Wissenschaft ist und der Bauraum eine derartige Überdimensionierung an der Stelle zugelassen hat.\\
 
 \FloatBarrier
 \subsection{Lüfter}

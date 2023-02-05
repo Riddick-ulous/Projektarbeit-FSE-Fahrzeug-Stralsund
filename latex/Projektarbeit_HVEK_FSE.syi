@@ -6,7 +6,7 @@
 \glossentry{symb:A_r}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{70\delimN 71}}}%
 \glossentry{symb:C}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{31\delimN 32}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{31}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{34}}}%
 \glossentry{symb:C_B}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{44}}}%
@@ -15,9 +15,8 @@
 \glossentry{symb:C_O}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{20}}}%
 \glossentry{symb:C_S}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{20\delimN 21}}}%
+		\setentrycounter[]{page}\glsnumberformat{21}}}%
 \glossentry{symb:C_th}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{32}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{34}}}%
 \glossentry{symb:Cv_wasser}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{71}}}%
@@ -68,8 +67,10 @@
 \glossentry{symb:I_mag}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{23}}}%
 \glossentry{symb:INTV_CC}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{17}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{21}}}%
 \glossentry{symb:I_out}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{17}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{21}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{23\delimN 24}}}%
 \glossentry{symb:I_reverse_Catch}{\glossaryentrynumbers{\relax 
@@ -82,7 +83,6 @@
 		\setentrycounter[]{page}\glsnumberformat{19\delimN 20}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{23\delimN 24}}}%
 \glossentry{symb:K}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{32}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{34}}}%
 \glossentry{symb:L_O}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{19\delimN 20}\delimN 
@@ -96,7 +96,6 @@
 \glossentry{symb:mdot_Luft}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{72\delimR 74}}}%
 \glossentry{symb:N_dump}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{32}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{34}}}%
 \glossentry{symb:N_Parallel}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{65}}}%
@@ -107,7 +106,6 @@
 \glossentry{symb:NP/NS_ideal}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{18}}}%
 \glossentry{symb:N_PTC}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{32}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{34}}}%
 \glossentry{symb:N_Seriell}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{65}}}%
@@ -126,6 +124,8 @@
 		\setentrycounter[]{page}\glsnumberformat{21\delimN 22}}}%
 \glossentry{symb:P_Luft}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{73\delimN 74}}}%
+\glossentry{symb:P_out}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{17}}}%
 \glossentry{symb:A_Prop}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{72\delimN 73}}}%
 \glossentry{symb:P_Turn off}{\glossaryentrynumbers{\relax 
@@ -142,7 +142,8 @@
 		\setentrycounter[]{page}\glsnumberformat{21\delimN 22}}}%
 \glossentry{symb:R}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{27}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{31\delimN 32}}}%
+		\setentrycounter[]{page}\glsnumberformat{31}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{34}}}%
 \glossentry{symb:R_cell}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{44}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{65}}}%
@@ -163,13 +164,13 @@
 \glossentry{symb:R_SNS}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{26}}}%
 \glossentry{symb:R_th_CS}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{21\delimN 22}}}%
+		\setentrycounter[]{page}\glsnumberformat{22}}}%
 \glossentry{symb:R_th_ges}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{21\delimN 22}}}%
+		\setentrycounter[]{page}\glsnumberformat{22}}}%
 \glossentry{symb:R_th_JC}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{21\delimN 22}}}%
+		\setentrycounter[]{page}\glsnumberformat{22}}}%
 \glossentry{symb:R_th_SA}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{21\delimN 22}}}%
+		\setentrycounter[]{page}\glsnumberformat{22}}}%
 \glossentry{symb:SBoltz}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{44}}}%
 \glossentry{symb:F_Schub}{\glossaryentrynumbers{\relax 
@@ -181,7 +182,6 @@
 \glossentry{symb:T_celli+1}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{44}}}%
 \glossentry{symb:T_u}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{32}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{34}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{44}}}%
 \glossentry{symb:tau}{\glossaryentrynumbers{\relax 
@@ -189,16 +189,17 @@
 \glossentry{symb:t_aus Wasser}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{71}}}%
 \glossentry{symb:f_osc}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{17}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{19\delimR 21}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{23}}}%
 \glossentry{symb:t_ein Wasser}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{71}}}%
+\glossentry{symb:t_max}{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{17}}}%
 \glossentry{symb:T_SW}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{32}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{34}}}%
 \glossentry{symb:U}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{27}\delimN 
-		\setentrycounter[]{page}\glsnumberformat{32}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{34}}}%
 \glossentry{symb:U_a}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{31}}}%
@@ -211,13 +212,13 @@
 \glossentry{symb:U_e}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{31}}}%
 \glossentry{symb:U_H}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{29\delimN 30}}}%
+		\setentrycounter[]{page}\glsnumberformat{28\delimR 30}}}%
 \glossentry{symb:U_HA}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{29\delimN 30}}}%
+		\setentrycounter[]{page}\glsnumberformat{28\delimR 30}}}%
 \glossentry{symb:U_L}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{29\delimN 30}}}%
+		\setentrycounter[]{page}\glsnumberformat{28\delimR 30}}}%
 \glossentry{symb:U_LA}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{29\delimN 30}}}%
+		\setentrycounter[]{page}\glsnumberformat{28\delimR 30}}}%
 \glossentry{symb:U_Komparator}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{25\delimN 26}}}%
 \glossentry{symb:U_ref}{\glossaryentrynumbers{\relax 
@@ -248,16 +249,16 @@
 \glossentry{symb:U_DS_max_FWD}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{24}}}%
 \glossentry{symb:V_inmax}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{18\delimN 19}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{17\delimR 19}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{21}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{23}}}%
 \glossentry{symb:V_inmin}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{18}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{17\delimN 18}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{24}}}%
 \glossentry{symb:v_Luft}{\glossaryentrynumbers{\relax 
 		\setentrycounter[]{page}\glsnumberformat{72\delimR 74}}}%
 \glossentry{symb:V_out}{\glossaryentrynumbers{\relax 
-		\setentrycounter[]{page}\glsnumberformat{18\delimN 19}\delimN 
+		\setentrycounter[]{page}\glsnumberformat{17\delimR 19}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{21}\delimN 
 		\setentrycounter[]{page}\glsnumberformat{23\delimN 24}}}%
 \glossentry{symb:V_Ripple}{\glossaryentrynumbers{\relax 

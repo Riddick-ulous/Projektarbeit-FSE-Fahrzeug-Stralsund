@@ -11,7 +11,7 @@ Wichtig bei der Zellenauswahl ist das stets jede individuelle Zelle für sich be
 \FloatBarrier
 \subsubsection{Vergleich der Speicherarten}
 
-Im Nachfolgenden wird zuerst die Energie berechnet die ein Formula Student Fahrzeug bei einem Bremsvorgang freisetzt und damit die Energie die man speichern können müsste um mit der Speicherform auf sinnvolle Art und Weise eine Rekuperation umzusetzen. Im Anschluss wird diese Energie in eine ungefähre Masse umgesetzt um zu zeigen inwiefern sich diese Form der Energiespeicherung für den Einsatz eignet. Im nachfolgenden wird die Masse bestimmt um \ensuremath{6 KWh} Energie zu speichern da dies der Energieverbrauch eines Formula Student Fahrzeuges in der Disziplin des Endurance ist. Dieser Wert wurde im Rahmen eines Benchmarkings mit den Fahrzeugen anderer Teams über die letzten Jahre 2016 bis 2019, sowie einer \acfirst{LTS} errechnet. Die \ac{LTS} entstand im Rahmen einer vorherigen Projektarbeit. \cite{DeeDor2022}\\
+Im Nachfolgenden wird zuerst die Energie berechnet die ein Formula Student Fahrzeug bei einem Bremsvorgang freisetzt und damit die Energie die man speichern können müsste um mit der Speicherform auf sinnvolle Art und Weise eine Rekuperation umzusetzen. Im Anschluss wird diese Energie in eine ungefähre Masse umgesetzt um zu zeigen inwiefern sich diese Form der Energiespeicherung für den Einsatz eignet. Im nachfolgenden wird die Masse bestimmt um \ensuremath{6 KWh} Energie zu speichern da dies den vorgeschichtlichen Energieverbrauch eines Formula Student Fahrzeuges in der Disziplin des Endurance darstellt. Dieser Wert wurde im Rahmen eines Benchmarkings mit den Fahrzeugen anderer Teams über die letzten Jahre 2016 bis 2019, sowie einer \acfirst{LTS} errechnet. Die \ac{LTS} entstand im Rahmen einer vorherigen Projektarbeit. \cite{DeeDor2022}\\
 \\
 Im folgenden errechnen wir die Energie welche bei einem durchschnittlich Bremsvorgang eines Formula Student Fahrzeug aufgenommen werden müsste. 
 
@@ -46,7 +46,7 @@ Kondensatoren erreichen ein sehr hohes Leistungsgewicht, zeichnen sich jedoch du
 Diese sind im Rahmen der Formula Student verboten Stand 2022, daher wird hier nicht weiter auf diese Form des Energiespeichers eingegangen.\\
 \\
 \textbf{Mechanische Speicher (Schwungrad)}\\
-Sie zeichnen sich durch gute Energie- als auch Leistung/-dichte aus und bilden damit wahrscheinlich am ehesten eine realistische Form des kurzfristigen Energiespeichers für ein Formula Student Fahrzeug. Jedoch sind solche Systeme sehr komplex, sowohl mechanisch, elektrisch als auch regelungstechnisch im Vergleich zu den anderen Systemen. Die Lagerung und sichere Unterbringung des Schwungrades in einem Formel Fahrzeug birgt jedoch große technische Herausforderungen.\\
+Sie zeichnen sich durch gute Energie- als auch Leistung/-dichte aus und bilden damit wahrscheinlich am ehesten eine realistische Form des kurzfristigen Energiespeichers für ein Formula Student Fahrzeug. Jedoch sind solche Systeme sehr komplex, sowohl mechanisch, elektrisch als auch regelungstechnisch im Vergleich zu den anderen Systemen. Die Lagerung und sichere Unterbringung des Schwungrades in einem Formel Fahrzeug birgt große technische Herausforderungen.\\
 \\
 \textbf{Chemische Speicher (Akkuzelle)}\\
 Der typische im Rahmen der Formula Student von allen Teams eingesetzte Energiespeicher. In der verfügbaren Bandbreite findet man so ziemlich das Optimum an Leistungs- als auch Energie/-dichte.
@@ -54,7 +54,7 @@ Der typische im Rahmen der Formula Student von allen Teams eingesetzte Energiesp
 \subsubsection{Runde vs Pouch vs Prismatische Zellen}
 
 \textbf{Die Puchzelle}\\
-ermöglicht in der Regelung höhere Packungsdichten und liefert damit eine höhere volumetrische Leistungs- als auch Energie/-dichte. Meist werden verhältnismäßig wenige Akkuzellen benötigt z.b 150 Stück, was die mechanische Komplexität verringert. Jedoch muss bei der Konstruktion hier berücksichtigt werden das sich die Zellen unter Belastung aufblähen und damit im verbauten zustand Raum benötigen um sich ausdehnen können. Weiter sind diese Zellen aufgrund der Hülle welche aus einer dünnen Folie besteht anfällig gegenüber Beschädigungen.\\
+ermöglicht in der Regel höhere Packungsdichten und liefert damit eine höhere volumetrische Leistungs- als auch Energie/-dichte. Meist werden verhältnismäßig wenige Akkuzellen benötigt z.b 150 Stück, was die mechanische Komplexität verringert. Jedoch muss bei der Konstruktion hier berücksichtigt werden das sich die Zellen unter Belastung aufblähen und damit im verbauten zustand Raum benötigen um sich ausdehnen können. Weiter sind diese Zellen aufgrund der Hülle welche aus einer dünnen Folie besteht anfällig gegenüber Beschädigungen.\\
 \\
 \textbf{Die Rundzelle}\\
 hat den Vorteil der Standardisierung und damit der guten Verfügbarkeit als auch Austauschbarkeit für künftige Designänderungen. Erfahrungsgemäß sind die Fertigungstoleranzen hier verhältnismäßig eng gesteckt so das ein Matching der Zellen entfallen kann. Es bedarf jedoch meist sehr vieler Zellen um den Akku aufzubauen z.b. ca. 600 Stück was die mechanische Komplexität nach oben treibt.\\
@@ -62,7 +62,7 @@ hat den Vorteil der Standardisierung und damit der guten Verfügbarkeit als auch
 \textbf{Die Prismatische Zelle}\\
 Hierbei handelt es sich \ac{idR} um vorgefertigte Pakete aus Pouch- oder Rund/-Zellen welche Anschraubpunkte, Terminals für die Busbar und Steckverbinder für das \ac{AMS} als auch die Temperaturmessung mitbringen. Meist kann hier eine passende Steuerung gleich mit erworben werden. Dieses System vereinfacht den Entwicklungsaufwand drastisch, ist jedoch sehr teuer. Erfahrungsgemäß wird hier der 2 bis 3 fache Betrag im Vergleich zu den anderen Lösungen fällig. Weiter ist das System deutlich schwerer aufgrund des Vorhaltens von universalen Schnittstellen und damit schlechterer Systemintegrierung.\\
 \\
-Im Rahmen des TY22 haben wir uns für den Einsatz von Rundzellen entschieden da diese nach unserem Kenntnisstand gravimetrisch die höchste Energiedichte liefern, wir uns langfristig auf ein Konzept festlegen wollten und so bei Einsatz einer neuen Akkuzelle nur geringfügige Änderungen an dem Akku machen müssen, sofern das 18650 Format weiterhin populär bleibt. Außerdem war dies im Rahmen der Lieferschwierigkeiten im Bereich der Akkuzellen im Jahr 2021 die beste Option um tatsächlich auch an Akkuzellen für den Bau des Fahrzeuges zu kommen.
+Im Rahmen des TY22 haben wir uns für den Einsatz von Rundzellen entschieden da diese nach aktuellem Stand der auf dem Markt verfügbaren Zellen gravimetrisch die höchste Energiedichte liefern, wir uns langfristig auf ein Konzept festlegen wollten und so bei Einsatz einer neuen Akkuzelle nur geringfügige Änderungen an dem Akku machen müssen, sofern das 18650 Format weiterhin populär bleibt. Außerdem war dies im Rahmen der Lieferschwierigkeiten im Bereich der Akkuzellen im Jahr 2021 die beste Option um tatsächlich auch an Akkuzellen für den Bau des Fahrzeuges zu kommen.
 
 \FloatBarrier
 \subsubsection{Die Zellauswahl}
@@ -287,7 +287,7 @@ Der Kabelbaum lässt sich bei einem Elektrofahrzeug in mehrere Funktionsgruppen 
 \\
 Wichtige generelle Überlegungen beim Kabelbaum sind jegliche Maßnahmen die den Kabelstrang \acfirst{DAU} sicher machen. Sprich verpolsichere Steckverbinder. Belegung der Stecker so, dass ohne Verpolschutz kein Kapitalschaden eintritt. Auswahl des richtigen Steckers für die "heiße" Seite, heißt der Steckverbinder der uneingesteckt unter Spannung steht sollte ein Berührungsschutz aufweisen. Logische Farbcodierung sowohl der Kabel, als wenn möglich auch der Steckverbinder, sodass beim Zusammenbau keine Fehler gemacht werden und dies einheitliche über Jahre durchgängige geführt und damit auch Dokumentiert.\\
 \\
-Die Dokumentation hierfür finden sie in den folgenden Tabellen \ref{tab:steckertypen}, \ref{tab:Kabel&SteckerFarbtabelle}.
+Folgend in den Tabellen \ref{tab:steckertypen}, \ref{tab:Kabel&SteckerFarbtabelle} dargestellt. Notwendige Abkürzungen sind \acfirst{W2W} für Kabelgebundene STeckverbinder und \acfirst{W2B} für Steckverbinder vom Kabel an die Platine.
 
 \begin{table}
 	\caption{Steckertypen Tabelle}
@@ -297,7 +297,7 @@ Die Dokumentation hierfür finden sie in den folgenden Tabellen \ref{tab:stecker
 	\hline
 	\multicolumn{6}{|c|}{Steckertypen} \\
 	\hline
-	Name & \acfirst{W2W}/\acfirst{W2B} & Montage & Sealed & Einsatzbereich & Pinanzahlen \\
+	Name & \ac{W2W}/\ac{W2B} & Montage & Sealed & Einsatzbereich & Pinanzahlen \\
 	\hline
 	Molex Micro Fit & both & Wire & no & \ac{HV}/\ac{LV} & 2-20 \\
 	\hline

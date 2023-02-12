@@ -54,7 +54,7 @@ Im Ausschaltmoment wird das Relais durch die Kapazität C12 für kurze Zeit offe
 Sinn der \ac{AIR} Detection ist es die Signale von den \ac{AIR}`s in Sinnvolle Logikpegel umzusetzen welche im späteren Verlauf weiter verwendet werden können. Oben rechts auf dem Schaltplan sind die \ac{AIR}`s dargestellt. Relevant sind dabei die X-Signale welche den Schaltzustand des Relais kontrollieren und die \ac{AUX}-Signale welche den Schaltzustand überwachen. Die \ac{AUX} Signale werden mit \ensuremath{3,3V} über einen Gleichwertigen \ensuremath{1 k\Omega} Spannungsteiler versorgt, so das bei geöffnetem Relais die \ensuremath{3,3V} an \ac{AUX} 1 anliegen, bei geschlossenem Relais durch den Spannungsteiler \ensuremath{1,65V} und bei einem Kurzschluss in der Signalleitung zu Masse \ensuremath{0V} anliegen. Diese Spannungspegel werden jetzt in einer Komparatorschaltung verglichen. Die beiden oberen Komparatoren geben ein High-Signal aus wenn die Spannung an den \ac{AUX} Kontakten kleiner ist als die Referenzspannung und damit die Relais geschlossen oder auf Masse kurzgeschlossen sind. Die beiden unteren Komparatoren geben ein Low-Signal aus wenn die Spannung größer ist als die Referenzspannung und damit das Relais geschlossen oder geöffnet ist. Sofern also der tatsächliche Zustand des Relais high ist und der Fehler low kann zum Beispiel geschlussfolgert werden das jenes Relais geschlossen ist.
 \FloatBarrier
 \subsubsection{\ac{AMS}}
-Das eigentliche Batteriemanagement wird von vom LTC 6804 übernommen. Hierbei handelt es sich um einen \acfirst{IC} welcher speziell für die Aufgabe des Batteriemanagments von Linear Technology entwickelt wurde. Relevante Aufgaben dieses Chips ist die differentielle Messung der Zellspannungen im Stack. Weiter übernimmt der \ac{IC} die Temperaturmessung über 5 frei nutzbare \acfirst{GPIO}`s welche auch \acfirst{ADC} Funktionalität unterstützen. Z u guter Letzt wird der Chip als Treiber für Mosfets benutzt welche die Zelle auf den Balancingwiderstand schalten. Die notwendige Kommunikation erfolgt über einen proprietären 2 drahtigen linearen isolierten \acfirst{SPI} Bus. Jeder Chip hat dabei 4 Adressbits zur Konfigurierung. Das Kommunikationsinterface zischen dem \acfirst{Iso}-\ac{SPI}- und dem \ac{SPI}-/Bus des Mikrocontroller erfolgt über den LTC 6820 welcher für exakt diese Aufgabe entwickelt wurde. Mit den 5 Eingängen am Chip sind nun 11 verschiedene \acfirst{NTC}`s auszuwerten, dies geschieht mit Hilfe eines Demuxers und eines Invertierers.
+Das eigentliche Batteriemanagement wird von vom LTC 6804 übernommen. Hierbei handelt es sich um einen \acfirst{IC} welcher speziell für die Aufgabe des Batteriemanagments von Linear Technology entwickelt wurde. Relevante Aufgaben dieses Chips ist die differentielle Messung der Zellspannungen im Stack. Weiter übernimmt der \ac{IC} die Temperaturmessung über 5 frei nutzbare \acfirst{GPIO}`s welche auch \acfirst{ADC} Funktionalität unterstützen. Zu guter Letzt wird der Chip als Treiber für Mosfets benutzt welche die Zelle auf den Balancingwiderstand schalten. Die notwendige Kommunikation erfolgt über einen proprietären 2 drahtigen linearen isolierten \acfirst{SPI} Bus. Jeder Chip hat dabei 4 Adressbits zur Konfigurierung. Das Kommunikationsinterface zischen dem \acfirst{Iso}-\ac{SPI}- und dem \ac{SPI}-/Bus des Mikrocontroller erfolgt über den LTC 6820 welcher für exakt diese Aufgabe entwickelt wurde. Mit den 5 Eingängen am Chip sind nun 11 verschiedene \acfirst{NTC}`s auszuwerten, dies geschieht mit Hilfe eines Demuxers und eines Invertierers.
 \begin{figure}
 	\centering
 	\includegraphics[width=0.7\linewidth]{bilder/AMS_NTC_Measurement}
@@ -124,7 +124,7 @@ Diese Signale gehen nun in die beiden Invertierer U2 \& U5. Der Ausgang des Inve
 
 zusammen mit dem \ac{NTC}-Steckerlayout ergibt dies also das an \ac{NTC}\textsubscript{in1} bis \ac{NTC}\textsubscript{in3} jeweils ein Signal von einem \ac{NTC} anliegt.
 
-In der Abbildung \ref{fig:amsbalancingschematic} ist der Balancing Aufbau der einzelnen Zellen zu sehen. Dabei werden pro Zelle immer zwei Pins der LTC6804 gebraucht, einer zum steuern des Fet`s und einer zum messen der Zellspannung. das sind respektive die S und C Pins. Die Balancing Leistung wurde auf \ensuremath{2 Watt} festgelegt. Damit kommen wir bei einer Zellspannung von \ensuremath{4,2V} auf einen Widerstand von ca. \ensuremath{10 \Omega}. Zusätzlich ist parallel zu jedem Widerstand eine \acfirst{LED} verschaltet mit der die Aktivität des \ac{AMS} im betrieb sichtbar wird.
+In der Abbildung \ref{fig:amsbalancingschematic} ist der Balancing Aufbau der einzelnen Zellen zu sehen. Dabei werden pro Zelle immer zwei Pins der LTC6804 gebraucht, einer zum steuern des Fet`s und einer zum messen der Zellspannung. das sind respektive die S und C Pins. Die Balancing Leistung wurde auf \ensuremath{2 Watt} festgelegt. Damit kommen wir bei einer Zellspannung von \ensuremath{4,2V} auf einen Widerstand von ca. \ensuremath{10 \Omega}. Zusätzlich ist parallel zu jedem Widerstand eine \acfirst{LED} verschaltet mit der die Aktivität des \ac{AMS} im Betrieb sichtbar wird.
 
 \begin{figure}
 	\centering
@@ -296,7 +296,7 @@ Das Ergebnis der Berechnung der Ausgangsinduktivität sind \ensuremath{47,44 uH}
 	\glsc{symb:I_Ripple} = \dfrac{\glsc{symb:V_out}}{\glsc{symb:L_O}*\glsc{symb:f_osc}} * 1 - \dfrac{\glsc{symb:V_out}} {\glsc{symb:V_inmax}} * \glsc{symb:NP/NS}
 \end{equation}
 
-Die Ripple-Spannung \glsc{symb:V_Ripple} wird auf \ensuremath{1\%} der Ausgangsspannung festgelegt \ensuremath{(0,24 V)}. Nun brauchen wir noch den \acfirst{ESR} der Kondensatoren welche verwendet werden sollen. Es ist gängige Praxis einige Keramik Kondensatoren mit niedrigem \ac{ESR} zu verwenden und ein größeren \acfirst{Elko} zur Dämpfung größere Last-transienten. Diese Rechnung würde man nun mit einem angenommenen typischen \ac{ESR} von z.b \ensuremath{3 m\Omega} durchführen und Sie dann für die tatsächlichen Werte wiederholen, wenn entsprechende Kondensatoren ausgewählt wurden. Bei vielen Kondensatoren ist im Datenblatt oft nur ein \acfirst{DF} angegeben, in diesem Fall sollte man beim Hersteller nach weiteren Informationen suchen. So hat die Firma \acfirst{WE} Diagramme zur \ac{ESR} in ihrem separatem Tool, dem Red Expert. In der Abbildung \ref{fig:we-esr-cap} ein Beispiel wie solch ein Diagramm aussehen kann.
+Die Ripple-Spannung \glsc{symb:V_Ripple} wird auf \ensuremath{1\%} der Ausgangsspannung festgelegt \ensuremath{(0,24 V)}. Nun brauchen wir noch den \acfirst{ESR} der Kondensatoren welche verwendet werden sollen. Es ist gängige Praxis einige Keramik Kondensatoren mit niedrigem \ac{ESR} zu verwenden und ein größeren \acfirst{ElKo} zum Abfangen größere Last-transienten. Diese Rechnung würde man nun mit einem angenommenen typischen \ac{ESR} von z.b \ensuremath{3 m\Omega} durchführen und Sie dann für die tatsächlichen Werte wiederholen, wenn entsprechende Kondensatoren ausgewählt wurden. Bei vielen Kondensatoren ist im Datenblatt oft nur ein \acfirst{DF} angegeben, in diesem Fall sollte man beim Hersteller nach weiteren Informationen suchen. So hat die Firma \acfirst{WE} Diagramme zur \ac{ESR} in ihrem separatem Tool, dem Red Expert. In der Abbildung \ref{fig:we-esr-cap} ein Beispiel wie solch ein Diagramm aussehen kann.
 
 \begin{figure}
 	\centering
@@ -331,7 +331,7 @@ Die Ripple-Spannung \glsc{symb:V_Ripple} wird auf \ensuremath{1\%} der Ausgangss
 	\end{tabular}
 \end{table}
 
-Für die Kapazität werden zwei \ensuremath{22 uF} \acfirst{MLCC}`s und ein \ensuremath{2,2 mF} \ac{Elko} der Firma \ac{WE} in parallel verschaltet.\\
+Für die Kapazität werden zwei \ensuremath{22 uF} \acfirst{MLCC}`s und ein \ensuremath{2,2 mF} \ac{ElKo} der Firma \ac{WE} in parallel verschaltet.\\
 \\
 Nun folgt die Berechnung der Fangschaltung bestehend aus Clamp Kondensator und einem RC Snubber (C16 - C18 \& C20 - C22 \& R15).
 
@@ -883,6 +883,7 @@ Zur genauen Funktion. U1 ist ein Hall-Effekt Stromsensor der Firma Vakuumschmelz
 \FloatBarrier
 \subsection{Discharge}
 Die Discharge Schaltung soll bei Abschalten des Fahrzeug die Zwischenkreiskondensatoren entladen. Ziel ist es das System möglichst schnell in einen Spannungsfreien und damit sicheren Zustand zu überführen.
+
 \begin{figure}
 	\centering
 	\includegraphics[width=0.8\linewidth]{bilder/Discharge}
